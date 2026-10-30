@@ -53,7 +53,7 @@ Completar `.env`:
 LLM_PROVIDER=anthropic
 LLM_MODEL=claude-haiku-5-5
 ANTHROPIC_API_KEY=<tu clave>
-LLM_MAX_TOKENS=1500
+LLM_MAX_TOKENS=3000
 ```
 
 ### 1. Pruebas sin gastar tokens

@@ -74,7 +74,7 @@ class ProveedorAnthropic:
     por defecto. Por eso la reproducibilidad no se controla acá: se controla con el
     contrato, el catálogo cerrado de SOPs y el reintento (y se mide en la PE6)."""
 
-    def __init__(self, modelo: str, max_tokens: int = 1500):
+    def __init__(self, modelo: str, max_tokens: int = 3000):
         import anthropic  # se importa acá para que el modo simulado funcione sin instalarlo
 
         self._sdk = anthropic
@@ -140,7 +140,7 @@ class ProveedorAnthropic:
 # OpenAI — opcional (extra de la consigna). Mismo contrato, otra sintaxis.
 # --------------------------------------------------------------------------
 class ProveedorOpenAI:
-    def __init__(self, modelo: str, temperatura: float = 0.0, max_tokens: int = 1500):
+    def __init__(self, modelo: str, temperatura: float = 0.0, max_tokens: int = 3000):
         import openai
 
         self._sdk = openai
@@ -237,7 +237,7 @@ def crear_proveedor() -> Proveedor:
     """Elige el proveedor según el archivo .env (LLM_PROVIDER y LLM_MODEL)."""
     nombre = os.getenv("LLM_PROVIDER", "anthropic").strip().lower()
     temperatura = float(os.getenv("LLM_TEMPERATURE", "0"))  # solo la usa OpenAI; Claude ya no la acepta
-    max_tokens = int(os.getenv("LLM_MAX_TOKENS", "1500"))
+    max_tokens = int(os.getenv("LLM_MAX_TOKENS", "3000"))
     if nombre == "anthropic":
         return ProveedorAnthropic(os.getenv("LLM_MODEL", "claude-haiku-5-5"), max_tokens)
     if nombre == "openai":

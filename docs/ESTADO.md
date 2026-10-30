@@ -9,16 +9,16 @@ Archivo de traspaso entre sesiones. Quien trabaje en el repo (Claude Code, Claud
 | Pieza | Estado |
 | --- | --- |
 | Contrato `Entrada` / `Salida` con reglas y regla cruzada | Hecho |
-| Llamada real a Claude con prompt en plantilla | Hecho, falta correrla con clave real |
+| Llamada real a Claude con prompt en plantilla | Hecho; corrida real 2026-10-30 con Haiku 5.5 |
 | Reintento con corrección y error estructurado | Hecho |
 | Captura de errores de API (401, 429, sin conexión, sin clave) | Hecho; 401 probado contra la API real |
-| Medición de tokens, costo y latencia | Hecho, falta la corrida real |
+| Medición de tokens, costo y latencia | Hecho: 5/5 validan, 3,9 s y USD 0,000655 promedio, 80 % de coincidencia con QA |
 | 16 pruebas sin gastar tokens | En verde |
-| Demo en Colab | Hecha, falta el link del repo |
-| Repo en GitHub con tag `pe2` | **Pendiente**: crear el repo y subir |
-| `.env` con la clave | **Pendiente**: lo carga Federico |
-| Corrida real: `scripts.medir` y `scripts.evidencia` | **Pendiente** |
-| PDF `FDE_PE2_Bongiovanni_Federico.pdf` | Borrador hecho; se regenera con los resultados reales |
+| Demo en Colab | Hecha, apunta a `CFR21-VSC/ccam-llm` |
+| Repo en GitHub con tag `pe2` | Subido a `CFR21-VSC/ccam-llm`; **falta el tag** hasta aprobar el PDF |
+| `.env` con la clave | Cargado por Federico (fuera del repo, verificado) |
+| Corrida real: `scripts.medir` y `scripts.evidencia` | Hecha: `resultados/medicion_20261030_1626.*` y `evidencia_*.txt` |
+| PDF `FDE_PE2_Bongiovanni_Federico.pdf` | **Pendiente**: lo arma Claude en la app con `docs/TRASPASO_PE2.md` |
 | Interfaz visual local (Streamlit) | **Pendiente**, después del tag `pe2`: ver `docs/PEDIDO_INTERFAZ.md` |
 
 ## Próximos pasos
@@ -55,10 +55,17 @@ Archivo de traspaso entre sesiones. Quien trabaje en el repo (Claude Code, Claud
 
 ## Hallazgos de las corridas
 
-_(vacío: completar con lo que se observe en la corrida real)_
+Detalle completo, con evidencia y tratamiento, en `docs/TRASPASO_PE2.md` (H-01 a H-13). Los del modelo:
+
+- **H-01** CCAM 01: el modelo propuso *crítico*, QA dice *mayor* (confirmado por Federico). Fue más estricto que QA y consistente en dos corridas. El `esperado` no se cambia; va a R3 y a la PE6.
+- **H-02** Una tarea cita SOP-DC-004, que no está en el fundamento: el contrato no valida los SOPs mencionados en las tareas. Regla cruzada candidata para la PE3.
+- **H-03** Error de redacción en una tarea ("en las 3.6"). Lo corrige QA.
+- **H-04** La confianza baja con la ambigüedad (0,4 en la consulta confusa): sirve para priorizar la revisión.
+- **H-06** `scripts.medir` no guarda la ficha completa de cada consulta. Pendiente.
 
 ## Bitácora
 
+- **2026-10-30** · Claude Code: corrida real con la clave de Federico (`scripts.evidencia` y `scripts.medir`): 5/5 validan, 80 % de coincidencia con QA (H-01). Techo de salida a 3.000 tokens (D-13). Escrito `docs/TRASPASO_PE2.md` para que Claude en la app arme el PDF. Tag `pe2` pendiente de la aprobación del PDF.
 - **2026-10-30** · Claude Code: el repo se mudó a `C:\proyectos\ccam-llm` (la ruta vieja tenía espacios y el carácter `´`, que rompía la terminal). La carpeta vieja ya no se usa.
 - **2026-10-30** · Claude Code: unificadas las dos copias del proyecto en `C:\proyectos\Agente LLm para CCAM´s\fde-control-cambios` (el código del 30/10 venía de OneDrive y los docs, de la carpeta de proyectos). Creado `.venv`, 16 pruebas en verde, `.gitignore` cubre cualquier `.env.*`, repo git local con commit inicial. Repo destino: `CFR21-VSC/ccam-llm`; README y notebook ya apuntan ahí.
 - **2026-10-30** · Claude (app): agregado `docs/PEDIDO_INTERFAZ.md`, el pedido para Claude Code de la interfaz visual local.

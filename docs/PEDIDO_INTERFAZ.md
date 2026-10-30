@@ -90,6 +90,6 @@ No tocar nada más de `src/motor.py`, `src/contrato.py`, `src/proveedores.py` ni
 
 - `README.md`: sección "Interfaz visual" con el comando y una captura.
 - `docs/COMO_FUNCIONA.md`: un párrafo sobre la interfaz y el parámetro `al_paso`.
-- `docs/DECISIONES.md`: fila D-13, "Interfaz local con Streamlit antes de la PE4", con su porqué (demo, defensa y base de la pantalla de aprobación de QA) y la alternativa descartada (interfaz web propia con FastAPI y HTML, que llega con la PE8).
+- `docs/DECISIONES.md`: fila D-14, "Interfaz local con Streamlit antes de la PE4", con su porqué (demo, defensa y base de la pantalla de aprobación de QA) y la alternativa descartada (interfaz web propia con FastAPI y HTML, que llega con la PE8).
 - `docs/ESTADO.md`: actualizar la tabla y la bitácora.
 - Commit: `Interfaz visual local del motor (Streamlit) y aviso de pasos en evaluar()`.

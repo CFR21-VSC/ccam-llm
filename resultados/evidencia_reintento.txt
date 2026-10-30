@@ -1,0 +1,31 @@
+$ python -m src.motor consultas/01_version_software.json --simulado invalido
+WARNING [57417be909e4] intento 1/2: salida inválida -> fundamento -> 0 -> codigo: Value error, SOP-QA-099 no existe en el catálogo de procedimientos vigente
+WARNING [57417be909e4] intento 2/2: salida inválida -> fundamento -> 0 -> codigo: Value error, SOP-QA-099 no existe en el catálogo de procedimientos vigente
+
+ERROR salida_invalida | modelo simulado | intentos 2 | tokens 2457/176 | USD 0.000000 | 103 ms | trace 57417be909e4
+{
+  "trace_id": "57417be909e4",
+  "ok": false,
+  "error": {
+    "error": "salida_invalida",
+    "mensaje": "El modelo no produjo una propuesta válida después del reintento.",
+    "campos": [
+      {
+        "campo": "fundamento -> 0 -> codigo",
+        "problema": "Value error, SOP-QA-099 no existe en el catálogo de procedimientos vigente"
+      }
+    ],
+    "intentos": 2,
+    "accion": "Derivar a QA para evaluación manual"
+  },
+  "metricas": {
+    "modelo": "simulado",
+    "intentos": 2,
+    "input_tokens": 2457,
+    "output_tokens": 176,
+    "cost": 0.0,
+    "latencia_ms": 103,
+    "cached": false
+  },
+  "version_prompt": "1d634afa4ee8"
+}

@@ -1,0 +1,74 @@
+$ python -m src.motor consultas/01_version_software.json
+INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+
+VALIDADO | modelo claude-haiku-5-5 | intentos 1 | tokens 2497/1160 | USD 0.000830 | 5470 ms | trace c13d609cc8e5
+{
+  "trace_id": "c13d609cc8e5",
+  "ok": true,
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "critico",
+    "requiere_revalidacion": true,
+    "justificacion": "El cambio actualiza el software cromatográfico (3.6 a 3.8) que controla los 4 equipos HPLC de Control de Calidad y alcanza la base de datos de resultados, es decir, registros GxP regulados. Puede afectar directamente la integridad de datos y la confiabilidad de los resultados analíticos que respaldan la liberación de producto, por lo que se clasifica como crítico con revalidación requerida. El motivo (fin de soporte del proveedor en marzo) es válido, pero la descripción no indica si la 3.8 cuenta con documentación de validación del proveedor, si se migrarán métodos, configuraciones, audit trail y usuarios, ni si se prevé una migración de datos históricos. Estos datos son necesarios para cerrar la evaluación de riesgo y el plan de validación.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5"
+      },
+      {
+        "codigo": "SOP-VS-002",
+        "seccion": "5"
+      },
+      {
+        "codigo": "SOP-VS-003",
+        "seccion": "5"
+      },
+      {
+        "codigo": "SOP-EQ-005",
+        "seccion": "5"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Evaluar riesgo GxP de la actualización 3.6 a 3.8 sobre integridad de datos, audit trail y resultados de los 4 HPLC y la base de datos, según SOP-VS-003.",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Obtener del proveedor la documentación de la versión 3.8 (release notes, certificados de validación o pruebas de fábrica) y verificar su adecuación al uso GxP.",
+        "area_responsable": "sistemas"
+      },
+      {
+        "descripcion": "Redactar y ejecutar el protocolo de validación del software 3.8 (IQ/OQ/PQ) incluyendo verificación de audit trail, control de accesos y reprocesamiento de métodos validados, según SOP-VS-002.",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Requalificar los 4 equipos HPLC tras la actualización del software de control, según SOP-EQ-005.",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Definir y ejecutar el plan de migración de la base de datos de resultados con respaldo previo y verificación de integridad de registros históricos.",
+        "area_responsable": "sistemas"
+      },
+      {
+        "descripcion": "Verificar que los métodos analíticos validados en las 3.6 sigan siendo válidos en 3.8 y registrar la evaluación en el expediente del cambio según SOP-CC-001.",
+        "area_responsable": "control_calidad"
+      },
+      {
+        "descripcion": "Actualizar la documentación de procedimientos y SOP de operación del software afectados por la nueva versión, según SOP-DC-004.",
+        "area_responsable": "garantia_calidad"
+      }
+    ],
+    "confianza": 0.8,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 2497,
+    "output_tokens": 1160,
+    "cost": 0.0008297,
+    "latencia_ms": 5470,
+    "cached": false
+  },
+  "version_prompt": "1d634afa4ee8"
+}

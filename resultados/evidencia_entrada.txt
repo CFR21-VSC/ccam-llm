@@ -1,0 +1,28 @@
+$ python -m src.motor consultas/extra/entrada_invalida.json --simulado valido
+
+ERROR entrada_invalida | sin llamada al modelo | trace 329eb9752ee9
+{
+  "trace_id": "329eb9752ee9",
+  "ok": false,
+  "error": {
+    "error": "entrada_invalida",
+    "mensaje": "El pedido no cumple el contrato de Entrada.",
+    "campos": [
+      {
+        "campo": "id_ccam",
+        "problema": "String should match pattern '^CCAM-\\d{4}-\\d{3,4}$'"
+      },
+      {
+        "campo": "tipo_cambio",
+        "problema": "Input should be 'version_software', 'configuracion_sistema', 'packaging_rotulado', 'proveedor_material', 'equipo_instalacion', 'documento_procedimiento', 'proceso_productivo' or 'otro'"
+      },
+      {
+        "campo": "descripcion",
+        "problema": "String should have at least 30 characters"
+      }
+    ],
+    "intentos": 0,
+    "accion": "Corregir el pedido y volver a enviarlo"
+  },
+  "version_prompt": "1d634afa4ee8"
+}

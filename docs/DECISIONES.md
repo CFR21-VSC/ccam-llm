@@ -16,3 +16,4 @@ Una fila por decisión de diseño, con su porqué. No se borran: si una decisió
 | D-10 | 2026-10-26 | Log JSONL con `trace_id` y `version_prompt`, sin el texto del CCAM | Trazabilidad tipo audit trail sin duplicar información sensible | Solo imprimir en pantalla |
 | D-11 | 2026-10-26 | Redis para caché recién en la PE8 | La consigna lo ubica en despliegue; agregarlo antes complica correr desde un clon limpio | Caché con Redis en la PE2 |
 | D-12 | 2026-10-30 | Demo para terceros en Colab con la clave en Secrets | Es el entorno que usa el curso; cada persona usa su propia clave | URL pública antes de la PE8 |
+| D-13 | 2026-10-30 | Techo de salida de 3.000 tokens (antes 1.500) | En la primera corrida real Haiku usó 1.160 tokens de salida en un CCAM crítico con 7 tareas: margen de 23 %. Solo se paga lo que se usa, y un corte por largo gasta un reintento | Dejar 1.500 y reintentar cuando se corta |
