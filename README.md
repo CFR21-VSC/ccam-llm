@@ -39,8 +39,8 @@ notebooks/           Demo en Google Colab para probar el motor con tus propios C
 Requiere Python 3.10 o superior.
 
 ```bash
-git clone https://github.com/<usuario>/fde-control-cambios.git
-cd fde-control-cambios
+git clone https://github.com/CFR21-VSC/ccam-llm.git
+cd ccam-llm
 python -m venv .venv
 # Windows: .venv\Scripts\activate    |    macOS/Linux: source .venv/bin/activate
 pip install -r requirements.txt

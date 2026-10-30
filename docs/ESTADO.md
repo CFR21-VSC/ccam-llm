@@ -23,12 +23,12 @@ Archivo de traspaso entre sesiones. Quien trabaje en el repo (Claude Code, Claud
 
 ## Próximos pasos
 
-1. Federico crea el repo vacío `fde-control-cambios` en GitHub y carga `.env`.
+1. Repo en GitHub: `https://github.com/CFR21-VSC/ccam-llm` (público). Federico carga `.env`.
 2. Subir el código, `python -m pytest -q` en verde, commit inicial.
 3. Correr `python -m scripts.evidencia` y `python -m scripts.medir` con la clave real.
 4. Revisar las 5 respuestas contra el `esperado` de QA; si alguna clasificación es dudosa, anotarla abajo como hallazgo (sirve para el riesgo R3 y la PE6).
 5. Regenerar el PDF con `resultados/` (lo hace Claude en la app), `git tag pe2`, push del tag.
-6. Reemplazar `<usuario>` en `README.md` y `notebooks/demo_colab.ipynb` por el usuario real de GitHub.
+6. ~~Reemplazar `<usuario>` en README y notebook~~ hecho: apuntan a `CFR21-VSC/ccam-llm`.
 7. **Después del tag `pe2`:** construir la interfaz visual local según `docs/PEDIDO_INTERFAZ.md`.
 
 ## Contexto del caso (de la PE1)
@@ -59,7 +59,7 @@ _(vacío: completar con lo que se observe en la corrida real)_
 
 ## Bitácora
 
-- **2026-10-30** · Claude Code: unificadas las dos copias del proyecto en `C:\proyectos\Agente LLm para CCAM´s\fde-control-cambios` (el código del 30/10 venía de OneDrive y los docs, de la carpeta de proyectos). Creado `.venv`, 16 pruebas en verde, `.gitignore` cubre cualquier `.env.*`, repo git local con commit inicial. Falta el push: definir la cuenta y el nombre del repo en GitHub.
+- **2026-10-30** · Claude Code: unificadas las dos copias del proyecto en `C:\proyectos\Agente LLm para CCAM´s\fde-control-cambios` (el código del 30/10 venía de OneDrive y los docs, de la carpeta de proyectos). Creado `.venv`, 16 pruebas en verde, `.gitignore` cubre cualquier `.env.*`, repo git local con commit inicial. Repo destino: `CFR21-VSC/ccam-llm`; README y notebook ya apuntan ahí.
 - **2026-10-30** · Claude (app): agregado `docs/PEDIDO_INTERFAZ.md`, el pedido para Claude Code de la interfaz visual local.
 - **2026-10-30** · Claude (app): sumados `scripts/evidencia.py`, `notebooks/demo_colab.ipynb`, este archivo, `CLAUDE.md` y `docs/DECISIONES.md`. Corregido: sin clave, el motor tiraba un traceback; ahora devuelve `api_autenticacion` (prueba nueva, 16 en verde). Repo copiado e instalado en la carpeta FDE de Federico.
 - **2026-10-26** · Claude (app): motor de la PE2 completo, 15 pruebas, mapa interactivo del motor y `docs/COMO_FUNCIONA.md`. Descubierto que Claude ya no acepta `temperature`.
