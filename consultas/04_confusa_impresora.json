@@ -1,0 +1,17 @@
+{
+  "nombre": "Consulta confusa: impresora",
+  "tipo_prueba": "confusa",
+  "esperado": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "menor",
+    "requiere_revalidacion": false,
+    "nota": "Sin datos suficientes: se espera confianza baja y pedido de información"
+  },
+  "entrada": {
+    "id_ccam": "CCAM-2026-104",
+    "tipo_cambio": "otro",
+    "area_solicitante": "produccion",
+    "sistema_afectado": "Impresora del sector",
+    "descripcion": "Se necesita una impresora nueva para el proceso porque la actual anda mal y traba el trabajo del turno."
+  }
+}

@@ -1,0 +1,19 @@
+# Secretos: nunca al repositorio
+.env
+.env.*
+!.env.example
+*.key
+
+# Entorno de Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Registros de ejecución locales
+logs/
+
+# Sistema
+.DS_Store
+Thumbs.db

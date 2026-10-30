@@ -1,0 +1,6 @@
+anthropic>=2.3,<3
+pydantic>=2.7,<3
+python-dotenv>=1.0
+pytest>=8.0
+# Opcional, solo si LLM_PROVIDER=openai:
+# openai>=1.40

@@ -1,0 +1,16 @@
+{
+  "nombre": "Nuevo diseño del estuche secundario",
+  "tipo_prueba": "normal",
+  "esperado": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "mayor",
+    "requiere_revalidacion": false
+  },
+  "entrada": {
+    "id_ccam": "CCAM-2026-102",
+    "tipo_cambio": "packaging_rotulado",
+    "area_solicitante": "asuntos_regulatorios",
+    "sistema_afectado": "Estuche secundario del producto Analgésico X 500 mg",
+    "descripcion": "Cambiar el diseño del estuche secundario para incorporar el código QR de trazabilidad y actualizar el texto del rótulo según el último prospecto aprobado. El material del estuche y el proveedor no cambian."
+  }
+}

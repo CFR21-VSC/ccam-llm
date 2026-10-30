@@ -1,0 +1,16 @@
+{
+  "nombre": "Cambio de proveedor de un excipiente",
+  "tipo_prueba": "normal",
+  "esperado": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "mayor",
+    "requiere_revalidacion": true
+  },
+  "entrada": {
+    "id_ccam": "CCAM-2026-103",
+    "tipo_cambio": "proveedor_material",
+    "area_solicitante": "compras",
+    "sistema_afectado": "Celulosa microcristalina usada en comprimidos",
+    "descripcion": "Incorporar un segundo proveedor de celulosa microcristalina porque el proveedor actual tiene demoras de entrega de 90 días. El nuevo proveedor declara la misma especificación farmacopeica pero todavía no fue auditado."
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "_nota": "USD por millón de tokens (MTok). Verificar contra la página oficial de precios de cada proveedor antes de reportar costos. Haiku 5.5 cobra otra tarifa si el prompt supera 100K tokens; este motor nunca llega a ese tamaño.",
+  "_fuente": "https://platform.claude.com/docs/en/about-claude/pricing (relevado 2026-10-26)",
+  "modelos": {
+    "claude-haiku-5-5": {"entrada": 0.10, "salida": 0.50},
+    "claude-sonnet-5-5": {"entrada": 2.00, "salida": 10.00},
+    "simulado": {"entrada": 0.0, "salida": 0.0}
+  }
+}

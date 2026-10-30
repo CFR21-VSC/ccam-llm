@@ -1,0 +1,16 @@
+{
+  "nombre": "Consulta fuera de tema",
+  "tipo_prueba": "fuera_de_tema",
+  "esperado": {
+    "fuera_de_alcance": true,
+    "impacto_gxp": null,
+    "requiere_revalidacion": false
+  },
+  "entrada": {
+    "id_ccam": "CCAM-2026-105",
+    "tipo_cambio": "otro",
+    "area_solicitante": "deposito",
+    "sistema_afectado": "Recursos humanos",
+    "descripcion": "Quería saber qué día se deposita el aguinaldo de diciembre y si se puede pedir un adelanto de vacaciones."
+  }
+}

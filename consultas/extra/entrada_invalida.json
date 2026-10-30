@@ -1,0 +1,10 @@
+{
+  "nombre": "Entrada inválida",
+  "entrada": {
+    "id_ccam": "2026-1",
+    "tipo_cambio": "cambio_urgente",
+    "area_solicitante": "produccion",
+    "sistema_afectado": "Impresora",
+    "descripcion": "impresora"
+  }
+}

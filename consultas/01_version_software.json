@@ -1,0 +1,16 @@
+{
+  "nombre": "Actualización de versión del software cromatográfico",
+  "tipo_prueba": "normal",
+  "esperado": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "mayor",
+    "requiere_revalidacion": true
+  },
+  "entrada": {
+    "id_ccam": "CCAM-2026-101",
+    "tipo_cambio": "version_software",
+    "area_solicitante": "control_calidad",
+    "sistema_afectado": "Software cromatográfico del laboratorio de Control de Calidad",
+    "descripcion": "Actualizar el software cromatográfico de la versión 3.6 a la 3.8 porque el proveedor discontinúa el soporte de la 3.6 en marzo. La actualización alcanza a los 4 equipos HPLC del laboratorio y a la base de datos de resultados."
+  }
+}

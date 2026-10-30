@@ -1,0 +1,12 @@
+{
+  "_nota": "Catálogo FICTICIO de procedimientos. No corresponde a ninguna empresa real. En la PE3 se reemplaza por recuperación sobre los documentos.",
+  "sops": [
+    {"codigo": "SOP-CC-001", "titulo": "Gestión de control de cambios", "alcance": "Apertura, evaluación de impacto, aprobación, implementación y cierre de CCAM."},
+    {"codigo": "SOP-VS-002", "titulo": "Validación de sistemas computarizados", "alcance": "Ciclo de vida GAMP 5, categorías de software, criterios de revalidación ante cambios de versión o configuración."},
+    {"codigo": "SOP-VS-003", "titulo": "Evaluación de riesgo de sistemas computarizados", "alcance": "Impacto sobre integridad de datos (ALCOA+), registros electrónicos y firmas (21 CFR Part 11, Anexo 11)."},
+    {"codigo": "SOP-DC-004", "titulo": "Gestión documental", "alcance": "Emisión, revisión, distribución y obsolescencia de procedimientos e instructivos."},
+    {"codigo": "SOP-EQ-005", "titulo": "Calificación de equipos e instalaciones", "alcance": "DQ, IQ, OQ y PQ; recalificación ante cambios de equipos, ubicación o servicios."},
+    {"codigo": "SOP-PR-006", "titulo": "Calificación y gestión de proveedores", "alcance": "Alta, auditoría y cambio de proveedores de materias primas, materiales de empaque y servicios GxP."},
+    {"codigo": "SOP-AC-007", "titulo": "Material de empaque y rotulado", "alcance": "Diseño, aprobación de artes, especificaciones de material de empaque primario y secundario."}
+  ]
+}
