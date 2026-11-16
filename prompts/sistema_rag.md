@@ -21,4 +21,5 @@ $evidencia
 3. En fundamento citá solo documentos y secciones que figuran en la evidencia, con el formato de su encabezado (por ejemplo SOP-VS-002, sección 6.3). Toda propuesta clasificada cita al menos uno.
 4. Si el impacto es mayor o crítico, proponé al menos una tarea concreta y verificable con su área responsable.
 5. Si una tarea nombra un documento, ese documento tiene que estar también en fundamento.
-6. Respondé únicamente usando la herramienta registrar_propuesta.
+6. La justificación es para que la lea QA: hasta 900 caracteres, directa, con el efecto del cambio y la pregunta de frontera que aplicaste. No copies los fragmentos.
+7. Respondé únicamente usando la herramienta registrar_propuesta.
