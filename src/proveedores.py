@@ -18,6 +18,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import time
 from dataclasses import dataclass, field
 from typing import Any, Optional, Protocol
@@ -211,19 +212,48 @@ _ESCENARIOS = {
 }
 
 
+def _primera_fuente(texto: str) -> tuple[str, str]:
+    """En el modo RAG, el simulador 'cita' el primer fragmento que recibió ([F1] CODIGO §seccion)."""
+    m = re.search(r"\[F1\] (\S+) §(\d+(?:\.\d+)*)", texto)
+    return (m.group(1), m.group(2)) if m else ("SOP-CC-001", "5")
+
+
+def _rag(escenario: str, prompt: str, herramienta: dict) -> dict:
+    codigo, seccion = _primera_fuente(prompt)
+    es_pregunta = "respuesta" in herramienta["input_schema"].get("properties", {})
+    if escenario == "rag_sin_evidencia":
+        if es_pregunta:
+            return {"respuesta": "Simulación: los fragmentos recuperados no responden la pregunta.",
+                    "citas": [], "requiere_humano": True}
+        return {"fuera_de_alcance": False, "requiere_humano": True, "impacto_gxp": None,
+                "requiere_revalidacion": False, "fundamento": [], "tareas": [], "confianza": 0.2,
+                "justificacion": "Simulación: la evidencia recuperada no alcanza para clasificar el cambio; se deriva a QA."}
+    if es_pregunta:
+        return {"respuesta": f"Simulación: la respuesta está en {codigo} §{seccion}.",
+                "citas": [{"codigo": codigo, "seccion": seccion}], "requiere_humano": False}
+    return {**_PROPUESTA_VALIDA, "fundamento": [{"codigo": codigo, "seccion": seccion}],
+            "tareas": [{"descripcion": "Evaluación de riesgo del cambio según la evidencia citada",
+                        "area_responsable": "validaciones"}]}
+
+
 @dataclass
 class ProveedorSimulado:
     escenario: str = "valido"
     modelo: str = "simulado"
     _llamadas: int = field(default=0, init=False)
+    ultimo_prompt: str = field(default="", init=False)   # lo que se le "envió" al modelo (prueba de permisos)
 
     def generar(self, sistema: str, turnos: list[Turno], herramienta: dict) -> RespuestaModelo:
+        self.ultimo_prompt = sistema + "\n" + "\n".join(t.texto for t in turnos)
         if self.escenario == "sin_conexion":
             raise ErrorProveedor("api_sin_conexion", "Simulación: no hay conexión con la API.")
         if self.escenario == "limite_uso":
             raise ErrorProveedor("api_limite_uso", "Simulación: se alcanzó el límite de uso de la API.")
-        secuencia = _ESCENARIOS.get(self.escenario, _ESCENARIOS["valido"])
-        datos = secuencia[min(self._llamadas, len(secuencia) - 1)]
+        if self.escenario.startswith("rag_"):
+            datos = _rag(self.escenario, self.ultimo_prompt, herramienta)
+        else:
+            secuencia = _ESCENARIOS.get(self.escenario, _ESCENARIOS["valido"])
+            datos = secuencia[min(self._llamadas, len(secuencia) - 1)]
         self._llamadas += 1
         time.sleep(0.05)
         texto_entrada = sistema + "".join(t.texto for t in turnos) + json.dumps(herramienta)

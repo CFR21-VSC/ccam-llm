@@ -1,0 +1,14 @@
+{
+  "_nota": "Consultas con códigos exactos para comparar híbrida contra solo vectorial (PE3, rúbrica: al menos 2 donde la híbrida acierta y la vectorial falla). Usuario u_jefe_qa: ve todo, así el permiso no interfiere en la comparación.",
+  "usuario": "u_jefe_qa",
+  "consultas": [
+    {"id": "C01", "consulta": "HPLC-QC-04 frecuencia de recalificación", "esperado": [{"documento": "SOP-EQ-005", "seccion": "7.2"}]},
+    {"id": "C02", "consulta": "CAPA-2026-014", "esperado": [{"documento": "INF-AUD-2026-03", "seccion": "2"}]},
+    {"id": "C03", "consulta": "CAPA-2026-041", "esperado": [{"documento": "INF-AUD-2026-03", "seccion": "3"}]},
+    {"id": "C04", "consulta": "SOP-VS-003 firmas electrónicas", "esperado": [{"documento": "SOP-VS-003", "seccion": "4"}]},
+    {"id": "C05", "consulta": "DEV-VAL-2026-07", "esperado": [{"documento": "EXP-VAL-CROM-01", "seccion": "3.2"}]},
+    {"id": "C06", "consulta": "HPLC-QC-03 verificación de cálculos de valoración", "esperado": [{"documento": "EXP-VAL-CROM-01", "seccion": "3.3"}]},
+    {"id": "C07", "consulta": "R-QA-01", "esperado": [{"documento": "SOP-CC-001", "seccion": "5.8"}]},
+    {"id": "C08", "consulta": "SOP-VS-002 migración de datos", "esperado": [{"documento": "SOP-VS-002", "seccion": "6.4"}]}
+  ]
+}

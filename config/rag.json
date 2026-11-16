@@ -1,0 +1,14 @@
+{
+  "_nota": "Parámetros de la recuperación (PE3). Cambiar un valor cambia la version_prompt del modo RAG: queda registrado en cada ejecución.",
+  "modelo_embeddings": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "configuraciones": {
+    "A": {"max_tokens": 400, "solapamiento": 0.10, "descripcion": "fragmentos chicos, ~400 tokens"},
+    "B": {"max_tokens": 1000, "solapamiento": 0.10, "descripcion": "fragmentos grandes, ~1.000 tokens"}
+  },
+  "configuracion_vigente": "A",
+  "k": 5,
+  "k_matriz": 3,
+  "rrf_k": 60,
+  "umbral_similitud": 0.20,
+  "consulta_matriz": "Matriz de clasificación del impacto GxP de SOP-CC-001: niveles menor, mayor y crítico, preguntas de frontera y regla R-QA-01"
+}

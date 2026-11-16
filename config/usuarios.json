@@ -1,0 +1,10 @@
+{
+  "_nota": "Usuarios FICTICIOS de prueba. La identidad y el rol los resuelve el código con este archivo, nunca el modelo. Requisito 5 de la PE1: solo los involucrados ven un CCAM; quien abre no aprueba.",
+  "roles": ["solicitante", "analista_qa", "validaciones", "jefe_qa"],
+  "usuarios": {
+    "u_solicitante_prod": {"rol": "solicitante", "area": "produccion", "puede_leer": "SOPs e instructivos vigentes"},
+    "u_analista_qa": {"rol": "analista_qa", "area": "garantia_calidad", "puede_leer": "SOPs e informes de auditoría interna"},
+    "u_validaciones": {"rol": "validaciones", "area": "validaciones", "puede_leer": "SOPs y expedientes de validación"},
+    "u_jefe_qa": {"rol": "jefe_qa", "area": "garantia_calidad", "puede_leer": "Todo, incluidos los hallazgos de inspección"}
+  }
+}

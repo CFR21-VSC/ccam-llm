@@ -1,0 +1,177 @@
+{
+  "fecha_utc": "2026-11-16T11:40:32+00:00",
+  "configuracion": "A",
+  "max_tokens": 400,
+  "solapamiento": 0.1,
+  "descripcion": "fragmentos chicos, ~400 tokens",
+  "modelo_embeddings": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 (ventanas de 350 caracteres, promedio)",
+  "total_fragmentos": 23,
+  "documentos": [
+    {
+      "codigo": "EXP-VAL-CROM-01",
+      "archivo": "EXP-VAL-CROM-01.md",
+      "version": "2",
+      "roles_lectura": [
+        "validaciones",
+        "jefe_qa"
+      ],
+      "sha256": "df59aa44bb0e04575c24cff017a788f4c3d6d91885a77993bf37f58001ce8c94",
+      "fragmentos": 2,
+      "tokens_por_fragmento": [
+        320,
+        214
+      ]
+    },
+    {
+      "codigo": "HAL-INSP-2026-01",
+      "archivo": "HAL-INSP-2026-01.md",
+      "version": "1",
+      "roles_lectura": [
+        "jefe_qa"
+      ],
+      "sha256": "98fbdff6b27c857ff2057e41ebab85ed5bd406230206625659630c1c9fc5d3bf",
+      "fragmentos": 1,
+      "tokens_por_fragmento": [
+        282
+      ]
+    },
+    {
+      "codigo": "INF-AUD-2026-03",
+      "archivo": "INF-AUD-2026-03.md",
+      "version": "1",
+      "roles_lectura": [
+        "analista_qa",
+        "jefe_qa"
+      ],
+      "sha256": "1dfc1b26192bc1376ede4255e3b50c20d6ba01a53786e58e0342ff0653b210a1",
+      "fragmentos": 2,
+      "tokens_por_fragmento": [
+        353,
+        137
+      ]
+    },
+    {
+      "codigo": "SOP-AC-007",
+      "archivo": "SOP-AC-007.md",
+      "version": "3",
+      "roles_lectura": [
+        "solicitante",
+        "analista_qa",
+        "validaciones",
+        "jefe_qa"
+      ],
+      "sha256": "35e22ce8da00262c9c5e50ca45d57b661ef9848ba40fca38c7d1fa8db7faf075",
+      "fragmentos": 1,
+      "tokens_por_fragmento": [
+        320
+      ]
+    },
+    {
+      "codigo": "SOP-CC-001",
+      "archivo": "SOP-CC-001.md",
+      "version": "3",
+      "roles_lectura": [
+        "solicitante",
+        "analista_qa",
+        "validaciones",
+        "jefe_qa"
+      ],
+      "sha256": "4704eb04d083f2a987ac007b4b9e00811851ec62705ef2484b0f5b855e59c29c",
+      "fragmentos": 6,
+      "tokens_por_fragmento": [
+        316,
+        335,
+        363,
+        355,
+        344,
+        94
+      ]
+    },
+    {
+      "codigo": "SOP-DC-004",
+      "archivo": "SOP-DC-004.md",
+      "version": "5",
+      "roles_lectura": [
+        "solicitante",
+        "analista_qa",
+        "validaciones",
+        "jefe_qa"
+      ],
+      "sha256": "f483bb7a94f433e5ec3f1ae81d6b8034d8a02accfb1ce175ce218188d4daf825",
+      "fragmentos": 2,
+      "tokens_por_fragmento": [
+        325,
+        69
+      ]
+    },
+    {
+      "codigo": "SOP-EQ-005",
+      "archivo": "SOP-EQ-005.md",
+      "version": "3",
+      "roles_lectura": [
+        "solicitante",
+        "analista_qa",
+        "validaciones",
+        "jefe_qa"
+      ],
+      "sha256": "161a6c830f37fc3724368c870101f9839bd7550c4502122183b1d8743e52ee53",
+      "fragmentos": 2,
+      "tokens_por_fragmento": [
+        290,
+        369
+      ]
+    },
+    {
+      "codigo": "SOP-PR-006",
+      "archivo": "SOP-PR-006.md",
+      "version": "2",
+      "roles_lectura": [
+        "solicitante",
+        "analista_qa",
+        "validaciones",
+        "jefe_qa"
+      ],
+      "sha256": "a9f51c5a0032afcce102cd054da253183fce4135bf91c4c31796de4f7feb15ba",
+      "fragmentos": 2,
+      "tokens_por_fragmento": [
+        302,
+        101
+      ]
+    },
+    {
+      "codigo": "SOP-VS-002",
+      "archivo": "SOP-VS-002.md",
+      "version": "4",
+      "roles_lectura": [
+        "solicitante",
+        "analista_qa",
+        "validaciones",
+        "jefe_qa"
+      ],
+      "sha256": "70b1a5615dcd40634659b7550cfa5a6b9a253f0df85470ac6d02768ebc112219",
+      "fragmentos": 3,
+      "tokens_por_fragmento": [
+        268,
+        310,
+        221
+      ]
+    },
+    {
+      "codigo": "SOP-VS-003",
+      "archivo": "SOP-VS-003.md",
+      "version": "2",
+      "roles_lectura": [
+        "solicitante",
+        "analista_qa",
+        "validaciones",
+        "jefe_qa"
+      ],
+      "sha256": "41abde7a4d67bdb49c6933092c27875ff9d0000a52d6f5e7b0ae54b3ea94b328",
+      "fragmentos": 2,
+      "tokens_por_fragmento": [
+        293,
+        343
+      ]
+    }
+  ]
+}

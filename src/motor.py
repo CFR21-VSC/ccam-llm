@@ -123,13 +123,11 @@ def _sin_referencias(esquema: dict) -> dict:
     return resolver(esquema)
 
 
-def herramienta_salida() -> dict:
-    """La 'forma' que se le exige al modelo: el esquema JSON de la clase Salida."""
-    return {
-        "name": NOMBRE_HERRAMIENTA,
-        "description": "Registra la propuesta de evaluación de impacto del CCAM como borrador para QA.",
-        "input_schema": _sin_referencias(Salida.model_json_schema()),
-    }
+def herramienta_salida(modelo: type[BaseModel] = Salida, nombre: str = NOMBRE_HERRAMIENTA,
+                      descripcion: str = "Registra la propuesta de evaluación de impacto del CCAM como borrador para QA.") -> dict:
+    """La 'forma' que se le exige al modelo: el esquema JSON de la clase de salida."""
+    return {"name": nombre, "description": descripcion,
+            "input_schema": _sin_referencias(modelo.model_json_schema())}
 
 
 # ============================================================ errores
@@ -163,13 +161,30 @@ def evaluar(datos: dict, proveedor: Optional[Proveedor] = None) -> Resultado:
 
     # 2. Prompts desde plantillas.
     sistema, usuario = armar_prompts(entrada)
-    turnos = [Turno("usuario", usuario)]
-    herramienta = herramienta_salida()
+    propuesta, error, metricas = llamar_con_reintento(proveedor, sistema, usuario, herramienta_salida(), Salida,
+                                                      trace_id=trace_id)
+    return _cerrar(Resultado(trace_id=trace_id, ok=propuesta is not None, propuesta=propuesta, error=error,
+                             metricas=metricas, version_prompt=version), datos)
 
+
+def llamar_con_reintento(proveedor: Proveedor, sistema: str, usuario: str, herramienta: dict,
+                         modelo_salida: type[BaseModel], contexto: Optional[dict] = None, trace_id: str = ""):
+    """Pasos 3 a 5: llama, valida contra el contrato, reintenta UNA vez con los campos que fallaron, mide.
+
+    Lo usan el motor de la PE2 y el RAG de la PE3 (src/rag/responder.py), así el reintento y la
+    medición son los mismos en los dos. contexto: lo que el validador necesita saber de esta llamada
+    (en la PE3, las fuentes recuperadas). Devuelve (objeto validado | None, ErrorEstructurado | None, Metricas).
+    """
+    turnos = [Turno("usuario", usuario)]
     tokens_in = tokens_out = 0
     modelo = getattr(proveedor, "modelo", "desconocido")
     inicio = time.perf_counter()
     fallas: list[dict] = []
+
+    def medir(intentos: int) -> Metricas:
+        return Metricas(modelo=modelo, intentos=intentos, input_tokens=tokens_in, output_tokens=tokens_out,
+                        cost=calcular_costo(modelo, tokens_in, tokens_out),
+                        latencia_ms=round((time.perf_counter() - inicio) * 1000))
 
     for intento in range(1, MAX_REINTENTOS + 2):
         # 3. Llamada al modelo.
@@ -177,12 +192,7 @@ def evaluar(datos: dict, proveedor: Optional[Proveedor] = None) -> Resultado:
             r = proveedor.generar(sistema, turnos, herramienta)
         except ErrorProveedor as exc:
             log.error("[%s] intento %d: error de API (%s) %s", trace_id, intento, exc.tipo, exc.mensaje)
-            error = ErrorEstructurado(error=exc.tipo, mensaje=exc.mensaje, intentos=intento)
-            metricas = Metricas(modelo=modelo, intentos=intento, input_tokens=tokens_in, output_tokens=tokens_out,
-                                cost=calcular_costo(modelo, tokens_in, tokens_out),
-                                latencia_ms=round((time.perf_counter() - inicio) * 1000))
-            return _cerrar(Resultado(trace_id=trace_id, ok=False, error=error, metricas=metricas,
-                                     version_prompt=version), datos)
+            return None, ErrorEstructurado(error=exc.tipo, mensaje=exc.mensaje, intentos=intento), medir(intento)
 
         tokens_in += r.tokens_entrada       # los reintentos también se pagan: se acumula
         tokens_out += r.tokens_salida
@@ -193,8 +203,8 @@ def evaluar(datos: dict, proveedor: Optional[Proveedor] = None) -> Resultado:
             if r.corte_por_largo:
                 raise ValueError("la respuesta se cortó por max_tokens")
             if r.datos is None:
-                raise ValueError("el modelo no usó la herramienta registrar_propuesta")
-            propuesta = Salida.model_validate(r.datos)
+                raise ValueError(f"el modelo no usó la herramienta {herramienta['name']}")
+            objeto = modelo_salida.model_validate(r.datos, context=contexto)
         except (ValidationError, ValueError) as exc:
             fallas = (campos_fallidos(exc) if isinstance(exc, ValidationError)
                       else [{"campo": "(respuesta)", "problema": str(exc)}])
@@ -209,20 +219,12 @@ def evaluar(datos: dict, proveedor: Optional[Proveedor] = None) -> Resultado:
             break
 
         # 5. Éxito: se mide y se devuelve.
-        metricas = Metricas(modelo=modelo, intentos=intento, input_tokens=tokens_in, output_tokens=tokens_out,
-                            cost=calcular_costo(modelo, tokens_in, tokens_out),
-                            latencia_ms=round((time.perf_counter() - inicio) * 1000))
-        return _cerrar(Resultado(trace_id=trace_id, ok=True, propuesta=propuesta, metricas=metricas,
-                                 version_prompt=version), datos)
+        return objeto, None, medir(intento)
 
     # Agotó el reintento: error estructurado, nunca un traceback.
     error = ErrorEstructurado(error="salida_invalida", intentos=MAX_REINTENTOS + 1, campos=fallas,
                               mensaje="El modelo no produjo una propuesta válida después del reintento.")
-    metricas = Metricas(modelo=modelo, intentos=MAX_REINTENTOS + 1, input_tokens=tokens_in, output_tokens=tokens_out,
-                        cost=calcular_costo(modelo, tokens_in, tokens_out),
-                        latencia_ms=round((time.perf_counter() - inicio) * 1000))
-    return _cerrar(Resultado(trace_id=trace_id, ok=False, error=error, metricas=metricas,
-                             version_prompt=version), datos)
+    return None, error, medir(MAX_REINTENTOS + 1)
 
 
 def _cerrar(resultado: Resultado, datos: dict) -> Resultado:

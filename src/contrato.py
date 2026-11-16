@@ -11,7 +11,9 @@ from enum import Enum
 from pathlib import Path
 from typing import Literal, Optional
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
+import re
+
+from pydantic import BaseModel, ConfigDict, Field, ValidationInfo, field_validator, model_validator
 
 RAIZ = Path(__file__).resolve().parent.parent
 CATALOGO_SOPS: dict[str, str] = {
@@ -67,18 +69,45 @@ class Entrada(BaseModel):
 
 
 # ---------------------------------------------------------------- Salida
+# Código de documento controlado: SOP-VS-002, INF-AUD-2026-03, EXP-VAL-CROM-01, HAL-INSP-2026-01...
+PATRON_CODIGO = r"[A-Z]{3}-[A-Z0-9]{2,5}(?:-[A-Z0-9]{2,5}){1,3}"
+
+
+def seccion_cubierta(seccion: str, recuperadas: set[str] | list[str]) -> bool:
+    """¿La sección citada está entre las recuperadas? Vale la misma, una subsección o la sección madre."""
+    return any(seccion == r or seccion.startswith(r + ".") or r.startswith(seccion + ".") for r in recuperadas)
+
+
 class ReferenciaSOP(BaseModel):
+    """Una cita: documento y sección.
+
+    Sin contexto (motor de la PE2): el código tiene que estar en el catálogo cerrado.
+    Con contexto {"fuentes": {codigo: {secciones}}} (RAG de la PE3): tiene que estar
+    entre los fragmentos recuperados EN ESTA llamada. Una cita que no se recuperó es inventada.
+    """
     model_config = ConfigDict(extra="forbid")
 
-    codigo: str = Field(..., pattern=r"^SOP-[A-Z]{2}-\d{3}$")
+    codigo: str = Field(..., pattern=rf"^{PATRON_CODIGO}$")
     seccion: str = Field(..., pattern=r"^\d+(\.\d+)*$", description="Ej.: 5.2")
 
     @field_validator("codigo")
     @classmethod
-    def codigo_en_catalogo(cls, v: str) -> str:
-        if v not in CATALOGO_SOPS:
-            raise ValueError(f"{v} no existe en el catálogo de procedimientos vigente")
+    def codigo_valido(cls, v: str, info: ValidationInfo) -> str:
+        fuentes = (info.context or {}).get("fuentes")
+        if fuentes is None:
+            if v not in CATALOGO_SOPS:
+                raise ValueError(f"{v} no existe en el catálogo de procedimientos vigente")
+        elif v not in fuentes:
+            raise ValueError(f"{v} no está entre las fuentes recuperadas en esta consulta (cita no respaldada)")
         return v
+
+    @model_validator(mode="after")
+    def seccion_recuperada(self, info: ValidationInfo) -> "ReferenciaSOP":
+        fuentes = (info.context or {}).get("fuentes")
+        if fuentes is not None and self.codigo in fuentes and not seccion_cubierta(self.seccion, fuentes[self.codigo]):
+            raise ValueError(f"{self.codigo} §{self.seccion} no está entre las secciones recuperadas "
+                             f"({', '.join(sorted(fuentes[self.codigo]))})")
+        return self
 
 
 class Tarea(BaseModel):
@@ -95,6 +124,8 @@ class Salida(BaseModel):
 
     fuera_de_alcance: bool = Field(
         ..., description="true si la consulta no es un cambio GxP evaluable; se deriva a QA sin clasificar")
+    requiere_humano: bool = Field(
+        False, description="true si la evidencia recuperada no alcanza para clasificar: no se clasifica y se deriva a QA (PE3)")
     impacto_gxp: Optional[ImpactoGxP] = Field(
         ..., description="null solo si fuera_de_alcance es true")
     requiere_revalidacion: bool
@@ -106,9 +137,21 @@ class Salida(BaseModel):
 
     @model_validator(mode="after")
     def reglas_cruzadas(self) -> "Salida":
+        # H-02 (devolución PE2): todo código que se nombra en una tarea tiene que estar en el fundamento
+        citados = {f.codigo for f in self.fundamento}
+        for i, t in enumerate(self.tareas):
+            sueltos = set(re.findall(rf"\b{PATRON_CODIGO}\b", t.descripcion)) - citados
+            if sueltos:
+                raise ValueError(f"la tarea {i} nombra {', '.join(sorted(sueltos))}, que no figura en fundamento (H-02)")
         if self.fuera_de_alcance:
+            if self.requiere_humano or self.impacto_gxp is not None or self.tareas or self.requiere_revalidacion:
+                raise ValueError("fuera_de_alcance=true exige impacto_gxp=null, sin tareas, sin revalidación "
+                                 "y requiere_humano=false")
+            return self
+        if self.requiere_humano:
             if self.impacto_gxp is not None or self.tareas or self.requiere_revalidacion:
-                raise ValueError("fuera_de_alcance=true exige impacto_gxp=null, sin tareas y sin revalidación")
+                raise ValueError("requiere_humano=true exige impacto_gxp=null, sin tareas y sin revalidación: "
+                                 "sin evidencia no se clasifica")
             return self
         if self.impacto_gxp is None:
             raise ValueError("impacto_gxp es obligatorio cuando la consulta está dentro de alcance")
@@ -124,7 +167,7 @@ class Salida(BaseModel):
 class ErrorEstructurado(BaseModel):
     """Lo único que ve el cliente cuando el motor no puede dar una propuesta válida."""
 
-    error: Literal["entrada_invalida", "salida_invalida", "api_limite_uso", "api_sin_conexion",
+    error: Literal["entrada_invalida", "salida_invalida", "acceso_denegado", "sin_base_documental", "api_limite_uso", "api_sin_conexion",
                    "api_autenticacion", "api_error", "configuracion"]
     mensaje: str
     campos: list[dict] = Field(default_factory=list, description="[{campo, problema}] tomados de ValidationError")
