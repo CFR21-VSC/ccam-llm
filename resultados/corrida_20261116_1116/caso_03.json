@@ -1,0 +1,54 @@
+{
+  "trace_id": "f67b853cbc58",
+  "ok": true,
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "mayor",
+    "requiere_revalidacion": true,
+    "justificacion": "El cambio incorpora un segundo proveedor de celulosa microcristalina, excipiente usado en comprimidos, lo que afecta un proveedor de material crítico. Según SOP-PR-006 corresponde calificar al nuevo proveedor antes de su uso, y el proveedor aún no fue auditado. La especificación farmacopeica declarada no basta por sí sola: hay que verificar equivalencia funcional del material (por ejemplo, comportamiento en compresión, humedad, tamaño de partícula) y evaluar el riesgo sobre el proceso validado de comprimidos, lo que puede requerir revalidación o recalificación parcial según SOP-CC-001. Confianza algo reducida porque no se indica el tipo de estudio de equivalencia previsto, ni si el proceso de comprimidos ya fue validado con otro grado o tamaño de partícula. Dato faltante: confirmar si el material del nuevo proveedor tiene el mismo grado funcional que el actual.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.2"
+      },
+      {
+        "codigo": "SOP-PR-006",
+        "seccion": "5.1"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Iniciar la calificación del nuevo proveedor de celulosa microcristalina, incluyendo auditoría previa a su aprobación para uso, según SOP-PR-006.",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Solicitar al nuevo proveedor el certificado de análisis, la ficha técnica y la declaración de cumplimiento farmacopeico del lote de prueba, y entregarlos a QA.",
+        "area_responsable": "compras"
+      },
+      {
+        "descripcion": "Definir y ejecutar un estudio de equivalencia del excipiente (comparación de atributos críticos y desempeño en compresión) entre el proveedor actual y el nuevo, y determinar si corresponde revalidación o recalificación parcial del proceso de comprimidos.",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Ejecutar los ensayos de identidad y control de calidad sobre lotes de prueba del nuevo material antes de su liberación para producción.",
+        "area_responsable": "control_calidad"
+      },
+      {
+        "descripcion": "Evaluar si el cambio de proveedor de excipiente requiere notificación o actualización ante ANMAT según el registro vigente del producto.",
+        "area_responsable": "asuntos_regulatorios"
+      }
+    ],
+    "confianza": 0.7,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 2481,
+    "output_tokens": 1025,
+    "cost": 0.0007606,
+    "latencia_ms": 4542,
+    "cached": false
+  },
+  "version_prompt": "1d634afa4ee8"
+}

@@ -1,0 +1,62 @@
+{
+  "trace_id": "1095c17845eb",
+  "ok": true,
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "mayor",
+    "requiere_revalidacion": true,
+    "justificacion": "El cambio modifica el diseño del estuche secundario de un producto farmacéutico (Analgésico X 500 mg) para incorporar un código QR de trazabilidad y actualizar el texto del rótulo según el último prospecto aprobado. Afecta el rotulado, que por criterio de clasificación se considera mayor, y requiere evaluación de riesgo y verificación del arte final y de la lectura del código. El material y el proveedor no cambian, lo que limita el alcance. Falta confirmar: si el código QR contiene datos regulados de trazabilidad y cómo se valida la lectura, si el texto actualizado coincide con el prospecto aprobado vigente (número de versión) y si existe impacto en el proceso de empaque en línea. Confianza moderada por la información disponible.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.2"
+      },
+      {
+        "codigo": "SOP-AC-007",
+        "seccion": "5.1"
+      },
+      {
+        "codigo": "SOP-DC-004",
+        "seccion": "5.2"
+      },
+      {
+        "codigo": "SOP-VS-003",
+        "seccion": "5.1"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Evaluar el riesgo del cambio de rotulado (arte final, código QR y texto frente al prospecto aprobado vigente) y documentar el resultado en el registro de control de cambios.",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Verificar que el texto actualizado del rótulo coincida con el último prospecto aprobado, indicando número de versión y referencia cruzada.",
+        "area_responsable": "asuntos_regulatorios"
+      },
+      {
+        "descripcion": "Definir y ejecutar la verificación de lectura del código QR de trazabilidad sobre muestras impresas del estuche nuevo, con criterios de aceptación documentados.",
+        "area_responsable": "control_calidad"
+      },
+      {
+        "descripcion": "Actualizar la especificación del estuche secundario y el maestro de rotulado, y controlar la obsolescencia de los estuches con diseño anterior.",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Ajustar la configuración de la línea de empaque y el sistema de verificación de códigos, y realizar la prueba de funcionamiento antes de la liberación del nuevo diseño.",
+        "area_responsable": "produccion"
+      }
+    ],
+    "confianza": 0.75,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 2485,
+    "output_tokens": 987,
+    "cost": 0.000742,
+    "latencia_ms": 4448,
+    "cached": false
+  },
+  "version_prompt": "1d634afa4ee8"
+}

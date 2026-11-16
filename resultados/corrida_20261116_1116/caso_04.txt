@@ -1,0 +1,46 @@
+$ python -m src.motor consultas/04_confusa_impresora.json
+INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+
+VALIDADO | modelo claude-haiku-5-5 | intentos 1 | tokens 2422/739 | USD 0.000612 | 3583 ms | trace aefc475d062f
+{
+  "trace_id": "aefc475d062f",
+  "ok": true,
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "menor",
+    "requiere_revalidacion": false,
+    "justificacion": "El pedido CCAM-2026-104 propone reemplazar una impresora del sector de producción que presenta fallas. La descripción es ambigua e insuficiente: no indica si la impresora imprime registros GxP (lotes, etiquetas, rótulos, registros de proceso), si está conectada a un sistema computarizado validado, si es el mismo modelo o uno distinto, ni si el reemplazo cambia la configuración de impresión o los formatos de rotulado. Clasificado provisionalmente como menor, asumiendo que sólo se trata de un reemplazo de hardware sin impacto sobre registros regulados. Falta confirmar: (1) qué documentos imprime el equipo; (2) si está vinculada a un sistema validado o a plantillas de rotulado; (3) modelo y configuración del reemplazo. Si la impresora emite etiquetas o registros de lote, la clasificación debe revisarse a mayor, con evaluación según SOP-AC-007 y SOP-VS-003.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.2"
+      },
+      {
+        "codigo": "SOP-VS-003",
+        "seccion": "5.2"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Confirmar con producción qué documentos o etiquetas imprime la impresora y si está integrada a un sistema computarizado validado.",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Verificar si el reemplazo es del mismo modelo y configuración; si cambian drivers, formatos o plantillas de rotulado, reevaluar el impacto.",
+        "area_responsable": "sistemas"
+      }
+    ],
+    "confianza": 0.4,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 2422,
+    "output_tokens": 739,
+    "cost": 0.0006117,
+    "latencia_ms": 3583,
+    "cached": false
+  },
+  "version_prompt": "1d634afa4ee8"
+}

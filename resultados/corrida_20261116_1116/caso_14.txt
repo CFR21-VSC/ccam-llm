@@ -1,0 +1,58 @@
+$ python -m src.motor consultas/14_redondeo_certificado.json
+INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+
+VALIDADO | modelo claude-haiku-5-5 | intentos 1 | tokens 2457/890 | USD 0.000691 | 4155 ms | trace 97b472bc0566
+{
+  "trace_id": "97b472bc0566",
+  "ok": true,
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "mayor",
+    "requiere_revalidacion": true,
+    "justificacion": "CCAM-2026-114 modifica la configuración del LIMS (redondeo de la valoración en el certificado de análisis de dos a un decimal). Aunque el cálculo interno y la especificación declarados no cambian, el resultado impreso en el CoA es un dato regulado que se entrega al cliente; un redondeo a un decimal puede hacer que un resultado cercano al límite de especificación se reporte como conforme o no conforme de forma distinta. Por eso se clasifica como mayor (sistema validado con impacto en salida de datos), no menor. Corresponde evaluación de riesgo y revalidación parcial de la regla de redondeo y del formato del CoA. Falta confirmar: si la especificación tiene más decimales que el resultado reportado, si el cambio aplica a productos en curso o solo a nuevos lotes, y si la casa matriz opera bajo la misma especificación o una distinta.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.2"
+      },
+      {
+        "codigo": "SOP-VS-002",
+        "seccion": "5.1"
+      },
+      {
+        "codigo": "SOP-VS-003",
+        "seccion": "5.1"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Verificar que la especificación de la valoración y el resultado calculado no cambian, comparando la regla de redondeo antes y después del cambio sobre un conjunto de resultados cercanos al límite.",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Ejecutar la evaluación de riesgo del cambio de redondeo en el LIMS, identificando casos donde un decimal menos altere la conformidad del resultado.",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Revalidar la regla de redondeo y el formato del certificado de análisis en el ambiente de prueba del LIMS antes de su puesta en producción.",
+        "area_responsable": "sistemas"
+      },
+      {
+        "descripcion": "Actualizar la plantilla del certificado de análisis y registrar el cambio en la documentación controlada del CoA.",
+        "area_responsable": "asuntos_regulatorios"
+      }
+    ],
+    "confianza": 0.75,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 2457,
+    "output_tokens": 890,
+    "cost": 0.0006907,
+    "latencia_ms": 4155,
+    "cached": false
+  },
+  "version_prompt": "1d634afa4ee8"
+}

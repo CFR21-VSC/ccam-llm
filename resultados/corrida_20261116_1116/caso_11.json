@@ -1,0 +1,66 @@
+{
+  "trace_id": "4987b7baaafc",
+  "ok": true,
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "critico",
+    "requiere_revalidacion": true,
+    "justificacion": "El traslado de la cámara de estabilidad 25 °C / 60 % HR a una sala con otro sistema de climatización afecta un equipo que sostiene estudios de estabilidad en curso de tres productos comerciales. Cualquier desvío de temperatura o humedad durante el traslado o en la nueva ubicación puede comprometer la validez de los datos de estabilidad y, con ello, las fechas de vencimiento asignadas, lo que impacta directamente la calidad del producto y la integridad de registros regulados. Por eso se clasifica como crítico y se requiere recalificación completa en la nueva ubicación y evaluación de posible notificación regulatoria. La descripción no indica el plan de traslado, el tiempo fuera de condiciones, el estado de calificación actual de la nueva sala ni si los estudios se verán interrumpidos; estos datos son necesarios para completar la evaluación. Confianza moderada por esa falta de información.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.2"
+      },
+      {
+        "codigo": "SOP-EQ-005",
+        "seccion": "5.2"
+      },
+      {
+        "codigo": "SOP-VS-003",
+        "seccion": "5.2"
+      },
+      {
+        "codigo": "SOP-DC-004",
+        "seccion": "5.2"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Definir y documentar el plan de traslado de la cámara, incluyendo condiciones de transporte, tiempo máximo fuera de especificación y registro de temperatura y humedad durante el movimiento.",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Ejecutar la recalificación de instalación, operación y desempeño de la cámara en la nueva sala (mapeo de temperatura y humedad, verificación de alarmas) según el protocolo aprobado.",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Verificar y documentar la calificación del sistema de climatización de la nueva sala antes de reanudar el equipo.",
+        "area_responsable": "mantenimiento"
+      },
+      {
+        "descripcion": "Evaluar el impacto de las condiciones durante el traslado sobre los estudios de estabilidad en curso de los tres productos y decidir si los datos son válidos, reanudar o repetir los puntos afectados.",
+        "area_responsable": "control_calidad"
+      },
+      {
+        "descripcion": "Evaluar con asuntos regulatorios si corresponde notificar a ANMAT o informar en la documentación de registro de los productos en estudio.",
+        "area_responsable": "asuntos_regulatorios"
+      },
+      {
+        "descripcion": "Actualizar los registros de equipos, mapa de planta y procedimientos de uso del equipo con la nueva ubicación y sistema de climatización.",
+        "area_responsable": "garantia_calidad"
+      }
+    ],
+    "confianza": 0.7,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 2481,
+    "output_tokens": 1133,
+    "cost": 0.0008146,
+    "latencia_ms": 5022,
+    "cached": false
+  },
+  "version_prompt": "1d634afa4ee8"
+}

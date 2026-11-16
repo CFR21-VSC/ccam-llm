@@ -1,0 +1,66 @@
+$ python -m src.motor consultas/06_parche_lims.json
+INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+
+VALIDADO | modelo claude-haiku-5-5 | intentos 1 | tokens 2474/923 | USD 0.000709 | 4024 ms | trace 281b19643ae9
+{
+  "trace_id": "281b19643ae9",
+  "ok": true,
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "mayor",
+    "requiere_revalidacion": true,
+    "justificacion": "CCAM-2026-106 propone actualizar el LIMS (sistema computarizado GxP) del parche 8.2.1 a 8.2.3 para corregir dos errores en la impresión de reportes. Se clasifica como mayor porque afecta un sistema validado y la salida de reportes analíticos. La declaración del proveedor de que no cambian flujos, base de datos ni cálculos debe verificarse, no asumirse. Falta información: detalle de los dos errores corregidos, si los reportes impresos son documentos regulados, alcance de las pruebas del paquete de validación del proveedor y si el parche modifica módulos de cálculo. Confianza moderada-baja por esa ambigüedad.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.2"
+      },
+      {
+        "codigo": "SOP-VS-002",
+        "seccion": "5.2"
+      },
+      {
+        "codigo": "SOP-VS-003",
+        "seccion": "5.2"
+      },
+      {
+        "codigo": "SOP-PR-006",
+        "seccion": "5.2"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Solicitar al proveedor el detalle técnico de los dos errores corregidos y el listado de cambios del parche 8.2.1 a 8.2.3, incluyendo módulos afectados.",
+        "area_responsable": "sistemas"
+      },
+      {
+        "descripcion": "Evaluar el riesgo del parche según SOP-VS-003 y definir el alcance de la revalidación parcial (impresión de reportes, cálculos y flujos).",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Verificar en ambiente de prueba la impresión de reportes y los cálculos tras la actualización, comparando con los resultados previos al parche.",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Revisar el paquete de validación entregado por el proveedor y confirmar su calificación según SOP-PR-006.",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Confirmar con Control de Calidad si los reportes impresos corregidos son registros regulados y definir criterios de aceptación para su uso.",
+        "area_responsable": "control_calidad"
+      }
+    ],
+    "confianza": 0.6,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 2474,
+    "output_tokens": 923,
+    "cost": 0.0007089,
+    "latencia_ms": 4024,
+    "cached": false
+  },
+  "version_prompt": "1d634afa4ee8"
+}

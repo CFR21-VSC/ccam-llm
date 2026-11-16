@@ -1,0 +1,62 @@
+$ python -m src.motor consultas/13_comprimidora_fuera_rango.json
+INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+
+VALIDADO | modelo claude-haiku-5-5 | intentos 1 | tokens 2468/1019 | USD 0.000756 | 4661 ms | trace ff189298258f
+{
+  "trace_id": "ff189298258f",
+  "ok": true,
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "critico",
+    "requiere_revalidacion": true,
+    "justificacion": "CCAM-2026-113 propone aumentar la velocidad de la comprimidora rotativa de la línea 2 de 40 a 55 rpm en un producto comercial, por encima del rango validado de 30 a 45 rpm. Operar fuera del rango validado puede afectar atributos críticos del comprimido (peso, dureza, friabilidad, uniformidad de contenido y disolución), con impacto directo potencial en calidad y eficacia del producto. Se clasifica como crítico y requiere revalidación del proceso y evaluación de riesgo antes de cualquier implementación. Dato faltante: no se informa si existe un estudio de escalado o datos de desarrollo que respalden 55 rpm, ni el producto específico, lote(s) afectados ni si el cambio es temporal. Se recomienda que QA confirme estos datos antes de la decisión. Esta propuesta es un borrador y la decisión corresponde a QA.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.2"
+      },
+      {
+        "codigo": "SOP-VS-003",
+        "seccion": "5.1"
+      },
+      {
+        "codigo": "SOP-EQ-005",
+        "seccion": "5.1"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Suspender la implementación del cambio y registrar CCAM-2026-113 como pendiente de evaluación de riesgo formal según SOP-CC-001.",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Diseñar y ejecutar un estudio de revalidación del proceso a 55 rpm, verificando atributos críticos (peso, dureza, friabilidad, uniformidad de contenido y disolución) en lotes de producción.",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Evaluar el impacto del cambio de velocidad sobre el rango validado de 30 a 45 rpm y determinar si corresponde ampliar el rango de operación o recalificar la comprimidora.",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Entregar a QA los datos del producto afectado, lotes previstos y si el aumento de velocidad sería temporal o permanente, para completar la evaluación.",
+        "area_responsable": "produccion"
+      },
+      {
+        "descripcion": "Determinar si el cambio de parámetro validado requiere notificación a la autoridad sanitaria (ANMAT) según el registro vigente del producto.",
+        "area_responsable": "asuntos_regulatorios"
+      }
+    ],
+    "confianza": 0.8,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 2468,
+    "output_tokens": 1019,
+    "cost": 0.0007563,
+    "latencia_ms": 4661,
+    "cached": false
+  },
+  "version_prompt": "1d634afa4ee8"
+}

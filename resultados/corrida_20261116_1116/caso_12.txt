@@ -1,0 +1,46 @@
+$ python -m src.motor consultas/12_tipeo_instructivo.json
+INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+
+VALIDADO | modelo claude-haiku-5-5 | intentos 1 | tokens 2468/607 | USD 0.000550 | 2790 ms | trace 7ed988a69b2d
+{
+  "trace_id": "7ed988a69b2d",
+  "ok": true,
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "menor",
+    "requiere_revalidacion": false,
+    "justificacion": "CCAM-2026-112 es un cambio documental: corrección de errores tipográficos (\"detergnete\" por \"detergente\", \"enjaguar\" por el término correcto) en el instructivo de limpieza de la línea 3, sin modificar pasos, productos, concentraciones ni tiempos. Afecta documentación aprobada pero no el proceso de limpieza en sí ni la calidad del producto, por lo que corresponde impacto menor sin revalidación. Se debe verificar que el texto corregido no altere ningún paso ni parámetro, y que la nueva versión siga el circuito de control documental y aprobación antes de su uso.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5"
+      },
+      {
+        "codigo": "SOP-DC-004",
+        "seccion": "5"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Corregir los errores tipográficos en el instructivo de limpieza de la línea 3 y emitir nueva versión sin cambios en pasos, productos, concentraciones ni tiempos.",
+        "area_responsable": "produccion"
+      },
+      {
+        "descripcion": "Revisar la versión corregida contra la original y confirmar que solo cambian los errores tipográficos citados.",
+        "area_responsable": "garantia_calidad"
+      }
+    ],
+    "confianza": 0.9,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 2468,
+    "output_tokens": 607,
+    "cost": 0.0005503,
+    "latencia_ms": 2790,
+    "cached": false
+  },
+  "version_prompt": "1d634afa4ee8"
+}

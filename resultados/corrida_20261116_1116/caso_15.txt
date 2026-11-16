@@ -1,0 +1,46 @@
+$ python -m src.motor consultas/15_antivirus_admin.json
+INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+
+VALIDADO | modelo claude-haiku-5-5 | intentos 1 | tokens 2452/585 | USD 0.000538 | 2812 ms | trace 68c318a01a4f
+{
+  "trace_id": "68c318a01a4f",
+  "ok": true,
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "sin_impacto",
+    "requiere_revalidacion": false,
+    "justificacion": "Cambio de antivirus y navegador en PCs administrativas de Recursos Humanos y Compras. Según el solicitante, estos equipos no tienen instalado sistema GxP ni acceden a sistemas productivos. Propuesta preliminar de sin impacto GxP, sujeta a verificación: confirmar que ningún sistema validado (p. ej., ERP o gestión documental) se usa desde estos equipos y que no hay aplicaciones GxP instaladas localmente. Si se detecta acceso a sistemas GxP, reclasificar.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5"
+      },
+      {
+        "codigo": "SOP-VS-003",
+        "seccion": "5"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Verificar que las PCs de RR.HH. y Compras no tienen aplicaciones GxP instaladas ni acceden a sistemas validados (confirmar con inventario de equipos).",
+        "area_responsable": "sistemas"
+      },
+      {
+        "descripcion": "Registrar el cambio de antivirus y navegador en el inventario de equipos y en el registro de control de cambios.",
+        "area_responsable": "sistemas"
+      }
+    ],
+    "confianza": 0.8,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 2452,
+    "output_tokens": 585,
+    "cost": 0.0005377,
+    "latencia_ms": 2812,
+    "cached": false
+  },
+  "version_prompt": "1d634afa4ee8"
+}

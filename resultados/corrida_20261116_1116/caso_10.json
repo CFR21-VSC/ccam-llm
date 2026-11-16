@@ -1,0 +1,58 @@
+{
+  "trace_id": "e120b6021c72",
+  "ok": true,
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "mayor",
+    "requiere_revalidacion": true,
+    "justificacion": "El cambio reemplaza una balanza analítica de control de calidad, que es un equipo GxP que debe estar calificado; por lo tanto corresponde clasificarlo como impacto mayor y requiere evaluación de riesgo y calificación de la nueva unidad (IQ/OQ, y verificación de funcionamiento en su lugar). Aunque es mismo fabricante y modelo y trae certificado de calibración del proveedor, el certificado no reemplaza la calificación en sitio. Dato faltante: no se informa si la balanza reemplazada se usa en ensayos de liberación, si tiene identificación/número de serie y ubicación nuevos, ni si el equipo se conecta a un software con datos regulados; confirmar esto para ajustar la clasificación.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.2"
+      },
+      {
+        "codigo": "SOP-EQ-005",
+        "seccion": "5.1"
+      },
+      {
+        "codigo": "SOP-PR-006",
+        "seccion": "5.2"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Registrar la balanza nueva con identificación, número de serie y ubicación en el inventario de equipos y dar de baja la reemplazada.",
+        "area_responsable": "control_calidad"
+      },
+      {
+        "descripcion": "Ejecutar la calificación de instalación (IQ) y de operación (OQ) de la nueva balanza según protocolo aprobado, incluyendo verificación de nivelación, repetibilidad y linealidad.",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Verificar y registrar el certificado de calibración del proveedor, con trazabilidad a patrones y fecha de vencimiento, antes de su puesta en uso.",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Evaluar el impacto sobre los ensayos y lotes realizados con la balanza que falló la verificación diaria, y decidir sobre la necesidad de reensayo o investigación.",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Actualizar los procedimientos de uso y verificación diaria de la balanza y capacitar a los analistas antes de la liberación al uso.",
+        "area_responsable": "control_calidad"
+      }
+    ],
+    "confianza": 0.8,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 2456,
+    "output_tokens": 949,
+    "cost": 0.0007201,
+    "latencia_ms": 4349,
+    "cached": false
+  },
+  "version_prompt": "1d634afa4ee8"
+}

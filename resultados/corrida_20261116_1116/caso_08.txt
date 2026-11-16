@@ -1,0 +1,62 @@
+$ python -m src.motor consultas/08_audit_trail.json
+INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+
+VALIDADO | modelo claude-haiku-5-5 | intentos 1 | tokens 2459/977 | USD 0.000734 | 4339 ms | trace 5fe5b5b58d49
+{
+  "trace_id": "5fe5b5b58d49",
+  "ok": true,
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "critico",
+    "requiere_revalidacion": true,
+    "justificacion": "El pedido propone desactivar el audit trail del software cromatográfico durante dos semanas de corridas de estabilidad. El audit trail es un control de integridad de datos regulados: su desactivación impide registrar creación, modificación o eliminación de datos y resultados de ensayos de estabilidad, lo que puede afectar directamente la decisión de calidad sobre el producto y la integridad de registros GxP. Se clasifica como crítico. La justificación operativa (lentitud de procesamiento) no reduce el riesgo; corresponde evaluar la causa de la lentitud y una alternativa controlada, no desactivar el control. Antes de cualquier decisión se requiere: confirmar si el sistema está validado, la versión y la configuración actual del audit trail, si existen controles compensatorios, y el impacto sobre las corridas ya ejecutadas durante el período. Esta propuesta es un borrador y la decisión final es de QA.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5"
+      },
+      {
+        "codigo": "SOP-VS-002",
+        "seccion": "5"
+      },
+      {
+        "codigo": "SOP-VS-003",
+        "seccion": "5"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Rechazar o suspender la desactivación del audit trail hasta completar la evaluación de riesgo del cambio y la decisión formal de QA.",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Evaluar la causa de la lentitud del procesamiento de corridas de estabilidad y proponer una alternativa que mantenga el audit trail activo.",
+        "area_responsable": "sistemas"
+      },
+      {
+        "descripcion": "Verificar si el software cromatográfico está validado y documentar la configuración vigente del audit trail (versión, parámetros, usuarios con permisos de modificación).",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Revisar las corridas de estabilidad ejecutadas en el período de lentitud para verificar la integridad de sus registros de audit trail.",
+        "area_responsable": "control_calidad"
+      },
+      {
+        "descripcion": "Evaluar si el cambio requiere revalidación del sistema y, de aprobarse alguna modificación, definir controles compensatorios y notificación regulatoria aplicable.",
+        "area_responsable": "asuntos_regulatorios"
+      }
+    ],
+    "confianza": 0.8,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 2459,
+    "output_tokens": 977,
+    "cost": 0.0007344,
+    "latencia_ms": 4339,
+    "cached": false
+  },
+  "version_prompt": "1d634afa4ee8"
+}

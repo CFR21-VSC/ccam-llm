@@ -1,0 +1,27 @@
+$ python -m src.motor consultas/05_fuera_de_tema.json
+INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+
+VALIDADO | modelo claude-haiku-5-5 | intentos 1 | tokens 2428/293 | USD 0.000389 | 1789 ms | trace 3a59f862aa28
+{
+  "trace_id": "3a59f862aa28",
+  "ok": true,
+  "propuesta": {
+    "fuera_de_alcance": true,
+    "requiere_revalidacion": false,
+    "justificacion": "La consulta CCAM-2026-105 es una pregunta administrativa de recursos humanos (fecha de pago del aguinaldo y adelanto de vacaciones), no un cambio GxP evaluable sobre producto, proceso, sistema computarizado, equipo, proveedor, rotulado ni documentación regulada. Se deriva a QA sin clasificar; corresponde canalizarla a RR. HH. y no a control de cambios.",
+    "fundamento": [],
+    "tareas": [],
+    "confianza": 0.9,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 2428,
+    "output_tokens": 293,
+    "cost": 0.0003893,
+    "latencia_ms": 1789,
+    "cached": false
+  },
+  "version_prompt": "1d634afa4ee8"
+}

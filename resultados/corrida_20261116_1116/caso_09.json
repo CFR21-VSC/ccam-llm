@@ -1,0 +1,50 @@
+{
+  "trace_id": "61da23808d0a",
+  "ok": true,
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "mayor",
+    "requiere_revalidacion": false,
+    "justificacion": "El cambio crea un nuevo perfil de usuario en el LIMS, sistema computarizado GxP validado, lo que modifica su configuración de control de acceso. Aunque el perfil es de solo consulta (sin carga ni aprobación de resultados), afecta la gestión de accesos y la segregación de funciones, que impactan la integridad de datos regulados. Corresponde evaluación de riesgo y verificación de que el perfil quede correctamente restringido, sin necesidad de revalidación completa si la configuración se limita a un perfil de rol existente. Falta confirmar: si el perfil se asignará a usuarios concretos, si los permisos se implementan con roles ya validados o requieren una nueva configuración, y si hay acceso a funciones de auditoría o de firma electrónica.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.2"
+      },
+      {
+        "codigo": "SOP-VS-002",
+        "seccion": "5.2"
+      },
+      {
+        "codigo": "SOP-VS-003",
+        "seccion": "5.2"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Verificar que el perfil 'Analista en formación' tenga solo permisos de consulta, sin carga ni aprobación de resultados, mediante prueba de acceso con usuario de prueba y registro de evidencia.",
+        "area_responsable": "sistemas"
+      },
+      {
+        "descripcion": "Evaluar el riesgo de la nueva configuración de perfil y de la segregación de funciones, y documentar la evaluación en el registro de control de cambios.",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Confirmar con Validaciones si el cambio se implementa con un rol ya validado o si requiere revalidación parcial de control de acceso.",
+        "area_responsable": "validaciones"
+      }
+    ],
+    "confianza": 0.7,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 2440,
+    "output_tokens": 792,
+    "cost": 0.00064,
+    "latencia_ms": 3763,
+    "cached": false
+  },
+  "version_prompt": "1d634afa4ee8"
+}

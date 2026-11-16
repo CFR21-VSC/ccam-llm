@@ -1,0 +1,26 @@
+$ python -m src.motor consultas/01_version_software.json
+INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 401 Unauthorized"
+ERROR [41eeae9af9be] intento 1: error de API (api_autenticacion) La clave ANTHROPIC_API_KEY falta, es inválida o no tiene permisos.
+
+ERROR api_autenticacion | modelo claude-haiku-5-5 | intentos 1 | tokens 0/0 | USD 0.000000 | 258 ms | trace 41eeae9af9be
+{
+  "trace_id": "41eeae9af9be",
+  "ok": false,
+  "error": {
+    "error": "api_autenticacion",
+    "mensaje": "La clave ANTHROPIC_API_KEY falta, es inválida o no tiene permisos.",
+    "campos": [],
+    "intentos": 1,
+    "accion": "Derivar a QA para evaluación manual"
+  },
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cost": 0.0,
+    "latencia_ms": 258,
+    "cached": false
+  },
+  "version_prompt": "1d634afa4ee8"
+}

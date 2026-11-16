@@ -4,32 +4,25 @@ Archivo de traspaso entre sesiones. Quien trabaje en el repo (Claude Code, Claud
 
 ## Dónde estamos
 
-**Pre-entrega en curso:** PE2, motor LLM base y validación estructurada.
+**Pre-entrega en curso:** cierre de las correcciones de la PE2; después, PE3 (`docs/PEDIDO_PE3.md`).
 
 | Pieza | Estado |
 | --- | --- |
-| Contrato `Entrada` / `Salida` con reglas y regla cruzada | Hecho |
-| Llamada real a Claude con prompt en plantilla | Hecho; corrida real 2026-10-30 con Haiku 5.5 |
-| Reintento con corrección y error estructurado | Hecho |
-| Captura de errores de API (401, 429, sin conexión, sin clave) | Hecho; 401 probado contra la API real |
-| Medición de tokens, costo y latencia | Hecho: 5/5 validan, 3,9 s y USD 0,000655 promedio, 80 % de coincidencia con QA |
-| 16 pruebas sin gastar tokens | En verde |
-| Demo en Colab | Hecha, apunta a `CFR21-VSC/ccam-llm` |
-| Repo en GitHub con tag `pe2` | Subido a `CFR21-VSC/ccam-llm`; **falta el tag** hasta aprobar el PDF |
-| `.env` con la clave | Cargado por Federico (fuera del repo, verificado) |
-| Corrida real: `scripts.medir` y `scripts.evidencia` | Hecha: `resultados/medicion_20261030_1626.*` y `evidencia_*.txt` |
-| PDF `FDE_PE2_Bongiovanni_Federico.pdf` | **Pendiente**: lo arma Claude en la app con `docs/TRASPASO_PE2.md` |
-| Interfaz visual local (Streamlit) | **Pendiente**, después del tag `pe2`: ver `docs/PEDIDO_INTERFAZ.md` |
+| PE2 entregada y evaluada | Hecha. Devolución con 4 correcciones: ver `docs/PEDIDO_CORRECCIONES_PE2.md` |
+| Tag `pe2` sobre `c92b40d` | **Pendiente de push**: la sesión de la app no tiene permiso de escritura en GitHub |
+| Corrida única `scripts.corrida` con manifiesto y hashes | Hecha (D-14) |
+| CI en GitHub Actions sin clave | Hecha (D-15); se activa con el primer push |
+| Prueba desde un clon limpio | Hecha el 2026-11-16: 23 pruebas y corrida simulada en verde |
+| 10 casos nuevos clasificados por Federico | Hechos (D-18) |
+| Corrida real con 15 casos | Hecha: `resultados/corrida_20261116_1116/` |
+| PE3: RAG con permisos | Pedido escrito, sin empezar |
 
 ## Próximos pasos
 
-1. Repo en GitHub: `https://github.com/CFR21-VSC/ccam-llm` (público). Federico carga `.env`.
-2. Subir el código, `python -m pytest -q` en verde, commit inicial.
-3. Correr `python -m scripts.evidencia` y `python -m scripts.medir` con la clave real.
-4. Revisar las 5 respuestas contra el `esperado` de QA; si alguna clasificación es dudosa, anotarla abajo como hallazgo (sirve para el riesgo R3 y la PE6).
-5. Regenerar el PDF con `resultados/` (lo hace Claude en la app), `git tag pe2`, push del tag.
-6. ~~Reemplazar `<usuario>` en README y notebook~~ hecho: apuntan a `CFR21-VSC/ccam-llm`.
-7. **Después del tag `pe2`:** construir la interfaz visual local según `docs/PEDIDO_INTERFAZ.md`.
+1. Push de `main` y del tag `pe2` (`git tag -a pe2 c92b40d` y `git push origin main pe2`); verificar con `git ls-remote --tags origin` y que la CI quede en verde.
+2. Decidir con Federico si se reenvía la PE2 corregida como `pe2.1` o si las correcciones quedan como base de la PE3.
+3. Federico decide la observación O-1 (campo `recomendacion`).
+4. Empezar la PE3 según `docs/PEDIDO_PE3.md`. El hallazgo H-14 define el contenido de la matriz de SOP-CC-001.
 
 ## Contexto del caso (de la PE1)
 
@@ -55,16 +48,22 @@ Archivo de traspaso entre sesiones. Quien trabaje en el repo (Claude Code, Claud
 
 ## Hallazgos de las corridas
 
-Detalle completo, con evidencia y tratamiento, en `docs/TRASPASO_PE2.md` (H-01 a H-13). Los del modelo:
+### Corrida 2026-11-16 (`resultados/corrida_20261116_1116/`, 15 casos, Haiku 5.5)
 
-- **H-01** CCAM 01: el modelo propuso *crítico*, QA dice *mayor* (confirmado por Federico). Fue más estricto que QA y consistente en dos corridas. El `esperado` no se cambia; va a R3 y a la PE6.
-- **H-02** Una tarea cita SOP-DC-004, que no está en el fundamento: el contrato no valida los SOPs mencionados en las tareas. Regla cruzada candidata para la PE3.
-- **H-03** Error de redacción en una tarea ("en las 3.6"). Lo corrige QA.
-- **H-04** La confianza baja con la ambigüedad (0,4 en la consulta confusa): sirve para priorizar la revisión.
-- **H-06** `scripts.medir` no guarda la ficha completa de cada consulta. Pendiente.
+15/15 válidas, 1 intento cada una; 3,97 s de promedio (peor caso 5,2 s); USD 0,00068 por CCAM. Coincidencia con QA: **11/15 (73 %)**; originales 4/5, anclas 2/4, frontera 5/6; críticos 3/3.
+
+- **H-14 Sesgo sistemático hacia arriba.** Los 4 desaciertos son sobreclasificaciones de un nivel y no hay ninguna subclasificación: 01 (crítico, QA mayor), 06 (mayor, QA menor), 09 (mayor, QA menor) y 11 (crítico, QA mayor). El modelo razona «toca un sistema validado ⇒ al menos mayor» y «podría comprometer datos ⇒ crítico». El criterio de QA mide el **efecto** sobre el producto, el paciente, la decisión de liberación y la integridad de datos, no si el sistema está validado. Esa diferencia es el contenido central de la matriz de SOP-CC-001 en la PE3.
+- **H-15 Lo crítico no se le escapa.** Los 3 críticos esperados (firma de liberación, audit trail, proceso fuera de rango) salen críticos. Desde el riesgo GxP es el error del lado seguro, pero genera trabajo de validación innecesario en las anclas menores.
+- **H-16 El caso 14 (frontera menor/mayor) coincidió** con la clasificación conservadora de QA (mayor).
+- **H-01 se confirma** por tercera vez en el CCAM 01: crítico en las tres corridas.
+
+### Corrida de la PE2 (2026-10-30)
+
+Detalle en `docs/TRASPASO_PE2.md` (H-01 a H-13) y archivos en `resultados/historico/pe2_entregado/`.
 
 ## Bitácora
 
+- **2026-11-16** · Claude (app): correcciones de la devolución de la PE2. `scripts.corrida` reemplaza a `medir` y `evidencia` (una sola fuente de verdad, manifiesto y hashes); CI en GitHub Actions; 10 casos nuevos clasificados por Federico; prueba desde clon limpio en verde (23 pruebas). Corrida real de 15 casos en la máquina de Federico, sin que la clave salga de ella: 73 % de coincidencia, sesgo hacia arriba (H-14). Lo entregado en la PE2 pasó a `resultados/historico/`. Falta el push: la app no tiene permiso de escritura en GitHub.
 - **2026-10-30** · Claude Code: corrida real con la clave de Federico (`scripts.evidencia` y `scripts.medir`): 5/5 validan, 80 % de coincidencia con QA (H-01). Techo de salida a 3.000 tokens (D-13). Escrito `docs/TRASPASO_PE2.md` para que Claude en la app arme el PDF. Tag `pe2` pendiente de la aprobación del PDF.
 - **2026-10-30** · Claude Code: el repo se mudó a `C:\proyectos\ccam-llm` (la ruta vieja tenía espacios y el carácter `´`, que rompía la terminal). La carpeta vieja ya no se usa.
 - **2026-10-30** · Claude Code: unificadas las dos copias del proyecto en `C:\proyectos\Agente LLm para CCAM´s\fde-control-cambios` (el código del 30/10 venía de OneDrive y los docs, de la carpeta de proyectos). Creado `.venv`, 16 pruebas en verde, `.gitignore` cubre cualquier `.env.*`, repo git local con commit inicial. Repo destino: `CFR21-VSC/ccam-llm`; README y notebook ya apuntan ahí.

@@ -1,0 +1,58 @@
+{
+  "trace_id": "d0c17344b5ab",
+  "ok": true,
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "critico",
+    "requiere_revalidacion": true,
+    "justificacion": "El CCAM-2026-107 migra el sistema de liberación de lotes a la versión 5.0 y reemplaza el módulo de firma electrónica (usuario y token en lugar de usuario y contraseña) para el Director Técnico. La liberación de lotes es el control final de calidad del producto y la firma electrónica sostiene la integridad y atribución de registros regulados. Un cambio en el mecanismo de firma puede afectar la validez de las firmas, el control de accesos y la trazabilidad, por lo que se clasifica como crítico y requiere revalidación y evaluación de posible notificación regulatoria. Datos faltantes para confirmar la clasificación: alcance de la migración de datos históricos y registros de lotes, si el token es un dispositivo físico o un OTP de software, cómo se gestionan las firmas ya emitidas con la versión anterior, y el resultado de la evaluación de riesgo previa del proveedor de la versión 5.0.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.2"
+      },
+      {
+        "codigo": "SOP-VS-002",
+        "seccion": "5.1"
+      },
+      {
+        "codigo": "SOP-VS-003",
+        "seccion": "5.1"
+      },
+      {
+        "codigo": "SOP-PR-006",
+        "seccion": "5.2"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Realizar la evaluación de riesgo del cambio de módulo de firma electrónica y de la migración a la versión 5.0 del sistema de liberación de lotes, documentando impacto en integridad de datos y atribución de firmas.",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Definir y ejecutar el plan de revalidación del sistema de liberación de lotes v5.0, incluyendo pruebas de firma con usuario y token y de migración de registros históricos.",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Verificar la configuración de usuarios, tokens y perfiles de acceso del Director Técnico en el entorno validado antes de la puesta en producción.",
+        "area_responsable": "sistemas"
+      },
+      {
+        "descripcion": "Evaluar con Asuntos Regulatorios si la migración requiere notificación a la ANMAT y documentar la conclusión.",
+        "area_responsable": "asuntos_regulatorios"
+      }
+    ],
+    "confianza": 0.8,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 2471,
+    "output_tokens": 970,
+    "cost": 0.0007321,
+    "latencia_ms": 4068,
+    "cached": false
+  },
+  "version_prompt": "1d634afa4ee8"
+}

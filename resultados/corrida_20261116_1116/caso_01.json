@@ -1,0 +1,66 @@
+{
+  "trace_id": "879b3818b908",
+  "ok": true,
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "critico",
+    "requiere_revalidacion": true,
+    "justificacion": "Actualización del software cromatográfico de v3.6 a v3.8 en 4 equipos HPLC y en la base de datos de resultados de Control de Calidad. Es un sistema computarizado GxP que genera y almacena datos regulados usados para liberar producto, por lo que el cambio puede afectar directamente la calidad del producto y la integridad de registros (ALCOA+). Corresponde evaluación de riesgo, revalidación del sistema actualizado y verificación de la migración de datos y de la trazabilidad de auditoría. La motivación es la discontinuación del soporte de v3.6 en marzo. Dato faltante: no se indica si la base de datos se migra o se mantiene, ni si existe un plan de pruebas, respaldo y reversión. Impacto marcado como crítico por ser datos de liberación; QA debe confirmar la clasificación.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.2"
+      },
+      {
+        "codigo": "SOP-VS-002",
+        "seccion": "5.1"
+      },
+      {
+        "codigo": "SOP-VS-003",
+        "seccion": "5.2"
+      },
+      {
+        "codigo": "SOP-EQ-005",
+        "seccion": "5.1"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Realizar evaluación de riesgo del cambio de software v3.6 a v3.8 sobre los 4 HPLC y la base de datos de resultados, identificando impactos en integridad de datos y auditoría.",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Elaborar y ejecutar el plan de revalidación del software v3.8 (IQ/OQ/PQ) en los 4 equipos HPLC antes de su uso en liberación de producto.",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Verificar la migración de la base de datos de resultados (conteo de registros, integridad y trazabilidad de auditoría) y documentar el respaldo previo y el procedimiento de reversión.",
+        "area_responsable": "sistemas"
+      },
+      {
+        "descripcion": "Confirmar con el proveedor la compatibilidad de v3.8 con el hardware de los 4 HPLC y registrar el cronograma antes del fin de soporte de v3.6 en marzo.",
+        "area_responsable": "sistemas"
+      },
+      {
+        "descripcion": "Actualizar la documentación de los métodos y procedimientos de Control de Calidad que referencian la versión 3.6 del software.",
+        "area_responsable": "control_calidad"
+      },
+      {
+        "descripcion": "Evaluar y registrar si la actualización requiere notificación regulatoria o justificación ante ANMAT, según el resultado de la evaluación de riesgo.",
+        "area_responsable": "asuntos_regulatorios"
+      }
+    ],
+    "confianza": 0.8,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 2497,
+    "output_tokens": 1115,
+    "cost": 0.0008072,
+    "latencia_ms": 5223,
+    "cached": false
+  },
+  "version_prompt": "1d634afa4ee8"
+}
