@@ -130,7 +130,7 @@ python -m scripts.corrida_pe3                      # medición completa con Clau
 python -m scripts.corrida_pe3 --simulado rag_valido --embeddings-simulados   # sin clave ni descargas
 ```
 
-La primera ingesta baja el modelo de embeddings (`paraphrase-multilingual-MiniLM-L12-v2`, ~220 MB, Apache-2.0). Usuarios y roles de prueba: `config/usuarios.json`. Parámetros de búsqueda: `config/rag.json`. Última corrida: `resultados/corrida_pe3_20261116_1152/medicion.md`.
+La primera ingesta baja el modelo de embeddings (`paraphrase-multilingual-MiniLM-L12-v2`, ~220 MB, Apache-2.0). Usuarios y roles de prueba: `config/usuarios.json`. Parámetros de búsqueda: `config/rag.json`. Última corrida: `resultados/corrida_pe3_20261116_1224/medicion.md`.
 
 ## Contrato de datos
 

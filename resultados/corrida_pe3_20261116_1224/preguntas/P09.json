@@ -1,0 +1,55 @@
+{
+  "trace_id": "7f492ec5fe7b",
+  "ok": true,
+  "usuario": "u_solicitante_prod",
+  "pregunta_id": "P09",
+  "salida": {
+    "respuesta": "No hay evidencia en los documentos disponibles sobre los hallazgos de la inspección regulatoria de agosto de 2026 ni sobre el plazo de vencimiento de la respuesta. Los fragmentos recuperados tratan control de cambios, calificación de equipos, material de empaque y gestión documental, pero no mencionan esa inspección. Se requiere revisión humana con el registro de inspecciones o con Asuntos Regulatorios.",
+    "citas": [],
+    "requiere_humano": true
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.5",
+      "fragmento_id": "SOP-CC-001#A05",
+      "puntaje": 0.030886
+    },
+    {
+      "documento": "SOP-EQ-005",
+      "seccion": "5.1",
+      "fragmento_id": "SOP-EQ-005#A01",
+      "puntaje": 0.029324
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "1",
+      "fragmento_id": "SOP-CC-001#A00",
+      "puntaje": 0.028694
+    },
+    {
+      "documento": "SOP-AC-007",
+      "seccion": "1",
+      "fragmento_id": "SOP-AC-007#A00",
+      "puntaje": 0.028629
+    },
+    {
+      "documento": "SOP-DC-004",
+      "seccion": "6",
+      "fragmento_id": "SOP-DC-004#A01",
+      "puntaje": 0.016393
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 3765,
+    "output_tokens": 236,
+    "cost": 0.0004945,
+    "latencia_ms": 1405,
+    "cached": false
+  },
+  "version_prompt": "rag-9b8f1eede363",
+  "evidencia_maxima": 0.5361
+}

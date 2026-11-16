@@ -1,0 +1,112 @@
+{
+  "trace_id": "a03bad1e08fe",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "requiere_humano": false,
+    "impacto_gxp": "critico",
+    "requiere_revalidacion": true,
+    "justificacion": "El cambio propone desactivar temporalmente (dos semanas) el audit trail del software cromatográfico que genera datos de estabilidad. Afecta directamente la integridad de datos GxP (ALCOA+, atribuibilidad y contemporaneidad) que respaldan la vida útil y los compromisos regulatorios. SOP-VS-003 §3.2 prohíbe desactivar el audit trail de un sistema GxP por razones de rendimiento, aun temporalmente; un pedido de este tipo no se implementa y el problema de rendimiento debe resolverse por otra vía (infraestructura o archivado). Aplico la pregunta de SOP-CC-001 §5.7: el cambio modifica un dato y un registro GxP, por lo que no es menor. La clasificación como crítico sigue la pregunta de frontera de §5.6 por el efecto sobre la integridad de datos de estabilidad. No se requiere la regla R-QA-01 porque el efecto surge de la descripción. Recomendación: rechazar la desactivación y proponer alternativas de rendimiento validadas por QA.",
+    "fundamento": [
+      {
+        "codigo": "SOP-VS-003",
+        "seccion": "3.2"
+      },
+      {
+        "codigo": "SOP-VS-003",
+        "seccion": "3.1"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.1"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.7"
+      },
+      {
+        "codigo": "SOP-EQ-005",
+        "seccion": "7.2"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Rechazar la desactivación del audit trail del software cromatográfico y registrar la decisión en el CCAM-2026-108.",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Evaluar alternativas de rendimiento (infraestructura, archivado de datos) para las corridas de estabilidad sin desactivar el audit trail.",
+        "area_responsable": "sistemas"
+      },
+      {
+        "descripcion": "Verificar que el audit trail del software permanezca activo durante la campaña de estabilidad y revisarlo como parte de la revisión de datos antes de aprobar resultados.",
+        "area_responsable": "control_calidad"
+      }
+    ],
+    "confianza": 0.9,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-PR-006",
+      "seccion": "5",
+      "fragmento_id": "SOP-PR-006#A01",
+      "puntaje": 0.031498
+    },
+    {
+      "documento": "SOP-VS-003",
+      "seccion": "1",
+      "fragmento_id": "SOP-VS-003#A00",
+      "puntaje": 0.03101
+    },
+    {
+      "documento": "SOP-EQ-005",
+      "seccion": "5.1",
+      "fragmento_id": "SOP-EQ-005#A01",
+      "puntaje": 0.030886
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "8",
+      "fragmento_id": "SOP-CC-001#A07",
+      "puntaje": 0.03031
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "6.3",
+      "fragmento_id": "SOP-VS-002#A02",
+      "puntaje": 0.030303
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "fragmento_id": "SOP-CC-001#A06",
+      "puntaje": 0.032522
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "3",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.032266
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.1",
+      "fragmento_id": "SOP-CC-001#A02",
+      "puntaje": 0.031258
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 6329,
+    "output_tokens": 963,
+    "cost": 0.0011144,
+    "latencia_ms": 3962,
+    "cached": false
+  },
+  "version_prompt": "rag-9b8f1eede363",
+  "evidencia_maxima": 0.4442
+}

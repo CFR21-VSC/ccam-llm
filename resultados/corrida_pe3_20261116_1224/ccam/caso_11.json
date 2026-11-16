@@ -1,0 +1,108 @@
+{
+  "trace_id": "34de6649fc62",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "requiere_humano": false,
+    "impacto_gxp": "critico",
+    "requiere_revalidacion": true,
+    "justificacion": "El traslado de la cámara de estabilidad 25 °C / 60 % HR a otra sala con otro sistema de climatización afecta equipos GxP y los estudios de estabilidad en curso de tres productos comerciales. SOP-EQ-005 §5.1 exige recalificación con mapeo térmico y de humedad en la nueva ubicación y control de excursiones durante el traslado, y advierte que un traslado no controlado puede invalidar un estudio en curso. La pregunta de frontera de SOP-CC-001 §5.6 (¿puede alterar, sin otra barrera, un resultado o decisión que libera producto?) se responde afirmativamente: los datos de estabilidad respaldan vida útil y compromisos regulatorios, y no hay una recalificación previa que impida usar la cámara con datos alterados. Por eso se clasifica como crítico. Dato faltante: no consta si el traslado es previo a la recalificación ni el plan de tratamiento de los estudios en curso; QA debe confirmarlo.",
+    "fundamento": [
+      {
+        "codigo": "SOP-EQ-005",
+        "seccion": "5.1"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.5"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.6"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Ejecutar recalificación de la cámara en la nueva ubicación con mapeo térmico y de humedad (SOP-EQ-005 §5.1) antes de volver a usarla para estudios.",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Registrar y controlar las excursiones de temperatura y humedad durante el traslado y evaluar su impacto sobre los tres estudios de estabilidad en curso.",
+        "area_responsable": "control_calidad"
+      },
+      {
+        "descripcion": "Definir el tratamiento de los estudios en curso (continuidad, reubicación de muestras o justificación) y evaluar necesidad de notificación regulatoria.",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Confirmar si el cambio de sistema de climatización o del software de control modifica la calificación OQ de la cámara (SOP-EQ-005 §5.2).",
+        "area_responsable": "sistemas"
+      }
+    ],
+    "confianza": 0.8,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-EQ-005",
+      "seccion": "5.1",
+      "fragmento_id": "SOP-EQ-005#A01",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-EQ-005",
+      "seccion": "1",
+      "fragmento_id": "SOP-EQ-005#A00",
+      "puntaje": 0.030622
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "1",
+      "fragmento_id": "SOP-CC-001#A00",
+      "puntaje": 0.030077
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.3",
+      "fragmento_id": "SOP-CC-001#A03",
+      "puntaje": 0.030018
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.5",
+      "fragmento_id": "SOP-CC-001#A05",
+      "puntaje": 0.029911
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "fragmento_id": "SOP-CC-001#A06",
+      "puntaje": 0.032522
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "3",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.032266
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.1",
+      "fragmento_id": "SOP-CC-001#A02",
+      "puntaje": 0.031258
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 6959,
+    "output_tokens": 969,
+    "cost": 0.0011804,
+    "latencia_ms": 4064,
+    "cached": false
+  },
+  "version_prompt": "rag-9b8f1eede363",
+  "evidencia_maxima": 0.454
+}

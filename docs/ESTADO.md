@@ -10,17 +10,17 @@ Archivo de traspaso entre sesiones. Quien trabaje en el repo (Claude Code, Claud
 | --- | --- |
 | Tag `pe2` sobre `c92b40d` | **Pendiente**: la app no puede subir tags; lo sube Federico |
 | Correcciones de la PE2 (corrida única, CI, 10 casos, clon limpio) | Hechas |
-| Corpus `documentos/` (7 SOPs + 3 restringidos con frase testigo) | Hecho (D-19, D-20). **Federico tiene que revisar SOP-CC-001 §5** |
+| Corpus `documentos/` (7 SOPs + 3 restringidos con frase testigo) | Hecho (D-19, D-20). SOP-CC-001 v4 por decisión de Federico (D-28) |
 | `src/rag/`: ingesta, búsqueda híbrida con pre-filtro, `responder()` | Hecho (D-21 a D-26) |
 | Pruebas PE3 (permisos por rol, testigo en resultados y prompt, RRF, citas, H-02) | Hechas: 44 en verde, también en la CI |
 | `evals/preguntas_pe3.json` (10) y `evals/consultas_codigos.json` (8) | Hechas y **aprobadas por Federico** el 2026-11-16 |
-| Corrida real PE3 | Hecha: `resultados/corrida_pe3_20261116_1152/` (commit `bee7fdc`, prompt `rag-9b8f1eede363`) |
+| Corrida real PE3 | Hecha con SOP-CC-001 v4: `resultados/corrida_pe3_20261116_1224/` (commit `d71d887`). La de la v3 quedó en `historico/` |
 | PDF de la PE3 | En armado desde esa carpeta |
 | Tag `pe3` | Pendiente, después del PDF |
 
 ## Próximos pasos
 
-1. Federico revisa SOP-CC-001 §5 (en especial H-20 y H-21); las 10 preguntas ya están aprobadas. Si cambia algo, se vuelve a correr `scripts.corrida_pe3` (cuesta USD 0,02) y el PDF sale de la carpeta nueva.
+1. Federico aprueba el PDF armado desde `corrida_pe3_20261116_1224`.
 2. Subir los tags `pe2` y `pe3` desde la máquina de Federico; verificar con `git ls-remote --tags origin`.
 3. Federico decide O-1 (campo `recomendacion`).
 4. PE6: casos nuevos escritos con el corpus congelado (limitación de D-20).
@@ -49,17 +49,19 @@ Archivo de traspaso entre sesiones. Quien trabaje en el repo (Claude Code, Claud
 
 ## Hallazgos de las corridas
 
-### Corrida PE3 2026-11-16 (`resultados/corrida_pe3_20261116_1152/`, Haiku 5.5, config A)
+### Corrida PE3 final 2026-11-16 (`resultados/corrida_pe3_20261116_1224/`, SOP-CC-001 v4, Haiku 5.5, config A)
 
-Recuperación (14 consultas con respuesta): híbrida 100 % a k = 3 y 5 en A y B; vectorial 71 % / 86 % en A y 86 % / 93 % en B; BM25 100 %. En 4 consultas la híbrida acierta y la vectorial falla (P04, CAPA-2026-014, CAPA-2026-041, R-QA-01). Permisos: 12/12 combinaciones de frase testigo correctas; usuario desconocido, 0 fragmentos. Preguntas: 10/10 (las 2 sin respuesta y las 2 restringidas, `requiere_humano` sin citas). CCAM: 15/15 válidos en el primer intento, **11/15 (73 %)**, igual que la PE2 pero con otros errores: 1 sobre y 1 subclasificación (PE2: 4 y 0). 6.610 tokens de entrada (PE2: 2.463), USD 0,0011 por CCAM, 3,9 s.
+Fuente única del PDF de la PE3 (commit `d71d887`, prompt `rag-9b8f1eede363`). Recuperación: híbrida 100 % a k = 3 y 5 en A y B; vectorial 71 % / 86 % en A. Híbrida acierta y vectorial falla en 4 (P04, CAPA-2026-014, CAPA-2026-041, R-QA-01). Permisos: 12/12. Preguntas: 10/10. CCAM: 15/15 válidos en el primer intento, **11/15 (73 %)**, 1 sobre y 1 subclasificación; 6.166 tokens de entrada, USD 0,0010 por CCAM, 3,9 s (peor 6,3 s).
 
-- **H-17 El modelo de embeddings lee solo 128 tokens.** Cortaba el resto de cada fragmento sin avisar. Se resolvió con ventanas promediadas (D-22).
-- **H-18 Con evidencia, el modelo escribe más.** En la primera corrida real (interrumpida, `resultados/historico/pe3_corrida_interrumpida/`) el CCAM 01 superó dos veces el tope de 1.200 caracteres de la justificación y salió como `salida_invalida`. Se agregó al prompt un tope de 900 (commit `bee7fdc`). El contrato hizo su trabajo: error estructurado, sin traceback.
-- **H-19 Caso 11 (cámara de estabilidad): crítico, QA mayor.** El modelo citó SOP-CC-001 §5.6, que dice textualmente que los datos que respaldan la vida útil y no la liberación son mayor, y aun así eligió crítico. Es un error de razonamiento, no de recuperación: tenía el fragmento correcto.
-- **H-20 Caso 02 (estuche con QR): menor, QA mayor. Primera subclasificación del proyecto.** Aplicó la pregunta de §5.7 ("¿modifica una función, cálculo, dato o estado validado?") y concluyó que no. El rotulado aprobado no es un "estado validado" en la redacción de la matriz: **hueco en SOP-CC-001 §5.7 que tiene que decidir Federico** (por ejemplo, sumar "o un texto o arte aprobado por la autoridad sanitaria").
-- **H-21 Caso 15 (antivirus): fuera_de_alcance, QA sin_impacto.** SOP-CC-001 §2 (exclusión de alcance) y §5.2 (sin impacto) dicen casi lo mismo. El contrato distingue dos estados que el SOP no distingue. A decidir por Federico.
-- **H-22 Caso 04 (impresora): requiere_humano, QA menor.** Es el comportamiento diseñado: ningún documento trata impresoras y la descripción no dice qué imprime. Desacierto en la tabla, pero del lado seguro.
-- **H-14 se corrige:** los casos 01, 06 y 09 (sobreclasificados en la PE2) ahora coinciden; la matriz con "el nivel lo define el efecto" funcionó en esos tres.
+- **H-20 y H-21 resueltos con SOP-CC-001 v4 (D-28):** el caso 02 (estuche con QR) pasa a mayor y el 15 (antivirus) a sin impacto, como QA.
+- **H-23 El umbral se come un fuera de alcance.** El caso 05 (aguinaldo) bajó de 0,22 a 0,10 de similitud porque cambió el texto de SOP-CC-001 §2, quedó debajo de 0,20 y salió `requiere_humano` sin llamar al modelo, en lugar de `fuera_de_alcance`. Los dos derivan a QA sin clasificar (lado seguro), pero la barrera previa no distingue «no es un cambio» de «no hay evidencia». Para la PE4: que el pre-filtro por umbral solo se aplique si la consulta parece un cambio, o dejar que el modelo decida siempre.
+- **H-24 Efecto colateral de la v4 en el caso 09 (perfil de solo consulta): sin impacto, QA menor.** El modelo leyó la nueva §5.2 como «no altera nada» aunque el LIMS es un sistema GxP. Subclasificación de un nivel. La §5.2 dice «ningún sistema GxP»: es un error de lectura del modelo, no del SOP, pero aparece justo con el cambio de texto. Arreglar 2 casos movió otros 2: la PE6 tiene que medir con corridas repetidas y casos nuevos, no ajustar el SOP caso por caso.
+- **H-19 sigue:** el 11 (cámara de estabilidad) vuelve a salir crítico citando §5.6. Va al A/B de modelos de la PE6.
+- **H-22 sigue:** el 04 (impresora) sale `requiere_humano`, lado seguro.
+
+### Corrida PE3 con SOP-CC-001 v3 (`resultados/historico/pe3_corrida_sop_cc_001_v3/`)
+
+11/15 con 1 sobre y 1 subclasificación. Originó H-17 a H-22 (la primera corrida, cortada por H-18, está en `historico/pe3_corrida_interrumpida/`). H-20: el 02 salió menor porque §5.7 no incluía el rotulado aprobado. H-21: el 15 salió fuera de alcance porque §2 y §5.2 decían casi lo mismo. H-17: el modelo de embeddings lee 128 tokens (D-22). H-18: justificación de más de 1.200 caracteres (tope de 900 en el prompt).
 
 ### Corrida 2026-11-16 (`resultados/corrida_20261116_1116/`, 15 casos, Haiku 5.5)
 
@@ -76,6 +78,7 @@ Detalle en `docs/TRASPASO_PE2.md` (H-01 a H-13) y archivos en `resultados/histor
 
 ## Bitácora
 
+- **2026-11-16** · Claude (app): Federico aprobó las 10 preguntas y decidió H-20 y H-21; SOP-CC-001 v4 (D-28) y corrida final `corrida_pe3_20261116_1224` (11/15; resuelve 02 y 15, aparecen H-23 y H-24). PDF de la PE3 rearmado desde esa carpeta.
 - **2026-11-16** · Claude (app): PE3 completa en código. Corpus ficticio, `src/rag/` (ingesta ChromaDB, híbrida vectorial + BM25 con RRF y pre-filtro por rol, `responder` y `responder_pregunta`), `Salida.requiere_humano`, citas validadas contra lo recuperado, regla H-02, 44 pruebas y CI. Corrida real en la máquina de Federico (la clave no salió de ella; las librerías se pasaron por el puente porque la máquina no llega a files.pythonhosted.org). La primera corrida se cortó (H-18) y se guardó en `historico/`.
 - **2026-11-16** · Claude (app): correcciones de la devolución de la PE2. `scripts.corrida` reemplaza a `medir` y `evidencia` (una sola fuente de verdad, manifiesto y hashes); CI en GitHub Actions; 10 casos nuevos clasificados por Federico; prueba desde clon limpio en verde (23 pruebas). Corrida real de 15 casos en la máquina de Federico, sin que la clave salga de ella: 73 % de coincidencia, sesgo hacia arriba (H-14). Lo entregado en la PE2 pasó a `resultados/historico/`. Subido a `main` con la CI en verde; el tag `pe2` no se pudo subir desde la app.
 - **2026-10-30** · Claude Code: corrida real con la clave de Federico (`scripts.evidencia` y `scripts.medir`): 5/5 validan, 80 % de coincidencia con QA (H-01). Techo de salida a 3.000 tokens (D-13). Escrito `docs/TRASPASO_PE2.md` para que Claude en la app arme el PDF. Tag `pe2` pendiente de la aprobación del PDF.

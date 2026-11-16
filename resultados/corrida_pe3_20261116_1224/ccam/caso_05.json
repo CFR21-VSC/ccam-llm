@@ -1,0 +1,52 @@
+{
+  "trace_id": "1ec08684e487",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "requiere_humano": true,
+    "impacto_gxp": null,
+    "requiere_revalidacion": false,
+    "justificacion": "Ningún documento autorizado para este usuario supera el umbral de evidencia (0.2): no se clasifica y se deriva a QA.",
+    "fundamento": [],
+    "tareas": [],
+    "confianza": 0.0,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "1",
+      "fragmento_id": "SOP-CC-001#A00",
+      "puntaje": 0.030679
+    },
+    {
+      "documento": "SOP-PR-006",
+      "seccion": "5",
+      "fragmento_id": "SOP-PR-006#A01",
+      "puntaje": 0.030331
+    },
+    {
+      "documento": "SOP-AC-007",
+      "seccion": "1",
+      "fragmento_id": "SOP-AC-007#A00",
+      "puntaje": 0.029462
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "3",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.029418
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.1",
+      "fragmento_id": "SOP-CC-001#A02",
+      "puntaje": 0.028898
+    }
+  ],
+  "error": null,
+  "metricas": null,
+  "version_prompt": "rag-9b8f1eede363",
+  "evidencia_maxima": 0.1006
+}

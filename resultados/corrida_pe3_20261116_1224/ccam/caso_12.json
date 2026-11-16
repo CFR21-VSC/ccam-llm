@@ -1,0 +1,86 @@
+{
+  "trace_id": "8f2525f69bed",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "requiere_humano": false,
+    "impacto_gxp": "menor",
+    "requiere_revalidacion": false,
+    "justificacion": "El cambio corrige errores tipográficos (\"detergnete\", \"enjaguar\") en el instructivo de limpieza de la línea 3, sin modificar pasos, productos, concentraciones ni tiempos. No altera función, cálculo, dato, decisión ni estado validado, y el riesgo queda controlado. Aplicando la frontera de SOP-CC-001 §5.7 (menor vs. mayor): no modifica nada de lo que define mayor impacto, por lo que corresponde menor. Alcanza con verificación documentada y revisión por Garantía de Calidad. Se recomienda confirmar que la corrección no cambie el sentido de ningún paso. Nota: la evidencia recuperada no incluye el texto del instructivo ni un procedimiento específico de control de documentos aplicable a su revisión, por lo que la verificación de QA se basa en la descripción del solicitante.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.7"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.3"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Revisar la corrección tipográfica del instructivo de limpieza de la línea 3 y verificar que no se modifique ningún paso, producto, concentración ni tiempo.",
+        "area_responsable": "garantia_calidad"
+      }
+    ],
+    "confianza": 0.8,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.4",
+      "fragmento_id": "SOP-CC-001#A04",
+      "puntaje": 0.032002
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.3",
+      "fragmento_id": "SOP-CC-001#A03",
+      "puntaje": 0.031754
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.1",
+      "fragmento_id": "SOP-CC-001#A02",
+      "puntaje": 0.030331
+    },
+    {
+      "documento": "SOP-DC-004",
+      "seccion": "6",
+      "fragmento_id": "SOP-DC-004#A01",
+      "puntaje": 0.030077
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.5",
+      "fragmento_id": "SOP-CC-001#A05",
+      "puntaje": 0.029877
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "fragmento_id": "SOP-CC-001#A06",
+      "puntaje": 0.032522
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "3",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.032266
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 5849,
+    "output_tokens": 686,
+    "cost": 0.0009279,
+    "latencia_ms": 3643,
+    "cached": false
+  },
+  "version_prompt": "rag-9b8f1eede363",
+  "evidencia_maxima": 0.4587
+}

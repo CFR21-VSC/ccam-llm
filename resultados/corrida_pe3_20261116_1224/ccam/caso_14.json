@@ -1,0 +1,108 @@
+{
+  "trace_id": "52ace53ae953",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "requiere_humano": false,
+    "impacto_gxp": "mayor",
+    "requiere_revalidacion": false,
+    "justificacion": "Cambio de configuración en LIMS que modifica el redondeo del valor de valoración informado en el certificado de análisis (de dos a un decimal). El cálculo interno y la especificación no cambian. Aun así, el cambio altera el formato de un resultado informado en un CoA, que puede cambiar el veredicto en el límite de especificación (SOP-VS-003 §5.2). Por la pregunta de frontera de SOP-CC-001 §5.7 (¿modifica una función, cálculo, dato, estado validado o texto/arte aprobado?), el cambio modifica un formato de resultado informado, por lo que se clasifica como mayor y no como menor. No requiere revalidación completa según la evidencia (SOP-VS-002 §6.2 exige pruebas documentadas de la función afectada), pero sí verificación documentada de la configuración y de casos en el límite. Dato a confirmar por QA: si el certificado es de uso externo o si la matriz de la casa matriz tiene la misma especificación.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.7"
+      },
+      {
+        "codigo": "SOP-VS-003",
+        "seccion": "5.2"
+      },
+      {
+        "codigo": "SOP-VS-002",
+        "seccion": "6.2"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Aplicar el cambio de redondeo a una decimal en la configuración del LIMS y documentar la configuración anterior y la nueva.",
+        "area_responsable": "sistemas"
+      },
+      {
+        "descripcion": "Ejecutar y documentar pruebas de la función de redondeo del certificado de análisis, incluyendo casos en el límite de especificación.",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Verificar que el veredicto de conformidad no cambie en los casos límite y confirmar que la especificación vigente coincide con el formato a un decimal.",
+        "area_responsable": "control_calidad"
+      },
+      {
+        "descripcion": "Revisar la doble revisión de cambios de configuración de LIMS (CAPA-2026-041) y aprobar el cierre de la evaluación del CCAM-2026-114.",
+        "area_responsable": "garantia_calidad"
+      }
+    ],
+    "confianza": 0.8,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "INF-AUD-2026-03",
+      "seccion": "1",
+      "fragmento_id": "INF-AUD-2026-03#A00",
+      "puntaje": 0.032002
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "5",
+      "fragmento_id": "SOP-VS-002#A01",
+      "puntaje": 0.031498
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.3",
+      "fragmento_id": "SOP-CC-001#A03",
+      "puntaje": 0.031319
+    },
+    {
+      "documento": "SOP-VS-003",
+      "seccion": "4",
+      "fragmento_id": "SOP-VS-003#A01",
+      "puntaje": 0.031099
+    },
+    {
+      "documento": "INF-AUD-2026-03",
+      "seccion": "5",
+      "fragmento_id": "INF-AUD-2026-03#A01",
+      "puntaje": 0.030415
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "fragmento_id": "SOP-CC-001#A06",
+      "puntaje": 0.032522
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "3",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.032266
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.1",
+      "fragmento_id": "SOP-CC-001#A02",
+      "puntaje": 0.031258
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 6734,
+    "output_tokens": 933,
+    "cost": 0.0011399,
+    "latencia_ms": 4062,
+    "cached": false
+  },
+  "version_prompt": "rag-9b8f1eede363",
+  "evidencia_maxima": 0.4952
+}

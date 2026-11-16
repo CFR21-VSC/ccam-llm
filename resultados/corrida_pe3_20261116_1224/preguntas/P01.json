@@ -1,0 +1,64 @@
+{
+  "trace_id": "b7386eecffdb",
+  "ok": true,
+  "usuario": "u_validaciones",
+  "pregunta_id": "P01",
+  "salida": {
+    "respuesta": "Según SOP-EQ-005 §7.1, el HPLC-QC-03 tiene recalificación OQ anual, y además debe repetirse después de cualquier cambio de bomba, detector o software de control. Según EXP-VAL-CROM-01 §3.3, su OQ del software se ejecutó sin desviaciones y fue liberado para uso en producto terminado.",
+    "citas": [
+      {
+        "codigo": "SOP-EQ-005",
+        "seccion": "7.1"
+      },
+      {
+        "codigo": "EXP-VAL-CROM-01",
+        "seccion": "3.3"
+      }
+    ],
+    "requiere_humano": false
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-EQ-005",
+      "seccion": "5.1",
+      "fragmento_id": "SOP-EQ-005#A01",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "EXP-VAL-CROM-01",
+      "seccion": "1",
+      "fragmento_id": "EXP-VAL-CROM-01#A00",
+      "puntaje": 0.032258
+    },
+    {
+      "documento": "SOP-EQ-005",
+      "seccion": "1",
+      "fragmento_id": "SOP-EQ-005#A00",
+      "puntaje": 0.03101
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.4",
+      "fragmento_id": "SOP-CC-001#A04",
+      "puntaje": 0.030798
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.3",
+      "fragmento_id": "SOP-CC-001#A03",
+      "puntaje": 0.029877
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 3847,
+    "output_tokens": 270,
+    "cost": 0.0005197,
+    "latencia_ms": 1487,
+    "cached": false
+  },
+  "version_prompt": "rag-9b8f1eede363",
+  "evidencia_maxima": 0.6612
+}

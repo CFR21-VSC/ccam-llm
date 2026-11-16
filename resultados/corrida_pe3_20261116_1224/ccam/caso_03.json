@@ -1,0 +1,116 @@
+{
+  "trace_id": "b97e1df35175",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "requiere_humano": false,
+    "impacto_gxp": "mayor",
+    "requiere_revalidacion": true,
+    "justificacion": "El cambio incorpora un segundo proveedor de celulosa microcristalina, un excipiente usado en comprimidos. Según SOP-PR-006 §3.3, incorporar un segundo proveedor de un material ya aprobado se gestiona por SOP-CC-001 y exige calificación completa del proveedor y evaluación de compatibilidad con los procesos validados antes del primer uso. El nuevo proveedor aún no fue auditado, lo que hoy no cumple el requisito de auditoría para materiales críticos de SOP-PR-006 §3.1. Frontera menor/mayor (SOP-CC-001 §5.7): el cambio modifica la fuente de un material de proceso y el dato de calidad que respalda su uso, por lo que no es menor. No se trata de un cambio de especificación sino de fuente: el efecto potencial sobre el producto está en la compatibilidad del excipiente con el proceso validado. Se clasifica como mayor, con barrera posterior (calificación, lotes de prueba y evaluación de riesgo antes del primer uso). Falta confirmar si la celulosa es un material crítico y si el nuevo proveedor cuenta con certificados de análisis; el dato no aparece en la descripción, pero no cambia el nivel propuesto.",
+    "fundamento": [
+      {
+        "codigo": "SOP-PR-006",
+        "seccion": "3.1"
+      },
+      {
+        "codigo": "SOP-PR-006",
+        "seccion": "3.2"
+      },
+      {
+        "codigo": "SOP-PR-006",
+        "seccion": "3.3"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.4"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.7"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Completar la calificación del nuevo proveedor de celulosa microcristalina: cuestionario de calidad, certificados de análisis y auditoría al fabricante antes del primer uso (SOP-PR-006 §3.1).",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Analizar al menos tres lotes completos del nuevo proveedor según la monografía farmacopeica antes de aprobar el uso productivo (SOP-PR-006 §3.2).",
+        "area_responsable": "control_calidad"
+      },
+      {
+        "descripcion": "Evaluar la compatibilidad de la celulosa del nuevo proveedor con los procesos validados de comprimidos y definir si se requiere revalidación o recalificación parcial (SOP-CC-001 §5.4, SOP-PR-006 §3.3).",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Gestionar el segundo proveedor por CCAM bajo SOP-CC-001 con aprobación del Jefe de Garantía de Calidad por tratarse de impacto mayor, y mantener la segregación de funciones con el solicitante de Compras.",
+        "area_responsable": "asuntos_regulatorios"
+      }
+    ],
+    "confianza": 0.8,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-PR-006",
+      "seccion": "1",
+      "fragmento_id": "SOP-PR-006#A00",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-PR-006",
+      "seccion": "5",
+      "fragmento_id": "SOP-PR-006#A01",
+      "puntaje": 0.032258
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.4",
+      "fragmento_id": "SOP-CC-001#A04",
+      "puntaje": 0.030769
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "5",
+      "fragmento_id": "SOP-VS-002#A01",
+      "puntaje": 0.030366
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.3",
+      "fragmento_id": "SOP-CC-001#A03",
+      "puntaje": 0.030331
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "fragmento_id": "SOP-CC-001#A06",
+      "puntaje": 0.032522
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "3",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.032266
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.1",
+      "fragmento_id": "SOP-CC-001#A02",
+      "puntaje": 0.031258
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 6370,
+    "output_tokens": 1212,
+    "cost": 0.001243,
+    "latencia_ms": 4717,
+    "cached": false
+  },
+  "version_prompt": "rag-9b8f1eede363",
+  "evidencia_maxima": 0.3657
+}

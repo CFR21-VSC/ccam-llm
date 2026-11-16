@@ -1,0 +1,60 @@
+{
+  "trace_id": "67898d7073d3",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "pregunta_id": "P06",
+  "salida": {
+    "respuesta": "Sí, bajo ciertas condiciones. Si el proveedor entrega evidencia de pruebas de un parche y el parche es correctivo y no cambia funciones, cálculos, flujos ni la estructura de datos, la evidencia del proveedor revisada puede reemplazar las pruebas propias. Garantía de Calidad debe revisarla y decidir si la acepta, documentando la revisión; en ese caso no se requiere revalidación. Los fragmentos no detallan los criterios concretos de esa revisión.",
+    "citas": [
+      {
+        "codigo": "SOP-VS-002",
+        "seccion": "5"
+      }
+    ],
+    "requiere_humano": false
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "5",
+      "fragmento_id": "SOP-VS-002#A01",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-PR-006",
+      "seccion": "5",
+      "fragmento_id": "SOP-PR-006#A01",
+      "puntaje": 0.031746
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.4",
+      "fragmento_id": "SOP-CC-001#A04",
+      "puntaje": 0.031054
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "6.3",
+      "fragmento_id": "SOP-VS-002#A02",
+      "puntaje": 0.030536
+    },
+    {
+      "documento": "SOP-PR-006",
+      "seccion": "1",
+      "fragmento_id": "SOP-PR-006#A00",
+      "puntaje": 0.030331
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 3368,
+    "output_tokens": 284,
+    "cost": 0.0004788,
+    "latencia_ms": 1746,
+    "cached": false
+  },
+  "version_prompt": "rag-9b8f1eede363",
+  "evidencia_maxima": 0.5923
+}
