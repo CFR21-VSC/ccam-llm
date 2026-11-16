@@ -13,14 +13,14 @@ Archivo de traspaso entre sesiones. Quien trabaje en el repo (Claude Code, Claud
 | Corpus `documentos/` (7 SOPs + 3 restringidos con frase testigo) | Hecho (D-19, D-20). **Federico tiene que revisar SOP-CC-001 §5** |
 | `src/rag/`: ingesta, búsqueda híbrida con pre-filtro, `responder()` | Hecho (D-21 a D-26) |
 | Pruebas PE3 (permisos por rol, testigo en resultados y prompt, RRF, citas, H-02) | Hechas: 44 en verde, también en la CI |
-| `evals/preguntas_pe3.json` (10) y `evals/consultas_codigos.json` (8) | Hechas. **Federico tiene que revisarlas** |
+| `evals/preguntas_pe3.json` (10) y `evals/consultas_codigos.json` (8) | Hechas y **aprobadas por Federico** el 2026-11-16 |
 | Corrida real PE3 | Hecha: `resultados/corrida_pe3_20261116_1152/` (commit `bee7fdc`, prompt `rag-9b8f1eede363`) |
 | PDF de la PE3 | En armado desde esa carpeta |
 | Tag `pe3` | Pendiente, después del PDF |
 
 ## Próximos pasos
 
-1. Federico revisa SOP-CC-001 §5 (en especial H-20 y H-21) y las 10 preguntas. Si cambia algo, se vuelve a correr `scripts.corrida_pe3` (cuesta USD 0,02) y el PDF sale de la carpeta nueva.
+1. Federico revisa SOP-CC-001 §5 (en especial H-20 y H-21); las 10 preguntas ya están aprobadas. Si cambia algo, se vuelve a correr `scripts.corrida_pe3` (cuesta USD 0,02) y el PDF sale de la carpeta nueva.
 2. Subir los tags `pe2` y `pe3` desde la máquina de Federico; verificar con `git ls-remote --tags origin`.
 3. Federico decide O-1 (campo `recomendacion`).
 4. PE6: casos nuevos escritos con el corpus congelado (limitación de D-20).
