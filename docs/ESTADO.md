@@ -9,9 +9,9 @@ Archivo de traspaso entre sesiones. Quien trabaje en el repo (Claude Code, Claud
 | Pieza | Estado |
 | --- | --- |
 | PE2 entregada y evaluada | Hecha. Devolución con 4 correcciones: ver `docs/PEDIDO_CORRECCIONES_PE2.md` |
-| Tag `pe2` sobre `c92b40d` | **Pendiente de push**: la sesión de la app no tiene permiso de escritura en GitHub |
+| Tag `pe2` sobre `c92b40d` | **Pendiente**: la app puede subir ramas pero no tags; lo sube Federico o Claude Code |
 | Corrida única `scripts.corrida` con manifiesto y hashes | Hecha (D-14) |
-| CI en GitHub Actions sin clave | Hecha (D-15); se activa con el primer push |
+| CI en GitHub Actions sin clave | Hecha (D-15); primera ejecución en verde sobre `e6e314f` |
 | Prueba desde un clon limpio | Hecha el 2026-11-16: 23 pruebas y corrida simulada en verde |
 | 10 casos nuevos clasificados por Federico | Hechos (D-18) |
 | Corrida real con 15 casos | Hecha: `resultados/corrida_20261116_1116/` |
@@ -19,7 +19,7 @@ Archivo de traspaso entre sesiones. Quien trabaje en el repo (Claude Code, Claud
 
 ## Próximos pasos
 
-1. Push de `main` y del tag `pe2` (`git tag -a pe2 c92b40d` y `git push origin main pe2`); verificar con `git ls-remote --tags origin` y que la CI quede en verde.
+1. Subir el tag `pe2` desde la máquina de Federico: `git tag -a pe2 c92b40d -m "Pre-Entrega 2"` y `git push origin pe2`; verificar con `git ls-remote --tags origin`.
 2. Decidir con Federico si se reenvía la PE2 corregida como `pe2.1` o si las correcciones quedan como base de la PE3.
 3. Federico decide la observación O-1 (campo `recomendacion`).
 4. Empezar la PE3 según `docs/PEDIDO_PE3.md`. El hallazgo H-14 define el contenido de la matriz de SOP-CC-001.
@@ -63,7 +63,7 @@ Detalle en `docs/TRASPASO_PE2.md` (H-01 a H-13) y archivos en `resultados/histor
 
 ## Bitácora
 
-- **2026-11-16** · Claude (app): correcciones de la devolución de la PE2. `scripts.corrida` reemplaza a `medir` y `evidencia` (una sola fuente de verdad, manifiesto y hashes); CI en GitHub Actions; 10 casos nuevos clasificados por Federico; prueba desde clon limpio en verde (23 pruebas). Corrida real de 15 casos en la máquina de Federico, sin que la clave salga de ella: 73 % de coincidencia, sesgo hacia arriba (H-14). Lo entregado en la PE2 pasó a `resultados/historico/`. Falta el push: la app no tiene permiso de escritura en GitHub.
+- **2026-11-16** · Claude (app): correcciones de la devolución de la PE2. `scripts.corrida` reemplaza a `medir` y `evidencia` (una sola fuente de verdad, manifiesto y hashes); CI en GitHub Actions; 10 casos nuevos clasificados por Federico; prueba desde clon limpio en verde (23 pruebas). Corrida real de 15 casos en la máquina de Federico, sin que la clave salga de ella: 73 % de coincidencia, sesgo hacia arriba (H-14). Lo entregado en la PE2 pasó a `resultados/historico/`. Subido a `main` con la CI en verde; el tag `pe2` no se pudo subir desde la app.
 - **2026-10-30** · Claude Code: corrida real con la clave de Federico (`scripts.evidencia` y `scripts.medir`): 5/5 validan, 80 % de coincidencia con QA (H-01). Techo de salida a 3.000 tokens (D-13). Escrito `docs/TRASPASO_PE2.md` para que Claude en la app arme el PDF. Tag `pe2` pendiente de la aprobación del PDF.
 - **2026-10-30** · Claude Code: el repo se mudó a `C:\proyectos\ccam-llm` (la ruta vieja tenía espacios y el carácter `´`, que rompía la terminal). La carpeta vieja ya no se usa.
 - **2026-10-30** · Claude Code: unificadas las dos copias del proyecto en `C:\proyectos\Agente LLm para CCAM´s\fde-control-cambios` (el código del 30/10 venía de OneDrive y los docs, de la carpeta de proyectos). Creado `.venv`, 16 pruebas en verde, `.gitignore` cubre cualquier `.env.*`, repo git local con commit inicial. Repo destino: `CFR21-VSC/ccam-llm`; README y notebook ya apuntan ahí.
