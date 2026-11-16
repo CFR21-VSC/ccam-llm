@@ -1,0 +1,55 @@
+{
+  "trace_id": "323cffd45ca3",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "pregunta_id": "P07",
+  "salida": {
+    "respuesta": "No hay evidencia en los documentos disponibles sobre el plazo de pago a los proveedores. Los fragmentos recuperados (SOP-PR-006, INF-AUD-2026-03, SOP-EQ-005 y SOP-VS-002) tratan sobre calificación, seguimiento y reevaluación de proveedores, pero no mencionan condiciones ni plazos de pago. Se requiere consultar a una persona responsable (por ejemplo, el área de compras o finanzas).",
+    "citas": [],
+    "requiere_humano": true
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-PR-006",
+      "seccion": "1",
+      "fragmento_id": "SOP-PR-006#A00",
+      "puntaje": 0.032266
+    },
+    {
+      "documento": "SOP-PR-006",
+      "seccion": "5",
+      "fragmento_id": "SOP-PR-006#A01",
+      "puntaje": 0.032258
+    },
+    {
+      "documento": "INF-AUD-2026-03",
+      "seccion": "1",
+      "fragmento_id": "INF-AUD-2026-03#A00",
+      "puntaje": 0.031099
+    },
+    {
+      "documento": "SOP-EQ-005",
+      "seccion": "1",
+      "fragmento_id": "SOP-EQ-005#A00",
+      "puntaje": 0.030303
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "5",
+      "fragmento_id": "SOP-VS-002#A01",
+      "puntaje": 0.029911
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 3739,
+    "output_tokens": 250,
+    "cost": 0.0004989,
+    "latencia_ms": 1461,
+    "cached": false
+  },
+  "version_prompt": "rag-9b8f1eede363",
+  "evidencia_maxima": 0.442
+}

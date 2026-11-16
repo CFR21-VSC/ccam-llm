@@ -1,0 +1,72 @@
+{
+  "trace_id": "4c8e0ac0396b",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": true,
+    "requiere_humano": false,
+    "impacto_gxp": null,
+    "requiere_revalidacion": false,
+    "justificacion": "El pedido CCAM-2026-105 consulta sobre la fecha de depósito del aguinaldo y sobre un adelanto de vacaciones. Son consultas administrativas de Recursos Humanos, sin relación con un proceso, sistema, equipo, material o documento GxP. No es un cambio GxP evaluable; se deriva a QA sin clasificar.",
+    "fundamento": [],
+    "tareas": [],
+    "confianza": 0.9,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "1",
+      "fragmento_id": "SOP-CC-001#A00",
+      "puntaje": 0.031319
+    },
+    {
+      "documento": "SOP-AC-007",
+      "seccion": "1",
+      "fragmento_id": "SOP-AC-007#A00",
+      "puntaje": 0.029828
+    },
+    {
+      "documento": "SOP-DC-004",
+      "seccion": "6",
+      "fragmento_id": "SOP-DC-004#A01",
+      "puntaje": 0.016393
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "8",
+      "fragmento_id": "SOP-CC-001#A05",
+      "puntaje": 0.016129
+    },
+    {
+      "documento": "SOP-DC-004",
+      "seccion": "1",
+      "fragmento_id": "SOP-DC-004#A00",
+      "puntaje": 0.015873
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "fragmento_id": "SOP-CC-001#A04",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "4",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.032002
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 5903,
+    "output_tokens": 294,
+    "cost": 0.0007373,
+    "latencia_ms": 1710,
+    "cached": false
+  },
+  "version_prompt": "rag-830d6cf9fc0b",
+  "evidencia_maxima": 0.2161
+}

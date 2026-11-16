@@ -24,7 +24,8 @@ Federico es especialista en QA/CSV farmacéutico (GAMP 5, 21 CFR Part 11, Anexo 
 6. **Toda ejecución deja rastro** en `logs/ejecuciones.jsonl`, con `trace_id` y `version_prompt`, sin el texto del CCAM.
 7. **El proveedor de IA es intercambiable** (`src/proveedores.py`): el resto del código no conoce a Anthropic ni a OpenAI.
 8. **Los prompts viven en `prompts/`**, nunca escritos dentro de una función.
-9. **Claude no acepta `temperature`** desde la API 2026-10-21: no agregarla al proveedor de Anthropic.
+9. **Los permisos se aplican antes de buscar** (`where` por rol en ChromaDB y BM25 solo sobre lo autorizado). Nunca filtrar después.
+10. **Claude no acepta `temperature`** desde la API 2026-10-21: no agregarla al proveedor de Anthropic.
 
 ## Mapa del código
 
@@ -33,8 +34,12 @@ Federico es especialista en QA/CSV farmacéutico (GAMP 5, 21 CFR Part 11, Anexo 
 | `src/contrato.py` | `Entrada`, `Salida`, `ErrorEstructurado`, Enums, catálogo de SOPs y reglas cruzadas |
 | `src/motor.py` | `evaluar()`: valida entrada, arma prompts, llama, valida salida, reintenta 1 vez, mide, registra |
 | `src/proveedores.py` | `ProveedorAnthropic`, `ProveedorOpenAI`, `ProveedorSimulado`, `crear_proveedor()` |
-| `prompts/` | `sistema.md`, `usuario.md`, `correccion.md` (plantillas con `$variables`) |
-| `config/` | `catalogo_sops.json` (7 SOPs ficticios), `precios.json` (USD por millón de tokens) |
+| `prompts/` | `sistema.md`, `usuario.md`, `correccion.md` (PE2); `sistema_rag.md`, `pregunta_rag.md` (PE3) |
+| `src/rag/` | `corpus.py` (lectura y fragmentado), `embeddings.py`, `ingestar.py`, `buscar.py` (híbrida con pre-filtro por rol), `responder.py` |
+| `documentos/` | Corpus ficticio de la PE3 con carátula YAML y roles de lectura |
+| `evals/` | Preguntas de prueba de la recuperación |
+| `scripts/corrida_pe3.py` | Corrida única de la PE3 en `resultados/corrida_pe3_*/` |
+| `config/` | `catalogo_sops.json` (7 SOPs ficticios), `precios.json` (USD por millón de tokens), `usuarios.json` y `rag.json` (PE3) |
 | `consultas/` | 15 CCAM de medición con el campo `esperado` y la `justificacion_qa` (criterio de Federico) |
 | `scripts/corrida.py` | Corrida única: casos, errores, `medicion.*` y `manifiesto.json` en `resultados/corrida_*/` |
 | `.github/workflows/pruebas.yml` | CI: clon limpio, instala y corre las pruebas sin clave en cada push |
@@ -52,6 +57,9 @@ python -m src.motor consultas/01_version_software.json           # un CCAM con e
 python -m src.motor consultas/01_version_software.json --simulado invalido   # sin clave
 python -m scripts.corrida                                        # medición y evidencia en una sola carpeta
 python -m scripts.corrida --simulado valido                      # lo mismo, sin clave
+python -m src.rag.ingestar                                       # PE3: carga documentos/ en ChromaDB
+python -m scripts.corrida_pe3                                    # PE3: medición completa en una carpeta
+python -m scripts.corrida_pe3 --simulado rag_valido --embeddings-simulados   # sin clave ni descarga
 ```
 
 ## Cómo trabajar

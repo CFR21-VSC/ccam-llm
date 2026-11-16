@@ -1,0 +1,55 @@
+{
+  "trace_id": "a76f4edd7e8a",
+  "ok": true,
+  "usuario": "u_validaciones",
+  "pregunta_id": "P10",
+  "salida": {
+    "respuesta": "No hay evidencia en los documentos disponibles sobre la acción correctiva CAPA-2026-041, ni sobre una auditoría interna o una subclasificación de cambios de LIMS. Los fragmentos recuperados tratan sobre gestión documental (SOP-DC-004), control de cambios (SOP-CC-001), el expediente de validación del software cromatográfico (EXP-VAL-CROM-01) y validación de sistemas computarizados (SOP-VS-002), pero ninguno menciona CAPA-2026-041. Se requiere revisión humana con el registro de CAPA o el informe de auditoría.",
+    "citas": [],
+    "requiere_humano": true
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-DC-004",
+      "seccion": "6",
+      "fragmento_id": "SOP-DC-004#A01",
+      "puntaje": 0.03125
+    },
+    {
+      "documento": "SOP-DC-004",
+      "seccion": "1",
+      "fragmento_id": "SOP-DC-004#A00",
+      "puntaje": 0.030478
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "8",
+      "fragmento_id": "SOP-CC-001#A05",
+      "puntaje": 0.029958
+    },
+    {
+      "documento": "EXP-VAL-CROM-01",
+      "seccion": "3.4",
+      "fragmento_id": "EXP-VAL-CROM-01#A01",
+      "puntaje": 0.029857
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "5",
+      "fragmento_id": "SOP-VS-002#A01",
+      "puntaje": 0.029828
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 3227,
+    "output_tokens": 295,
+    "cost": 0.0004702,
+    "latencia_ms": 1670,
+    "cached": false
+  },
+  "version_prompt": "rag-830d6cf9fc0b",
+  "evidencia_maxima": 0.5721
+}

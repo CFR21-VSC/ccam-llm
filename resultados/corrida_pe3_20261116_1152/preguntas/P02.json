@@ -1,0 +1,60 @@
+{
+  "trace_id": "629dc693f29a",
+  "ok": true,
+  "usuario": "u_solicitante_prod",
+  "pregunta_id": "P02",
+  "salida": {
+    "respuesta": "Según el SOP-VS-003, el audit trail de un sistema GxP no se desactiva por razones de rendimiento, capacidad o comodidad operativa. Un pedido de cambio que proponga desactivarlo, aun en forma temporal, no se implementa; el problema de rendimiento se resuelve por otra vía (infraestructura, archivado).",
+    "citas": [
+      {
+        "codigo": "SOP-VS-003",
+        "seccion": "3.2"
+      }
+    ],
+    "requiere_humano": false
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-VS-003",
+      "seccion": "1",
+      "fragmento_id": "SOP-VS-003#A00",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-VS-003",
+      "seccion": "4",
+      "fragmento_id": "SOP-VS-003#A01",
+      "puntaje": 0.032258
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.5",
+      "fragmento_id": "SOP-CC-001#A03",
+      "puntaje": 0.031498
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "6.3",
+      "fragmento_id": "SOP-VS-002#A02",
+      "puntaje": 0.03009
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "8",
+      "fragmento_id": "SOP-CC-001#A05",
+      "puntaje": 0.029911
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 3629,
+    "output_tokens": 229,
+    "cost": 0.0004774,
+    "latencia_ms": 1339,
+    "cached": false
+  },
+  "version_prompt": "rag-9b8f1eede363",
+  "evidencia_maxima": 0.6678
+}

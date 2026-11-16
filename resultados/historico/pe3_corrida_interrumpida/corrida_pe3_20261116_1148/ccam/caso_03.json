@@ -1,0 +1,110 @@
+{
+  "trace_id": "7c97a3b0855f",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "requiere_humano": false,
+    "impacto_gxp": "mayor",
+    "requiere_revalidacion": true,
+    "justificacion": "El CCAM-2026-103 incorpora un segundo proveedor de celulosa microcristalina (excipiente usado en comprimidos). Según SOP-CC-001 §5.4, un cambio que puede afectar la calidad del producto y requiere evaluación de riesgo y calificación antes del uso; el segundo proveedor de un material ya aprobado se gestiona por SOP-CC-001 y exige calificación completa del proveedor y evaluación de compatibilidad con los procesos validados antes del primer uso (SOP-PR-006 §3.3). La calificación de excipientes requiere al menos tres lotes completos según la monografía farmacopeica antes de aprobar el uso productivo (SOP-PR-006 §3.2). La descripción indica que el proveedor declara la misma especificación farmacopeica pero aún no fue auditado; la auditoría al fabricante es requisito para materiales críticos (SOP-PR-006 §3.1), y la evidencia no permite confirmar si la celulosa microcristalina lo es, por lo que falta ese dato. Según R-QA-01 (SOP-CC-001 §5.8) se clasifica en el nivel más alto ante la falta de información. Dato faltante a solicitar: criticidad del material para el proceso y estado de calificación del nuevo proveedor. Esta es una propuesta de borrador pendiente de aprobación por QA.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.4"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.8"
+      },
+      {
+        "codigo": "SOP-PR-006",
+        "seccion": "3.1"
+      },
+      {
+        "codigo": "SOP-PR-006",
+        "seccion": "3.2"
+      },
+      {
+        "codigo": "SOP-PR-006",
+        "seccion": "3.3"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Completar la calificación del nuevo proveedor de celulosa microcristalina según SOP-PR-006 §3.1, incluyendo cuestionario de calidad, especificaciones, certificados de análisis y auditoría al fabricante.",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Analizar al menos tres lotes completos del nuevo proveedor según la monografía farmacopeica antes de aprobar el uso productivo (SOP-PR-006 §3.2).",
+        "area_responsable": "control_calidad"
+      },
+      {
+        "descripcion": "Evaluar la compatibilidad de la celulosa microcristalina del nuevo proveedor con los procesos de comprimidos validados, antes del primer uso.",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Definir y documentar la criticidad del material para el proceso y confirmar el estado de calificación del nuevo proveedor, datos necesarios para cerrar la clasificación.",
+        "area_responsable": "asuntos_regulatorios"
+      }
+    ],
+    "confianza": 0.6,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-PR-006",
+      "seccion": "1",
+      "fragmento_id": "SOP-PR-006#A00",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-PR-006",
+      "seccion": "5",
+      "fragmento_id": "SOP-PR-006#A01",
+      "puntaje": 0.032002
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.3",
+      "fragmento_id": "SOP-CC-001#A02",
+      "puntaje": 0.031054
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "5",
+      "fragmento_id": "SOP-VS-002#A01",
+      "puntaje": 0.030331
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "8",
+      "fragmento_id": "SOP-CC-001#A05",
+      "puntaje": 0.029514
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "fragmento_id": "SOP-CC-001#A04",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "4",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.032002
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 5980,
+    "output_tokens": 1191,
+    "cost": 0.0011935,
+    "latencia_ms": 4498,
+    "cached": false
+  },
+  "version_prompt": "rag-830d6cf9fc0b",
+  "evidencia_maxima": 0.3657
+}

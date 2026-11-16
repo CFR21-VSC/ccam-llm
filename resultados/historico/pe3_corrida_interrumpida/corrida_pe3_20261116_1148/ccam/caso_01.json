@@ -1,0 +1,79 @@
+{
+  "trace_id": "716ddd64caf6",
+  "ok": false,
+  "usuario": "u_analista_qa",
+  "propuesta": null,
+  "fuentes": [
+    {
+      "documento": "SOP-EQ-005",
+      "seccion": "5.1",
+      "fragmento_id": "SOP-EQ-005#A01",
+      "puntaje": 0.032522
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.3",
+      "fragmento_id": "SOP-CC-001#A02",
+      "puntaje": 0.032018
+    },
+    {
+      "documento": "SOP-PR-006",
+      "seccion": "5",
+      "fragmento_id": "SOP-PR-006#A01",
+      "puntaje": 0.031498
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "6.3",
+      "fragmento_id": "SOP-VS-002#A02",
+      "puntaje": 0.030769
+    },
+    {
+      "documento": "SOP-PR-006",
+      "seccion": "1",
+      "fragmento_id": "SOP-PR-006#A00",
+      "puntaje": 0.030303
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "fragmento_id": "SOP-CC-001#A04",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "4",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.032002
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "8",
+      "fragmento_id": "SOP-CC-001#A05",
+      "puntaje": 0.031258
+    }
+  ],
+  "error": {
+    "error": "salida_invalida",
+    "mensaje": "El modelo no produjo una propuesta válida después del reintento.",
+    "campos": [
+      {
+        "campo": "justificacion",
+        "problema": "String should have at most 1200 characters"
+      }
+    ],
+    "intentos": 2,
+    "accion": "Derivar a QA para evaluación manual"
+  },
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 2,
+    "input_tokens": 14482,
+    "output_tokens": 2549,
+    "cost": 0.0027227,
+    "latencia_ms": 9183,
+    "cached": false
+  },
+  "version_prompt": "rag-830d6cf9fc0b",
+  "evidencia_maxima": 0.5703
+}

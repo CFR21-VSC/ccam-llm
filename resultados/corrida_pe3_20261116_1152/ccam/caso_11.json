@@ -1,0 +1,112 @@
+{
+  "trace_id": "d921ca95409d",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "requiere_humano": false,
+    "impacto_gxp": "critico",
+    "requiere_revalidacion": true,
+    "justificacion": "El cambio traslada una cámara de estabilidad 25 °C / 60 % HR a otra sala con otro sistema de climatización, con tres estudios de estabilidad de productos comerciales en curso. Según SOP-EQ-005 §5.1, un traslado o un cambio del climatización que alcanza la cámara requiere recalificación con mapeo térmico y de humedad en la nueva ubicación y control de excursiones durante el traslado; un traslado no controlado puede invalidar un estudio en curso. Aplicando SOP-CC-001 §5.6, el cambio puede alterar datos que respaldan la vida útil y los compromisos regulatorios sin otra barrera posterior, porque los estudios en curso se generan en esa cámara. Por eso se clasifica como crítico y no como mayor. No hay información faltante para decidir el nivel. Falta confirmar el plan de traslado, el estado de cada estudio y si el cambio de climatización altera las condiciones registradas; QA debe revisarlo.",
+    "fundamento": [
+      {
+        "codigo": "SOP-EQ-005",
+        "seccion": "5.1"
+      },
+      {
+        "codigo": "SOP-EQ-005",
+        "seccion": "7.2"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.5"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.6"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Elaborar el plan de traslado con control de excursiones de temperatura y humedad durante el movimiento, y definir el criterio de aceptación.",
+        "area_responsable": "control_calidad"
+      },
+      {
+        "descripcion": "Realizar la recalificación de la cámara en la nueva ubicación: mapeo térmico y de humedad y verificación del sistema de climatización, según SOP-EQ-005 §5.1.",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Evaluar el impacto del traslado sobre los tres estudios de estabilidad en curso y definir si requieren desviación o repetición de puntos, con aprobación de QA.",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Verificar con Asuntos Regulatorios si el cambio de ubicación o de sistema de climatización requiere comunicación a la autoridad sobre los estudios en curso.",
+        "area_responsable": "asuntos_regulatorios"
+      }
+    ],
+    "confianza": 0.85,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-EQ-005",
+      "seccion": "5.1",
+      "fragmento_id": "SOP-EQ-005#A01",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-EQ-005",
+      "seccion": "1",
+      "fragmento_id": "SOP-EQ-005#A00",
+      "puntaje": 0.030622
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "1",
+      "fragmento_id": "SOP-CC-001#A00",
+      "puntaje": 0.03055
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.3",
+      "fragmento_id": "SOP-CC-001#A02",
+      "puntaje": 0.030536
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.5",
+      "fragmento_id": "SOP-CC-001#A03",
+      "puntaje": 0.030331
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "fragmento_id": "SOP-CC-001#A04",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "4",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.032002
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "8",
+      "fragmento_id": "SOP-CC-001#A05",
+      "puntaje": 0.031258
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 7164,
+    "output_tokens": 1000,
+    "cost": 0.0012164,
+    "latencia_ms": 4299,
+    "cached": false
+  },
+  "version_prompt": "rag-9b8f1eede363",
+  "evidencia_maxima": 0.454
+}

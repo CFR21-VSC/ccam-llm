@@ -1,0 +1,55 @@
+{
+  "trace_id": "757b46e593d2",
+  "ok": true,
+  "usuario": "u_validaciones",
+  "pregunta_id": "P10",
+  "salida": {
+    "respuesta": "No hay evidencia en los documentos disponibles sobre la acción correctiva CAPA-2026-041, sobre una auditoría interna ni sobre una subclasificación de cambios de LIMS. Los fragmentos recuperados no describen esa CAPA, por lo que no puedo responder la pregunta. Se requiere revisión humana con el registro de CAPA y el informe de auditoría.",
+    "citas": [],
+    "requiere_humano": true
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-DC-004",
+      "seccion": "6",
+      "fragmento_id": "SOP-DC-004#A01",
+      "puntaje": 0.03125
+    },
+    {
+      "documento": "SOP-DC-004",
+      "seccion": "1",
+      "fragmento_id": "SOP-DC-004#A00",
+      "puntaje": 0.030478
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "8",
+      "fragmento_id": "SOP-CC-001#A05",
+      "puntaje": 0.029958
+    },
+    {
+      "documento": "EXP-VAL-CROM-01",
+      "seccion": "3.4",
+      "fragmento_id": "EXP-VAL-CROM-01#A01",
+      "puntaje": 0.029857
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "5",
+      "fragmento_id": "SOP-VS-002#A01",
+      "puntaje": 0.029828
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 3227,
+    "output_tokens": 216,
+    "cost": 0.0004307,
+    "latencia_ms": 1508,
+    "cached": false
+  },
+  "version_prompt": "rag-9b8f1eede363",
+  "evidencia_maxima": 0.5721
+}

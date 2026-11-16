@@ -1,0 +1,87 @@
+{
+  "trace_id": "7e00de5f7fff",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "requiere_humano": true,
+    "impacto_gxp": null,
+    "requiere_revalidacion": false,
+    "justificacion": "El CCAM-2026-104 pide reemplazar una impresora del sector de producción, pero la descripción no indica si la impresora imprime registros GxP (por ejemplo, etiquetas, registros de lote o formularios controlados), ni si está conectada a un sistema validado o qué tipo de equipo es. La evidencia recuperada no trata el reemplazo de impresoras, por lo que no alcanza para clasificar el impacto (SOP-CC-001 §5.1 y regla R-QA-01). Falta el dato: qué documentos imprime, si es un equipo o sistema GxP, y si el modelo o software cambia. Se deriva a QA sin clasificar; haría falta la matriz de impacto o un procedimiento de equipos de impresión/periféricos para evaluar el caso.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.1"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.8"
+      }
+    ],
+    "tareas": [],
+    "confianza": 0.3,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-EQ-005",
+      "seccion": "5.1",
+      "fragmento_id": "SOP-EQ-005#A01",
+      "puntaje": 0.032522
+    },
+    {
+      "documento": "SOP-DC-004",
+      "seccion": "1",
+      "fragmento_id": "SOP-DC-004#A00",
+      "puntaje": 0.031778
+    },
+    {
+      "documento": "SOP-PR-006",
+      "seccion": "1",
+      "fragmento_id": "SOP-PR-006#A00",
+      "puntaje": 0.030835
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.3",
+      "fragmento_id": "SOP-CC-001#A02",
+      "puntaje": 0.030366
+    },
+    {
+      "documento": "INF-AUD-2026-03",
+      "seccion": "5",
+      "fragmento_id": "INF-AUD-2026-03#A01",
+      "puntaje": 0.030331
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "fragmento_id": "SOP-CC-001#A04",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "4",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.032002
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "8",
+      "fragmento_id": "SOP-CC-001#A05",
+      "puntaje": 0.031258
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 6690,
+    "output_tokens": 543,
+    "cost": 0.0009405,
+    "latencia_ms": 2775,
+    "cached": false
+  },
+  "version_prompt": "rag-830d6cf9fc0b",
+  "evidencia_maxima": 0.391
+}

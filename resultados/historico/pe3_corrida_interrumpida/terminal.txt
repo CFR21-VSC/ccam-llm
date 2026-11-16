@@ -1,0 +1,24 @@
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 5 files:  20%|██        | 1/5 [00:00<00:00,  4.75it/s]Fetching 5 files:  80%|████████  | 4/5 [00:08<00:02,  2.32s/it]Fetching 5 files: 100%|██████████| 5/5 [00:10<00:00,  2.17s/it]Fetching 5 files: 100%|██████████| 5/5 [00:10<00:00,  2.09s/it]
+Ingesta A: 23 fragmentos
+Ingesta B: 11 fragmentos
+Pregunta P01: OK (requiere_humano=False, citas=['SOP-EQ-005 §7.1', 'EXP-VAL-CROM-01 §3.3'])
+Pregunta P02: OK (requiere_humano=False, citas=['SOP-VS-003 §3.2'])
+Pregunta P03: OK (requiere_humano=False, citas=['SOP-CC-001 §7'])
+Pregunta P04: OK (requiere_humano=False, citas=['SOP-DC-004 §3.2', 'SOP-DC-004 §3.1'])
+Pregunta P05: OK (requiere_humano=False, citas=['SOP-EQ-005 §5.1'])
+Pregunta P06: OK (requiere_humano=False, citas=['SOP-VS-002 §5', 'SOP-PR-006 §5'])
+Pregunta P07: OK (requiere_humano=True, citas=[])
+Pregunta P08: OK (requiere_humano=True, citas=[])
+Pregunta P09: OK (requiere_humano=True, citas=[])
+Pregunta P10: OK (requiere_humano=True, citas=[])
+[716ddd64caf6] intento 1/2: salida inválida -> justificacion: String should have at most 1200 characters
+[716ddd64caf6] intento 2/2: salida inválida -> justificacion: String should have at most 1200 characters
+CCAM 01: salida_invalida
+[87dc3aa27887] intento 1/2: salida inválida -> justificacion: String should have at most 1200 characters
+CCAM 02: mayor
+CCAM 03: mayor
+CCAM 04: requiere_humano
+CCAM 05: fuera_de_alcance
+CCAM 06: menor
+CCAM 07: critico

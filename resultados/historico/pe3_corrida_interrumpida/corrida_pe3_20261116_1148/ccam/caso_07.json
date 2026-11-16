@@ -1,0 +1,124 @@
+{
+  "trace_id": "a3c9c5dbc560",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "requiere_humano": false,
+    "impacto_gxp": "critico",
+    "requiere_revalidacion": true,
+    "justificacion": "El CCAM-2026-107 migra el sistema de liberación de lotes a la v5.0 y reemplaza el mecanismo de firma electrónica de la decisión de liberación (usuario y token en lugar de usuario y contraseña). Según SOP-CC-001 §5.5, cambiar cómo se firma o atribuye la decisión de liberación de un lote es crítico, y SOP-VS-003 §4 indica que cambiar el mecanismo de firma de una decisión de liberación requiere revalidación y aprobación del Jefe de Garantía de Calidad. Aplicando la pregunta de §5.6, el cambio altera directamente la decisión que libera el lote sin otra barrera, por lo que no corresponde clasificarlo como mayor. La descripción da el dato necesario para clasificar, por lo que no aplica R-QA-01. Además, la migración de datos GxP requiere plan con respaldo previo, verificación de integridad y conservación del audit trail histórico (SOP-VS-002 §6.4), y la revalidación debe completarse antes del uso productivo (SOP-VS-002 §6.3). La propuesta queda como borrador pendiente de aprobación de QA.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.5"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.6"
+      },
+      {
+        "codigo": "SOP-VS-003",
+        "seccion": "4"
+      },
+      {
+        "codigo": "SOP-VS-002",
+        "seccion": "6.3"
+      },
+      {
+        "codigo": "SOP-VS-002",
+        "seccion": "6.4"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Elaborar plan de migración a v5.0 con respaldo previo verificado de la base de datos de liberación de lotes y registros de firma.",
+        "area_responsable": "sistemas"
+      },
+      {
+        "descripcion": "Ejecutar pruebas de regresión de las funciones GxP afectadas, incluida la firma electrónica de liberación con usuario y token, antes del uso productivo.",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Verificar la integridad de los registros migrados y la conservación del audit trail histórico tras la migración.",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Revisar y aprobar la revalidación del mecanismo de firma de liberación, con aprobación del Jefe de Garantía de Calidad según SOP-VS-003 §4.",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Evaluar con Asuntos Regulatorios si el cambio requiere notificación a la autoridad sanitaria, según SOP-CC-001 §5.5.",
+        "area_responsable": "asuntos_regulatorios"
+      },
+      {
+        "descripcion": "Capacitar al Director Técnico en el nuevo procedimiento de firma con usuario y token antes de la entrada en uso.",
+        "area_responsable": "produccion"
+      }
+    ],
+    "confianza": 0.9,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "5",
+      "fragmento_id": "SOP-VS-002#A01",
+      "puntaje": 0.032522
+    },
+    {
+      "documento": "SOP-VS-003",
+      "seccion": "4",
+      "fragmento_id": "SOP-VS-003#A01",
+      "puntaje": 0.032018
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "6.3",
+      "fragmento_id": "SOP-VS-002#A02",
+      "puntaje": 0.031754
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.5",
+      "fragmento_id": "SOP-CC-001#A03",
+      "puntaje": 0.031258
+    },
+    {
+      "documento": "SOP-DC-004",
+      "seccion": "1",
+      "fragmento_id": "SOP-DC-004#A00",
+      "puntaje": 0.029857
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "fragmento_id": "SOP-CC-001#A04",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "4",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.032002
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "8",
+      "fragmento_id": "SOP-CC-001#A05",
+      "puntaje": 0.031258
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 6718,
+    "output_tokens": 1214,
+    "cost": 0.0012788,
+    "latencia_ms": 5110,
+    "cached": false
+  },
+  "version_prompt": "rag-830d6cf9fc0b",
+  "evidencia_maxima": 0.4913
+}

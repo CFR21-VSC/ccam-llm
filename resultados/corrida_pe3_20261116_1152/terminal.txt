@@ -1,0 +1,28 @@
+Ingesta A: 23 fragmentos
+Ingesta B: 11 fragmentos
+Pregunta P01: OK (requiere_humano=False, citas=['SOP-EQ-005 §7.1'])
+Pregunta P02: OK (requiere_humano=False, citas=['SOP-VS-003 §3.2'])
+Pregunta P03: OK (requiere_humano=False, citas=['SOP-CC-001 §7'])
+Pregunta P04: OK (requiere_humano=False, citas=['SOP-DC-004 §3.2', 'SOP-DC-004 §3.1'])
+Pregunta P05: OK (requiere_humano=False, citas=['SOP-EQ-005 §5.1'])
+Pregunta P06: OK (requiere_humano=False, citas=['SOP-VS-002 §5'])
+Pregunta P07: OK (requiere_humano=True, citas=[])
+Pregunta P08: OK (requiere_humano=True, citas=[])
+Pregunta P09: OK (requiere_humano=True, citas=[])
+Pregunta P10: OK (requiere_humano=True, citas=[])
+CCAM 01: mayor
+CCAM 02: menor
+CCAM 03: mayor
+CCAM 04: requiere_humano
+CCAM 05: fuera_de_alcance
+CCAM 06: menor
+CCAM 07: critico
+CCAM 08: critico
+CCAM 09: menor
+CCAM 10: mayor
+CCAM 11: critico
+CCAM 12: menor
+CCAM 13: critico
+CCAM 14: mayor
+CCAM 15: fuera_de_alcance
+Corrida guardada en resultados/corrida_pe3_20261116_1152

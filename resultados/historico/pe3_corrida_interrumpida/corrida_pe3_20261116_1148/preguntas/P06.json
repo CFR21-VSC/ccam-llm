@@ -1,0 +1,64 @@
+{
+  "trace_id": "d4b71c2fc593",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "pregunta_id": "P06",
+  "salida": {
+    "respuesta": "Sí, en las condiciones del documento: si el proveedor entrega evidencia de pruebas de un parche y el parche es correctivo y no cambia funciones, cálculos, flujos ni la estructura de datos, la evidencia del proveedor revisada por Garantía de Calidad puede reemplazar las pruebas propias. Garantía de Calidad debe revisarla y decidir si la acepta, documentar la revisión y no se requiere revalidación. Además, la documentación del proveedor puede aprovecharse si su sistema de calidad fue evaluado según SOP-VS-002.",
+    "citas": [
+      {
+        "codigo": "SOP-VS-002",
+        "seccion": "5"
+      },
+      {
+        "codigo": "SOP-PR-006",
+        "seccion": "5"
+      }
+    ],
+    "requiere_humano": false
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "5",
+      "fragmento_id": "SOP-VS-002#A01",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-PR-006",
+      "seccion": "5",
+      "fragmento_id": "SOP-PR-006#A01",
+      "puntaje": 0.032002
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.3",
+      "fragmento_id": "SOP-CC-001#A02",
+      "puntaje": 0.030798
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "6.3",
+      "fragmento_id": "SOP-VS-002#A02",
+      "puntaje": 0.030536
+    },
+    {
+      "documento": "SOP-VS-003",
+      "seccion": "4",
+      "fragmento_id": "SOP-VS-003#A01",
+      "puntaje": 0.030415
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 3665,
+    "output_tokens": 332,
+    "cost": 0.0005325,
+    "latencia_ms": 1733,
+    "cached": false
+  },
+  "version_prompt": "rag-830d6cf9fc0b",
+  "evidencia_maxima": 0.5923
+}

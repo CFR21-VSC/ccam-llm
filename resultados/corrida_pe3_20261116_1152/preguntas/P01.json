@@ -1,0 +1,60 @@
+{
+  "trace_id": "05f5de774d96",
+  "ok": true,
+  "usuario": "u_validaciones",
+  "pregunta_id": "P01",
+  "salida": {
+    "respuesta": "El HPLC-QC-03 requiere recalificación OQ anual, y además la OQ se repite después de cualquier cambio de bomba, detector o software de control. Se usa para valoración y uniformidad de contenido de producto terminado.",
+    "citas": [
+      {
+        "codigo": "SOP-EQ-005",
+        "seccion": "7.1"
+      }
+    ],
+    "requiere_humano": false
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-EQ-005",
+      "seccion": "5.1",
+      "fragmento_id": "SOP-EQ-005#A01",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "EXP-VAL-CROM-01",
+      "seccion": "1",
+      "fragmento_id": "EXP-VAL-CROM-01#A00",
+      "puntaje": 0.032258
+    },
+    {
+      "documento": "SOP-EQ-005",
+      "seccion": "1",
+      "fragmento_id": "SOP-EQ-005#A00",
+      "puntaje": 0.03101
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.3",
+      "fragmento_id": "SOP-CC-001#A02",
+      "puntaje": 0.030798
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "fragmento_id": "SOP-CC-001#A04",
+      "puntaje": 0.029857
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 4350,
+    "output_tokens": 190,
+    "cost": 0.00053,
+    "latencia_ms": 1537,
+    "cached": false
+  },
+  "version_prompt": "rag-9b8f1eede363",
+  "evidencia_maxima": 0.6612
+}

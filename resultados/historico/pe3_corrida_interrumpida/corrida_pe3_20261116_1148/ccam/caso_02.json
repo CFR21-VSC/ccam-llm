@@ -1,0 +1,112 @@
+{
+  "trace_id": "87dc3aa27887",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "requiere_humano": false,
+    "impacto_gxp": "mayor",
+    "requiere_revalidacion": false,
+    "justificacion": "El CCAM-2026-102 modifica el estuche secundario del Analgésico X 500 mg para incorporar un código QR de trazabilidad y actualizar el texto del rótulo según el último prospecto aprobado. El cambio toca material de empaque GxP (secundario) y el texto regulatorio, por lo que no es sin impacto. No altera el material ni el proveedor. Según SOP-AC-007 §3.1 el texto debe coincidir con la última versión aprobada por la autoridad sanitaria; según §3.2 el QR requiere verificar legibilidad, integración con el sistema de trazabilidad y concordancia del arte con el rotulado aprobado. Se clasifica como mayor (SOP-CC-001 §5.4): hay potencial efecto sobre datos de trazabilidad y texto regulatorio, pero existe una barrera posterior (verificación de arte por Asuntos Regulatorios y verificación de legibilidad e integración antes de uso). No modifica función, cálculo ni decisión de liberación, por lo que no es crítico. No se propone revalidación según la evidencia disponible, aunque la integración con el sistema de trazabilidad debe confirmarse. La evidencia no trata explícitamente la validación de ese sistema; QA debe confirmarlo antes del cierre.",
+    "fundamento": [
+      {
+        "codigo": "SOP-AC-007",
+        "seccion": "3.1"
+      },
+      {
+        "codigo": "SOP-AC-007",
+        "seccion": "3.2"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.4"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.7"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Verificar que el texto del rótulo y del estuche coincida con la última versión del prospecto aprobada por la autoridad sanitaria antes de aprobar el arte.",
+        "area_responsable": "asuntos_regulatorios"
+      },
+      {
+        "descripcion": "Verificar la legibilidad en línea del código QR sobre el estuche secundario impreso, con muestras representativas.",
+        "area_responsable": "control_calidad"
+      },
+      {
+        "descripcion": "Confirmar la integración del código QR con el sistema de trazabilidad y que el arte resultante coincide con el rotulado aprobado; registrar la verificación.",
+        "area_responsable": "sistemas"
+      },
+      {
+        "descripcion": "Asignar código y versión nueva al arte, y destruir en imprenta y depósito los artes obsoletos.",
+        "area_responsable": "garantia_calidad"
+      }
+    ],
+    "confianza": 0.8,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-PR-006",
+      "seccion": "1",
+      "fragmento_id": "SOP-PR-006#A00",
+      "puntaje": 0.032258
+    },
+    {
+      "documento": "SOP-AC-007",
+      "seccion": "1",
+      "fragmento_id": "SOP-AC-007#A00",
+      "puntaje": 0.031778
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.3",
+      "fragmento_id": "SOP-CC-001#A02",
+      "puntaje": 0.031746
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "5",
+      "fragmento_id": "SOP-VS-002#A01",
+      "puntaje": 0.03125
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.5",
+      "fragmento_id": "SOP-CC-001#A03",
+      "puntaje": 0.03009
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "fragmento_id": "SOP-CC-001#A04",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "4",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.032002
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "8",
+      "fragmento_id": "SOP-CC-001#A05",
+      "puntaje": 0.031258
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 2,
+    "input_tokens": 15150,
+    "output_tokens": 2162,
+    "cost": 0.002596,
+    "latencia_ms": 8400,
+    "cached": false
+  },
+  "version_prompt": "rag-830d6cf9fc0b",
+  "evidencia_maxima": 0.4518
+}

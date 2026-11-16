@@ -1,0 +1,55 @@
+{
+  "trace_id": "d6f29fddc80e",
+  "ok": true,
+  "usuario": "u_solicitante_prod",
+  "pregunta_id": "P08",
+  "salida": {
+    "respuesta": "Los documentos disponibles no contienen información sobre días de vacaciones del personal de planta. Los fragmentos recuperados tratan sobre control de cambios, gestión documental, validación de sistemas computarizados y calificación de equipos, por lo que no hay evidencia para responder esta pregunta. Se requiere consultar la política de recursos humanos o el área responsable.",
+    "citas": [],
+    "requiere_humano": true
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "8",
+      "fragmento_id": "SOP-CC-001#A05",
+      "puntaje": 0.032522
+    },
+    {
+      "documento": "SOP-DC-004",
+      "seccion": "1",
+      "fragmento_id": "SOP-DC-004#A00",
+      "puntaje": 0.031746
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "fragmento_id": "SOP-CC-001#A04",
+      "puntaje": 0.031281
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "1",
+      "fragmento_id": "SOP-VS-002#A00",
+      "puntaje": 0.03101
+    },
+    {
+      "documento": "SOP-EQ-005",
+      "seccion": "1",
+      "fragmento_id": "SOP-EQ-005#A00",
+      "puntaje": 0.029857
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 3713,
+    "output_tokens": 208,
+    "cost": 0.0004753,
+    "latencia_ms": 1703,
+    "cached": false
+  },
+  "version_prompt": "rag-830d6cf9fc0b",
+  "evidencia_maxima": 0.2378
+}

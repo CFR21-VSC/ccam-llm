@@ -1,0 +1,106 @@
+{
+  "trace_id": "f0b2397a4b3e",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "requiere_humano": false,
+    "impacto_gxp": "mayor",
+    "requiere_revalidacion": true,
+    "justificacion": "Cambio: incorporar un segundo proveedor de celulosa microcristalina (excipiente usado en comprimidos), con la misma especificación farmacopeica declarada, sin auditoría previa. Según SOP-PR-006 §3.3, incorporar un segundo proveedor de un material ya aprobado se gestiona por SOP-CC-001 y exige calificación completa del proveedor y evaluación de compatibilidad con los procesos validados antes del primer uso. Según SOP-PR-006 §3.2, para excipientes se analizan al menos tres lotes completos según monografía antes del uso productivo. Aplicando la pregunta de frontera de SOP-CC-001 §5.7: el cambio modifica la fuente de un material de un proceso validado y su calidad todavía no está demostrada, por lo que no es un cambio menor. Se clasifica como mayor, con revalidación parcial del proceso de comprimidos. El solicitante no informó la auditoría ni la compatibilidad del nuevo proveedor; esa falta de dato no se usó para subir el nivel, ya que la clasificación se basa en el efecto real del cambio. Queda pendiente confirmar el plan de calificación y la fecha de auditoría.\"",
+    "fundamento": [
+      {
+        "codigo": "SOP-PR-006",
+        "seccion": "3.3"
+      },
+      {
+        "codigo": "SOP-PR-006",
+        "seccion": "3.2"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.4"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.7"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Completar la calificación del nuevo proveedor de celulosa microcristalina (cuestionario de calidad, especificaciones, certificados de análisis y auditoría al fabricante) según SOP-PR-006 §3.1 antes de cualquier uso.",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Analizar al menos tres lotes completos del nuevo proveedor según la monografía farmacopeica antes de autorizar uso productivo (SOP-PR-006 §3.2).",
+        "area_responsable": "control_calidad"
+      },
+      {
+        "descripcion": "Evaluar la compatibilidad del material del nuevo proveedor con los procesos validados de comprimidos y definir la revalidación parcial necesaria antes del primer uso.",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Gestionar la incorporación del segundo proveedor por SOP-CC-001 y registrar la evaluación y el plan de implementación aprobado por QA.",
+        "area_responsable": "asuntos_regulatorios"
+      }
+    ],
+    "confianza": 0.85,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-PR-006",
+      "seccion": "1",
+      "fragmento_id": "SOP-PR-006#A00",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-PR-006",
+      "seccion": "5",
+      "fragmento_id": "SOP-PR-006#A01",
+      "puntaje": 0.032002
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.3",
+      "fragmento_id": "SOP-CC-001#A02",
+      "puntaje": 0.031054
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "5",
+      "fragmento_id": "SOP-VS-002#A01",
+      "puntaje": 0.030331
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "8",
+      "fragmento_id": "SOP-CC-001#A05",
+      "puntaje": 0.029514
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "fragmento_id": "SOP-CC-001#A04",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "4",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.032002
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 6046,
+    "output_tokens": 1113,
+    "cost": 0.0011611,
+    "latencia_ms": 5108,
+    "cached": false
+  },
+  "version_prompt": "rag-9b8f1eede363",
+  "evidencia_maxima": 0.3657
+}

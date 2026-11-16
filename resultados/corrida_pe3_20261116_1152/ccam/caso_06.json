@@ -1,0 +1,104 @@
+{
+  "trace_id": "08ac3d30543c",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "requiere_humano": false,
+    "impacto_gxp": "menor",
+    "requiere_revalidacion": false,
+    "justificacion": "El cambio actualiza el LIMS del parche 8.2.1 al 8.2.3, un parche correctivo que corrige dos errores en la impresión de reportes. Según el solicitante y el paquete de validación del proveedor, no modifica flujos, base de datos ni cálculos. Aplicando la pregunta de frontera de SOP-CC-001 §5.7 (¿modifica una función, un cálculo, un dato o un estado validado?), la respuesta es no, siempre que Garantía de Calidad confirme la declaración del proveedor. Dado que el LIMS es un sistema validado, el cambio toca un elemento GxP, pero no altera funciones ni datos, por lo que corresponde nivel menor. Según SOP-VS-002 §5, la evidencia del proveedor revisada por QA puede reemplazar las pruebas propias. Nota: el cambio de formato en la impresión de reportes podría considerarse un formato de resultado informado (SOP-VS-002 §6.2); QA debe verificar que la corrección no altere el contenido ni el formato de los resultados informados. Si la revisión de QA encuentra cambios en funciones o cálculos, la clasificación debe reevaluarse.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.3"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.7"
+      },
+      {
+        "codigo": "SOP-VS-002",
+        "seccion": "5"
+      },
+      {
+        "codigo": "SOP-VS-002",
+        "seccion": "6.2"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Revisar el paquete de validación del proveedor del parche 8.2.3 y confirmar que no cambia flujos, base de datos ni cálculos; documentar la revisión.",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Verificar en un entorno controlado que la corrección de impresión de reportes no altera el contenido ni el formato de los resultados informados.",
+        "area_responsable": "validaciones"
+      }
+    ],
+    "confianza": 0.7,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "5",
+      "fragmento_id": "SOP-VS-002#A01",
+      "puntaje": 0.032266
+    },
+    {
+      "documento": "INF-AUD-2026-03",
+      "seccion": "1",
+      "fragmento_id": "INF-AUD-2026-03#A00",
+      "puntaje": 0.031754
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "6.3",
+      "fragmento_id": "SOP-VS-002#A02",
+      "puntaje": 0.030886
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.3",
+      "fragmento_id": "SOP-CC-001#A02",
+      "puntaje": 0.030769
+    },
+    {
+      "documento": "SOP-DC-004",
+      "seccion": "1",
+      "fragmento_id": "SOP-DC-004#A00",
+      "puntaje": 0.030159
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "fragmento_id": "SOP-CC-001#A04",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "4",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.032002
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "8",
+      "fragmento_id": "SOP-CC-001#A05",
+      "puntaje": 0.031258
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 6876,
+    "output_tokens": 922,
+    "cost": 0.0011486,
+    "latencia_ms": 3906,
+    "cached": false
+  },
+  "version_prompt": "rag-9b8f1eede363",
+  "evidencia_maxima": 0.4915
+}

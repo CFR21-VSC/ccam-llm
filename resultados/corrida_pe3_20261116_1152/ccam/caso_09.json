@@ -1,0 +1,91 @@
+{
+  "trace_id": "abc8f3d4abf1",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "requiere_humano": false,
+    "impacto_gxp": "menor",
+    "requiere_revalidacion": false,
+    "justificacion": "El cambio crea un perfil nuevo en el LIMS (sistema validado, categoría 4) con permisos solo de consulta, sin carga ni aprobación de resultados. No modifica una función, un cálculo, un dato, un estado validado ni un flujo de aprobación, por lo que no eleva el nivel. Aplicando la pregunta de frontera de SOP-CC-001 §5.7 (¿modifica una función, un cálculo, un dato o un estado validado?), la respuesta es no: el riesgo queda documentado y el cambio es menor. Según SOP-VS-002 §6.2, los cambios de perfiles de solo consulta se documentan en la matriz de accesos y se verifican en la revisión periódica de usuarios. La regla R-QA-01 no aplica porque la descripción tiene los datos necesarios para decidir. Queda pendiente que QA confirme que el perfil no herede permisos de carga, modificación o aprobación.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.7"
+      },
+      {
+        "codigo": "SOP-VS-002",
+        "seccion": "6.2"
+      },
+      {
+        "codigo": "SOP-VS-003",
+        "seccion": "6"
+      }
+    ],
+    "tareas": [],
+    "confianza": 0.85,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-PR-006",
+      "seccion": "1",
+      "fragmento_id": "SOP-PR-006#A00",
+      "puntaje": 0.031778
+    },
+    {
+      "documento": "SOP-VS-003",
+      "seccion": "4",
+      "fragmento_id": "SOP-VS-003#A01",
+      "puntaje": 0.031545
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "5",
+      "fragmento_id": "SOP-VS-002#A01",
+      "puntaje": 0.031514
+    },
+    {
+      "documento": "INF-AUD-2026-03",
+      "seccion": "1",
+      "fragmento_id": "INF-AUD-2026-03#A00",
+      "puntaje": 0.03125
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "1",
+      "fragmento_id": "SOP-VS-002#A00",
+      "puntaje": 0.030798
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "fragmento_id": "SOP-CC-001#A04",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "4",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.032002
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "8",
+      "fragmento_id": "SOP-CC-001#A05",
+      "puntaje": 0.031258
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 6864,
+    "output_tokens": 653,
+    "cost": 0.0010129,
+    "latencia_ms": 2787,
+    "cached": false
+  },
+  "version_prompt": "rag-9b8f1eede363",
+  "evidencia_maxima": 0.3825
+}

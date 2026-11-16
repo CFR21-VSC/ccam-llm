@@ -1,0 +1,60 @@
+{
+  "trace_id": "e95a4e8aaf3d",
+  "ok": true,
+  "usuario": "u_validaciones",
+  "pregunta_id": "P05",
+  "salida": {
+    "respuesta": "Sí. SOP-EQ-005 §5.1 establece que un traslado de equipo a otra sala requiere recalificación, y que en cámaras de estabilidad esa recalificación incluye el mapeo térmico y de humedad en la nueva ubicación, junto con el control de excursiones durante el traslado. El mismo párrafo indica que un traslado no controlado puede invalidar un estudio en curso.",
+    "citas": [
+      {
+        "codigo": "SOP-EQ-005",
+        "seccion": "5.1"
+      }
+    ],
+    "requiere_humano": false
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-EQ-005",
+      "seccion": "5.1",
+      "fragmento_id": "SOP-EQ-005#A01",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.5",
+      "fragmento_id": "SOP-CC-001#A03",
+      "puntaje": 0.032258
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "fragmento_id": "SOP-CC-001#A04",
+      "puntaje": 0.031258
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.3",
+      "fragmento_id": "SOP-CC-001#A02",
+      "puntaje": 0.030777
+    },
+    {
+      "documento": "SOP-EQ-005",
+      "seccion": "1",
+      "fragmento_id": "SOP-EQ-005#A00",
+      "puntaje": 0.030159
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 4366,
+    "output_tokens": 249,
+    "cost": 0.0005611,
+    "latencia_ms": 1501,
+    "cached": false
+  },
+  "version_prompt": "rag-9b8f1eede363",
+  "evidencia_maxima": 0.4463
+}

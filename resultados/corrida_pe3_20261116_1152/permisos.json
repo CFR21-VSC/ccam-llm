@@ -1,0 +1,169 @@
+{
+  "visibles_por_usuario": {
+    "u_solicitante_prod": [
+      "SOP-AC-007",
+      "SOP-CC-001",
+      "SOP-DC-004",
+      "SOP-EQ-005",
+      "SOP-PR-006",
+      "SOP-VS-002",
+      "SOP-VS-003"
+    ],
+    "u_analista_qa": [
+      "INF-AUD-2026-03",
+      "SOP-AC-007",
+      "SOP-CC-001",
+      "SOP-DC-004",
+      "SOP-EQ-005",
+      "SOP-PR-006",
+      "SOP-VS-002",
+      "SOP-VS-003"
+    ],
+    "u_validaciones": [
+      "EXP-VAL-CROM-01",
+      "SOP-AC-007",
+      "SOP-CC-001",
+      "SOP-DC-004",
+      "SOP-EQ-005",
+      "SOP-PR-006",
+      "SOP-VS-002",
+      "SOP-VS-003"
+    ],
+    "u_jefe_qa": [
+      "EXP-VAL-CROM-01",
+      "HAL-INSP-2026-01",
+      "INF-AUD-2026-03",
+      "SOP-AC-007",
+      "SOP-CC-001",
+      "SOP-DC-004",
+      "SOP-EQ-005",
+      "SOP-PR-006",
+      "SOP-VS-002",
+      "SOP-VS-003"
+    ]
+  },
+  "testigos": [
+    {
+      "documento": "INF-AUD-2026-03",
+      "frase": "TESTIGO-AUD-7731",
+      "usuario": "u_solicitante_prod",
+      "rol": "solicitante",
+      "tiene_permiso": false,
+      "en_resultados": false,
+      "en_prompt": false,
+      "correcto": true
+    },
+    {
+      "documento": "INF-AUD-2026-03",
+      "frase": "TESTIGO-AUD-7731",
+      "usuario": "u_analista_qa",
+      "rol": "analista_qa",
+      "tiene_permiso": true,
+      "en_resultados": true,
+      "en_prompt": true,
+      "correcto": true
+    },
+    {
+      "documento": "INF-AUD-2026-03",
+      "frase": "TESTIGO-AUD-7731",
+      "usuario": "u_validaciones",
+      "rol": "validaciones",
+      "tiene_permiso": false,
+      "en_resultados": false,
+      "en_prompt": false,
+      "correcto": true
+    },
+    {
+      "documento": "INF-AUD-2026-03",
+      "frase": "TESTIGO-AUD-7731",
+      "usuario": "u_jefe_qa",
+      "rol": "jefe_qa",
+      "tiene_permiso": true,
+      "en_resultados": true,
+      "en_prompt": true,
+      "correcto": true
+    },
+    {
+      "documento": "EXP-VAL-CROM-01",
+      "frase": "TESTIGO-VAL-4408",
+      "usuario": "u_solicitante_prod",
+      "rol": "solicitante",
+      "tiene_permiso": false,
+      "en_resultados": false,
+      "en_prompt": false,
+      "correcto": true
+    },
+    {
+      "documento": "EXP-VAL-CROM-01",
+      "frase": "TESTIGO-VAL-4408",
+      "usuario": "u_analista_qa",
+      "rol": "analista_qa",
+      "tiene_permiso": false,
+      "en_resultados": false,
+      "en_prompt": false,
+      "correcto": true
+    },
+    {
+      "documento": "EXP-VAL-CROM-01",
+      "frase": "TESTIGO-VAL-4408",
+      "usuario": "u_validaciones",
+      "rol": "validaciones",
+      "tiene_permiso": true,
+      "en_resultados": true,
+      "en_prompt": true,
+      "correcto": true
+    },
+    {
+      "documento": "EXP-VAL-CROM-01",
+      "frase": "TESTIGO-VAL-4408",
+      "usuario": "u_jefe_qa",
+      "rol": "jefe_qa",
+      "tiene_permiso": true,
+      "en_resultados": true,
+      "en_prompt": true,
+      "correcto": true
+    },
+    {
+      "documento": "HAL-INSP-2026-01",
+      "frase": "TESTIGO-INSP-2290",
+      "usuario": "u_solicitante_prod",
+      "rol": "solicitante",
+      "tiene_permiso": false,
+      "en_resultados": false,
+      "en_prompt": false,
+      "correcto": true
+    },
+    {
+      "documento": "HAL-INSP-2026-01",
+      "frase": "TESTIGO-INSP-2290",
+      "usuario": "u_analista_qa",
+      "rol": "analista_qa",
+      "tiene_permiso": false,
+      "en_resultados": false,
+      "en_prompt": false,
+      "correcto": true
+    },
+    {
+      "documento": "HAL-INSP-2026-01",
+      "frase": "TESTIGO-INSP-2290",
+      "usuario": "u_validaciones",
+      "rol": "validaciones",
+      "tiene_permiso": false,
+      "en_resultados": false,
+      "en_prompt": false,
+      "correcto": true
+    },
+    {
+      "documento": "HAL-INSP-2026-01",
+      "frase": "TESTIGO-INSP-2290",
+      "usuario": "u_jefe_qa",
+      "rol": "jefe_qa",
+      "tiene_permiso": true,
+      "en_resultados": true,
+      "en_prompt": true,
+      "correcto": true
+    }
+  ],
+  "testigos_correctos": "12/12",
+  "usuario_desconocido_recibe": 0
+}

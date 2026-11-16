@@ -1,0 +1,116 @@
+{
+  "trace_id": "96b8c4d4d8b0",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "requiere_humano": false,
+    "impacto_gxp": "critico",
+    "requiere_revalidacion": true,
+    "justificacion": "El cambio es una migración a la versión 5.0 del sistema de liberación de lotes que reemplaza el módulo de firma electrónica: la firma del Director Técnico pasa de usuario y contraseña a usuario y token. Esto altera el mecanismo con que se atribuye la decisión de liberación de un lote, lo que SOP-CC-001 §5.5 describe como nivel crítico (cambiar cómo se firma o atribuye la liberación). Aplicando la pregunta de §5.6, el cambio puede alterar la decisión que libera producto sin otra barrera, por lo que no corresponde clasificarlo como mayor. SOP-VS-003 §4 exige revalidación y aprobación del Jefe de Garantía de Calidad para cambiar el mecanismo de firma de una decisión de liberación. Además, SOP-VS-002 §6.3 exige revalidación con regresión de funciones GxP al cambiar de versión mayor que modifica funciones, y la revalidación debe completarse antes del uso productivo. La evidencia no indica si la migración incluye cambios de datos (SOP-VS-002 §6.4), lo que debe confirmarse. La regla R-QA-01 no se aplica porque el efecto del cambio surge de la descripción.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.5"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.6"
+      },
+      {
+        "codigo": "SOP-VS-003",
+        "seccion": "4"
+      },
+      {
+        "codigo": "SOP-VS-002",
+        "seccion": "6.3"
+      },
+      {
+        "codigo": "SOP-VS-002",
+        "seccion": "6.4"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Revalidar el sistema de liberación de lotes v5.0 con pruebas de regresión de las funciones GxP, incluyendo el nuevo flujo de firma con usuario y token, antes del uso productivo.",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Obtener la aprobación del Jefe de Garantía de Calidad para el cambio del mecanismo de firma electrónica de la decisión de liberación.",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Verificar la atribución de firmas del Director Técnico con token (vinculación a registro, significado de firma) y confirmar que la migración de datos tiene plan con respaldo previo, verificación de integridad y conservación del audit trail histórico.",
+        "area_responsable": "sistemas"
+      },
+      {
+        "descripcion": "Evaluar con Asuntos Regulatorios si el cambio requiere notificación regulatoria a ANMAT, según SOP-CC-001 §5.5.",
+        "area_responsable": "asuntos_regulatorios"
+      }
+    ],
+    "confianza": 0.9,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "5",
+      "fragmento_id": "SOP-VS-002#A01",
+      "puntaje": 0.032522
+    },
+    {
+      "documento": "SOP-VS-003",
+      "seccion": "4",
+      "fragmento_id": "SOP-VS-003#A01",
+      "puntaje": 0.032018
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "6.3",
+      "fragmento_id": "SOP-VS-002#A02",
+      "puntaje": 0.031754
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.5",
+      "fragmento_id": "SOP-CC-001#A03",
+      "puntaje": 0.031258
+    },
+    {
+      "documento": "SOP-DC-004",
+      "seccion": "1",
+      "fragmento_id": "SOP-DC-004#A00",
+      "puntaje": 0.029857
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "fragmento_id": "SOP-CC-001#A04",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "4",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.032002
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "8",
+      "fragmento_id": "SOP-CC-001#A05",
+      "puntaje": 0.031258
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 6784,
+    "output_tokens": 1136,
+    "cost": 0.0012464,
+    "latencia_ms": 4686,
+    "cached": false
+  },
+  "version_prompt": "rag-9b8f1eede363",
+  "evidencia_maxima": 0.4913
+}

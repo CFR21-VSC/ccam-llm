@@ -1,0 +1,977 @@
+{
+  "consultas_medidas": 14,
+  "configuraciones": {
+    "A": {
+      "max_tokens": 400,
+      "solapamiento": 0.1,
+      "descripcion": "fragmentos chicos, ~400 tokens",
+      "fragmentos": 23,
+      "recall": {
+        "vectorial@3": 0.7143,
+        "vectorial@5": 0.8571,
+        "bm25@3": 1.0,
+        "bm25@5": 1.0,
+        "hibrida@3": 1.0,
+        "hibrida@5": 1.0
+      },
+      "recall_solo_10_preguntas": {
+        "vectorial@3": 0.8333,
+        "vectorial@5": 0.8333,
+        "bm25@3": 1.0,
+        "bm25@5": 1.0,
+        "hibrida@3": 1.0,
+        "hibrida@5": 1.0
+      },
+      "tokens_contexto_promedio@5": 1452,
+      "filas": [
+        {
+          "id": "P01",
+          "origen": "preguntas_pe3",
+          "consulta": "¿Qué recalificación pide el HPLC-QC-03?",
+          "esperado": [
+            {
+              "documento": "SOP-EQ-005",
+              "seccion": "7.1"
+            }
+          ],
+          "vectorial@3": true,
+          "vectorial@5": true,
+          "vectorial_top3": [
+            "SOP-EQ-005#A01",
+            "EXP-VAL-CROM-01#A00",
+            "EXP-VAL-CROM-01#A01"
+          ],
+          "bm25@3": true,
+          "bm25@5": true,
+          "bm25_top3": [
+            "SOP-EQ-005#A01",
+            "EXP-VAL-CROM-01#A00",
+            "SOP-CC-001#A02"
+          ],
+          "hibrida@3": true,
+          "hibrida@5": true,
+          "hibrida_top3": [
+            "SOP-EQ-005#A01",
+            "EXP-VAL-CROM-01#A00",
+            "SOP-EQ-005#A00"
+          ],
+          "tokens_contexto@5": 1686
+        },
+        {
+          "id": "P02",
+          "origen": "preguntas_pe3",
+          "consulta": "¿Qué dice el SOP-VS-003 sobre desactivar el audit trail?",
+          "esperado": [
+            {
+              "documento": "SOP-VS-003",
+              "seccion": "3.2"
+            }
+          ],
+          "vectorial@3": true,
+          "vectorial@5": true,
+          "vectorial_top3": [
+            "SOP-VS-003#A00",
+            "SOP-VS-003#A01",
+            "SOP-DC-004#A01"
+          ],
+          "bm25@3": true,
+          "bm25@5": true,
+          "bm25_top3": [
+            "SOP-VS-003#A00",
+            "SOP-VS-003#A01",
+            "SOP-CC-001#A03"
+          ],
+          "hibrida@3": true,
+          "hibrida@5": true,
+          "hibrida_top3": [
+            "SOP-VS-003#A00",
+            "SOP-VS-003#A01",
+            "SOP-CC-001#A03"
+          ],
+          "tokens_contexto@5": 1306
+        },
+        {
+          "id": "P03",
+          "origen": "preguntas_pe3",
+          "consulta": "¿Cuántos días hay para hacer la evaluación de impacto de un cambio?",
+          "esperado": [
+            {
+              "documento": "SOP-CC-001",
+              "seccion": "7"
+            }
+          ],
+          "vectorial@3": true,
+          "vectorial@5": true,
+          "vectorial_top3": [
+            "SOP-CC-001#A04",
+            "SOP-CC-001#A05",
+            "SOP-CC-001#A01"
+          ],
+          "bm25@3": true,
+          "bm25@5": true,
+          "bm25_top3": [
+            "SOP-CC-001#A05",
+            "SOP-CC-001#A04",
+            "INF-AUD-2026-03#A00"
+          ],
+          "hibrida@3": true,
+          "hibrida@5": true,
+          "hibrida_top3": [
+            "SOP-CC-001#A04",
+            "SOP-CC-001#A05",
+            "SOP-CC-001#A01"
+          ],
+          "tokens_contexto@5": 1442
+        },
+        {
+          "id": "P04",
+          "origen": "preguntas_pe3",
+          "consulta": "Si corrijo un error de tipeo en un instructivo, ¿tengo que capacitar al personal?",
+          "esperado": [
+            {
+              "documento": "SOP-DC-004",
+              "seccion": "3.2"
+            }
+          ],
+          "vectorial@3": false,
+          "vectorial@5": false,
+          "vectorial_top3": [
+            "SOP-EQ-005#A00",
+            "SOP-PR-006#A01",
+            "SOP-CC-001#A02"
+          ],
+          "bm25@3": true,
+          "bm25@5": true,
+          "bm25_top3": [
+            "SOP-DC-004#A00",
+            "SOP-CC-001#A01",
+            "SOP-VS-003#A00"
+          ],
+          "hibrida@3": true,
+          "hibrida@5": true,
+          "hibrida_top3": [
+            "SOP-DC-004#A00",
+            "SOP-VS-003#A01",
+            "SOP-CC-001#A01"
+          ],
+          "tokens_contexto@5": 1586
+        },
+        {
+          "id": "P05",
+          "origen": "preguntas_pe3",
+          "consulta": "¿Hay que volver a mapear una cámara de estabilidad si se muda a otra sala?",
+          "esperado": [
+            {
+              "documento": "SOP-EQ-005",
+              "seccion": "5.1"
+            }
+          ],
+          "vectorial@3": true,
+          "vectorial@5": true,
+          "vectorial_top3": [
+            "SOP-EQ-005#A01",
+            "SOP-CC-001#A03",
+            "SOP-CC-001#A04"
+          ],
+          "bm25@3": true,
+          "bm25@5": true,
+          "bm25_top3": [
+            "SOP-EQ-005#A01",
+            "SOP-CC-001#A03",
+            "SOP-EQ-005#A00"
+          ],
+          "hibrida@3": true,
+          "hibrida@5": true,
+          "hibrida_top3": [
+            "SOP-EQ-005#A01",
+            "SOP-CC-001#A03",
+            "SOP-CC-001#A04"
+          ],
+          "tokens_contexto@5": 1721
+        },
+        {
+          "id": "P06",
+          "origen": "preguntas_pe3",
+          "consulta": "Cuando el proveedor manda un parche correctivo, ¿puedo usar sus pruebas en lugar de revalidar?",
+          "esperado": [
+            {
+              "documento": "SOP-VS-002",
+              "seccion": "5"
+            }
+          ],
+          "vectorial@3": true,
+          "vectorial@5": true,
+          "vectorial_top3": [
+            "SOP-VS-002#A01",
+            "SOP-VS-003#A01",
+            "SOP-PR-006#A01"
+          ],
+          "bm25@3": true,
+          "bm25@5": true,
+          "bm25_top3": [
+            "SOP-VS-002#A01",
+            "SOP-PR-006#A01",
+            "SOP-CC-001#A02"
+          ],
+          "hibrida@3": true,
+          "hibrida@5": true,
+          "hibrida_top3": [
+            "SOP-VS-002#A01",
+            "SOP-PR-006#A01",
+            "SOP-CC-001#A02"
+          ],
+          "tokens_contexto@5": 1338
+        },
+        {
+          "id": "C01",
+          "origen": "consultas_codigos",
+          "consulta": "HPLC-QC-04 frecuencia de recalificación",
+          "esperado": [
+            {
+              "documento": "SOP-EQ-005",
+              "seccion": "7.2"
+            }
+          ],
+          "vectorial@3": true,
+          "vectorial@5": true,
+          "vectorial_top3": [
+            "SOP-EQ-005#A01",
+            "EXP-VAL-CROM-01#A01",
+            "EXP-VAL-CROM-01#A00"
+          ],
+          "bm25@3": true,
+          "bm25@5": true,
+          "bm25_top3": [
+            "SOP-EQ-005#A01",
+            "EXP-VAL-CROM-01#A01",
+            "SOP-CC-001#A02"
+          ],
+          "hibrida@3": true,
+          "hibrida@5": true,
+          "hibrida_top3": [
+            "SOP-EQ-005#A01",
+            "EXP-VAL-CROM-01#A01",
+            "EXP-VAL-CROM-01#A00"
+          ],
+          "tokens_contexto@5": 1537
+        },
+        {
+          "id": "C02",
+          "origen": "consultas_codigos",
+          "consulta": "CAPA-2026-014",
+          "esperado": [
+            {
+              "documento": "INF-AUD-2026-03",
+              "seccion": "2"
+            }
+          ],
+          "vectorial@3": false,
+          "vectorial@5": true,
+          "vectorial_top3": [
+            "EXP-VAL-CROM-01#A01",
+            "INF-AUD-2026-03#A01",
+            "EXP-VAL-CROM-01#A00"
+          ],
+          "bm25@3": true,
+          "bm25@5": true,
+          "bm25_top3": [
+            "INF-AUD-2026-03#A01",
+            "INF-AUD-2026-03#A00"
+          ],
+          "hibrida@3": true,
+          "hibrida@5": true,
+          "hibrida_top3": [
+            "INF-AUD-2026-03#A01",
+            "INF-AUD-2026-03#A00",
+            "EXP-VAL-CROM-01#A01"
+          ],
+          "tokens_contexto@5": 1306
+        },
+        {
+          "id": "C03",
+          "origen": "consultas_codigos",
+          "consulta": "CAPA-2026-041",
+          "esperado": [
+            {
+              "documento": "INF-AUD-2026-03",
+              "seccion": "3"
+            }
+          ],
+          "vectorial@3": false,
+          "vectorial@5": true,
+          "vectorial_top3": [
+            "EXP-VAL-CROM-01#A01",
+            "INF-AUD-2026-03#A01",
+            "EXP-VAL-CROM-01#A00"
+          ],
+          "bm25@3": true,
+          "bm25@5": true,
+          "bm25_top3": [
+            "INF-AUD-2026-03#A01",
+            "INF-AUD-2026-03#A00"
+          ],
+          "hibrida@3": true,
+          "hibrida@5": true,
+          "hibrida_top3": [
+            "INF-AUD-2026-03#A01",
+            "INF-AUD-2026-03#A00",
+            "EXP-VAL-CROM-01#A01"
+          ],
+          "tokens_contexto@5": 1306
+        },
+        {
+          "id": "C04",
+          "origen": "consultas_codigos",
+          "consulta": "SOP-VS-003 firmas electrónicas",
+          "esperado": [
+            {
+              "documento": "SOP-VS-003",
+              "seccion": "4"
+            }
+          ],
+          "vectorial@3": true,
+          "vectorial@5": true,
+          "vectorial_top3": [
+            "SOP-PR-006#A00",
+            "SOP-VS-003#A01",
+            "SOP-PR-006#A01"
+          ],
+          "bm25@3": true,
+          "bm25@5": true,
+          "bm25_top3": [
+            "SOP-VS-003#A01",
+            "SOP-VS-003#A00",
+            "SOP-CC-001#A03"
+          ],
+          "hibrida@3": true,
+          "hibrida@5": true,
+          "hibrida_top3": [
+            "SOP-VS-003#A01",
+            "SOP-VS-003#A00",
+            "EXP-VAL-CROM-01#A00"
+          ],
+          "tokens_contexto@5": 1525
+        },
+        {
+          "id": "C05",
+          "origen": "consultas_codigos",
+          "consulta": "DEV-VAL-2026-07",
+          "esperado": [
+            {
+              "documento": "EXP-VAL-CROM-01",
+              "seccion": "3.2"
+            }
+          ],
+          "vectorial@3": true,
+          "vectorial@5": true,
+          "vectorial_top3": [
+            "EXP-VAL-CROM-01#A01",
+            "EXP-VAL-CROM-01#A00",
+            "HAL-INSP-2026-01#A00"
+          ],
+          "bm25@3": true,
+          "bm25@5": true,
+          "bm25_top3": [
+            "EXP-VAL-CROM-01#A00"
+          ],
+          "hibrida@3": true,
+          "hibrida@5": true,
+          "hibrida_top3": [
+            "EXP-VAL-CROM-01#A00",
+            "EXP-VAL-CROM-01#A01",
+            "HAL-INSP-2026-01#A00"
+          ],
+          "tokens_contexto@5": 1174
+        },
+        {
+          "id": "C06",
+          "origen": "consultas_codigos",
+          "consulta": "HPLC-QC-03 verificación de cálculos de valoración",
+          "esperado": [
+            {
+              "documento": "EXP-VAL-CROM-01",
+              "seccion": "3.3"
+            }
+          ],
+          "vectorial@3": true,
+          "vectorial@5": true,
+          "vectorial_top3": [
+            "EXP-VAL-CROM-01#A00",
+            "EXP-VAL-CROM-01#A01",
+            "SOP-EQ-005#A01"
+          ],
+          "bm25@3": true,
+          "bm25@5": true,
+          "bm25_top3": [
+            "EXP-VAL-CROM-01#A00",
+            "SOP-EQ-005#A01",
+            "EXP-VAL-CROM-01#A01"
+          ],
+          "hibrida@3": true,
+          "hibrida@5": true,
+          "hibrida_top3": [
+            "EXP-VAL-CROM-01#A00",
+            "EXP-VAL-CROM-01#A01",
+            "SOP-EQ-005#A01"
+          ],
+          "tokens_contexto@5": 1434
+        },
+        {
+          "id": "C07",
+          "origen": "consultas_codigos",
+          "consulta": "R-QA-01",
+          "esperado": [
+            {
+              "documento": "SOP-CC-001",
+              "seccion": "5.8"
+            }
+          ],
+          "vectorial@3": false,
+          "vectorial@5": false,
+          "vectorial_top3": [
+            "EXP-VAL-CROM-01#A01",
+            "EXP-VAL-CROM-01#A00",
+            "SOP-EQ-005#A01"
+          ],
+          "bm25@3": true,
+          "bm25@5": true,
+          "bm25_top3": [
+            "SOP-CC-001#A04"
+          ],
+          "hibrida@3": true,
+          "hibrida@5": true,
+          "hibrida_top3": [
+            "SOP-CC-001#A04",
+            "EXP-VAL-CROM-01#A01",
+            "EXP-VAL-CROM-01#A00"
+          ],
+          "tokens_contexto@5": 1537
+        },
+        {
+          "id": "C08",
+          "origen": "consultas_codigos",
+          "consulta": "SOP-VS-002 migración de datos",
+          "esperado": [
+            {
+              "documento": "SOP-VS-002",
+              "seccion": "6.4"
+            }
+          ],
+          "vectorial@3": true,
+          "vectorial@5": true,
+          "vectorial_top3": [
+            "SOP-VS-002#A02",
+            "SOP-VS-002#A01",
+            "SOP-VS-003#A00"
+          ],
+          "bm25@3": true,
+          "bm25@5": true,
+          "bm25_top3": [
+            "SOP-VS-002#A02",
+            "SOP-PR-006#A01",
+            "SOP-VS-002#A00"
+          ],
+          "hibrida@3": true,
+          "hibrida@5": true,
+          "hibrida_top3": [
+            "SOP-VS-002#A02",
+            "SOP-VS-002#A01",
+            "SOP-VS-002#A00"
+          ],
+          "tokens_contexto@5": 1435
+        }
+      ],
+      "hibrida_acierta_vectorial_falla@3": [
+        "P04",
+        "C02",
+        "C03",
+        "C07"
+      ],
+      "vectorial_acierta_hibrida_falla@3": []
+    },
+    "B": {
+      "max_tokens": 1000,
+      "solapamiento": 0.1,
+      "descripcion": "fragmentos grandes, ~1.000 tokens",
+      "fragmentos": 11,
+      "recall": {
+        "vectorial@3": 0.8571,
+        "vectorial@5": 0.9286,
+        "bm25@3": 1.0,
+        "bm25@5": 1.0,
+        "hibrida@3": 1.0,
+        "hibrida@5": 1.0
+      },
+      "recall_solo_10_preguntas": {
+        "vectorial@3": 0.8333,
+        "vectorial@5": 1.0,
+        "bm25@3": 1.0,
+        "bm25@5": 1.0,
+        "hibrida@3": 1.0,
+        "hibrida@5": 1.0
+      },
+      "tokens_contexto_promedio@5": 2940,
+      "filas": [
+        {
+          "id": "P01",
+          "origen": "preguntas_pe3",
+          "consulta": "¿Qué recalificación pide el HPLC-QC-03?",
+          "esperado": [
+            {
+              "documento": "SOP-EQ-005",
+              "seccion": "7.1"
+            }
+          ],
+          "vectorial@3": true,
+          "vectorial@5": true,
+          "vectorial_top3": [
+            "SOP-EQ-005#B00",
+            "EXP-VAL-CROM-01#B00",
+            "SOP-VS-002#B00"
+          ],
+          "bm25@3": true,
+          "bm25@5": true,
+          "bm25_top3": [
+            "SOP-EQ-005#B00",
+            "EXP-VAL-CROM-01#B00",
+            "SOP-CC-001#B01"
+          ],
+          "hibrida@3": true,
+          "hibrida@5": true,
+          "hibrida_top3": [
+            "SOP-EQ-005#B00",
+            "EXP-VAL-CROM-01#B00",
+            "SOP-CC-001#B01"
+          ],
+          "tokens_contexto@5": 3417
+        },
+        {
+          "id": "P02",
+          "origen": "preguntas_pe3",
+          "consulta": "¿Qué dice el SOP-VS-003 sobre desactivar el audit trail?",
+          "esperado": [
+            {
+              "documento": "SOP-VS-003",
+              "seccion": "3.2"
+            }
+          ],
+          "vectorial@3": true,
+          "vectorial@5": true,
+          "vectorial_top3": [
+            "SOP-VS-003#B00",
+            "SOP-DC-004#B00",
+            "SOP-CC-001#B01"
+          ],
+          "bm25@3": true,
+          "bm25@5": true,
+          "bm25_top3": [
+            "SOP-VS-003#B00",
+            "SOP-CC-001#B01",
+            "SOP-VS-002#B00"
+          ],
+          "hibrida@3": true,
+          "hibrida@5": true,
+          "hibrida_top3": [
+            "SOP-VS-003#B00",
+            "SOP-CC-001#B01",
+            "SOP-VS-002#B00"
+          ],
+          "tokens_contexto@5": 2882
+        },
+        {
+          "id": "P03",
+          "origen": "preguntas_pe3",
+          "consulta": "¿Cuántos días hay para hacer la evaluación de impacto de un cambio?",
+          "esperado": [
+            {
+              "documento": "SOP-CC-001",
+              "seccion": "7"
+            }
+          ],
+          "vectorial@3": true,
+          "vectorial@5": true,
+          "vectorial_top3": [
+            "SOP-CC-001#B00",
+            "SOP-CC-001#B01",
+            "INF-AUD-2026-03#B00"
+          ],
+          "bm25@3": true,
+          "bm25@5": true,
+          "bm25_top3": [
+            "SOP-CC-001#B01",
+            "INF-AUD-2026-03#B00",
+            "SOP-CC-001#B00"
+          ],
+          "hibrida@3": true,
+          "hibrida@5": true,
+          "hibrida_top3": [
+            "SOP-CC-001#B01",
+            "SOP-CC-001#B00",
+            "INF-AUD-2026-03#B00"
+          ],
+          "tokens_contexto@5": 3364
+        },
+        {
+          "id": "P04",
+          "origen": "preguntas_pe3",
+          "consulta": "Si corrijo un error de tipeo en un instructivo, ¿tengo que capacitar al personal?",
+          "esperado": [
+            {
+              "documento": "SOP-DC-004",
+              "seccion": "3.2"
+            }
+          ],
+          "vectorial@3": false,
+          "vectorial@5": true,
+          "vectorial_top3": [
+            "SOP-EQ-005#B00",
+            "SOP-CC-001#B01",
+            "SOP-CC-001#B00"
+          ],
+          "bm25@3": true,
+          "bm25@5": true,
+          "bm25_top3": [
+            "SOP-DC-004#B00",
+            "SOP-VS-003#B00",
+            "SOP-CC-001#B00"
+          ],
+          "hibrida@3": true,
+          "hibrida@5": true,
+          "hibrida_top3": [
+            "SOP-DC-004#B00",
+            "SOP-CC-001#B00",
+            "SOP-VS-003#B00"
+          ],
+          "tokens_contexto@5": 3192
+        },
+        {
+          "id": "P05",
+          "origen": "preguntas_pe3",
+          "consulta": "¿Hay que volver a mapear una cámara de estabilidad si se muda a otra sala?",
+          "esperado": [
+            {
+              "documento": "SOP-EQ-005",
+              "seccion": "5.1"
+            }
+          ],
+          "vectorial@3": true,
+          "vectorial@5": true,
+          "vectorial_top3": [
+            "SOP-EQ-005#B00",
+            "SOP-CC-001#B01",
+            "SOP-CC-001#B00"
+          ],
+          "bm25@3": true,
+          "bm25@5": true,
+          "bm25_top3": [
+            "SOP-EQ-005#B00",
+            "SOP-CC-001#B01",
+            "SOP-CC-001#B00"
+          ],
+          "hibrida@3": true,
+          "hibrida@5": true,
+          "hibrida_top3": [
+            "SOP-EQ-005#B00",
+            "SOP-CC-001#B01",
+            "SOP-CC-001#B00"
+          ],
+          "tokens_contexto@5": 3049
+        },
+        {
+          "id": "P06",
+          "origen": "preguntas_pe3",
+          "consulta": "Cuando el proveedor manda un parche correctivo, ¿puedo usar sus pruebas en lugar de revalidar?",
+          "esperado": [
+            {
+              "documento": "SOP-VS-002",
+              "seccion": "5"
+            }
+          ],
+          "vectorial@3": true,
+          "vectorial@5": true,
+          "vectorial_top3": [
+            "SOP-VS-002#B00",
+            "SOP-VS-003#B00",
+            "INF-AUD-2026-03#B00"
+          ],
+          "bm25@3": true,
+          "bm25@5": true,
+          "bm25_top3": [
+            "SOP-VS-002#B00",
+            "SOP-CC-001#B01",
+            "SOP-PR-006#B00"
+          ],
+          "hibrida@3": true,
+          "hibrida@5": true,
+          "hibrida_top3": [
+            "SOP-VS-002#B00",
+            "SOP-CC-001#B01",
+            "SOP-PR-006#B00"
+          ],
+          "tokens_contexto@5": 3142
+        },
+        {
+          "id": "C01",
+          "origen": "consultas_codigos",
+          "consulta": "HPLC-QC-04 frecuencia de recalificación",
+          "esperado": [
+            {
+              "documento": "SOP-EQ-005",
+              "seccion": "7.2"
+            }
+          ],
+          "vectorial@3": true,
+          "vectorial@5": true,
+          "vectorial_top3": [
+            "SOP-EQ-005#B00",
+            "EXP-VAL-CROM-01#B00",
+            "SOP-VS-002#B00"
+          ],
+          "bm25@3": true,
+          "bm25@5": true,
+          "bm25_top3": [
+            "SOP-EQ-005#B00",
+            "EXP-VAL-CROM-01#B00",
+            "SOP-CC-001#B01"
+          ],
+          "hibrida@3": true,
+          "hibrida@5": true,
+          "hibrida_top3": [
+            "SOP-EQ-005#B00",
+            "EXP-VAL-CROM-01#B00",
+            "SOP-CC-001#B01"
+          ],
+          "tokens_contexto@5": 3417
+        },
+        {
+          "id": "C02",
+          "origen": "consultas_codigos",
+          "consulta": "CAPA-2026-014",
+          "esperado": [
+            {
+              "documento": "INF-AUD-2026-03",
+              "seccion": "2"
+            }
+          ],
+          "vectorial@3": true,
+          "vectorial@5": true,
+          "vectorial_top3": [
+            "EXP-VAL-CROM-01#B00",
+            "INF-AUD-2026-03#B00",
+            "HAL-INSP-2026-01#B00"
+          ],
+          "bm25@3": true,
+          "bm25@5": true,
+          "bm25_top3": [
+            "INF-AUD-2026-03#B00"
+          ],
+          "hibrida@3": true,
+          "hibrida@5": true,
+          "hibrida_top3": [
+            "INF-AUD-2026-03#B00",
+            "EXP-VAL-CROM-01#B00",
+            "HAL-INSP-2026-01#B00"
+          ],
+          "tokens_contexto@5": 2368
+        },
+        {
+          "id": "C03",
+          "origen": "consultas_codigos",
+          "consulta": "CAPA-2026-041",
+          "esperado": [
+            {
+              "documento": "INF-AUD-2026-03",
+              "seccion": "3"
+            }
+          ],
+          "vectorial@3": true,
+          "vectorial@5": true,
+          "vectorial_top3": [
+            "INF-AUD-2026-03#B00",
+            "EXP-VAL-CROM-01#B00",
+            "HAL-INSP-2026-01#B00"
+          ],
+          "bm25@3": true,
+          "bm25@5": true,
+          "bm25_top3": [
+            "INF-AUD-2026-03#B00"
+          ],
+          "hibrida@3": true,
+          "hibrida@5": true,
+          "hibrida_top3": [
+            "INF-AUD-2026-03#B00",
+            "EXP-VAL-CROM-01#B00",
+            "HAL-INSP-2026-01#B00"
+          ],
+          "tokens_contexto@5": 2368
+        },
+        {
+          "id": "C04",
+          "origen": "consultas_codigos",
+          "consulta": "SOP-VS-003 firmas electrónicas",
+          "esperado": [
+            {
+              "documento": "SOP-VS-003",
+              "seccion": "4"
+            }
+          ],
+          "vectorial@3": true,
+          "vectorial@5": true,
+          "vectorial_top3": [
+            "SOP-PR-006#B00",
+            "SOP-EQ-005#B00",
+            "SOP-VS-003#B00"
+          ],
+          "bm25@3": true,
+          "bm25@5": true,
+          "bm25_top3": [
+            "SOP-VS-003#B00",
+            "EXP-VAL-CROM-01#B00",
+            "SOP-CC-001#B01"
+          ],
+          "hibrida@3": true,
+          "hibrida@5": true,
+          "hibrida_top3": [
+            "SOP-VS-003#B00",
+            "EXP-VAL-CROM-01#B00",
+            "SOP-CC-001#B01"
+          ],
+          "tokens_contexto@5": 2926
+        },
+        {
+          "id": "C05",
+          "origen": "consultas_codigos",
+          "consulta": "DEV-VAL-2026-07",
+          "esperado": [
+            {
+              "documento": "EXP-VAL-CROM-01",
+              "seccion": "3.2"
+            }
+          ],
+          "vectorial@3": true,
+          "vectorial@5": true,
+          "vectorial_top3": [
+            "EXP-VAL-CROM-01#B00",
+            "HAL-INSP-2026-01#B00",
+            "INF-AUD-2026-03#B00"
+          ],
+          "bm25@3": true,
+          "bm25@5": true,
+          "bm25_top3": [
+            "EXP-VAL-CROM-01#B00"
+          ],
+          "hibrida@3": true,
+          "hibrida@5": true,
+          "hibrida_top3": [
+            "EXP-VAL-CROM-01#B00",
+            "HAL-INSP-2026-01#B00",
+            "INF-AUD-2026-03#B00"
+          ],
+          "tokens_contexto@5": 2472
+        },
+        {
+          "id": "C06",
+          "origen": "consultas_codigos",
+          "consulta": "HPLC-QC-03 verificación de cálculos de valoración",
+          "esperado": [
+            {
+              "documento": "EXP-VAL-CROM-01",
+              "seccion": "3.3"
+            }
+          ],
+          "vectorial@3": true,
+          "vectorial@5": true,
+          "vectorial_top3": [
+            "EXP-VAL-CROM-01#B00",
+            "SOP-EQ-005#B00",
+            "SOP-VS-002#B00"
+          ],
+          "bm25@3": true,
+          "bm25@5": true,
+          "bm25_top3": [
+            "EXP-VAL-CROM-01#B00",
+            "SOP-EQ-005#B00",
+            "HAL-INSP-2026-01#B00"
+          ],
+          "hibrida@3": true,
+          "hibrida@5": true,
+          "hibrida_top3": [
+            "EXP-VAL-CROM-01#B00",
+            "SOP-EQ-005#B00",
+            "SOP-VS-002#B00"
+          ],
+          "tokens_contexto@5": 2472
+        },
+        {
+          "id": "C07",
+          "origen": "consultas_codigos",
+          "consulta": "R-QA-01",
+          "esperado": [
+            {
+              "documento": "SOP-CC-001",
+              "seccion": "5.8"
+            }
+          ],
+          "vectorial@3": false,
+          "vectorial@5": false,
+          "vectorial_top3": [
+            "EXP-VAL-CROM-01#B00",
+            "SOP-EQ-005#B00",
+            "SOP-VS-002#B00"
+          ],
+          "bm25@3": true,
+          "bm25@5": true,
+          "bm25_top3": [
+            "SOP-CC-001#B01"
+          ],
+          "hibrida@3": true,
+          "hibrida@5": true,
+          "hibrida_top3": [
+            "SOP-CC-001#B01",
+            "EXP-VAL-CROM-01#B00",
+            "SOP-EQ-005#B00"
+          ],
+          "tokens_contexto@5": 3090
+        },
+        {
+          "id": "C08",
+          "origen": "consultas_codigos",
+          "consulta": "SOP-VS-002 migración de datos",
+          "esperado": [
+            {
+              "documento": "SOP-VS-002",
+              "seccion": "6.4"
+            }
+          ],
+          "vectorial@3": true,
+          "vectorial@5": true,
+          "vectorial_top3": [
+            "SOP-VS-002#B00",
+            "SOP-VS-003#B00",
+            "SOP-CC-001#B01"
+          ],
+          "bm25@3": true,
+          "bm25@5": true,
+          "bm25_top3": [
+            "SOP-VS-002#B00",
+            "SOP-PR-006#B00",
+            "EXP-VAL-CROM-01#B00"
+          ],
+          "hibrida@3": true,
+          "hibrida@5": true,
+          "hibrida_top3": [
+            "SOP-VS-002#B00",
+            "SOP-VS-003#B00",
+            "SOP-PR-006#B00"
+          ],
+          "tokens_contexto@5": 3003
+        }
+      ],
+      "hibrida_acierta_vectorial_falla@3": [
+        "P04",
+        "C07"
+      ],
+      "vectorial_acierta_hibrida_falla@3": []
+    }
+  }
+}

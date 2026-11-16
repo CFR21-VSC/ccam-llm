@@ -1,0 +1,86 @@
+{
+  "trace_id": "716c2a3cd639",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "requiere_humano": false,
+    "impacto_gxp": "menor",
+    "requiere_revalidacion": false,
+    "justificacion": "El cambio corrige errores de tipeo (\"detergnete\", \"enjaguar\") en el instructivo de limpieza de la línea 3, sin modificar pasos, productos, concentraciones ni tiempos. No altera una función, cálculo, dato, decisión ni estado validado, por lo que no alcanza a la calidad del producto, la seguridad del paciente, la decisión de liberación ni la integridad de datos. Aplicando la pregunta de frontera menor/mayor de SOP-CC-001 §5.7 (¿modifica una función, un cálculo, un dato o un estado validado?), la respuesta es no. Corresponde menor, con verificación documentada de que el texto corregido coincide con el contenido aprobado. La evidencia recuperada no trata específicamente instructivos de limpieza; la clasificación se basa en la matriz general de SOP-CC-001 §5 y en la descripción del solicitante.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.3"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.7"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Verificar documentalmente que el instructivo corregido solo cambia los errores tipográficos y que pasos, productos, concentraciones y tiempos son idénticos a la versión vigente.",
+        "area_responsable": "garantia_calidad"
+      }
+    ],
+    "confianza": 0.8,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.3",
+      "fragmento_id": "SOP-CC-001#A02",
+      "puntaje": 0.032258
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.5",
+      "fragmento_id": "SOP-CC-001#A03",
+      "puntaje": 0.031498
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "4",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.03055
+    },
+    {
+      "documento": "INF-AUD-2026-03",
+      "seccion": "1",
+      "fragmento_id": "INF-AUD-2026-03#A00",
+      "puntaje": 0.029907
+    },
+    {
+      "documento": "SOP-DC-004",
+      "seccion": "6",
+      "fragmento_id": "SOP-DC-004#A01",
+      "puntaje": 0.029857
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "fragmento_id": "SOP-CC-001#A04",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "8",
+      "fragmento_id": "SOP-CC-001#A05",
+      "puntaje": 0.031258
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 6180,
+    "output_tokens": 702,
+    "cost": 0.000969,
+    "latencia_ms": 3235,
+    "cached": false
+  },
+  "version_prompt": "rag-9b8f1eede363",
+  "evidencia_maxima": 0.5208
+}

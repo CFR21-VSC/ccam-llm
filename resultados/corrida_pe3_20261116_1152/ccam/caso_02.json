@@ -1,0 +1,112 @@
+{
+  "trace_id": "8700dfba58ef",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "requiere_humano": false,
+    "impacto_gxp": "menor",
+    "requiere_revalidacion": false,
+    "justificacion": "El cambio modifica el arte del estuche secundario (material de empaque secundario, GxP) al agregar un código QR de trazabilidad y actualizar el texto del rótulo. Por SOP-AC-007 §3.1 el texto debe coincidir con la última versión aprobada por la autoridad sanitaria, y por §3.2 el QR requiere verificar legibilidad, integración con el sistema de trazabilidad y concordancia del arte con el rotulado aprobado. Frontera menor/mayor (SOP-CC-001 §5.7): la pregunta es si el cambio modifica una función, un cálculo, un dato o un estado validado. No se declara modificación de ningún sistema validado ni de datos de liberación; el material y el proveedor no cambian, por lo que no aplica el cambio de material de §4 de SOP-AC-007. Aunque el QR implica integración con trazabilidad, la evidencia no describe que esa integración altere datos de liberación ni funciones validadas. Por eso se clasifica por el efecto real como menor, con verificaciones documentadas. Dato a confirmar por QA: si la integración con el sistema de trazabilidad modifica algún dato o función validada, en cuyo caso habría que reclasificar como mayor.",
+    "fundamento": [
+      {
+        "codigo": "SOP-AC-007",
+        "seccion": "3.1"
+      },
+      {
+        "codigo": "SOP-AC-007",
+        "seccion": "3.2"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.3"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.7"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Verificar que el texto del rótulo y prospecto coincida con la última versión aprobada por la autoridad sanitaria antes de aprobar el arte.",
+        "area_responsable": "asuntos_regulatorios"
+      },
+      {
+        "descripcion": "Verificar la legibilidad del código QR en línea sobre el estuche impreso y documentar el resultado.",
+        "area_responsable": "control_calidad"
+      },
+      {
+        "descripcion": "Confirmar y documentar que la integración con el sistema de trazabilidad no altera datos ni funciones validadas; si los altera, reclasificar el CCAM como mayor.",
+        "area_responsable": "sistemas"
+      },
+      {
+        "descripcion": "Revisar y aprobar la verificación documentada del cambio de arte, y asignar código y versión nuevos al arte, retirando los artes obsoletos.",
+        "area_responsable": "garantia_calidad"
+      }
+    ],
+    "confianza": 0.7,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-PR-006",
+      "seccion": "1",
+      "fragmento_id": "SOP-PR-006#A00",
+      "puntaje": 0.032258
+    },
+    {
+      "documento": "SOP-AC-007",
+      "seccion": "1",
+      "fragmento_id": "SOP-AC-007#A00",
+      "puntaje": 0.031778
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.3",
+      "fragmento_id": "SOP-CC-001#A02",
+      "puntaje": 0.031746
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "5",
+      "fragmento_id": "SOP-VS-002#A01",
+      "puntaje": 0.03125
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.5",
+      "fragmento_id": "SOP-CC-001#A03",
+      "puntaje": 0.03009
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "fragmento_id": "SOP-CC-001#A04",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "4",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.032002
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "8",
+      "fragmento_id": "SOP-CC-001#A05",
+      "puntaje": 0.031258
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 7004,
+    "output_tokens": 1046,
+    "cost": 0.0012234,
+    "latencia_ms": 4549,
+    "cached": false
+  },
+  "version_prompt": "rag-9b8f1eede363",
+  "evidencia_maxima": 0.4518
+}

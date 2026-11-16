@@ -1,0 +1,116 @@
+{
+  "trace_id": "d4ef9e21984c",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "requiere_humano": false,
+    "impacto_gxp": "mayor",
+    "requiere_revalidacion": true,
+    "justificacion": "El cambio reemplaza una balanza analítica de Control de Calidad que falló la verificación diaria, por una del mismo fabricante y modelo. Según SOP-EQ-005 §3, todo equipo nuevo requiere al menos IQ y OQ antes del uso, aunque sea del mismo modelo; el certificado de calibración del proveedor es insumo y no reemplaza la calificación. SOP-EQ-005 §4.1 exige evaluar el impacto de la falla sobre los resultados desde la última verificación conforme, y §4.2 indica que el reemplazo se gestiona por SOP-CC-001 e incluye calificación del equipo nuevo y evaluación de impacto de la falla del equipo retirado. Aplicando la pregunta de SOP-CC-001 §5.7 (¿modifica una función, cálculo, dato o estado calificado?), el cambio modifica el equipo calificado que respalda datos de calidad, y existe barrera posterior (calificación y evaluación de la falla) antes de usar resultados, por lo que se clasifica como mayor. Dato faltante: no se informa si la balanza retirada se usó para liberación de lotes o estabilidad desde la última verificación conforme; se requiere para acotar la evaluación de impacto retrospectiva.\"",
+    "fundamento": [
+      {
+        "codigo": "SOP-EQ-005",
+        "seccion": "3"
+      },
+      {
+        "codigo": "SOP-EQ-005",
+        "seccion": "4.1"
+      },
+      {
+        "codigo": "SOP-EQ-005",
+        "seccion": "4.2"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.4"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.7"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Evaluar el impacto de la falla de verificación diaria de la balanza retirada sobre los resultados obtenidos desde la última verificación conforme, mediante desviación si corresponde (SOP-EQ-005 §4.1).",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Ejecutar IQ y OQ de la balanza nueva antes de su primer uso; el certificado del proveedor no reemplaza la calificación (SOP-EQ-005 §3).",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Informar qué lotes, muestras o estudios de estabilidad se pesaron en la balanza retirada desde la última verificación conforme, para acotar la evaluación retrospectiva.",
+        "area_responsable": "control_calidad"
+      },
+      {
+        "descripcion": "Retirar la balanza fallada de uso y registrar la baja en el sistema de gestión de cambios con su evaluación de impacto (SOP-CC-001 §8).",
+        "area_responsable": "control_calidad"
+      }
+    ],
+    "confianza": 0.8,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-EQ-005",
+      "seccion": "1",
+      "fragmento_id": "SOP-EQ-005#A00",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-EQ-005",
+      "seccion": "5.1",
+      "fragmento_id": "SOP-EQ-005#A01",
+      "puntaje": 0.032002
+    },
+    {
+      "documento": "SOP-PR-006",
+      "seccion": "1",
+      "fragmento_id": "SOP-PR-006#A00",
+      "puntaje": 0.032002
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.3",
+      "fragmento_id": "SOP-CC-001#A02",
+      "puntaje": 0.03125
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "5",
+      "fragmento_id": "SOP-VS-002#A01",
+      "puntaje": 0.030769
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "fragmento_id": "SOP-CC-001#A04",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "4",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.032002
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "8",
+      "fragmento_id": "SOP-CC-001#A05",
+      "puntaje": 0.031258
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 6992,
+    "output_tokens": 1159,
+    "cost": 0.0012787,
+    "latencia_ms": 4931,
+    "cached": false
+  },
+  "version_prompt": "rag-9b8f1eede363",
+  "evidencia_maxima": 0.6861
+}

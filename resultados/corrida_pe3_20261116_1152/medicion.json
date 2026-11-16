@@ -1,0 +1,1006 @@
+{
+  "configuracion_vigente": "A",
+  "recuperacion": {
+    "A": {
+      "max_tokens": 400,
+      "solapamiento": 0.1,
+      "descripcion": "fragmentos chicos, ~400 tokens",
+      "fragmentos": 23,
+      "recall": {
+        "vectorial@3": 0.7143,
+        "vectorial@5": 0.8571,
+        "bm25@3": 1.0,
+        "bm25@5": 1.0,
+        "hibrida@3": 1.0,
+        "hibrida@5": 1.0
+      },
+      "recall_solo_10_preguntas": {
+        "vectorial@3": 0.8333,
+        "vectorial@5": 0.8333,
+        "bm25@3": 1.0,
+        "bm25@5": 1.0,
+        "hibrida@3": 1.0,
+        "hibrida@5": 1.0
+      },
+      "tokens_contexto_promedio@5": 1452,
+      "hibrida_acierta_vectorial_falla@3": [
+        "P04",
+        "C02",
+        "C03",
+        "C07"
+      ],
+      "vectorial_acierta_hibrida_falla@3": []
+    },
+    "B": {
+      "max_tokens": 1000,
+      "solapamiento": 0.1,
+      "descripcion": "fragmentos grandes, ~1.000 tokens",
+      "fragmentos": 11,
+      "recall": {
+        "vectorial@3": 0.8571,
+        "vectorial@5": 0.9286,
+        "bm25@3": 1.0,
+        "bm25@5": 1.0,
+        "hibrida@3": 1.0,
+        "hibrida@5": 1.0
+      },
+      "recall_solo_10_preguntas": {
+        "vectorial@3": 0.8333,
+        "vectorial@5": 1.0,
+        "bm25@3": 1.0,
+        "bm25@5": 1.0,
+        "hibrida@3": 1.0,
+        "hibrida@5": 1.0
+      },
+      "tokens_contexto_promedio@5": 2940,
+      "hibrida_acierta_vectorial_falla@3": [
+        "P04",
+        "C07"
+      ],
+      "vectorial_acierta_hibrida_falla@3": []
+    }
+  },
+  "permisos": {
+    "visibles_por_usuario": {
+      "u_solicitante_prod": [
+        "SOP-AC-007",
+        "SOP-CC-001",
+        "SOP-DC-004",
+        "SOP-EQ-005",
+        "SOP-PR-006",
+        "SOP-VS-002",
+        "SOP-VS-003"
+      ],
+      "u_analista_qa": [
+        "INF-AUD-2026-03",
+        "SOP-AC-007",
+        "SOP-CC-001",
+        "SOP-DC-004",
+        "SOP-EQ-005",
+        "SOP-PR-006",
+        "SOP-VS-002",
+        "SOP-VS-003"
+      ],
+      "u_validaciones": [
+        "EXP-VAL-CROM-01",
+        "SOP-AC-007",
+        "SOP-CC-001",
+        "SOP-DC-004",
+        "SOP-EQ-005",
+        "SOP-PR-006",
+        "SOP-VS-002",
+        "SOP-VS-003"
+      ],
+      "u_jefe_qa": [
+        "EXP-VAL-CROM-01",
+        "HAL-INSP-2026-01",
+        "INF-AUD-2026-03",
+        "SOP-AC-007",
+        "SOP-CC-001",
+        "SOP-DC-004",
+        "SOP-EQ-005",
+        "SOP-PR-006",
+        "SOP-VS-002",
+        "SOP-VS-003"
+      ]
+    },
+    "testigos_correctos": "12/12",
+    "usuario_desconocido_recibe": 0
+  },
+  "preguntas": [
+    {
+      "id": "P01",
+      "tipo": "normal_codigo",
+      "usuario": "u_validaciones",
+      "ok": true,
+      "requiere_humano": false,
+      "requiere_humano_esperado": false,
+      "citas": [
+        "SOP-EQ-005 §7.1"
+      ],
+      "esperado": [
+        "SOP-EQ-005 §7.1"
+      ],
+      "cita_esperada": true,
+      "evidencia_maxima": 0.6612,
+      "restringido_en_fuentes": null,
+      "tokens": [
+        4350,
+        190
+      ],
+      "costo_usd": 0.00053,
+      "latencia_ms": 1537,
+      "error": null,
+      "correcta": true
+    },
+    {
+      "id": "P02",
+      "tipo": "normal_codigo",
+      "usuario": "u_solicitante_prod",
+      "ok": true,
+      "requiere_humano": false,
+      "requiere_humano_esperado": false,
+      "citas": [
+        "SOP-VS-003 §3.2"
+      ],
+      "esperado": [
+        "SOP-VS-003 §3.2"
+      ],
+      "cita_esperada": true,
+      "evidencia_maxima": 0.6678,
+      "restringido_en_fuentes": null,
+      "tokens": [
+        3629,
+        229
+      ],
+      "costo_usd": 0.0004774,
+      "latencia_ms": 1339,
+      "error": null,
+      "correcta": true
+    },
+    {
+      "id": "P03",
+      "tipo": "normal",
+      "usuario": "u_analista_qa",
+      "ok": true,
+      "requiere_humano": false,
+      "requiere_humano_esperado": false,
+      "citas": [
+        "SOP-CC-001 §7"
+      ],
+      "esperado": [
+        "SOP-CC-001 §7"
+      ],
+      "cita_esperada": true,
+      "evidencia_maxima": 0.5974,
+      "restringido_en_fuentes": null,
+      "tokens": [
+        3966,
+        162
+      ],
+      "costo_usd": 0.0004776,
+      "latencia_ms": 1097,
+      "error": null,
+      "correcta": true
+    },
+    {
+      "id": "P04",
+      "tipo": "normal",
+      "usuario": "u_solicitante_prod",
+      "ok": true,
+      "requiere_humano": false,
+      "requiere_humano_esperado": false,
+      "citas": [
+        "SOP-DC-004 §3.2",
+        "SOP-DC-004 §3.1"
+      ],
+      "esperado": [
+        "SOP-DC-004 §3.2"
+      ],
+      "cita_esperada": true,
+      "evidencia_maxima": 0.5009,
+      "restringido_en_fuentes": null,
+      "tokens": [
+        4166,
+        320
+      ],
+      "costo_usd": 0.0005766,
+      "latencia_ms": 1535,
+      "error": null,
+      "correcta": true
+    },
+    {
+      "id": "P05",
+      "tipo": "normal",
+      "usuario": "u_validaciones",
+      "ok": true,
+      "requiere_humano": false,
+      "requiere_humano_esperado": false,
+      "citas": [
+        "SOP-EQ-005 §5.1"
+      ],
+      "esperado": [
+        "SOP-EQ-005 §5.1"
+      ],
+      "cita_esperada": true,
+      "evidencia_maxima": 0.4463,
+      "restringido_en_fuentes": null,
+      "tokens": [
+        4366,
+        249
+      ],
+      "costo_usd": 0.0005611,
+      "latencia_ms": 1501,
+      "error": null,
+      "correcta": true
+    },
+    {
+      "id": "P06",
+      "tipo": "normal",
+      "usuario": "u_analista_qa",
+      "ok": true,
+      "requiere_humano": false,
+      "requiere_humano_esperado": false,
+      "citas": [
+        "SOP-VS-002 §5"
+      ],
+      "esperado": [
+        "SOP-VS-002 §5"
+      ],
+      "cita_esperada": true,
+      "evidencia_maxima": 0.5923,
+      "restringido_en_fuentes": null,
+      "tokens": [
+        3665,
+        305
+      ],
+      "costo_usd": 0.000519,
+      "latencia_ms": 1763,
+      "error": null,
+      "correcta": true
+    },
+    {
+      "id": "P07",
+      "tipo": "sin_respuesta",
+      "usuario": "u_analista_qa",
+      "ok": true,
+      "requiere_humano": true,
+      "requiere_humano_esperado": true,
+      "citas": [],
+      "esperado": [],
+      "cita_esperada": false,
+      "evidencia_maxima": 0.442,
+      "restringido_en_fuentes": null,
+      "tokens": [
+        3739,
+        250
+      ],
+      "costo_usd": 0.0004989,
+      "latencia_ms": 1461,
+      "error": null,
+      "correcta": true
+    },
+    {
+      "id": "P08",
+      "tipo": "sin_respuesta",
+      "usuario": "u_solicitante_prod",
+      "ok": true,
+      "requiere_humano": true,
+      "requiere_humano_esperado": true,
+      "citas": [],
+      "esperado": [],
+      "cita_esperada": false,
+      "evidencia_maxima": 0.2378,
+      "restringido_en_fuentes": null,
+      "tokens": [
+        3713,
+        231
+      ],
+      "costo_usd": 0.0004868,
+      "latencia_ms": 1620,
+      "error": null,
+      "correcta": true
+    },
+    {
+      "id": "P09",
+      "tipo": "restringida",
+      "usuario": "u_solicitante_prod",
+      "ok": true,
+      "requiere_humano": true,
+      "requiere_humano_esperado": true,
+      "citas": [],
+      "esperado": [],
+      "cita_esperada": false,
+      "evidencia_maxima": 0.5361,
+      "restringido_en_fuentes": false,
+      "tokens": [
+        3916,
+        238
+      ],
+      "costo_usd": 0.0005106,
+      "latencia_ms": 1393,
+      "error": null,
+      "correcta": true
+    },
+    {
+      "id": "P10",
+      "tipo": "restringida",
+      "usuario": "u_validaciones",
+      "ok": true,
+      "requiere_humano": true,
+      "requiere_humano_esperado": true,
+      "citas": [],
+      "esperado": [],
+      "cita_esperada": false,
+      "evidencia_maxima": 0.5721,
+      "restringido_en_fuentes": false,
+      "tokens": [
+        3227,
+        216
+      ],
+      "costo_usd": 0.0004307,
+      "latencia_ms": 1508,
+      "error": null,
+      "correcta": true
+    }
+  ],
+  "ccam": {
+    "filas": [
+      {
+        "n": "01",
+        "archivo": "01_version_software.json",
+        "consulta": "Actualización de versión del software cromatográfico",
+        "grupo": "pe2_originales",
+        "valido": true,
+        "error": null,
+        "intentos": 1,
+        "tokens_entrada": 6557,
+        "tokens_salida": 1118,
+        "costo_usd": 0.0012147,
+        "latencia_ms": 4516,
+        "confianza": 0.8,
+        "propuesto": "mayor",
+        "esperado": "mayor",
+        "coincide": true,
+        "revalidacion_propuesta": true,
+        "revalidacion_esperada": true,
+        "trace_id": "022628b6f89d",
+        "modelo": "claude-haiku-5-5",
+        "fuentes": [
+          "SOP-CC-001",
+          "SOP-EQ-005",
+          "SOP-PR-006",
+          "SOP-VS-002"
+        ],
+        "fundamento": [
+          "SOP-CC-001 §5.4",
+          "SOP-CC-001 §5.7",
+          "SOP-VS-002 §6.3",
+          "SOP-VS-002 §6.4",
+          "SOP-EQ-005 §5.2",
+          "SOP-EQ-005 §7.2"
+        ]
+      },
+      {
+        "n": "02",
+        "archivo": "02_packaging.json",
+        "consulta": "Nuevo diseño del estuche secundario",
+        "grupo": "pe2_originales",
+        "valido": true,
+        "error": null,
+        "intentos": 1,
+        "tokens_entrada": 7004,
+        "tokens_salida": 1046,
+        "costo_usd": 0.0012234,
+        "latencia_ms": 4549,
+        "confianza": 0.7,
+        "propuesto": "menor",
+        "esperado": "mayor",
+        "coincide": false,
+        "revalidacion_propuesta": false,
+        "revalidacion_esperada": false,
+        "trace_id": "8700dfba58ef",
+        "modelo": "claude-haiku-5-5",
+        "fuentes": [
+          "SOP-AC-007",
+          "SOP-CC-001",
+          "SOP-PR-006",
+          "SOP-VS-002"
+        ],
+        "fundamento": [
+          "SOP-AC-007 §3.1",
+          "SOP-AC-007 §3.2",
+          "SOP-CC-001 §5.3",
+          "SOP-CC-001 §5.7"
+        ]
+      },
+      {
+        "n": "03",
+        "archivo": "03_proveedor_excipiente.json",
+        "consulta": "Cambio de proveedor de un excipiente",
+        "grupo": "pe2_originales",
+        "valido": true,
+        "error": null,
+        "intentos": 1,
+        "tokens_entrada": 6046,
+        "tokens_salida": 1113,
+        "costo_usd": 0.0011611,
+        "latencia_ms": 5108,
+        "confianza": 0.85,
+        "propuesto": "mayor",
+        "esperado": "mayor",
+        "coincide": true,
+        "revalidacion_propuesta": true,
+        "revalidacion_esperada": true,
+        "trace_id": "f0b2397a4b3e",
+        "modelo": "claude-haiku-5-5",
+        "fuentes": [
+          "SOP-CC-001",
+          "SOP-PR-006",
+          "SOP-VS-002"
+        ],
+        "fundamento": [
+          "SOP-PR-006 §3.3",
+          "SOP-PR-006 §3.2",
+          "SOP-CC-001 §5.4",
+          "SOP-CC-001 §5.7"
+        ]
+      },
+      {
+        "n": "04",
+        "archivo": "04_confusa_impresora.json",
+        "consulta": "Consulta confusa: impresora",
+        "grupo": "pe2_originales",
+        "valido": true,
+        "error": null,
+        "intentos": 1,
+        "tokens_entrada": 6756,
+        "tokens_salida": 434,
+        "costo_usd": 0.0008926,
+        "latencia_ms": 4197,
+        "confianza": 0.3,
+        "propuesto": "requiere_humano",
+        "esperado": "menor",
+        "coincide": false,
+        "revalidacion_propuesta": false,
+        "revalidacion_esperada": false,
+        "trace_id": "f1aeb16a060d",
+        "modelo": "claude-haiku-5-5",
+        "fuentes": [
+          "INF-AUD-2026-03",
+          "SOP-CC-001",
+          "SOP-DC-004",
+          "SOP-EQ-005",
+          "SOP-PR-006"
+        ],
+        "fundamento": []
+      },
+      {
+        "n": "05",
+        "archivo": "05_fuera_de_tema.json",
+        "consulta": "Consulta fuera de tema",
+        "grupo": "pe2_originales",
+        "valido": true,
+        "error": null,
+        "intentos": 1,
+        "tokens_entrada": 5969,
+        "tokens_salida": 344,
+        "costo_usd": 0.0007689,
+        "latencia_ms": 1968,
+        "confianza": 0.9,
+        "propuesto": "fuera_de_alcance",
+        "esperado": "fuera_de_alcance",
+        "coincide": true,
+        "revalidacion_propuesta": false,
+        "revalidacion_esperada": false,
+        "trace_id": "2b5937d11cba",
+        "modelo": "claude-haiku-5-5",
+        "fuentes": [
+          "SOP-AC-007",
+          "SOP-CC-001",
+          "SOP-DC-004"
+        ],
+        "fundamento": []
+      },
+      {
+        "n": "06",
+        "archivo": "06_parche_lims.json",
+        "consulta": "Parche del LIMS validado por el proveedor",
+        "grupo": "anclas",
+        "valido": true,
+        "error": null,
+        "intentos": 1,
+        "tokens_entrada": 6876,
+        "tokens_salida": 922,
+        "costo_usd": 0.0011486,
+        "latencia_ms": 3906,
+        "confianza": 0.7,
+        "propuesto": "menor",
+        "esperado": "menor",
+        "coincide": true,
+        "revalidacion_propuesta": false,
+        "revalidacion_esperada": false,
+        "trace_id": "08ac3d30543c",
+        "modelo": "claude-haiku-5-5",
+        "fuentes": [
+          "INF-AUD-2026-03",
+          "SOP-CC-001",
+          "SOP-DC-004",
+          "SOP-VS-002"
+        ],
+        "fundamento": [
+          "SOP-CC-001 §5.3",
+          "SOP-CC-001 §5.7",
+          "SOP-VS-002 §5",
+          "SOP-VS-002 §6.2"
+        ]
+      },
+      {
+        "n": "07",
+        "archivo": "07_firma_liberacion.json",
+        "consulta": "Nueva firma electrónica en la liberación de lotes",
+        "grupo": "frontera",
+        "valido": true,
+        "error": null,
+        "intentos": 1,
+        "tokens_entrada": 6784,
+        "tokens_salida": 1136,
+        "costo_usd": 0.0012464,
+        "latencia_ms": 4686,
+        "confianza": 0.9,
+        "propuesto": "critico",
+        "esperado": "critico",
+        "coincide": true,
+        "revalidacion_propuesta": true,
+        "revalidacion_esperada": true,
+        "trace_id": "96b8c4d4d8b0",
+        "modelo": "claude-haiku-5-5",
+        "fuentes": [
+          "SOP-CC-001",
+          "SOP-DC-004",
+          "SOP-VS-002",
+          "SOP-VS-003"
+        ],
+        "fundamento": [
+          "SOP-CC-001 §5.5",
+          "SOP-CC-001 §5.6",
+          "SOP-VS-003 §4",
+          "SOP-VS-002 §6.3",
+          "SOP-VS-002 §6.4"
+        ]
+      },
+      {
+        "n": "08",
+        "archivo": "08_audit_trail.json",
+        "consulta": "Desactivar el audit trail del cromatográfico",
+        "grupo": "frontera",
+        "valido": true,
+        "error": null,
+        "intentos": 1,
+        "tokens_entrada": 6178,
+        "tokens_salida": 961,
+        "costo_usd": 0.0010983,
+        "latencia_ms": 4272,
+        "confianza": 0.9,
+        "propuesto": "critico",
+        "esperado": "critico",
+        "coincide": true,
+        "revalidacion_propuesta": true,
+        "revalidacion_esperada": true,
+        "trace_id": "74c1f97db23a",
+        "modelo": "claude-haiku-5-5",
+        "fuentes": [
+          "INF-AUD-2026-03",
+          "SOP-CC-001",
+          "SOP-EQ-005",
+          "SOP-PR-006",
+          "SOP-VS-003"
+        ],
+        "fundamento": [
+          "SOP-VS-003 §3.2",
+          "SOP-VS-003 §3.1",
+          "SOP-CC-001 §5.1",
+          "SOP-EQ-005 §5.1"
+        ]
+      },
+      {
+        "n": "09",
+        "archivo": "09_perfil_consulta.json",
+        "consulta": "Perfil de solo consulta en el LIMS",
+        "grupo": "anclas",
+        "valido": true,
+        "error": null,
+        "intentos": 1,
+        "tokens_entrada": 6864,
+        "tokens_salida": 653,
+        "costo_usd": 0.0010129,
+        "latencia_ms": 2787,
+        "confianza": 0.85,
+        "propuesto": "menor",
+        "esperado": "menor",
+        "coincide": true,
+        "revalidacion_propuesta": false,
+        "revalidacion_esperada": false,
+        "trace_id": "abc8f3d4abf1",
+        "modelo": "claude-haiku-5-5",
+        "fuentes": [
+          "INF-AUD-2026-03",
+          "SOP-CC-001",
+          "SOP-PR-006",
+          "SOP-VS-002",
+          "SOP-VS-003"
+        ],
+        "fundamento": [
+          "SOP-CC-001 §5.7",
+          "SOP-VS-002 §6.2",
+          "SOP-VS-003 §6"
+        ]
+      },
+      {
+        "n": "10",
+        "archivo": "10_balanza.json",
+        "consulta": "Reemplazo de balanza analítica que falló",
+        "grupo": "frontera",
+        "valido": true,
+        "error": null,
+        "intentos": 1,
+        "tokens_entrada": 6992,
+        "tokens_salida": 1159,
+        "costo_usd": 0.0012787,
+        "latencia_ms": 4931,
+        "confianza": 0.8,
+        "propuesto": "mayor",
+        "esperado": "mayor",
+        "coincide": true,
+        "revalidacion_propuesta": true,
+        "revalidacion_esperada": true,
+        "trace_id": "d4ef9e21984c",
+        "modelo": "claude-haiku-5-5",
+        "fuentes": [
+          "SOP-CC-001",
+          "SOP-EQ-005",
+          "SOP-PR-006",
+          "SOP-VS-002"
+        ],
+        "fundamento": [
+          "SOP-EQ-005 §3",
+          "SOP-EQ-005 §4.1",
+          "SOP-EQ-005 §4.2",
+          "SOP-CC-001 §5.4",
+          "SOP-CC-001 §5.7"
+        ]
+      },
+      {
+        "n": "11",
+        "archivo": "11_camara_estabilidad.json",
+        "consulta": "Traslado de la cámara de estabilidad",
+        "grupo": "frontera",
+        "valido": true,
+        "error": null,
+        "intentos": 1,
+        "tokens_entrada": 7164,
+        "tokens_salida": 1000,
+        "costo_usd": 0.0012164,
+        "latencia_ms": 4299,
+        "confianza": 0.85,
+        "propuesto": "critico",
+        "esperado": "mayor",
+        "coincide": false,
+        "revalidacion_propuesta": true,
+        "revalidacion_esperada": true,
+        "trace_id": "d921ca95409d",
+        "modelo": "claude-haiku-5-5",
+        "fuentes": [
+          "SOP-CC-001",
+          "SOP-EQ-005"
+        ],
+        "fundamento": [
+          "SOP-EQ-005 §5.1",
+          "SOP-EQ-005 §7.2",
+          "SOP-CC-001 §5.5",
+          "SOP-CC-001 §5.6"
+        ]
+      },
+      {
+        "n": "12",
+        "archivo": "12_tipeo_instructivo.json",
+        "consulta": "Errores de tipeo en un instructivo de limpieza",
+        "grupo": "anclas",
+        "valido": true,
+        "error": null,
+        "intentos": 1,
+        "tokens_entrada": 6180,
+        "tokens_salida": 702,
+        "costo_usd": 0.000969,
+        "latencia_ms": 3235,
+        "confianza": 0.8,
+        "propuesto": "menor",
+        "esperado": "menor",
+        "coincide": true,
+        "revalidacion_propuesta": false,
+        "revalidacion_esperada": false,
+        "trace_id": "716c2a3cd639",
+        "modelo": "claude-haiku-5-5",
+        "fuentes": [
+          "INF-AUD-2026-03",
+          "SOP-CC-001",
+          "SOP-DC-004"
+        ],
+        "fundamento": [
+          "SOP-CC-001 §5.3",
+          "SOP-CC-001 §5.7"
+        ]
+      },
+      {
+        "n": "13",
+        "archivo": "13_comprimidora_fuera_rango.json",
+        "consulta": "Comprimidora fuera del rango validado",
+        "grupo": "frontera",
+        "valido": true,
+        "error": null,
+        "intentos": 1,
+        "tokens_entrada": 6979,
+        "tokens_salida": 922,
+        "costo_usd": 0.0011589,
+        "latencia_ms": 4212,
+        "confianza": 0.9,
+        "propuesto": "critico",
+        "esperado": "critico",
+        "coincide": true,
+        "revalidacion_propuesta": true,
+        "revalidacion_esperada": true,
+        "trace_id": "815b0c99cba7",
+        "modelo": "claude-haiku-5-5",
+        "fuentes": [
+          "INF-AUD-2026-03",
+          "SOP-CC-001",
+          "SOP-EQ-005",
+          "SOP-PR-006",
+          "SOP-VS-002"
+        ],
+        "fundamento": [
+          "SOP-EQ-005 §6",
+          "SOP-CC-001 §5.1",
+          "SOP-CC-001 §5.7"
+        ]
+      },
+      {
+        "n": "14",
+        "archivo": "14_redondeo_certificado.json",
+        "consulta": "Redondeo de la valoración en el certificado",
+        "grupo": "frontera",
+        "valido": true,
+        "error": null,
+        "intentos": 1,
+        "tokens_entrada": 6504,
+        "tokens_salida": 882,
+        "costo_usd": 0.0010914,
+        "latencia_ms": 3870,
+        "confianza": 0.85,
+        "propuesto": "mayor",
+        "esperado": "mayor",
+        "coincide": true,
+        "revalidacion_propuesta": true,
+        "revalidacion_esperada": true,
+        "trace_id": "4ea301495c2d",
+        "modelo": "claude-haiku-5-5",
+        "fuentes": [
+          "INF-AUD-2026-03",
+          "SOP-CC-001",
+          "SOP-VS-002",
+          "SOP-VS-003"
+        ],
+        "fundamento": [
+          "SOP-CC-001 §5.4",
+          "SOP-CC-001 §5.7",
+          "SOP-VS-003 §5.2",
+          "SOP-VS-002 §6.2"
+        ]
+      },
+      {
+        "n": "15",
+        "archivo": "15_antivirus_admin.json",
+        "consulta": "Antivirus en PCs administrativas sin sistemas GxP",
+        "grupo": "anclas",
+        "valido": true,
+        "error": null,
+        "intentos": 1,
+        "tokens_entrada": 6303,
+        "tokens_salida": 411,
+        "costo_usd": 0.0008358,
+        "latencia_ms": 2312,
+        "confianza": 0.8,
+        "propuesto": "fuera_de_alcance",
+        "esperado": "sin_impacto",
+        "coincide": false,
+        "revalidacion_propuesta": false,
+        "revalidacion_esperada": false,
+        "trace_id": "6e52813894ad",
+        "modelo": "claude-haiku-5-5",
+        "fuentes": [
+          "SOP-CC-001",
+          "SOP-PR-006",
+          "SOP-VS-002"
+        ],
+        "fundamento": [
+          "SOP-CC-001 §2"
+        ]
+      }
+    ],
+    "promedios": {
+      "validas": 15,
+      "total": 15,
+      "tokens_entrada": 6610,
+      "tokens_salida": 854,
+      "costo_usd": 0.001088,
+      "latencia_ms": 3923,
+      "latencia_max_ms": 5108
+    },
+    "coincidencia_total": {
+      "aciertos": 11,
+      "total": 15,
+      "porcentaje": 0.7333
+    },
+    "coincidencia_por_grupo": {
+      "pe2_originales": {
+        "aciertos": 3,
+        "total": 5,
+        "porcentaje": 0.6
+      },
+      "anclas": {
+        "aciertos": 3,
+        "total": 4,
+        "porcentaje": 0.75
+      },
+      "frontera": {
+        "aciertos": 5,
+        "total": 6,
+        "porcentaje": 0.8333
+      }
+    },
+    "coincidencia_por_nivel": {
+      "sin_impacto": {
+        "aciertos": 0,
+        "total": 1,
+        "porcentaje": 0.0
+      },
+      "menor": {
+        "aciertos": 3,
+        "total": 4,
+        "porcentaje": 0.75
+      },
+      "mayor": {
+        "aciertos": 4,
+        "total": 6,
+        "porcentaje": 0.6667
+      },
+      "critico": {
+        "aciertos": 3,
+        "total": 3,
+        "porcentaje": 1.0
+      },
+      "fuera_de_alcance": {
+        "aciertos": 1,
+        "total": 1,
+        "porcentaje": 1.0
+      }
+    },
+    "sesgo": {
+      "sobreclasifica": 1,
+      "subclasifica": 1
+    },
+    "modelo": "claude-haiku-5-5",
+    "comparacion_pe2": {
+      "corrida_pe2": "corrida_20261116_1116",
+      "coincidencia_pe2": {
+        "aciertos": 11,
+        "total": 15,
+        "porcentaje": 0.7333
+      },
+      "coincidencia_pe3": {
+        "aciertos": 11,
+        "total": 15,
+        "porcentaje": 0.7333
+      },
+      "tokens_entrada_promedio_pe2": 2463,
+      "costo_promedio_pe2": 0.00068,
+      "latencia_promedio_pe2": 3971,
+      "sesgo_pe2": {
+        "sobreclasifica": 4,
+        "subclasifica": 0
+      },
+      "casos": [
+        {
+          "n": "01",
+          "esperado": "mayor",
+          "pe2": "critico",
+          "pe3": "mayor"
+        },
+        {
+          "n": "02",
+          "esperado": "mayor",
+          "pe2": "mayor",
+          "pe3": "menor"
+        },
+        {
+          "n": "03",
+          "esperado": "mayor",
+          "pe2": "mayor",
+          "pe3": "mayor"
+        },
+        {
+          "n": "04",
+          "esperado": "menor",
+          "pe2": "menor",
+          "pe3": "requiere_humano"
+        },
+        {
+          "n": "05",
+          "esperado": "fuera_de_alcance",
+          "pe2": "fuera_de_alcance",
+          "pe3": "fuera_de_alcance"
+        },
+        {
+          "n": "06",
+          "esperado": "menor",
+          "pe2": "mayor",
+          "pe3": "menor"
+        },
+        {
+          "n": "07",
+          "esperado": "critico",
+          "pe2": "critico",
+          "pe3": "critico"
+        },
+        {
+          "n": "08",
+          "esperado": "critico",
+          "pe2": "critico",
+          "pe3": "critico"
+        },
+        {
+          "n": "09",
+          "esperado": "menor",
+          "pe2": "mayor",
+          "pe3": "menor"
+        },
+        {
+          "n": "10",
+          "esperado": "mayor",
+          "pe2": "mayor",
+          "pe3": "mayor"
+        },
+        {
+          "n": "11",
+          "esperado": "mayor",
+          "pe2": "critico",
+          "pe3": "critico"
+        },
+        {
+          "n": "12",
+          "esperado": "menor",
+          "pe2": "menor",
+          "pe3": "menor"
+        },
+        {
+          "n": "13",
+          "esperado": "critico",
+          "pe2": "critico",
+          "pe3": "critico"
+        },
+        {
+          "n": "14",
+          "esperado": "mayor",
+          "pe2": "mayor",
+          "pe3": "mayor"
+        },
+        {
+          "n": "15",
+          "esperado": "sin_impacto",
+          "pe2": "sin_impacto",
+          "pe3": "fuera_de_alcance"
+        }
+      ]
+    }
+  }
+}

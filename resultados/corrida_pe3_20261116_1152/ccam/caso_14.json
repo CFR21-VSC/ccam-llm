@@ -1,0 +1,106 @@
+{
+  "trace_id": "4ea301495c2d",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "requiere_humano": false,
+    "impacto_gxp": "mayor",
+    "requiere_revalidacion": true,
+    "justificacion": "El cambio modifica el formato de un resultado informado en el certificado de análisis de LIMS (de dos a un decimal). No altera el cálculo interno ni la especificación, según la descripción. Pregunta de frontera (SOP-CC-001 §5.7): el cambio modifica un dato que respalda la decisión de liberación, por lo que no es menor aunque el sistema esté validado. Un redondeo a un decimal puede cambiar el veredicto en el límite de especificación (SOP-VS-003 §5.2), y la barrera posterior es la verificación documentada de la configuración y de casos en el límite antes de usar el resultado. Se requiere verificación documentada y revalidación parcial de la función de informe. Dato a confirmar por QA: si el redondeo se aplica también a resultados con valores en el límite de especificación y si existe algún otro resultado informado afectado por el mismo parámetro.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.4"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.7"
+      },
+      {
+        "codigo": "SOP-VS-003",
+        "seccion": "5.2"
+      },
+      {
+        "codigo": "SOP-VS-002",
+        "seccion": "6.2"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Documentar el cambio de configuración de redondeo en LIMS con audit trail y registrar la versión previa y la nueva.",
+        "area_responsable": "sistemas"
+      },
+      {
+        "descripcion": "Ejecutar y documentar casos de prueba del certificado de análisis con valores en el límite de especificación, verificando el veredicto con un decimal.",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Revisar y aprobar la verificación documentada antes de usar el nuevo formato en certificados emitidos.",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Confirmar que la especificación y el cálculo interno no cambian y que no hay otros resultados informados afectados por el mismo parámetro.",
+        "area_responsable": "control_calidad"
+      }
+    ],
+    "confianza": 0.85,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "INF-AUD-2026-03",
+      "seccion": "1",
+      "fragmento_id": "INF-AUD-2026-03#A00",
+      "puntaje": 0.032002
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "5",
+      "fragmento_id": "SOP-VS-002#A01",
+      "puntaje": 0.031498
+    },
+    {
+      "documento": "SOP-VS-003",
+      "seccion": "4",
+      "fragmento_id": "SOP-VS-003#A01",
+      "puntaje": 0.031319
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.3",
+      "fragmento_id": "SOP-CC-001#A02",
+      "puntaje": 0.031099
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "4",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.030536
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "fragmento_id": "SOP-CC-001#A04",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "8",
+      "fragmento_id": "SOP-CC-001#A05",
+      "puntaje": 0.031258
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 6504,
+    "output_tokens": 882,
+    "cost": 0.0010914,
+    "latencia_ms": 3870,
+    "cached": false
+  },
+  "version_prompt": "rag-9b8f1eede363",
+  "evidencia_maxima": 0.4832
+}

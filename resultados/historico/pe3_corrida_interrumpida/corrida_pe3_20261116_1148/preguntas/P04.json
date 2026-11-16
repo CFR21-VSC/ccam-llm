@@ -1,0 +1,64 @@
+{
+  "trace_id": "f315d11c96b5",
+  "ok": true,
+  "usuario": "u_solicitante_prod",
+  "pregunta_id": "P04",
+  "salida": {
+    "respuesta": "No necesariamente. SOP-DC-004 §3.2 establece que una corrección editorial (errores de tipeo, formato, numeración) que no cambia ningún contenido técnico se emite como nueva versión con revisión de Garantía de Calidad, sin revisión técnica ni capacitación. Se gestiona por el procedimiento SOP-DC-004. La capacitación sí es requerida (SOP-DC-004 §3.1) cuando el cambio es técnico (pasos, parámetros, productos, concentraciones, tiempos, criterios de aceptación).",
+    "citas": [
+      {
+        "codigo": "SOP-DC-004",
+        "seccion": "3.2"
+      },
+      {
+        "codigo": "SOP-DC-004",
+        "seccion": "3.1"
+      }
+    ],
+    "requiere_humano": false
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-DC-004",
+      "seccion": "1",
+      "fragmento_id": "SOP-DC-004#A00",
+      "puntaje": 0.031319
+    },
+    {
+      "documento": "SOP-VS-003",
+      "seccion": "4",
+      "fragmento_id": "SOP-VS-003#A01",
+      "puntaje": 0.03125
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "4",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.030214
+    },
+    {
+      "documento": "SOP-VS-003",
+      "seccion": "1",
+      "fragmento_id": "SOP-VS-003#A00",
+      "puntaje": 0.029762
+    },
+    {
+      "documento": "SOP-EQ-005",
+      "seccion": "1",
+      "fragmento_id": "SOP-EQ-005#A00",
+      "puntaje": 0.016393
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 4166,
+    "output_tokens": 330,
+    "cost": 0.0005816,
+    "latencia_ms": 1730,
+    "cached": false
+  },
+  "version_prompt": "rag-830d6cf9fc0b",
+  "evidencia_maxima": 0.5009
+}

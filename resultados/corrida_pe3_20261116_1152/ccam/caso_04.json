@@ -1,0 +1,78 @@
+{
+  "trace_id": "f1aeb16a060d",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "requiere_humano": true,
+    "impacto_gxp": null,
+    "requiere_revalidacion": false,
+    "justificacion": "El pedido es el reemplazo de una impresora del sector de producción, pero la descripción no dice si la impresora imprime registros GxP (etiquetas, lotes, registros de producción) ni si está integrada a un sistema validado. La evidencia recuperada no contiene ningún fragmento que trate impresoras ni este tipo de equipo, por lo que no alcanza para clasificar. Se deriva a QA sin clasificar. Dato que falta: uso que se le da a la impresora (qué documentos imprime), si está conectada a un sistema computarizado validado y el modelo y software propuestos. No se propone tarea ni clasificación.",
+    "fundamento": [],
+    "tareas": [],
+    "confianza": 0.3,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-EQ-005",
+      "seccion": "5.1",
+      "fragmento_id": "SOP-EQ-005#A01",
+      "puntaje": 0.032522
+    },
+    {
+      "documento": "SOP-DC-004",
+      "seccion": "1",
+      "fragmento_id": "SOP-DC-004#A00",
+      "puntaje": 0.031778
+    },
+    {
+      "documento": "SOP-PR-006",
+      "seccion": "1",
+      "fragmento_id": "SOP-PR-006#A00",
+      "puntaje": 0.030835
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.3",
+      "fragmento_id": "SOP-CC-001#A02",
+      "puntaje": 0.030366
+    },
+    {
+      "documento": "INF-AUD-2026-03",
+      "seccion": "5",
+      "fragmento_id": "INF-AUD-2026-03#A01",
+      "puntaje": 0.030331
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "fragmento_id": "SOP-CC-001#A04",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "4",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.032002
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "8",
+      "fragmento_id": "SOP-CC-001#A05",
+      "puntaje": 0.031258
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 6756,
+    "output_tokens": 434,
+    "cost": 0.0008926,
+    "latencia_ms": 4197,
+    "cached": false
+  },
+  "version_prompt": "rag-9b8f1eede363",
+  "evidencia_maxima": 0.391
+}

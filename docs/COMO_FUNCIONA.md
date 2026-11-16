@@ -143,6 +143,49 @@ VALIDADO | modelo claude-haiku-5-5 | intentos 1 | tokens 1196/320 | USD 0.000280
 
 En clase se vio que la temperatura controla la variabilidad y que para clasificar conviene 0. Pero desde la versión 2026-10-21 de su API, **Claude ya no acepta ese parámetro**: siempre responde con su variabilidad por defecto. Por eso, en este sistema la consistencia no depende de una perilla del modelo, sino de controles propios: el contrato, el catálogo cerrado de SOPs, el reintento con corrección y, en la PE6, la medición de cuán estable es la clasificación cuando se repite el mismo caso. Es el principio GxP de siempre: no confiar en que el proceso salga bien, verificarlo.
 
+## Cómo encuentra los documentos (PE3)
+
+En la PE2 el modelo solo veía una lista con el código y el título de 7 SOPs. Desde la PE3 lee **los documentos del laboratorio**, y solo los que la persona que pregunta tiene permitido leer. Es la diferencia entre evaluar un cambio de memoria y hacerlo con el procedimiento abierto sobre la mesa.
+
+### Las piezas, en criollo
+
+| Pieza | Qué es | Equivalente GxP |
+| --- | --- | --- |
+| **Corpus** (`documentos/`) | 10 documentos ficticios en Markdown, cada uno con carátula: código, versión, vigencia y roles que lo pueden leer | La lista maestra de documentos controlados |
+| **Fragmento** | Un pedazo de documento de ~400 tokens (unas 250 palabras), cortado por secciones, que arranca con su etiqueta: `SOP-VS-002 · Validación... · §6.3 ...` | Citar "SOP-VS-002 §6.3" en vez de "el SOP de validación" |
+| **Ingesta** (`python -m src.rag.ingestar`) | Un solo comando lee todo, corta, calcula y guarda; deja un manifiesto con el hash SHA-256 de cada documento | La carga controlada al sistema documental, con registro de qué versión quedó |
+| **Embedding** | Una lista de 384 números que representa el *significado* de un texto. Textos parecidos tienen números parecidos | No tiene; es la forma de que la máquina encuentre "por tema" |
+| **Búsqueda vectorial** | Busca los fragmentos con significado más parecido a la pregunta | Preguntarle a un colega "¿dónde habla de mudar una cámara?" |
+| **BM25** | Busca por coincidencia de palabras exactas, premiando las palabras raras | Ctrl+F en el sistema documental: encuentra `HPLC-QC-03` y no lo confunde con `HPLC-QC-04` |
+| **RRF** | Junta los dos rankings: puntaje = suma de 1/(60 + puesto) en cada lista | Dos revisores ordenan por separado y se queda lo que ambos ponen arriba |
+| **Pre-filtro por rol** | La búsqueda se hace **solo** sobre lo que el rol puede leer; lo demás ni se mira | Control de accesos por perfil: el archivo restringido no aparece en tu listado |
+| **requiere_humano** | Si los documentos no alcanzan para responder, el sistema no clasifica y lo deriva a QA | "No tengo procedimiento para esto: lo decide QA" |
+
+### El recorrido de un CCAM con RAG (`responder`)
+
+1. Valida la Entrada (igual que la PE2).
+2. Resuelve quién pregunta con `config/usuarios.json`. Lo resuelve el código, nunca el modelo. Si el usuario no existe: `acceso_denegado`, sin buscar.
+3. Busca dos veces con los permisos de ese usuario: con el texto del CCAM y con la matriz de clasificación de SOP-CC-001 (es el criterio, se trae siempre).
+4. Si nada se parece ni de lejos (similitud menor a 0,20), responde `requiere_humano` sin llamar al modelo.
+5. Le pasa al modelo los fragmentos encontrados, cada uno con su código y sección, en lugar del catálogo.
+6. Valida la respuesta: **cada cita tiene que estar entre los fragmentos que se recuperaron en esa misma llamada**. Una cita que no se recuperó es una cita inventada y se rechaza. Si una tarea nombra un SOP, ese SOP tiene que estar en el fundamento (regla H-02).
+7. Deja rastro: usuario, rol, fragmentos usados y versión del prompt, sin el texto del CCAM.
+
+### Por qué BM25 tiene que respetar los permisos
+
+Si BM25 se armara con todo el corpus y después se filtrara, el puntaje de los fragmentos visibles cambiaría según lo que hay en los invisibles: alguien atento podría deducir que existe un documento restringido sobre el tema. Por eso el índice de palabras se arma cada vez **solo con lo autorizado**. Es la diferencia entre no mostrar un expediente y no tenerlo en el cajón.
+
+### Cómo se prueba que un restringido no se filtra
+
+Cada documento restringido tiene una **frase testigo** única (por ejemplo `TESTIGO-INSP-2290`). La prueba pregunta por esa frase con cada usuario y verifica dos cosas: que no aparece en los resultados y que **no aparece en el texto que se le manda al modelo** (el simulador guarda una copia de ese texto). Como control, el jefe de QA sí la recibe: si no, la prueba pasaría por casualidad.
+
+### Preguntas que te pueden hacer sobre la PE3
+
+- **¿Por qué no filtrar después de buscar?** Porque lo que se buscó ya pasó por la memoria del programa y por los puntajes; el control tiene que estar antes, como el perfil de acceso.
+- **¿Por qué híbrida y no solo vectorial?** Porque los códigos (`CAPA-2026-014` frente a `CAPA-2026-041`) son casi iguales en significado y distintos en lo que importa. En la corrida, la vectorial falló en 4 de 14 consultas donde la híbrida acertó.
+- **¿Por qué fragmentos de 400 y no de 1.000 tokens?** Con este corpus las dos aciertan igual con la híbrida, pero la de 400 manda la mitad de texto al modelo y permite citar la sección exacta.
+- **¿Por qué ChromaDB y no Pinecone?** ChromaDB corre en la máquina: los documentos GxP no salen a un tercero. Pinecone convendría con varias plantas, miles de documentos y muchos usuarios a la vez, si la evaluación de proveedor y la residencia de datos lo permiten.
+
 ## Preguntas que te pueden hacer en la defensa
 
 - **¿Por qué validar si el esquema ya le dice al modelo la forma?** Porque el esquema orienta y no garantiza: no sabe si el SOP existe ni puede expresar reglas de negocio entre campos.

@@ -251,7 +251,9 @@ def informe_md(rec: dict, perm: dict, preg: list[dict], med: dict, fecha: str, v
                  f"{', '.join(p['citas']) or '-'} | {', '.join(p['esperado']) or '-'} | "
                  f"{p['evidencia_maxima'] if p['evidencia_maxima'] is not None else '-'} | {'Sí' if p['correcta'] else 'No'} |")
     L += ["", f"Correctas: {sum(p['correcta'] for p in preg)}/{len(preg)}.", "",
-          "## 5. Los 15 CCAM con RAG (u_analista_qa)", "", medicion_md(med, fecha).split("\n", 2)[2]]
+          "## 5. Los 15 CCAM con RAG (u_analista_qa)", "",
+          medicion_md(med, fecha).split("\n", 2)[2].replace("cada fila es la ejecución de su `caso_NN.txt`",
+                                                            "cada fila es el `ccam/caso_NN.json` de su ejecución")]
     if "comparacion_pe2" in med:
         c = med["comparacion_pe2"]
         L += ["## 6. PE2 (catálogo) contra PE3 (RAG)", "",

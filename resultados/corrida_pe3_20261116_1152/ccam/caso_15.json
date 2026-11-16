@@ -1,0 +1,83 @@
+{
+  "trace_id": "6e52813894ad",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": true,
+    "requiere_humano": false,
+    "impacto_gxp": null,
+    "requiere_revalidacion": false,
+    "justificacion": "CCAM-2026-115 propone actualizar antivirus y navegador en PCs administrativas de Recursos Humanos y Compras, sin sistemas GxP ni acceso a sistemas productivos según el solicitante. SOP-CC-001 §2 excluye los cambios en equipos o sistemas que no participan de procesos GxP, que se gestionan por los circuitos propios de cada área. Se deriva a QA sin clasificar; QA puede confirmar la exclusión de alcance.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "2"
+      }
+    ],
+    "tareas": [],
+    "confianza": 0.8,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "1",
+      "fragmento_id": "SOP-CC-001#A00",
+      "puntaje": 0.032018
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "1",
+      "fragmento_id": "SOP-VS-002#A00",
+      "puntaje": 0.031746
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "6.3",
+      "fragmento_id": "SOP-VS-002#A02",
+      "puntaje": 0.030835
+    },
+    {
+      "documento": "SOP-PR-006",
+      "seccion": "5",
+      "fragmento_id": "SOP-PR-006#A01",
+      "puntaje": 0.030679
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "5",
+      "fragmento_id": "SOP-VS-002#A01",
+      "puntaje": 0.030303
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "fragmento_id": "SOP-CC-001#A04",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "4",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.032002
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "8",
+      "fragmento_id": "SOP-CC-001#A05",
+      "puntaje": 0.031258
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 6303,
+    "output_tokens": 411,
+    "cost": 0.0008358,
+    "latencia_ms": 2312,
+    "cached": false
+  },
+  "version_prompt": "rag-9b8f1eede363",
+  "evidencia_maxima": 0.4539
+}

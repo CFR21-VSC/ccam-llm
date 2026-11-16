@@ -4,7 +4,7 @@
 
 Motor de evaluación de impacto de cambios GxP (CCAM) con un modelo de lenguaje, contrato de datos en Pydantic, medición de tokens, costo y latencia, y manejo de errores con reintento.
 
-Proyecto integrador del curso **Forward Deployed Engineer** (Coderhouse, 2026). La etiqueta `pe2` marca lo entregado en la Pre-Entrega 2; esta versión suma las correcciones de su devolución (una sola corrida como fuente de verdad, integración continua y 10 casos nuevos clasificados por QA).
+Proyecto integrador del curso **Forward Deployed Engineer** (Coderhouse, 2026). La etiqueta `pe2` marca lo entregado en la Pre-Entrega 2. Desde la PE3 el motor responde **con los documentos del laboratorio** (RAG): búsqueda híbrida vectorial + BM25, filtrada por rol antes de buscar, y cada cita validada contra lo recuperado.
 
 > **Datos ficticios.** El catálogo de SOPs, los CCAM de prueba y el sistema de cambios son ficticios. No hay información real de ninguna empresa.
 
@@ -27,6 +27,10 @@ Cómo funciona por dentro, explicado paso a paso: [docs/COMO_FUNCIONA.md](docs/C
 src/contrato.py      Clases Entrada y Salida, reglas de validación y regla cruzada
 src/motor.py         Recorrido completo: validar, llamar, validar, reintentar, medir, registrar
 src/proveedores.py   Conexión con Claude (Anthropic), OpenAI (opcional) y un simulador sin clave
+src/rag/             PE3: corpus, ingesta en ChromaDB, búsqueda híbrida con permisos y responder()
+documentos/          PE3: 10 documentos ficticios (7 SOPs y 3 restringidos con frase testigo)
+evals/               PE3: 10 preguntas de prueba y 8 consultas con códigos exactos
+scripts/corrida_pe3.py  PE3: recuperación, permisos, preguntas y CCAM en una sola carpeta
 prompts/             Plantillas del prompt: sistema, caso y corrección del reintento
 config/              Catálogo ficticio de SOPs y precios por modelo
 consultas/           15 CCAM de medición, cada uno con la respuesta esperada y la justificación de QA
@@ -116,6 +120,17 @@ python -m src.motor consultas/01_version_software.json --simulado invalido     #
 python -m src.motor consultas/01_version_software.json --simulado sin_conexion # error de API
 python -m src.motor consultas/extra/entrada_invalida.json --simulado valido   # entrada inválida
 ```
+
+## PE3: respuestas con los documentos
+
+```bash
+python -m src.rag.ingestar                         # lee documentos/, fragmenta y guarda en .chroma/ (un comando)
+python -m src.rag.responder consultas/08_audit_trail.json --usuario u_analista_qa
+python -m scripts.corrida_pe3                      # medición completa con Claude y embeddings locales
+python -m scripts.corrida_pe3 --simulado rag_valido --embeddings-simulados   # sin clave ni descargas
+```
+
+La primera ingesta baja el modelo de embeddings (`paraphrase-multilingual-MiniLM-L12-v2`, ~220 MB, Apache-2.0). Usuarios y roles de prueba: `config/usuarios.json`. Parámetros de búsqueda: `config/rag.json`. Última corrida: `resultados/corrida_pe3_20261116_1152/medicion.md`.
 
 ## Contrato de datos
 

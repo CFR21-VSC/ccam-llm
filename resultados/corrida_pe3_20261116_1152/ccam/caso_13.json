@@ -1,0 +1,108 @@
+{
+  "trace_id": "815b0c99cba7",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "requiere_humano": false,
+    "impacto_gxp": "critico",
+    "requiere_revalidacion": true,
+    "justificacion": "El cambio propone operar la comprimidora rotativa de la línea 2 a 55 rpm en un producto comercial, por encima del rango validado de proceso (30-45 rpm). El efecto alcanza directamente la calidad del producto y la validez del proceso validado. SOP-EQ-005 §6 y SOP-CC-001 §5.1 establecen que operar fuera del rango validado en producto comercial no está permitido y que un nuevo rango requiere validación de proceso previa. La pregunta de frontera (§5.7) es si el cambio modifica un parámetro validado: sí lo modifica, por lo que no puede ser menor. El dato necesario para decidir ya está en la descripción, así que no se aplica R-QA-01 y la clasificación se basa en el efecto real. Con la evidencia disponible, la clasificación es crítica por el riesgo sobre la calidad del producto comercial. El cambio no debe implementarse hasta completar la validación de proceso.",
+    "fundamento": [
+      {
+        "codigo": "SOP-EQ-005",
+        "seccion": "6"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.1"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.7"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Suspender la operación a 55 rpm en la comprimidora de la línea 2 hasta contar con validación de proceso aprobada para ese rango.",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Diseñar y ejecutar el protocolo de validación de proceso para el rango de 40 a 55 rpm en el producto comercial, con lotes y criterios de aceptación definidos.",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Registrar los lotes fabricados a 40-55 rpm desde la última fecha de cambio y reportarlos a QA para evaluar su impacto.",
+        "area_responsable": "produccion"
+      },
+      {
+        "descripcion": "Evaluar si el cambio de rango validado requiere comunicación o notificación a ANMAT según el registro del producto.",
+        "area_responsable": "asuntos_regulatorios"
+      }
+    ],
+    "confianza": 0.9,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-EQ-005",
+      "seccion": "5.1",
+      "fragmento_id": "SOP-EQ-005#A01",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "1",
+      "fragmento_id": "SOP-VS-002#A00",
+      "puntaje": 0.031025
+    },
+    {
+      "documento": "SOP-PR-006",
+      "seccion": "1",
+      "fragmento_id": "SOP-PR-006#A00",
+      "puntaje": 0.030366
+    },
+    {
+      "documento": "SOP-EQ-005",
+      "seccion": "1",
+      "fragmento_id": "SOP-EQ-005#A00",
+      "puntaje": 0.029828
+    },
+    {
+      "documento": "INF-AUD-2026-03",
+      "seccion": "1",
+      "fragmento_id": "INF-AUD-2026-03#A00",
+      "puntaje": 0.02971
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "fragmento_id": "SOP-CC-001#A04",
+      "puntaje": 0.032787
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "4",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.032002
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "8",
+      "fragmento_id": "SOP-CC-001#A05",
+      "puntaje": 0.031258
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 6979,
+    "output_tokens": 922,
+    "cost": 0.0011589,
+    "latencia_ms": 4212,
+    "cached": false
+  },
+  "version_prompt": "rag-9b8f1eede363",
+  "evidencia_maxima": 0.4576
+}
