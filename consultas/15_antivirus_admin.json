@@ -1,0 +1,19 @@
+{
+  "nombre": "Antivirus en PCs administrativas sin sistemas GxP",
+  "tipo_prueba": "ancla",
+  "esperado": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "sin_impacto",
+    "requiere_revalidacion": false,
+    "justificacion_qa": "Equipos sin sistemas GxP y sin acceso a sistemas productivos: el cambio no alcanza procesos GxP, la calidad del producto ni al paciente. Es sin impacto porque queda fuera del alcance del sistema de calidad; se gestiona por el circuito de IT.",
+    "clasificado_por": "Federico Bongiovanni (QA/CSV)",
+    "fecha": "2026-11-02"
+  },
+  "entrada": {
+    "id_ccam": "CCAM-2026-115",
+    "tipo_cambio": "otro",
+    "area_solicitante": "sistemas",
+    "sistema_afectado": "PCs del área administrativa",
+    "descripcion": "Actualizar el antivirus y el navegador en las computadoras de Recursos Humanos y Compras. No tienen instalado ningún sistema GxP ni acceden a sistemas productivos."
+  }
+}

@@ -1,0 +1,27 @@
+# Prueba de reproducibilidad: en cada push y pull request, GitHub arma una
+# máquina limpia, clona el repo, instala requirements.txt y corre las pruebas.
+# No usa ninguna clave: todas las pruebas trabajan con el proveedor simulado.
+name: pruebas
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  pruebas:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+      - name: Correr las pruebas (sin clave)
+        run: python -m pytest -q
+      - name: Corrida completa en modo simulado
+        run: python -m scripts.corrida --simulado invalido_luego_valido

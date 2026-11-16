@@ -1,0 +1,19 @@
+{
+  "nombre": "Nueva firma electrónica en la liberación de lotes",
+  "tipo_prueba": "frontera",
+  "esperado": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "critico",
+    "requiere_revalidacion": true,
+    "justificacion_qa": "Cambia el mecanismo de firma electrónica de la decisión de liberación, la última barrera de contención antes de que el producto llegue al mercado (21 CFR Part 11, Anexo 11). Es crítico y no mayor porque afecta directamente la atribución y validez de la decisión que libera el lote, sin importar si el método nuevo es más robusto.",
+    "clasificado_por": "Federico Bongiovanni (QA/CSV)",
+    "fecha": "2026-11-02"
+  },
+  "entrada": {
+    "id_ccam": "CCAM-2026-107",
+    "tipo_cambio": "version_software",
+    "area_solicitante": "garantia_calidad",
+    "sistema_afectado": "Sistema de liberación de lotes",
+    "descripcion": "Migrar el sistema de liberación de lotes a la versión 5.0, que reemplaza el módulo de firma electrónica: el Director Técnico pasa a firmar con usuario y token en lugar de usuario y contraseña."
+  }
+}

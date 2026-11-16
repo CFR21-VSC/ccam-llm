@@ -1,0 +1,19 @@
+{
+  "nombre": "Perfil de solo consulta en el LIMS",
+  "tipo_prueba": "ancla",
+  "esperado": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "menor",
+    "requiere_revalidacion": false,
+    "justificacion_qa": "Agrega un perfil de solo consulta: no permite cargar, modificar ni aprobar resultados, así que no afecta la calidad del producto ni las decisiones del sistema. Es menor porque solo cambia la matriz de accesos, que se documenta y se revisa en la revisión periódica de usuarios.",
+    "clasificado_por": "Federico Bongiovanni (QA/CSV)",
+    "fecha": "2026-11-02"
+  },
+  "entrada": {
+    "id_ccam": "CCAM-2026-109",
+    "tipo_cambio": "configuracion_sistema",
+    "area_solicitante": "sistemas",
+    "sistema_afectado": "LIMS",
+    "descripcion": "Crear un perfil nuevo \"Analista en formación\" en el LIMS, con permisos solo de consulta: sin carga ni aprobación de resultados."
+  }
+}

@@ -18,7 +18,7 @@ EL RECORRIDO DE UN CCAM (función evaluar)
 CON QUIÉN HABLA
     - Usa: src/contrato.py (las reglas), src/proveedores.py (la IA),
            prompts/*.md (las plantillas), config/precios.json (los precios)
-    - Lo usan: scripts/medir.py (las 5 consultas) y la línea de comandos
+    - Lo usan: scripts/corrida.py (medición) y la línea de comandos
 """
 from __future__ import annotations
 

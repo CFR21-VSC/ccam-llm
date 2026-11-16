@@ -1,0 +1,19 @@
+{
+  "nombre": "Parche del LIMS validado por el proveedor",
+  "tipo_prueba": "ancla",
+  "esperado": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "menor",
+    "requiere_revalidacion": false,
+    "justificacion_qa": "Parche correctivo sin cambios en flujos, cálculos ni base de datos: no toca la integridad de datos ni las decisiones del sistema. El riesgo está cubierto por el paquete de validación del proveedor, que QA revisa y acepta (GAMP 5, aprovechamiento de la documentación del proveedor). Es menor y no mayor porque no altera ninguna función GxP validada.",
+    "clasificado_por": "Federico Bongiovanni (QA/CSV)",
+    "fecha": "2026-11-02"
+  },
+  "entrada": {
+    "id_ccam": "CCAM-2026-106",
+    "tipo_cambio": "version_software",
+    "area_solicitante": "control_calidad",
+    "sistema_afectado": "LIMS",
+    "descripcion": "Actualizar el LIMS del parche 8.2.1 al 8.2.3. Corrige dos errores en la impresión de reportes. El proveedor entrega el paquete de validación del parche y declara que no cambian los flujos, la base de datos ni los cálculos."
+  }
+}

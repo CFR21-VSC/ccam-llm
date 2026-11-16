@@ -1,0 +1,19 @@
+{
+  "nombre": "Errores de tipeo en un instructivo de limpieza",
+  "tipo_prueba": "ancla",
+  "esperado": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "menor",
+    "requiere_revalidacion": false,
+    "justificacion_qa": "Corrección de tipeo sin cambios en pasos, productos, concentraciones ni tiempos: no altera el método ni el resultado de la limpieza. Es menor porque es una revisión documental que se gestiona por el circuito de control de documentos.",
+    "clasificado_por": "Federico Bongiovanni (QA/CSV)",
+    "fecha": "2026-11-02"
+  },
+  "entrada": {
+    "id_ccam": "CCAM-2026-112",
+    "tipo_cambio": "documento_procedimiento",
+    "area_solicitante": "produccion",
+    "sistema_afectado": "Instructivo de limpieza de la línea 3",
+    "descripcion": "Corregir errores de tipeo en el instructivo de limpieza de la línea 3 (\"detergnete\", \"enjaguar\"), sin cambiar pasos, productos, concentraciones ni tiempos."
+  }
+}

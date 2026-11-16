@@ -1,8 +1,10 @@
-# fde-control-cambios
+# ccam-llm
+
+[![pruebas](https://github.com/CFR21-VSC/ccam-llm/actions/workflows/pruebas.yml/badge.svg)](https://github.com/CFR21-VSC/ccam-llm/actions/workflows/pruebas.yml)
 
 Motor de evaluación de impacto de cambios GxP (CCAM) con un modelo de lenguaje, contrato de datos en Pydantic, medición de tokens, costo y latencia, y manejo de errores con reintento.
 
-Proyecto integrador del curso **Forward Deployed Engineer** (Coderhouse, 2026). Esta versión corresponde a la **Pre-Entrega 2** (etiqueta `pe2`).
+Proyecto integrador del curso **Forward Deployed Engineer** (Coderhouse, 2026). La etiqueta `pe2` marca lo entregado en la Pre-Entrega 2; esta versión suma las correcciones de su devolución (una sola corrida como fuente de verdad, integración continua y 10 casos nuevos clasificados por QA).
 
 > **Datos ficticios.** El catálogo de SOPs, los CCAM de prueba y el sistema de cambios son ficticios. No hay información real de ninguna empresa.
 
@@ -27,11 +29,12 @@ src/motor.py         Recorrido completo: validar, llamar, validar, reintentar, m
 src/proveedores.py   Conexión con Claude (Anthropic), OpenAI (opcional) y un simulador sin clave
 prompts/             Plantillas del prompt: sistema, caso y corrección del reintento
 config/              Catálogo ficticio de SOPs y precios por modelo
-consultas/           Las 5 consultas de medición (con la respuesta esperada por QA)
-scripts/medir.py     Corre las 5 consultas y arma la tabla de medición
-tests/               Pruebas del contrato y del motor que no gastan tokens
-scripts/evidencia.py Guarda la salida de terminal de los casos de éxito y de error
+consultas/           15 CCAM de medición, cada uno con la respuesta esperada y la justificación de QA
+scripts/corrida.py   Corrida única: todos los casos y errores, tabla y manifiesto en una sola carpeta
+resultados/          Una carpeta por corrida; historico/ guarda lo entregado en la PE2
+tests/               Pruebas del contrato, del motor y de la corrida que no gastan tokens
 notebooks/           Demo en Google Colab para probar el motor con tus propios CCAM
+.github/workflows/   Integración continua: instala desde cero y corre las pruebas en cada push
 ```
 
 ## Cómo correrlo desde un clon limpio
@@ -68,21 +71,38 @@ python -m pytest -q
 python -m src.motor consultas/01_version_software.json
 ```
 
-### 3. Medición de las 5 consultas
+### 3. Corrida de medición y evidencia
 
 ```bash
-python -m scripts.medir
+python -m scripts.corrida
 ```
 
-Imprime la tabla y la guarda en `resultados/`.
+Corre los 15 CCAM y los tres casos de error **una sola vez cada uno** y guarda todo en `resultados/corrida_AAAAMMDD_HHMM/`:
 
-### 4. Evidencia para el PDF
+| Archivo | Qué tiene |
+| --- | --- |
+| `caso_NN.txt` | La salida de terminal completa de ese CCAM, sin recortar |
+| `caso_NN.json` | El resultado completo de esa misma ejecución |
+| `error_reintento.txt` · `error_api.txt` · `error_entrada.txt` | Salida inválida con reintento, error real de la API (401) y entrada inválida |
+| `medicion.md` · `medicion.json` | La tabla, armada leyendo los `caso_NN.json` de la carpeta (nunca con otra llamada) |
+| `manifiesto.json` | Fecha, modelo, versión del prompt, commit y hash SHA-256 de cada archivo |
+
+Un CCAM cuyo `esperado` diga `A_CONFIRMAR_POR_QA` se saltea hasta que QA lo clasifique. Sin clave: `python -m scripts.corrida --simulado valido`.
+
+## Reproducir desde un clon limpio
+
+La integración continua (badge de arriba) lo prueba en cada push: GitHub arma una máquina nueva con Python 3.11 y 3.12, clona el repo, instala `requirements.txt` y corre las pruebas y una corrida simulada, sin ninguna clave. A mano es lo mismo:
 
 ```bash
-python -m scripts.evidencia
+git clone https://github.com/CFR21-VSC/ccam-llm.git ccam-llm-prueba
+cd ccam-llm-prueba
+python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+python -m pytest -q
+python -m scripts.corrida --simulado valido
 ```
 
-Guarda en `resultados/` la salida de terminal de una ejecución exitosa, un reintento con error estructurado, un error real de la API y una entrada inválida.
+Para la corrida real alcanza con copiar `.env.example` como `.env` y completar la clave.
 
 ### Probarlo en Google Colab
 
@@ -110,4 +130,5 @@ python -m src.motor consultas/extra/entrada_invalida.json --simulado valido   # 
 - **Claude Haiku 5.5** por costo: con unos 150 CCAM por mes, el costo mensual es de centavos de dólar. Sonnet 5.5 queda para comparar calidad en la PE6.
 - **Sin temperatura:** desde la versión 2026-10-21 de la API, Claude no acepta `temperature`. La consistencia se controla con el contrato, el catálogo cerrado de SOPs y el reintento, y se medirá con evals en la PE6.
 - **Proveedor intercambiable:** cambiar de modelo o de proveedor es cambiar `.env`; el resto del código no se toca.
+- **Una sola fuente de verdad:** el PDF de cada entrega se arma solo desde la carpeta de una corrida, con manifiesto y hashes.
 - **Registro de ejecuciones:** cada evaluación deja una línea en `logs/ejecuciones.jsonl` con `trace_id`, versión del prompt, resultado, tokens, costo y latencia (sin el texto del CCAM).

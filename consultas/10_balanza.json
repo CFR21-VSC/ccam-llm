@@ -1,0 +1,19 @@
+{
+  "nombre": "Reemplazo de balanza analítica que falló",
+  "tipo_prueba": "frontera",
+  "esperado": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "mayor",
+    "requiere_revalidacion": true,
+    "justificacion_qa": "El reemplazo se origina en una falla de verificación: además de calificar el equipo nuevo, hay que evaluar el impacto de la falla sobre los resultados obtenidos con la balanza retirada desde la última verificación conforme. Es mayor y no menor porque, aunque el modelo sea idéntico, se trata de un equipo nuevo que requiere calificación y la falla puede tener consecuencias sobre datos ya emitidos.",
+    "clasificado_por": "Federico Bongiovanni (QA/CSV)",
+    "fecha": "2026-11-02"
+  },
+  "entrada": {
+    "id_ccam": "CCAM-2026-110",
+    "tipo_cambio": "equipo_instalacion",
+    "area_solicitante": "control_calidad",
+    "sistema_afectado": "Balanza analítica",
+    "descripcion": "Reemplazar una balanza analítica por otra del mismo fabricante y modelo, porque la actual falló la verificación diaria. La nueva viene con certificado de calibración del proveedor."
+  }
+}

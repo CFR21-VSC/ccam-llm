@@ -1,0 +1,19 @@
+{
+  "nombre": "Traslado de la cámara de estabilidad",
+  "tipo_prueba": "frontera",
+  "esperado": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "mayor",
+    "requiere_revalidacion": true,
+    "justificacion_qa": "El traslado cambia las condiciones ambientales de una cámara con estudios en curso de productos comerciales: requiere recalificar la cámara (mapeo térmico y de humedad) y controlar que no haya excursiones durante el traslado. Es mayor y no crítico porque el riesgo afecta la validez de los datos de estabilidad, no al producto liberado ni directamente al paciente.",
+    "clasificado_por": "Federico Bongiovanni (QA/CSV)",
+    "fecha": "2026-11-02"
+  },
+  "entrada": {
+    "id_ccam": "CCAM-2026-111",
+    "tipo_cambio": "equipo_instalacion",
+    "area_solicitante": "control_calidad",
+    "sistema_afectado": "Cámara de estabilidad 25 °C / 60 % HR",
+    "descripcion": "Trasladar la cámara de estabilidad de 25 °C / 60 % HR a otra sala, con otro sistema de climatización, por una obra en el sector. Tiene estudios en curso de tres productos comerciales."
+  }
+}

@@ -35,9 +35,9 @@ Federico es especialista en QA/CSV farmacéutico (GAMP 5, 21 CFR Part 11, Anexo 
 | `src/proveedores.py` | `ProveedorAnthropic`, `ProveedorOpenAI`, `ProveedorSimulado`, `crear_proveedor()` |
 | `prompts/` | `sistema.md`, `usuario.md`, `correccion.md` (plantillas con `$variables`) |
 | `config/` | `catalogo_sops.json` (7 SOPs ficticios), `precios.json` (USD por millón de tokens) |
-| `consultas/` | 5 CCAM de medición con el campo `esperado` (criterio de QA de Federico) |
-| `scripts/medir.py` | Corre las 5 consultas y escribe `resultados/medicion_*.md` y `.json` |
-| `scripts/evidencia.py` | Guarda en `resultados/evidencia_*.txt` la salida de terminal para el PDF |
+| `consultas/` | 15 CCAM de medición con el campo `esperado` y la `justificacion_qa` (criterio de Federico) |
+| `scripts/corrida.py` | Corrida única: casos, errores, `medicion.*` y `manifiesto.json` en `resultados/corrida_*/` |
+| `.github/workflows/pruebas.yml` | CI: clon limpio, instala y corre las pruebas sin clave en cada push |
 | `tests/` | Pruebas sin gastar tokens (contrato y motor con el simulador) |
 | `notebooks/demo_colab.ipynb` | Demo en Colab para que terceros prueben el motor |
 | `docs/COMO_FUNCIONA.md` | Explicación para no programadores; mantenerla al día con cada cambio |
@@ -50,8 +50,8 @@ Federico es especialista en QA/CSV farmacéutico (GAMP 5, 21 CFR Part 11, Anexo 
 python -m pytest -q                                              # siempre antes de commitear
 python -m src.motor consultas/01_version_software.json           # un CCAM con el proveedor de .env
 python -m src.motor consultas/01_version_software.json --simulado invalido   # sin clave
-python -m scripts.medir                                          # tabla de las 5 consultas
-python -m scripts.evidencia                                      # evidencia de terminal para el PDF
+python -m scripts.corrida                                        # medición y evidencia en una sola carpeta
+python -m scripts.corrida --simulado valido                      # lo mismo, sin clave
 ```
 
 ## Cómo trabajar
@@ -61,4 +61,6 @@ python -m scripts.evidencia                                      # evidencia de 
 - Al cerrar una sesión de trabajo: actualizar `docs/ESTADO.md` (qué se hizo, qué falta, próximos pasos) y, si se tomó una decisión de diseño, agregarla a `docs/DECISIONES.md`.
 - Commits chicos, en español, que digan qué cambió y para qué pre-entrega.
 - No cambiar `consultas/*/esperado` sin que Federico lo confirme: es su criterio de QA.
+- **Una sola corrida por entrega:** los números del PDF salen de una carpeta `resultados/corrida_*` y de nada más.
+- **Tags:** se ponen y se verifican con `git ls-remote --tags origin` antes de entregar; no se mueven nunca (las correcciones van en `peN.1`).
 - Las reglas de la consigna y la rúbrica de cada pre-entrega están resumidas en `docs/ESTADO.md`.

@@ -1,0 +1,20 @@
+{
+  "nombre": "Redondeo de la valoración en el certificado",
+  "tipo_prueba": "frontera",
+  "esperado": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "mayor",
+    "requiere_revalidacion": true,
+    "justificacion_qa": "Cambia cómo el certificado de análisis informa un resultado que respalda la liberación, en un LIMS validado: según la cantidad de decimales de la especificación, el redondeo puede cambiar el veredicto en el límite. Es mayor y no menor por criterio conservador de QA: aunque alinea un criterio ya existente y no cambia el cálculo ni la especificación, requiere una verificación documentada de la nueva configuración y de los resultados en el límite de especificación.",
+    "clasificado_por": "Federico Bongiovanni (QA/CSV)",
+    "fecha": "2026-11-02",
+    "nota": "Caso de frontera menor/mayor. QA lo considera menor en lo técnico, pero lo eleva a mayor ante la duda (ver regla R-QA-01). Si el modelo propone menor con verificación, registrarlo como discrepancia de frontera, no como error grave."
+  },
+  "entrada": {
+    "id_ccam": "CCAM-2026-114",
+    "tipo_cambio": "configuracion_sistema",
+    "area_solicitante": "control_calidad",
+    "sistema_afectado": "LIMS",
+    "descripcion": "Cambiar el redondeo de la valoración en el certificado de análisis de dos decimales a uno, para unificar el formato con el de la casa matriz. El cálculo interno y la especificación no cambian."
+  }
+}

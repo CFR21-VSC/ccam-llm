@@ -1,0 +1,19 @@
+{
+  "nombre": "Comprimidora fuera del rango validado",
+  "tipo_prueba": "frontera",
+  "esperado": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "critico",
+    "requiere_revalidacion": true,
+    "justificacion_qa": "Lleva el proceso fuera del rango validado (30 a 45 rpm) en un producto comercial, sin evidencia de que la calidad se mantenga a 55 rpm. Es crítico porque puede afectar atributos críticos del producto que llegan al paciente; solo podría implementarse después de validar el nuevo rango.",
+    "clasificado_por": "Federico Bongiovanni (QA/CSV)",
+    "fecha": "2026-11-02"
+  },
+  "entrada": {
+    "id_ccam": "CCAM-2026-113",
+    "tipo_cambio": "proceso_productivo",
+    "area_solicitante": "produccion",
+    "sistema_afectado": "Comprimidora rotativa de la línea 2",
+    "descripcion": "Aumentar la velocidad de la comprimidora de 40 a 55 rpm en un producto comercial para recuperar atrasos de producción. El rango validado del proceso es de 30 a 45 rpm."
+  }
+}

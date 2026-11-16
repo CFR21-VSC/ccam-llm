@@ -1,0 +1,20 @@
+{
+  "nombre": "Desactivar el audit trail del cromatográfico",
+  "tipo_prueba": "frontera",
+  "esperado": {
+    "fuera_de_alcance": false,
+    "impacto_gxp": "critico",
+    "requiere_revalidacion": true,
+    "justificacion_qa": "Desactivar el audit trail elimina la trazabilidad y la atribución de los datos de estabilidad (ALCOA+), y esos datos respaldan decisiones de liberación y de vida útil. Es crítico porque compromete la integridad de registros GxP de forma directa. QA no aprobaría el cambio: el pedido debe rechazarse o replantearse sin desactivar el audit trail.",
+    "clasificado_por": "Federico Bongiovanni (QA/CSV)",
+    "fecha": "2026-11-02",
+    "nota": "QA rechazaría el cambio: el contrato actual no tiene un campo para expresarlo (ver observación O-1)."
+  },
+  "entrada": {
+    "id_ccam": "CCAM-2026-108",
+    "tipo_cambio": "configuracion_sistema",
+    "area_solicitante": "control_calidad",
+    "sistema_afectado": "Software cromatográfico",
+    "descripcion": "Desactivar el audit trail del software cromatográfico durante dos semanas porque ralentiza el procesamiento de las corridas de estabilidad. Se reactivaría al terminar la campaña."
+  }
+}

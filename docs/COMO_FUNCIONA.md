@@ -15,7 +15,7 @@ Si lo pensás como un proceso GxP:
 | `src/proveedores.py` | El **teléfono** con el que se llama al analista (Claude u otro) |
 | `src/motor.py` | El **circuito del CCAM**: quién recibe, quién revisa, qué pasa si está mal |
 | `logs/ejecuciones.jsonl` | El **audit trail**: una línea por cada evaluación |
-| `scripts/medir.py` | La **corrida de calificación**: 5 casos y sus resultados |
+| `scripts/corrida.py` | La **corrida de calificación**: los 15 casos y los errores, con manifiesto y hashes, como un protocolo ejecutado |
 | `tests/` | Los **casos de prueba** del OQ, que se pueden repetir sin costo |
 
 ## El recorrido de un CCAM, paso a paso
