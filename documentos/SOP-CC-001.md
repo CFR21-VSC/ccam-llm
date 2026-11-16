@@ -1,8 +1,8 @@
 ---
 codigo: SOP-CC-001
 titulo: Gestión de control de cambios
-version: 3
-vigente_desde: 2026-03-01
+version: 4
+vigente_desde: 2026-11-16
 roles_lectura: solicitante, analista_qa, validaciones, jefe_qa
 ---
 
@@ -16,7 +16,9 @@ Establecer cómo se solicita, evalúa, aprueba, implementa y cierra un cambio (C
 
 ## 2 Alcance
 
-Aplica a todo cambio planificado en áreas GxP: Producción, Control de Calidad, Garantía de Calidad, Validaciones, Mantenimiento, Depósito, Compras, Sistemas y Asuntos Regulatorios. No aplica a cambios en equipos o sistemas que no participan de procesos GxP; esos cambios se gestionan por los circuitos propios de cada área (por ejemplo, el de Tecnología para la informática administrativa).
+Aplica a todo cambio planificado en las áreas, equipos, sistemas e infraestructura de la planta: Producción, Control de Calidad, Garantía de Calidad, Validaciones, Mantenimiento, Depósito, Compras, Sistemas y Asuntos Regulatorios. Un cambio que no alcanza ningún elemento GxP igual se registra y se clasifica **sin impacto** (sección 5.2): queda constancia de que se evaluó.
+
+No son CCAM los pedidos que no son un cambio de la operación (consultas administrativas, de personal o ajenas a la planta). Se registran como **fuera de alcance** y se derivan sin clasificar.
 
 ## 3 Responsabilidades
 
@@ -46,7 +48,9 @@ Que un sistema esté validado o un equipo calificado **no eleva por sí solo el 
 
 ### 5.2 Sin impacto
 
-El cambio no alcanza ningún proceso, sistema, equipo, material ni documento GxP. Queda fuera del sistema de calidad y no requiere evaluación de impacto GxP.
+El cambio alcanza la operación o la infraestructura de la planta, pero ningún proceso, sistema, equipo, material ni documento GxP. Se registra con una evaluación simplificada que deja constancia de por qué no hay impacto, y no requiere tareas de calidad.
+
+No confundir con fuera de alcance (sección 2): sin impacto es un cambio evaluado; fuera de alcance es un pedido que no es un cambio.
 
 Ejemplo ilustrativo: cambiar el mobiliario de la sala de reuniones de Compras.
 
@@ -62,7 +66,7 @@ Ejemplos ilustrativos:
 
 ### 5.4 Mayor
 
-El cambio modifica, o puede afectar, un estado validado o calificado, o los datos que respaldan una decisión de calidad, **pero existe una barrera posterior** (evaluación de riesgo, verificación, recalificación o revalidación antes de usar el resultado) que impide que el efecto llegue al producto liberado o al paciente. Requiere evaluación de riesgo y, en general, revalidación o recalificación parcial.
+El cambio modifica, o puede afectar, un estado validado o calificado, un texto o arte aprobado por la autoridad sanitaria, o los datos que respaldan una decisión de calidad, **pero existe una barrera posterior** (evaluación de riesgo, verificación, recalificación o revalidación antes de usar el resultado) que impide que el efecto llegue al producto liberado o al paciente. Requiere evaluación de riesgo y, en general, revalidación o recalificación parcial.
 
 Ejemplos ilustrativos:
 
@@ -87,7 +91,7 @@ Ante la duda entre mayor y crítico, Garantía de Calidad se pregunta: **¿el ca
 
 ### 5.7 Frontera entre menor y mayor
 
-Ante la duda entre menor y mayor, la pregunta es: **¿el cambio modifica una función, un cálculo, un dato o un estado validado?** Si no lo modifica y el riesgo está documentado, es menor, aunque el sistema esté validado. Si lo modifica, es mayor.
+Ante la duda entre menor y mayor, la pregunta es: **¿el cambio modifica una función, un cálculo, un dato, un estado validado o un texto o arte aprobado por la autoridad sanitaria?** Si no modifica nada de eso y el riesgo está documentado, es menor, aunque el sistema esté validado. Si lo modifica, es mayor.
 
 ### 5.8 Regla R-QA-01: ante la duda real
 
