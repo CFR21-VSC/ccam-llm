@@ -1,0 +1,155 @@
+{
+  "_nota": "Sistema de gestión de cambios SIMULADO (PE4). Datos ficticios: las 15 entradas de consultas/ con un estado y fechas inventadas. La base datos/sistema_ccam.db se crea desde este archivo.",
+  "ccam": [
+    {
+      "id_ccam": "CCAM-2026-101",
+      "tipo_cambio": "version_software",
+      "area_solicitante": "control_calidad",
+      "sistema_afectado": "Software cromatográfico del laboratorio de Control de Calidad",
+      "descripcion": "Actualizar el software cromatográfico de la versión 3.6 a la 3.8 porque el proveedor discontinúa el soporte de la 3.6 en marzo. La actualización alcanza a los 4 equipos HPLC del laboratorio y a la base de datos de resultados.",
+      "estado": "en_evaluacion",
+      "fecha_apertura": "2026-10-01",
+      "fecha_limite": "2026-12-01"
+    },
+    {
+      "id_ccam": "CCAM-2026-102",
+      "tipo_cambio": "packaging_rotulado",
+      "area_solicitante": "asuntos_regulatorios",
+      "sistema_afectado": "Estuche secundario del producto Analgésico X 500 mg",
+      "descripcion": "Cambiar el diseño del estuche secundario para incorporar el código QR de trazabilidad y actualizar el texto del rótulo según el último prospecto aprobado. El material del estuche y el proveedor no cambian.",
+      "estado": "vencido",
+      "fecha_apertura": "2026-10-02",
+      "fecha_limite": "2026-11-02"
+    },
+    {
+      "id_ccam": "CCAM-2026-103",
+      "tipo_cambio": "proveedor_material",
+      "area_solicitante": "compras",
+      "sistema_afectado": "Celulosa microcristalina usada en comprimidos",
+      "descripcion": "Incorporar un segundo proveedor de celulosa microcristalina porque el proveedor actual tiene demoras de entrega de 90 días. El nuevo proveedor declara la misma especificación farmacopeica pero todavía no fue auditado.",
+      "estado": "abierto",
+      "fecha_apertura": "2026-10-03",
+      "fecha_limite": "2026-12-03"
+    },
+    {
+      "id_ccam": "CCAM-2026-104",
+      "tipo_cambio": "otro",
+      "area_solicitante": "produccion",
+      "sistema_afectado": "Impresora del sector",
+      "descripcion": "Se necesita una impresora nueva para el proceso porque la actual anda mal y traba el trabajo del turno.",
+      "estado": "abierto",
+      "fecha_apertura": "2026-10-04",
+      "fecha_limite": "2026-12-04"
+    },
+    {
+      "id_ccam": "CCAM-2026-105",
+      "tipo_cambio": "otro",
+      "area_solicitante": "deposito",
+      "sistema_afectado": "Recursos humanos",
+      "descripcion": "Quería saber qué día se deposita el aguinaldo de diciembre y si se puede pedir un adelanto de vacaciones.",
+      "estado": "abierto",
+      "fecha_apertura": "2026-10-05",
+      "fecha_limite": "2026-12-05"
+    },
+    {
+      "id_ccam": "CCAM-2026-106",
+      "tipo_cambio": "version_software",
+      "area_solicitante": "control_calidad",
+      "sistema_afectado": "LIMS",
+      "descripcion": "Actualizar el LIMS del parche 8.2.1 al 8.2.3. Corrige dos errores en la impresión de reportes. El proveedor entrega el paquete de validación del parche y declara que no cambian los flujos, la base de datos ni los cálculos.",
+      "estado": "vencido",
+      "fecha_apertura": "2026-10-06",
+      "fecha_limite": "2026-11-06"
+    },
+    {
+      "id_ccam": "CCAM-2026-107",
+      "tipo_cambio": "version_software",
+      "area_solicitante": "garantia_calidad",
+      "sistema_afectado": "Sistema de liberación de lotes",
+      "descripcion": "Migrar el sistema de liberación de lotes a la versión 5.0, que reemplaza el módulo de firma electrónica: el Director Técnico pasa a firmar con usuario y token en lugar de usuario y contraseña.",
+      "estado": "abierto",
+      "fecha_apertura": "2026-10-07",
+      "fecha_limite": "2026-12-07"
+    },
+    {
+      "id_ccam": "CCAM-2026-108",
+      "tipo_cambio": "configuracion_sistema",
+      "area_solicitante": "control_calidad",
+      "sistema_afectado": "Software cromatográfico",
+      "descripcion": "Desactivar el audit trail del software cromatográfico durante dos semanas porque ralentiza el procesamiento de las corridas de estabilidad. Se reactivaría al terminar la campaña.",
+      "estado": "abierto",
+      "fecha_apertura": "2026-10-08",
+      "fecha_limite": "2026-12-08"
+    },
+    {
+      "id_ccam": "CCAM-2026-109",
+      "tipo_cambio": "configuracion_sistema",
+      "area_solicitante": "sistemas",
+      "sistema_afectado": "LIMS",
+      "descripcion": "Crear un perfil nuevo \"Analista en formación\" en el LIMS, con permisos solo de consulta: sin carga ni aprobación de resultados.",
+      "estado": "en_evaluacion",
+      "fecha_apertura": "2026-10-09",
+      "fecha_limite": "2026-12-09"
+    },
+    {
+      "id_ccam": "CCAM-2026-110",
+      "tipo_cambio": "equipo_instalacion",
+      "area_solicitante": "control_calidad",
+      "sistema_afectado": "Balanza analítica",
+      "descripcion": "Reemplazar una balanza analítica por otra del mismo fabricante y modelo, porque la actual falló la verificación diaria. La nueva viene con certificado de calibración del proveedor.",
+      "estado": "abierto",
+      "fecha_apertura": "2026-10-10",
+      "fecha_limite": "2026-12-10"
+    },
+    {
+      "id_ccam": "CCAM-2026-111",
+      "tipo_cambio": "equipo_instalacion",
+      "area_solicitante": "control_calidad",
+      "sistema_afectado": "Cámara de estabilidad 25 °C / 60 % HR",
+      "descripcion": "Trasladar la cámara de estabilidad de 25 °C / 60 % HR a otra sala, con otro sistema de climatización, por una obra en el sector. Tiene estudios en curso de tres productos comerciales.",
+      "estado": "vencido",
+      "fecha_apertura": "2026-10-11",
+      "fecha_limite": "2026-11-11"
+    },
+    {
+      "id_ccam": "CCAM-2026-112",
+      "tipo_cambio": "documento_procedimiento",
+      "area_solicitante": "produccion",
+      "sistema_afectado": "Instructivo de limpieza de la línea 3",
+      "descripcion": "Corregir errores de tipeo en el instructivo de limpieza de la línea 3 (\"detergnete\", \"enjaguar\"), sin cambiar pasos, productos, concentraciones ni tiempos.",
+      "estado": "cerrado",
+      "fecha_apertura": "2026-10-12",
+      "fecha_limite": "2026-12-12"
+    },
+    {
+      "id_ccam": "CCAM-2026-113",
+      "tipo_cambio": "proceso_productivo",
+      "area_solicitante": "produccion",
+      "sistema_afectado": "Comprimidora rotativa de la línea 2",
+      "descripcion": "Aumentar la velocidad de la comprimidora de 40 a 55 rpm en un producto comercial para recuperar atrasos de producción. El rango validado del proceso es de 30 a 45 rpm.",
+      "estado": "abierto",
+      "fecha_apertura": "2026-10-13",
+      "fecha_limite": "2026-12-13"
+    },
+    {
+      "id_ccam": "CCAM-2026-114",
+      "tipo_cambio": "configuracion_sistema",
+      "area_solicitante": "control_calidad",
+      "sistema_afectado": "LIMS",
+      "descripcion": "Cambiar el redondeo de la valoración en el certificado de análisis de dos decimales a uno, para unificar el formato con el de la casa matriz. El cálculo interno y la especificación no cambian.",
+      "estado": "abierto",
+      "fecha_apertura": "2026-10-14",
+      "fecha_limite": "2026-12-14"
+    },
+    {
+      "id_ccam": "CCAM-2026-115",
+      "tipo_cambio": "otro",
+      "area_solicitante": "sistemas",
+      "sistema_afectado": "PCs del área administrativa",
+      "descripcion": "Actualizar el antivirus y el navegador en las computadoras de Recursos Humanos y Compras. No tienen instalado ningún sistema GxP ni acceden a sistemas productivos.",
+      "estado": "cerrado",
+      "fecha_apertura": "2026-10-15",
+      "fecha_limite": "2026-12-15"
+    }
+  ]
+}

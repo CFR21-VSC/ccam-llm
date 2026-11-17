@@ -1,0 +1,7 @@
+{
+  "_nota": "Parámetros del agente (PE4). max_pasos = cuántas veces puede decidir antes de cortar. El caso más largo previsto (consultar, evaluar, registrar y responder) usa 4; se deja margen para un reintento de herramienta.",
+  "max_pasos": 6,
+  "rol_aprobador": "jefe_qa",
+  "roles_que_pueden_pedir_registro": ["analista_qa", "jefe_qa"],
+  "fragmentos_por_busqueda": 3
+}

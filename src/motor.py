@@ -214,7 +214,7 @@ def llamar_con_reintento(proveedor: Proveedor, sistema: str, usuario: str, herra
             if intento <= MAX_REINTENTOS:
                 detalle = "\n".join(f"- {f['campo']}: {f['problema']}" for f in fallas)
                 turnos += [Turno("modelo", respuesta=r),
-                           Turno("error_validacion", _plantilla("correccion.md").substitute(errores=detalle))]
+                           Turno("error_validacion", _plantilla("correccion.md").substitute(errores=detalle, herramienta=herramienta["name"]))]
                 continue
             break
 

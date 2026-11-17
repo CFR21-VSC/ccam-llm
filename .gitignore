@@ -21,3 +21,6 @@ Thumbs.db
 # Base vectorial y modelos descargados (se regeneran con python -m src.rag.ingestar)
 .chroma/
 .cache/
+
+# Sistema simulado y memoria del agente (se regeneran)
+datos/*.db

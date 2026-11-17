@@ -242,6 +242,7 @@ class ProveedorSimulado:
     modelo: str = "simulado"
     _llamadas: int = field(default=0, init=False)
     ultimo_prompt: str = field(default="", init=False)   # lo que se le "envió" al modelo (prueba de permisos)
+    guion: list = field(default_factory=list)  # decisiones del agente en orden (escenario "guion", PE4)
 
     def generar(self, sistema: str, turnos: list[Turno], herramienta: dict) -> RespuestaModelo:
         self.ultimo_prompt = sistema + "\n" + "\n".join(t.texto for t in turnos)
@@ -249,8 +250,12 @@ class ProveedorSimulado:
             raise ErrorProveedor("api_sin_conexion", "Simulación: no hay conexión con la API.")
         if self.escenario == "limite_uso":
             raise ErrorProveedor("api_limite_uso", "Simulación: se alcanzó el límite de uso de la API.")
-        if self.escenario.startswith("rag_"):
-            datos = _rag(self.escenario, self.ultimo_prompt, herramienta)
+        if self.escenario == "guion" and herramienta["name"] == "decidir_paso":
+            if not self.guion:
+                raise ErrorProveedor("api_sin_conexion", "Simulación: el guion de decisiones se terminó.")
+            datos = self.guion.pop(0)
+        elif self.escenario == "guion" or self.escenario.startswith("rag_"):
+            datos = _rag("rag_valido" if self.escenario == "guion" else self.escenario, self.ultimo_prompt, herramienta)
         else:
             secuencia = _ESCENARIOS.get(self.escenario, _ESCENARIOS["valido"])
             datos = secuencia[min(self._llamadas, len(secuencia) - 1)]
@@ -273,5 +278,6 @@ def crear_proveedor() -> Proveedor:
     if nombre == "openai":
         return ProveedorOpenAI(os.getenv("LLM_MODEL", "gpt-4o-mini"), temperatura, max_tokens)
     if nombre == "simulado":
-        return ProveedorSimulado(os.getenv("SIMULADO_ESCENARIO", "valido"))
+        guion = json.loads(os.getenv("SIMULADO_GUION", "[]"))  # decisiones del agente, para retomar en otro proceso
+        return ProveedorSimulado(os.getenv("SIMULADO_ESCENARIO", "valido"), guion=guion)
     raise ValueError(f"LLM_PROVIDER desconocido: {nombre!r} (usar anthropic, openai o simulado)")
