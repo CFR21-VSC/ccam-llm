@@ -94,7 +94,8 @@ def texto_traza(c: dict, r: dict) -> str:
                 L.append(f"[paso {t['paso']}] decidir   → {t['accion']} {params if params != '{}' else ''}".rstrip())
                 L.append(f"                  porque: {t['razon']}")
             else:
-                L.append(f"[corte] decidir   → {t.get('resultado')} ({t.get('pasos', '')} pasos)")
+                extra = f"{t.get('pasos')} pasos" if t.get("resultado") == "límite de pasos" else t.get("detalle", "")
+                L.append(f"[corte] decidir   → {t.get('resultado')} ({extra})")
         elif t["nodo"] == "ejecutar":
             L.append(f"          ejecutar  → {t['accion']}: {t.get('resumen') or 'ERROR ' + t.get('detalle', '')}")
         elif t["nodo"] == "pedir_aprobacion":

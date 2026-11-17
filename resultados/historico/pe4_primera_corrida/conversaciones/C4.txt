@@ -1,0 +1,25 @@
+C4 · acción rechazada · thread_id C4 · usuario u_analista_qa · máximo 6 pasos
+> Evaluá el CCAM-2026-108 y registrá el borrador de evaluación en el sistema.
+
+[paso 1] decidir   → evaluar_ccam {"id_ccam": "CCAM-2026-108"}
+                  porque: Piden evaluar el impacto GxP del CCAM-2026-108; hay que evaluarlo antes de cualquier registro.
+          ejecutar  → evaluar_ccam: CCAM-2026-108: impacto critico, fundamento SOP-VS-003 §3.2, SOP-VS-003 §3.1, SOP-CC-001 §5.1, SOP-VS-002 §6.3
+[paso 2] decidir   → responder
+                  porque: Ya evaluamos el CCAM-2026-108; el usuario pidió registrar el borrador, pero el registro requiere aprobación humana de QA (jefe_qa distinto del solicitante) y el usuario es analista, así que no se ejecuta la escritura.
+          responder (resuelto)
+
+< Evalué el CCAM-2026-108 (no registré nada en el sistema). Resultado de la evaluación: impacto CRÍTICO, requiere revalidación, no requiere intervención humana adicional según el motor, y fuera de alcance: no.
+
+El cambio propone desactivar durante dos semanas el audit trail del software cromatográfico que procesa las corridas de estabilidad, por lentitud de procesamiento. SOP-VS-003 §3.2 prohíbe desactivar el audit trail por rendimiento, capacidad o comodidad, aun temporalmente. Por eso la recomendación es rechazar el cambio tal como está propuesto y que QA evalúe una alternativa de rendimiento (infraestructura o archivado de datos).
+
+Fundamento: SOP-VS-003 §3.2, SOP-VS-003 §3.1, SOP-CC-001 §5.1, SOP-VS-002 §6.3.
+
+Tareas sugeridas:
+1. Rechazar la desactivación del audit trail.
+2. Identificar el software cromatográfico afectado (sistema y versión) y documentar el audit trail activo durante la campaña de estabilidad. Nota: la evidencia no identifica el equipo por código; la clasificación se basa solo en la descripción.
+3. Evaluar alternativas de rendimiento sin desactivar el audit trail.
+4. Si se modifica la configuración, evaluar revalidación con pruebas de regresión según SOP-VS-002 §6.3.
+
+Sobre el registro del borrador: no lo registré. Registrarlo requiere aprobación previa de QA formal (rol jefe_qa, distinto de quien solicita). Si QA lo aprueba, puede pedirse el registro en una nueva solicitud. El borrador quedaría como BORRADOR_PENDIENTE_QA y no aprobaría el cambio.
+
+pasos 2 · tokens 12056/1996 · USD 0.002203 · fotos del checkpointer 6

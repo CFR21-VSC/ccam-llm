@@ -1,0 +1,7 @@
+C1: resuelto · 2 pasos
+C2: resuelto · 2 pasos
+[] intento 1/2: salida inválida -> respuesta: String should have at most 1500 characters
+[] intento 2/2: salida inválida -> respuesta: String should have at most 1500 characters
+C3: error · 2 pasos
+C4: resuelto · 2 pasos
+C5: limite_de_pasos · 3 pasos

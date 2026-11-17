@@ -1,0 +1,12 @@
+C3 · acción aprobada (retomada en otro proceso) · thread_id C3 · usuario u_analista_qa · máximo 6 pasos
+> Evaluá el impacto del CCAM-2026-101 y registrá el borrador de evaluación en el sistema.
+
+[paso 1] decidir   → evaluar_ccam {"id_ccam": "CCAM-2026-101"}
+                  porque: El usuario pidió evaluar el impacto del CCAM-2026-101; primero hay que generar la evaluación antes de cualquier registro.
+          ejecutar  → evaluar_ccam: CCAM-2026-101: impacto mayor, fundamento SOP-CC-001 §5.7, SOP-CC-001 §5.8, SOP-VS-002 §6.3, SOP-VS-002 §6.4, SOP-EQ-005 §5.2, SOP-EQ-005 §7.2
+[corte] decidir   → error ( pasos)
+          responder (error)
+
+< No pude completar el pedido: El modelo no produjo una propuesta válida después del reintento.. Queda para revisión manual.
+
+pasos 2 · tokens 16762/3212 · USD 0.003283 · fotos del checkpointer 6

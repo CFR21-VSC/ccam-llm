@@ -1,0 +1,74 @@
+{
+  "id": "C4",
+  "tipo": "acción rechazada",
+  "usuario": "u_analista_qa",
+  "mensaje": "Evaluá el CCAM-2026-108 y registrá el borrador de evaluación en el sistema.",
+  "aprobacion": {
+    "decision": "rechazada",
+    "aprobador": "u_jefe_qa",
+    "motivo": "antes de registrar quiero la alternativa de rendimiento que proponga Sistemas"
+  },
+  "thread_id": "C4",
+  "max_pasos": 6,
+  "pausa": null,
+  "retomada": null,
+  "traza": [
+    {
+      "nodo": "decidir",
+      "paso": 1,
+      "accion": "evaluar_ccam",
+      "parametros": {
+        "id_ccam": "CCAM-2026-108"
+      },
+      "razon": "Piden evaluar el impacto GxP del CCAM-2026-108; hay que evaluarlo antes de cualquier registro."
+    },
+    {
+      "nodo": "ejecutar",
+      "accion": "evaluar_ccam",
+      "resultado": "ok",
+      "resumen": "CCAM-2026-108: impacto critico, fundamento SOP-VS-003 §3.2, SOP-VS-003 §3.1, SOP-CC-001 §5.1, SOP-VS-002 §6.3"
+    },
+    {
+      "nodo": "decidir",
+      "paso": 2,
+      "accion": "responder",
+      "parametros": {},
+      "razon": "Ya evaluamos el CCAM-2026-108; el usuario pidió registrar el borrador, pero el registro requiere aprobación humana de QA (jefe_qa distinto del solicitante) y el usuario es analista, así que no se ejecuta la escritura."
+    },
+    {
+      "nodo": "responder",
+      "motivo": "resuelto"
+    }
+  ],
+  "mensajes": [
+    {
+      "rol": "usuario",
+      "texto": "Evaluá el CCAM-2026-108 y registrá el borrador de evaluación en el sistema."
+    },
+    {
+      "rol": "agente",
+      "texto": "Paso 1: evaluar_ccam({\"id_ccam\": \"CCAM-2026-108\"}). Piden evaluar el impacto GxP del CCAM-2026-108; hay que evaluarlo antes de cualquier registro."
+    },
+    {
+      "rol": "herramienta",
+      "texto": "evaluar_ccam → {\"impacto\": \"critico\", \"requiere_revalidacion\": true, \"requiere_humano\": false, \"fuera_de_alcance\": false, \"fundamento\": [\"SOP-VS-003 §3.2\", \"SOP-VS-003 §3.1\", \"SOP-CC-001 §5.1\", \"SOP-VS-002 §6.3\"], \"justificacion\": \"El cambio propone desactivar temporalmente (dos semanas) el audit trail del software cromatográfico que procesa las corridas de estabilidad, por lentitud de procesamiento. El audit trail es un requisito de todo sistema GxP que crea o modifica registros; desactivarlo afecta directamente la integridad de datos que respaldan la vida útil y los compromisos regulatorios. SOP-VS-003 §3.2 prohíbe expresamente desactivarlo por rendimiento, capacidad o comodidad operativa, aun en forma temporal, y el problema debe resolverse por infraestructura o archivado. Se aplica la matriz de SOP-CC-001 §5 por efecto del cambio sobre la integridad de datos; no hace falta la regla R-QA-01 porque la descripción es suficiente. Como el cambio no puede implementarse tal como está propuesto, se recomienda rechazarlo y que QA evalúe una alternativa de rendimiento. Si el software cambia de configuración, corresponde evaluar también la revalidación según SOP-VS-002 §6.3. Nota: el software cromatográfico no está identificado por código de equipo en la evidencia; la clasificación se basa en la descripción del cambio.\\\"\", \"tareas\": [\"Rechazar la desactivación del audit trail del software cromatográfico; el cambio no se implementa según SOP-VS-003 §3.2.\", \"Identificar el software cromatográfico afectado (sistema y versión) y documentar el audit trail activo durante la campaña de estabilidad.\", \"Evaluar alternativas de rendimiento (infraestructura, archivado de datos) para resolver la lentitud de procesamiento sin desactivar el audit trail.\", \"Si se modifica la configuración del software, evaluar la necesidad de revalidación con pruebas de regresión según SOP-VS-002 §6.3.\"], \"trace_id_motor\": \"2e40fc5f7b74\"}"
+    },
+    {
+      "rol": "agente",
+      "texto": "Evalué el CCAM-2026-108 (no registré nada en el sistema). Resultado de la evaluación: impacto CRÍTICO, requiere revalidación, no requiere intervención humana adicional según el motor, y fuera de alcance: no.\n\nEl cambio propone desactivar durante dos semanas el audit trail del software cromatográfico que procesa las corridas de estabilidad, por lentitud de procesamiento. SOP-VS-003 §3.2 prohíbe desactivar el audit trail por rendimiento, capacidad o comodidad, aun temporalmente. Por eso la recomendación es rechazar el cambio tal como está propuesto y que QA evalúe una alternativa de rendimiento (infraestructura o archivado de datos).\n\nFundamento: SOP-VS-003 §3.2, SOP-VS-003 §3.1, SOP-CC-001 §5.1, SOP-VS-002 §6.3.\n\nTareas sugeridas:\n1. Rechazar la desactivación del audit trail.\n2. Identificar el software cromatográfico afectado (sistema y versión) y documentar el audit trail activo durante la campaña de estabilidad. Nota: la evidencia no identifica el equipo por código; la clasificación se basa solo en la descripción.\n3. Evaluar alternativas de rendimiento sin desactivar el audit trail.\n4. Si se modifica la configuración, evaluar revalidación con pruebas de regresión según SOP-VS-002 §6.3.\n\nSobre el registro del borrador: no lo registré. Registrarlo requiere aprobación previa de QA formal (rol jefe_qa, distinto de quien solicita). Si QA lo aprueba, puede pedirse el registro en una nueva solicitud. El borrador quedaría como BORRADOR_PENDIENTE_QA y no aprobaría el cambio."
+    }
+  ],
+  "final": {
+    "motivo": "resuelto",
+    "respuesta": "Evalué el CCAM-2026-108 (no registré nada en el sistema). Resultado de la evaluación: impacto CRÍTICO, requiere revalidación, no requiere intervención humana adicional según el motor, y fuera de alcance: no.\n\nEl cambio propone desactivar durante dos semanas el audit trail del software cromatográfico que procesa las corridas de estabilidad, por lentitud de procesamiento. SOP-VS-003 §3.2 prohíbe desactivar el audit trail por rendimiento, capacidad o comodidad, aun temporalmente. Por eso la recomendación es rechazar el cambio tal como está propuesto y que QA evalúe una alternativa de rendimiento (infraestructura o archivado de datos).\n\nFundamento: SOP-VS-003 §3.2, SOP-VS-003 §3.1, SOP-CC-001 §5.1, SOP-VS-002 §6.3.\n\nTareas sugeridas:\n1. Rechazar la desactivación del audit trail.\n2. Identificar el software cromatográfico afectado (sistema y versión) y documentar el audit trail activo durante la campaña de estabilidad. Nota: la evidencia no identifica el equipo por código; la clasificación se basa solo en la descripción.\n3. Evaluar alternativas de rendimiento sin desactivar el audit trail.\n4. Si se modifica la configuración, evaluar revalidación con pruebas de regresión según SOP-VS-002 §6.3.\n\nSobre el registro del borrador: no lo registré. Registrarlo requiere aprobación previa de QA formal (rol jefe_qa, distinto de quien solicita). Si QA lo aprueba, puede pedirse el registro en una nueva solicitud. El borrador quedaría como BORRADOR_PENDIENTE_QA y no aprobaría el cambio."
+  },
+  "pasos": 2,
+  "consumo": {
+    "llamadas": 3,
+    "costo_usd": 0.002203,
+    "tokens_entrada": 12056,
+    "tokens_salida": 1996
+  },
+  "fotos_guardadas": 6,
+  "siguiente": []
+}

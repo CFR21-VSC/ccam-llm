@@ -1,0 +1,24 @@
+{
+  "corrida": "corrida_pe4_20261117_0010",
+  "fecha": "2026-11-17T00:11:30",
+  "modo": "real",
+  "modelo": "claude-haiku-5-5",
+  "commit": "3ee7666",
+  "archivos": {
+    "cliente_mcp.txt": "bbca15a72959ba02ecae4220b53c48f36a870bf0702f2694b3616d2e3eae11c8",
+    "conversaciones/C1.json": "eb9a957966ed6768aea23b8e96136cad6c085fe8afaf21dc23cc39ed4b8ecebf",
+    "conversaciones/C1.txt": "19b75460f02de13c08d9436f003def9a4540208aecaaf59efec9716a7e706cca",
+    "conversaciones/C2.json": "440b5381b7027aba5ca76e8c3425e5dfbb428a9edb286cfed906746cce995941",
+    "conversaciones/C2.txt": "12f6eab480ad686ba933dc7ccfb302f82b8b0f4f9dcaeb64b9436ebff5577a5a",
+    "conversaciones/C3.json": "96c385a3189ef5a4374f9fe32a66f753a819b53fa1fb231159467c0f635c83f4",
+    "conversaciones/C3.txt": "f731a1022091b3207b9a3320ade41986af063d33a515cbff1f9322c912ec163d",
+    "conversaciones/C4.json": "cbe3919dba24a520b0aaa6a310353a4b35fc0eb36478eec3ef0e7cea2fc06a6f",
+    "conversaciones/C4.txt": "1dff98eb6a6f20969e2278dc8c0484b16ce904840cd00ad52cafdf83149adb6c",
+    "conversaciones/C5.json": "ea0dd366ffcd94931cb2818d0358e2dd3f839e98bbb2597b3e0fb69783c739b3",
+    "conversaciones/C5.txt": "9441cbd7e7d22c1bf058c751619332c1e279f25ba8a37b374ac3fcefb7172920",
+    "grafo.mmd": "7683a3b1e7b90091c4101e86cb155e10c47718f9af7144ad813ab96d2f3eef15",
+    "medicion.json": "84d6798b2d91bb1ab9fe22c1c7ff1b8d6d2f2142bed432efc73402c4bd521500",
+    "medicion.md": "6ce69a29070d45150384656c4374793866fd542e4f35c86012f4eb66cce595c4",
+    "sistema_auditoria.json": "3828ee89adf2370d1d9d1d2e6322c9d3ca721b4636397c133282d7ff8dc6e808"
+  }
+}

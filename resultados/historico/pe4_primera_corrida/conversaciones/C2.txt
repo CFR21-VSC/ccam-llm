@@ -1,0 +1,19 @@
+C2 · solo consulta el sistema · thread_id C2 · usuario u_analista_qa · máximo 6 pasos
+> ¿En qué estado está el CCAM-2026-108 y cuándo vence?
+
+[paso 1] decidir   → consultar_ccam {"id_ccam": "CCAM-2026-108"}
+                  porque: La persona pregunta por el estado y vencimiento de un CCAM puntual.
+          ejecutar  → consultar_ccam: CCAM-2026-108: estado abierto
+[paso 2] decidir   → responder
+                  porque: La consulta del CCAM-2026-108 ya devolvió estado y fecha límite, no hace falta otra acción.
+          responder (resuelto)
+
+< El CCAM-2026-108 está en estado "abierto". Su fecha límite es el 8 de diciembre de 2026 (fecha de apertura: 8 de octubre de 2026). No tiene evaluaciones registradas todavía.
+
+Datos del pedido: tipo "configuracion_sistema", área solicitante control_calidad, sistema afectado "Software cromatográfico". Descripción: desactivar el audit trail del software cromatográfico durante dos semanas porque ralentiza el procesamiento de las corridas de estabilidad, reactivándolo al terminar la campaña.
+
+Fuente: consulta de solo lectura al sistema de gestión de cambios (consultar_ccam).
+
+Nota para QA: este cambio implica desactivar el audit trail en un sistema GxP, lo que suele requerir una evaluación de impacto de integridad de datos antes de aprobarse. Si querés, puedo preparar la evaluación de impacto de este CCAM.
+
+pasos 2 · tokens 5113/564 · USD 0.000794 · fotos del checkpointer 6

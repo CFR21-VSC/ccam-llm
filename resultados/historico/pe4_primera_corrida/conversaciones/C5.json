@@ -1,0 +1,113 @@
+{
+  "id": "C5",
+  "tipo": "llega al límite de pasos",
+  "usuario": "u_analista_qa",
+  "max_pasos": 3,
+  "mensaje": "Evaluá el impacto de todos los CCAM vencidos.",
+  "thread_id": "C5",
+  "pausa": null,
+  "retomada": null,
+  "traza": [
+    {
+      "nodo": "decidir",
+      "paso": 1,
+      "accion": "listar_ccam",
+      "parametros": {
+        "estado": "vencido"
+      },
+      "razon": "Hay que identificar primero qué CCAM están vencidos antes de evaluar cada uno."
+    },
+    {
+      "nodo": "ejecutar",
+      "accion": "listar_ccam",
+      "resultado": "ok",
+      "resumen": "3 CCAM en estado vencido"
+    },
+    {
+      "nodo": "decidir",
+      "paso": 2,
+      "accion": "evaluar_ccam",
+      "parametros": {
+        "id_ccam": "CCAM-2026-102"
+      },
+      "razon": "El usuario pidió evaluar el impacto de todos los CCAM vencidos; ya tengo los tres identificadores, empiezo por el primero."
+    },
+    {
+      "nodo": "ejecutar",
+      "accion": "evaluar_ccam",
+      "resultado": "ok",
+      "resumen": "CCAM-2026-102: impacto mayor, fundamento SOP-AC-007 §3.1, SOP-AC-007 §3.2, SOP-CC-001 §5.4, SOP-CC-001 §5.7"
+    },
+    {
+      "nodo": "decidir",
+      "paso": 3,
+      "accion": "evaluar_ccam",
+      "parametros": {
+        "id_ccam": "CCAM-2026-106"
+      },
+      "razon": "Continuar la evaluación de los CCAM vencidos con el segundo de la lista (CCAM-2026-106)."
+    },
+    {
+      "nodo": "ejecutar",
+      "accion": "evaluar_ccam",
+      "resultado": "ok",
+      "resumen": "CCAM-2026-106: impacto menor, fundamento SOP-VS-002 §5, SOP-CC-001 §5.7, SOP-CC-001 §5.3, SOP-VS-002 §6.2"
+    },
+    {
+      "nodo": "decidir",
+      "resultado": "límite de pasos",
+      "pasos": 3
+    },
+    {
+      "nodo": "responder",
+      "motivo": "limite_de_pasos"
+    }
+  ],
+  "mensajes": [
+    {
+      "rol": "usuario",
+      "texto": "Evaluá el impacto de todos los CCAM vencidos."
+    },
+    {
+      "rol": "agente",
+      "texto": "Paso 1: listar_ccam({\"estado\": \"vencido\"}). Hay que identificar primero qué CCAM están vencidos antes de evaluar cada uno."
+    },
+    {
+      "rol": "herramienta",
+      "texto": "listar_ccam → [{\"id_ccam\": \"CCAM-2026-102\", \"tipo_cambio\": \"packaging_rotulado\", \"sistema_afectado\": \"Estuche secundario del producto Analgésico X 500 mg\", \"estado\": \"vencido\", \"fecha_limite\": \"2026-11-02\"}, {\"id_ccam\": \"CCAM-2026-106\", \"tipo_cambio\": \"version_software\", \"sistema_afectado\": \"LIMS\", \"estado\": \"vencido\", \"fecha_limite\": \"2026-11-06\"}, {\"id_ccam\": \"CCAM-2026-111\", \"tipo_cambio\": \"equipo_instalacion\", \"sistema_afectado\": \"Cámara de estabilidad 25 °C / 60 % HR\", \"estado\": \"vencido\", \"fecha_limite\": \"2026-11-11\"}]"
+    },
+    {
+      "rol": "agente",
+      "texto": "Paso 2: evaluar_ccam({\"id_ccam\": \"CCAM-2026-102\"}). El usuario pidió evaluar el impacto de todos los CCAM vencidos; ya tengo los tres identificadores, empiezo por el primero."
+    },
+    {
+      "rol": "herramienta",
+      "texto": "evaluar_ccam → {\"impacto\": \"mayor\", \"requiere_revalidacion\": false, \"requiere_humano\": false, \"fuera_de_alcance\": false, \"fundamento\": [\"SOP-AC-007 §3.1\", \"SOP-AC-007 §3.2\", \"SOP-CC-001 §5.4\", \"SOP-CC-001 §5.7\"], \"justificacion\": \"El cambio modifica el arte del estuche secundario de Analgésico X 500 mg: incorpora un código QR de trazabilidad y actualiza el texto del rótulo. Según SOP-AC-007 §3.1, un cambio de texto de rótulo debe coincidir con la última versión aprobada por la autoridad sanitaria, y §3.2 exige verificar legibilidad en línea, integración con el sistema de trazabilidad y concordancia del arte con el rotulado aprobado. Según la matriz de SOP-CC-001 §5.4 y §5.7, el cambio modifica un texto o arte aprobado por la autoridad sanitaria, por lo que no es menor. Existe una barrera posterior (verificación de Asuntos Regulatorios antes de aprobar el arte y verificación de legibilidad e integración), que impide que el efecto llegue al paciente, por lo que corresponde impacto mayor y no crítico. El material y el proveedor no cambian, así que no aplica cambio de material de empaque primario. No se requiere revalidación de sistema según la evidencia disponible, aunque la integración con el sistema de trazabilidad debe verificarse. Confianza moderada: la evidencia no incluye el detalle del sistema de trazabilidad ni la función de QR, lo que QA debería confirmar.\\\"\", \"tareas\": [\"Verificar que el texto del rótulo y del prospecto del nuevo arte coincida con la última versión aprobada por la autoridad sanitaria antes de aprobar el arte.\", \"Verificar la legibilidad en línea del código QR sobre el estuche impreso y documentar el resultado.\", \"Verificar la integración del código QR con el sistema de trazabilidad y documentar las pruebas realizadas.\", \"Confirmar que el arte resultante coincide con el rotulado aprobado y registrar el código y versión del nuevo arte, retirando los artes obsoletos.\"], \"trace_id_motor\": \"1ff3eb572c7f\"}"
+    },
+    {
+      "rol": "agente",
+      "texto": "Paso 3: evaluar_ccam({\"id_ccam\": \"CCAM-2026-106\"}). Continuar la evaluación de los CCAM vencidos con el segundo de la lista (CCAM-2026-106)."
+    },
+    {
+      "rol": "herramienta",
+      "texto": "evaluar_ccam → {\"impacto\": \"menor\", \"requiere_revalidacion\": false, \"requiere_humano\": false, \"fuera_de_alcance\": false, \"fundamento\": [\"SOP-VS-002 §5\", \"SOP-CC-001 §5.7\", \"SOP-CC-001 §5.3\", \"SOP-VS-002 §6.2\"], \"justificacion\": \"Cambio de versión/parche correctivo sobre LIMS validado (8.2.1 a 8.2.3). Según el solicitante, corrige dos errores de impresión de reportes y el proveedor declara que no cambia flujos, base de datos ni cálculos. Pregunta de frontera (SOP-CC-001 §5.7): ¿modifica una función, cálculo, dato, estado validado o texto/arte aprobado? La descripción indica que no modifica cálculos, datos ni flujos. Sin embargo, la corrección afecta el formato de impresión de reportes, que es un formato de resultado informado. Eso requiere confirmar que el parche no cambia el contenido ni el formato aprobado de los reportes. Por eso la clasificación queda como menor condicionada a esa verificación. Regla R-QA-01 no aplicada: el dato necesario está en la descripción. Pendiente para QA: revisar el paquete de validación del proveedor y las notas de versión, verificando que el cambio es correctivo y no altera funciones ni formatos informados.\", \"tareas\": [\"Revisar el paquete de validación y las notas de versión del proveedor para 8.2.3 y confirmar que el parche es correctivo y no cambia funciones, cálculos, flujos ni estructura de datos; documentar la revisión.\", \"Verificar que el formato de impresión de reportes corregido coincide con el formato aprobado, con una impresión de prueba de cada reporte afectado.\", \"Confirmar que el cambio de versión no modifica los campos ni formatos de resultados informados antes de la implementación.\"], \"trace_id_motor\": \"4b6054fd3655\"}"
+    },
+    {
+      "rol": "agente",
+      "texto": "Llegué al máximo de 3 pasos sin terminar. Alcancé a hacer: 3 CCAM en estado vencido; CCAM-2026-102: impacto mayor, fundamento SOP-AC-007 §3.1, SOP-AC-007 §3.2, SOP-CC-001 §5.4, SOP-CC-001 §5.7; CCAM-2026-106: impacto menor, fundamento SOP-VS-002 §5, SOP-CC-001 §5.7, SOP-CC-001 §5.3, SOP-VS-002 §6.2. Lo que falta queda para que lo revise una persona."
+    }
+  ],
+  "final": {
+    "motivo": "limite_de_pasos",
+    "respuesta": "Llegué al máximo de 3 pasos sin terminar. Alcancé a hacer: 3 CCAM en estado vencido; CCAM-2026-102: impacto mayor, fundamento SOP-AC-007 §3.1, SOP-AC-007 §3.2, SOP-CC-001 §5.4, SOP-CC-001 §5.7; CCAM-2026-106: impacto menor, fundamento SOP-VS-002 §5, SOP-CC-001 §5.7, SOP-CC-001 §5.3, SOP-VS-002 §6.2. Lo que falta queda para que lo revise una persona."
+  },
+  "pasos": 3,
+  "consumo": {
+    "llamadas": 5,
+    "costo_usd": 0.00339,
+    "tokens_entrada": 22014,
+    "tokens_salida": 2377
+  },
+  "fotos_guardadas": 10,
+  "siguiente": []
+}

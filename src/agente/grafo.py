@@ -71,7 +71,8 @@ class Decision(BaseModel):
                                    description="Para consultar_ccam, evaluar_ccam y registrar_evaluacion")
     estado: Optional[Literal["abierto", "en_evaluacion", "borrador_registrado", "vencido", "cerrado"]] = Field(
         None, description="Solo para listar_ccam")
-    respuesta: Optional[str] = Field(None, min_length=10, max_length=1500, description="Solo para responder")
+    respuesta: Optional[str] = Field(None, min_length=10, max_length=2000,
+                                     description="Solo para responder: hasta 1.000 caracteres")
 
     @model_validator(mode="after")
     def parametros(self) -> "Decision":
@@ -116,8 +117,10 @@ def describir_herramientas(herramientas_mcp: list[dict]) -> str:
     lineas = [f"- {LOCALES['buscar_documentos']}", f"- {LOCALES['evaluar_ccam']}"]
     for h in herramientas_mcp:
         if h["nombre"] == "registrar_evaluacion":
-            lineas.append(f"- registrar_evaluacion(id_ccam): {h['descripcion']} Vos indicás solo el id_ccam: "
-                          "el borrador sale de tu evaluar_ccam de esta conversación.")
+            lineas.append("- registrar_evaluacion(id_ccam): ESCRITURA. Registra en el sistema el borrador de evaluación "
+                          "que hiciste con evaluar_ccam en esta conversación (queda BORRADOR_PENDIENTE_QA). Vos indicás solo "
+                          "el id_ccam. Al elegirla, el sistema pausa y le pide la firma a QA formal; si QA aprueba, se "
+                          "ejecuta, y si rechaza, no.")
         else:
             params = ", ".join((h.get("parametros") or {}).get("properties", {}).keys())
             lineas.append(f"- {h['nombre']}({params}): {' '.join(h['descripcion'].split())}")
@@ -312,7 +315,8 @@ def construir_agente(proveedor: Optional[Proveedor] = None, checkpointer=None, m
                      + ". La evaluación propuesta quedó solo en esta conversación.")
             motivo = "rechazado"
         else:
-            texto = f"No pude completar el pedido: {d.get('detalle', 'error del modelo')}. Queda para revisión manual."
+            detalle = str(d.get("detalle") or "error del modelo").rstrip(".")
+            texto = f"No pude completar el pedido: {detalle}. Queda para revisión manual."
             motivo = "error"
         return {"final": {"motivo": motivo, "respuesta": texto}, "mensajes": [_msg("agente", texto)],
                 "traza": [_traza("responder", motivo=motivo)]}

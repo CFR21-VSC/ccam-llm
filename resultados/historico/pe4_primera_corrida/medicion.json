@@ -1,0 +1,92 @@
+{
+  "modo": "real",
+  "conversaciones": [
+    {
+      "id": "C1",
+      "tipo": "solo consulta documentos",
+      "usuario": "u_solicitante_prod",
+      "pasos": 2,
+      "max_pasos": 6,
+      "acciones": [
+        "buscar_documentos",
+        "responder"
+      ],
+      "aprobacion": null,
+      "cierre": "resuelto",
+      "tokens_entrada": 6029,
+      "tokens_salida": 582,
+      "costo_usd": 0.000893,
+      "fotos": 6
+    },
+    {
+      "id": "C2",
+      "tipo": "solo consulta el sistema",
+      "usuario": "u_analista_qa",
+      "pasos": 2,
+      "max_pasos": 6,
+      "acciones": [
+        "consultar_ccam",
+        "responder"
+      ],
+      "aprobacion": null,
+      "cierre": "resuelto",
+      "tokens_entrada": 5113,
+      "tokens_salida": 564,
+      "costo_usd": 0.000794,
+      "fotos": 6
+    },
+    {
+      "id": "C3",
+      "tipo": "acción aprobada (retomada en otro proceso)",
+      "usuario": "u_analista_qa",
+      "pasos": 2,
+      "max_pasos": 6,
+      "acciones": [
+        "evaluar_ccam"
+      ],
+      "aprobacion": null,
+      "cierre": "error",
+      "tokens_entrada": 16762,
+      "tokens_salida": 3212,
+      "costo_usd": 0.003283,
+      "fotos": 6
+    },
+    {
+      "id": "C4",
+      "tipo": "acción rechazada",
+      "usuario": "u_analista_qa",
+      "pasos": 2,
+      "max_pasos": 6,
+      "acciones": [
+        "evaluar_ccam",
+        "responder"
+      ],
+      "aprobacion": null,
+      "cierre": "resuelto",
+      "tokens_entrada": 12056,
+      "tokens_salida": 1996,
+      "costo_usd": 0.002203,
+      "fotos": 6
+    },
+    {
+      "id": "C5",
+      "tipo": "llega al límite de pasos",
+      "usuario": "u_analista_qa",
+      "pasos": 3,
+      "max_pasos": 3,
+      "acciones": [
+        "listar_ccam",
+        "evaluar_ccam",
+        "evaluar_ccam"
+      ],
+      "aprobacion": null,
+      "cierre": "limite_de_pasos",
+      "tokens_entrada": 22014,
+      "tokens_salida": 2377,
+      "costo_usd": 0.00339,
+      "fotos": 10
+    }
+  ],
+  "escrituras_en_sistema": [],
+  "costo_total_usd": 0.010563
+}
