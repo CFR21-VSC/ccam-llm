@@ -1,0 +1,131 @@
+{
+  "id": "C4",
+  "tipo": "acción rechazada",
+  "usuario": "u_analista_qa",
+  "mensaje": "Evaluá el CCAM-2026-108 y registrá el borrador de evaluación en el sistema.",
+  "aprobacion": {
+    "decision": "rechazada",
+    "aprobador": "u_jefe_qa",
+    "motivo": "antes de registrar quiero la alternativa de rendimiento que proponga Sistemas"
+  },
+  "thread_id": "C4",
+  "max_pasos": 6,
+  "pausa": {
+    "pregunta": "¿Aprobás esta escritura en el sistema de gestión de cambios?",
+    "accion": "registrar_evaluacion",
+    "id_ccam": "CCAM-2026-108",
+    "impacto": "critico",
+    "requiere_revalidacion": true,
+    "fundamento": [
+      "SOP-VS-003 §3.2",
+      "SOP-VS-003 §3.1",
+      "SOP-CC-001 §5.7",
+      "SOP-EQ-005 §7.2",
+      "SOP-VS-002 §6.3"
+    ],
+    "justificacion": "El cambio propone desactivar temporalmente (dos semanas) el audit trail del software cromatográfico que procesa corridas de estabilidad, por lentitud de procesamiento. El efecto recae sobre la integridad de datos que respaldan decisiones de liberación y vida útil. SOP-VS-003 §3.2 prohíbe desactivar el audit trail de un sistema GxP por razones de rendimiento u operación, aun en forma temporal; el cambio no puede implementarse y el problema de rendimiento debe resolverse por infraestructura o archivado. Aplicando la pregunta de SOP-CC-001 §5.7, el cambio modifica un dato y una función de registro validada, por lo que no puede ser menor. Como el cambio afecta datos de estabilidad, se clasifica como crítico. Se requiere revisión de QA para rechazar la propuesta tal como está y evaluar la causa de la lentitud. Si el software tiene funciones de registro modificadas o datos generados durante el período sin audit trail, se requiere revalidación. Esta propuesta es un borrador pendiente de decisión de QA.",
+    "solicitado_por": "u_analista_qa"
+  },
+  "retomada": null,
+  "traza": [
+    {
+      "nodo": "decidir",
+      "paso": 1,
+      "accion": "consultar_ccam",
+      "parametros": {
+        "id_ccam": "CCAM-2026-108"
+      },
+      "razon": "Antes de evaluar conviene revisar los datos y el estado del CCAM-2026-108."
+    },
+    {
+      "nodo": "ejecutar",
+      "accion": "consultar_ccam",
+      "resultado": "ok",
+      "resumen": "CCAM-2026-108: estado abierto"
+    },
+    {
+      "nodo": "decidir",
+      "paso": 2,
+      "accion": "evaluar_ccam",
+      "parametros": {
+        "id_ccam": "CCAM-2026-108"
+      },
+      "razon": "El CCAM está abierto y sin evaluaciones; corresponde proponer la evaluación de impacto GxP antes de cualquier registro."
+    },
+    {
+      "nodo": "ejecutar",
+      "accion": "evaluar_ccam",
+      "resultado": "ok",
+      "resumen": "CCAM-2026-108: impacto critico, fundamento SOP-VS-003 §3.2, SOP-VS-003 §3.1, SOP-CC-001 §5.7, SOP-EQ-005 §7.2, SOP-VS-002 §6.3"
+    },
+    {
+      "nodo": "decidir",
+      "paso": 3,
+      "accion": "registrar_evaluacion",
+      "parametros": {
+        "id_ccam": "CCAM-2026-108"
+      },
+      "razon": "El usuario pidió explícitamente registrar el borrador de evaluación del CCAM-2026-108, que ya fue evaluado en esta conversación."
+    },
+    {
+      "nodo": "pedir_aprobacion",
+      "resultado": "rechazada",
+      "aprobador": "u_jefe_qa",
+      "motivo": "antes de registrar quiero la alternativa de rendimiento que proponga Sistemas",
+      "accion": "registrar_evaluacion",
+      "id_ccam": "CCAM-2026-108",
+      "impacto": "critico"
+    },
+    {
+      "nodo": "responder",
+      "motivo": "rechazado"
+    }
+  ],
+  "mensajes": [
+    {
+      "rol": "usuario",
+      "texto": "Evaluá el CCAM-2026-108 y registrá el borrador de evaluación en el sistema."
+    },
+    {
+      "rol": "agente",
+      "texto": "Paso 1: consultar_ccam({\"id_ccam\": \"CCAM-2026-108\"}). Antes de evaluar conviene revisar los datos y el estado del CCAM-2026-108."
+    },
+    {
+      "rol": "herramienta",
+      "texto": "consultar_ccam → {\"id_ccam\": \"CCAM-2026-108\", \"tipo_cambio\": \"configuracion_sistema\", \"area_solicitante\": \"control_calidad\", \"sistema_afectado\": \"Software cromatográfico\", \"descripcion\": \"Desactivar el audit trail del software cromatográfico durante dos semanas porque ralentiza el procesamiento de las corridas de estabilidad. Se reactivaría al terminar la campaña.\", \"estado\": \"abierto\", \"fecha_apertura\": \"2026-10-08\", \"fecha_limite\": \"2026-12-08\", \"evaluaciones_registradas\": []}"
+    },
+    {
+      "rol": "agente",
+      "texto": "Paso 2: evaluar_ccam({\"id_ccam\": \"CCAM-2026-108\"}). El CCAM está abierto y sin evaluaciones; corresponde proponer la evaluación de impacto GxP antes de cualquier registro."
+    },
+    {
+      "rol": "herramienta",
+      "texto": "evaluar_ccam → {\"impacto\": \"critico\", \"requiere_revalidacion\": true, \"requiere_humano\": false, \"fuera_de_alcance\": false, \"fundamento\": [\"SOP-VS-003 §3.2\", \"SOP-VS-003 §3.1\", \"SOP-CC-001 §5.7\", \"SOP-EQ-005 §7.2\", \"SOP-VS-002 §6.3\"], \"justificacion\": \"El cambio propone desactivar temporalmente (dos semanas) el audit trail del software cromatográfico que procesa corridas de estabilidad, por lentitud de procesamiento. El efecto recae sobre la integridad de datos que respaldan decisiones de liberación y vida útil. SOP-VS-003 §3.2 prohíbe desactivar el audit trail de un sistema GxP por razones de rendimiento u operación, aun en forma temporal; el cambio no puede implementarse y el problema de rendimiento debe resolverse por infraestructura o archivado. Aplicando la pregunta de SOP-CC-001 §5.7, el cambio modifica un dato y una función de registro validada, por lo que no puede ser menor. Como el cambio afecta datos de estabilidad, se clasifica como crítico. Se requiere revisión de QA para rechazar la propuesta tal como está y evaluar la causa de la lentitud. Si el software tiene funciones de registro modificadas o datos generados durante el período sin audit trail, se requiere revalidación. Esta propuesta es un borrador pendiente de decisión de QA.\", \"tareas\": [\"Rechazar la desactivación del audit trail del software cromatográfico, por prohibición de SOP-VS-003 §3.2, y registrar el motivo en el CCAM-2026-108.\", \"Verificar si durante el período de audit trail desactivado (si ya ocurrió) se generaron o modificaron registros de estabilidad, y evaluar su impacto sobre la integridad de datos.\", \"Analizar la causa de la lentitud de procesamiento del software (infraestructura, archivado de datos, configuración) y proponer una solución que mantenga el audit trail activo.\", \"Evaluar si una versión o configuración modificada del software requiere revalidación según SOP-VS-002 §6.3 antes de cualquier cambio.\"], \"trace_id_motor\": \"481802ec50a9\"}"
+    },
+    {
+      "rol": "agente",
+      "texto": "Paso 3: registrar_evaluacion({\"id_ccam\": \"CCAM-2026-108\"}). El usuario pidió explícitamente registrar el borrador de evaluación del CCAM-2026-108, que ya fue evaluado en esta conversación."
+    },
+    {
+      "rol": "aprobacion",
+      "texto": "u_jefe_qa: rechazada (antes de registrar quiero la alternativa de rendimiento que proponga Sistemas)"
+    },
+    {
+      "rol": "agente",
+      "texto": "No registré nada en el sistema: u_jefe_qa rechazó el registro del borrador del CCAM-2026-108 (antes de registrar quiero la alternativa de rendimiento que proponga Sistemas). La evaluación propuesta quedó solo en esta conversación."
+    }
+  ],
+  "final": {
+    "motivo": "rechazado",
+    "respuesta": "No registré nada en el sistema: u_jefe_qa rechazó el registro del borrador del CCAM-2026-108 (antes de registrar quiero la alternativa de rendimiento que proponga Sistemas). La evaluación propuesta quedó solo en esta conversación."
+  },
+  "pasos": 3,
+  "consumo": {
+    "costo_usd": 0.003564,
+    "llamadas": 5,
+    "tokens_entrada": 22888,
+    "tokens_salida": 2551
+  },
+  "fotos_guardadas": 9,
+  "siguiente": []
+}

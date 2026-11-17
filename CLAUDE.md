@@ -25,7 +25,8 @@ Federico es especialista en QA/CSV farmacéutico (GAMP 5, 21 CFR Part 11, Anexo 
 7. **El proveedor de IA es intercambiable** (`src/proveedores.py`): el resto del código no conoce a Anthropic ni a OpenAI.
 8. **Los prompts viven en `prompts/`**, nunca escritos dentro de una función.
 9. **Los permisos se aplican antes de buscar** (`where` por rol en ChromaDB y BM25 solo sobre lo autorizado). Nunca filtrar después.
-10. **Claude no acepta `temperature`** desde la API 2026-10-21: no agregarla al proveedor de Anthropic.
+10. **Ninguna escritura sin aprobación de QA formal** (rol `jefe_qa`) y nunca de quien la pidió: se controla en el agente y en el servidor MCP.
+11. **Claude no acepta `temperature`** desde la API 2026-10-21: no agregarla al proveedor de Anthropic.
 
 ## Mapa del código
 
@@ -36,6 +37,8 @@ Federico es especialista en QA/CSV farmacéutico (GAMP 5, 21 CFR Part 11, Anexo 
 | `src/proveedores.py` | `ProveedorAnthropic`, `ProveedorOpenAI`, `ProveedorSimulado`, `crear_proveedor()` |
 | `prompts/` | `sistema.md`, `usuario.md`, `correccion.md` (PE2); `sistema_rag.md`, `pregunta_rag.md` (PE3) |
 | `src/rag/` | `corpus.py` (lectura y fragmentado), `embeddings.py`, `ingestar.py`, `buscar.py` (híbrida con pre-filtro por rol), `responder.py` |
+| `src/agente/grafo.py` | PE4: agente LangGraph (decidir, ejecutar, pedir_aprobacion con interrupt, responder), `Decision`, límite de pasos, `SqliteSaver` |
+| `src/mcp_servidor.py` · `src/cliente_mcp.py` · `src/sistema.py` | PE4: servidor MCP (3 herramientas), cliente stdio y sistema simulado SQLite con auditoría |
 | `documentos/` | Corpus ficticio de la PE3 con carátula YAML y roles de lectura |
 | `evals/` | Preguntas de prueba de la recuperación |
 | `scripts/corrida_pe3.py` | Corrida única de la PE3 en `resultados/corrida_pe3_*/` |
@@ -60,6 +63,9 @@ python -m scripts.corrida --simulado valido                      # lo mismo, sin
 python -m src.rag.ingestar                                       # PE3: carga documentos/ en ChromaDB
 python -m scripts.corrida_pe3                                    # PE3: medición completa en una carpeta
 python -m scripts.corrida_pe3 --simulado rag_valido --embeddings-simulados   # sin clave ni descarga
+python -m scripts.cliente_mcp                                    # PE4: prueba el servidor MCP
+python -m scripts.agente --usuario u_analista_qa --thread t1 "..."   # PE4: conversar; --aprobar/--rechazar u_jefe_qa
+python -m scripts.corrida_pe4 [--simulado]                       # PE4: 5 conversaciones con traza
 ```
 
 ## Cómo trabajar

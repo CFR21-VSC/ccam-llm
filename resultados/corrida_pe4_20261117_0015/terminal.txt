@@ -1,0 +1,6 @@
+C1: resuelto · 2 pasos
+C2: resuelto · 2 pasos
+C3: resuelto · 3 pasos
+[481802ec50a9] intento 1/2: salida inválida -> (regla cruzada): Value error, la tarea 3 nombra SOP-VS-002, que no figura en fundamento (H-02)
+C4: rechazado · 3 pasos
+C5: limite_de_pasos · 3 pasos

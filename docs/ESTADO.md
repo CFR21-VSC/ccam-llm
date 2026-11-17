@@ -4,26 +4,26 @@ Archivo de traspaso entre sesiones. Quien trabaje en el repo (Claude Code, Claud
 
 ## Dónde estamos
 
-**Pre-entrega en curso:** PE3 (RAG con permisos). Sistema hecho y corrida real hecha; falta la revisión de Federico y el PDF.
+**Pre-entrega en curso:** PE4 (agente con LangGraph, MCP y aprobación humana). Sistema hecho y corrida real hecha; falta el PDF.
 
 | Pieza | Estado |
 | --- | --- |
-| Tag `pe2` sobre `c92b40d` | **Pendiente**: la app no puede subir tags; lo sube Federico |
-| Correcciones de la PE2 (corrida única, CI, 10 casos, clon limpio) | Hechas |
-| Corpus `documentos/` (7 SOPs + 3 restringidos con frase testigo) | Hecho (D-19, D-20). SOP-CC-001 v4 por decisión de Federico (D-28) |
-| `src/rag/`: ingesta, búsqueda híbrida con pre-filtro, `responder()` | Hecho (D-21 a D-26) |
-| Pruebas PE3 (permisos por rol, testigo en resultados y prompt, RRF, citas, H-02) | Hechas: 44 en verde, también en la CI |
-| `evals/preguntas_pe3.json` (10) y `evals/consultas_codigos.json` (8) | Hechas y **aprobadas por Federico** el 2026-11-16 |
-| Corrida real PE3 | Hecha con SOP-CC-001 v4: `resultados/corrida_pe3_20261116_1224/` (commit `d71d887`). La de la v3 quedó en `historico/` |
-| PDF de la PE3 | En armado desde esa carpeta |
-| Tag `pe3` | Pendiente, después del PDF |
+| Tags `pe2` y `pe3` | Subidos por Federico y verificados con `git ls-remote` |
+| Sistema simulado `src/sistema.py` (SQLite + auditoría) y semilla `datos/ccam_semilla.json` | Hecho |
+| Servidor MCP `src/mcp_servidor.py`: `consultar_ccam`, `listar_ccam` (lectura), `registrar_evaluacion` (escritura) | Hecho; probado con `scripts/cliente_mcp.py` |
+| Agente `src/agente/grafo.py`: decidir, ejecutar, pedir_aprobacion (interrupt), responder; límite de pasos; `SqliteSaver` | Hecho (D-29 a D-34) |
+| Pruebas | 60 en verde (16 de la PE4), también en la CI con cliente MCP y corrida PE4 simulada |
+| Corrida real PE4 | `resultados/corrida_pe4_20261117_0015/` (commit `6510e38`). Las dos anteriores en `historico/` |
+| Bitácora del asistente | `docs/BITACORA_PE4.md` |
+| PDF de la PE4 | En armado |
+| Tag `pe4` | Pendiente, después del PDF |
 
 ## Próximos pasos
 
-1. Federico aprueba el PDF armado desde `corrida_pe3_20261116_1224`.
-2. Subir los tags `pe2` y `pe3` desde la máquina de Federico; verificar con `git ls-remote --tags origin`.
-3. Federico decide O-1 (campo `recomendacion`).
-4. PE6: casos nuevos escritos con el corpus congelado (limitación de D-20).
+1. Federico aprueba el PDF de la PE4 y sube el tag `pe4`.
+2. Arreglar H-28 (la búsqueda del agente corta los fragmentos a 700 caracteres) en `pe4.1` o en la PE5.
+3. PE5: reemplazar `src/sistema.py` por la integración con un sistema legacy sin cambiar el contrato MCP.
+4. PE6: casos nuevos con el corpus congelado y corridas repetidas (H-24).
 
 ## Contexto del caso (de la PE1)
 
@@ -48,6 +48,16 @@ Archivo de traspaso entre sesiones. Quien trabaje en el repo (Claude Code, Claud
 | 10 | Final | Dossier, demo de 5 minutos y defensa en vivo |
 
 ## Hallazgos de las corridas
+
+### Corrida PE4 2026-11-17 (`resultados/corrida_pe4_20261117_0015/`, Haiku 5.5)
+
+Las 5 conversaciones salieron como se esperaba: C1 (documentos) y C2 (sistema) solo consultan; C3 evalúa el CCAM-2026-101, pide registrar, se pausa, **se retoma en otro proceso** con el thread_id C3 y lo aprueba u_jefe_qa; C4 evalúa el CCAM-2026-108 (crítico), pide registrar y u_jefe_qa rechaza: no se escribe nada; C5 corta en el paso 3 de 3 con mensaje. Una sola escritura en el sistema, con su fila de auditoría. USD 0,0113 en total.
+
+- **H-25** (primera corrida, en `historico/pe4_primera_corrida/`): el modelo leyó «requiere aprobación humana previa» como que la aprobación tenía que existir antes y no pidió la escritura. Se aclaró que elegir la acción es pedir la aprobación.
+- **H-26** (primera corrida): la respuesta final superó el máximo y cerró con error estructurado. Tope en prompt y contrato.
+- **H-27** (segunda corrida, en `historico/pe4_segunda_corrida/`): con «Paso 3 de 3» a la vista, el modelo cerró solo y la barrera de código quedó sin probar. D-33.
+- **H-28** (corrida final, C1): `buscar_documentos` le pasa al modelo los fragmentos cortados a 700 caracteres; el §3.2 de SOP-VS-003 quedó a medias y el modelo **lo dijo en vez de inventar**. Arreglo pendiente.
+- **H-02 en el agente:** en C4 el motor propuso una tarea que nombraba SOP-VS-002 sin citarlo; la regla cruzada lo rechazó y el reintento lo corrigió.
 
 ### Corrida PE3 final 2026-11-16 (`resultados/corrida_pe3_20261116_1224/`, SOP-CC-001 v4, Haiku 5.5, config A)
 
@@ -78,6 +88,7 @@ Detalle en `docs/TRASPASO_PE2.md` (H-01 a H-13) y archivos en `resultados/histor
 
 ## Bitácora
 
+- **2026-11-17** · Claude (app): PE4 completa en código. Sistema simulado, servidor MCP propio, agente LangGraph con interrupt y SqliteSaver, aprobación de QA formal distinta de quien pide (decisión de Federico), 16 pruebas, CI. Tres corridas reales en la máquina de Federico: las dos primeras dejaron H-25 a H-27 y quedan en `historico/`; la final es `corrida_pe4_20261117_0015`.
 - **2026-11-16** · Claude (app): Federico aprobó las 10 preguntas y decidió H-20 y H-21; SOP-CC-001 v4 (D-28) y corrida final `corrida_pe3_20261116_1224` (11/15; resuelve 02 y 15, aparecen H-23 y H-24). PDF de la PE3 rearmado desde esa carpeta.
 - **2026-11-16** · Claude (app): PE3 completa en código. Corpus ficticio, `src/rag/` (ingesta ChromaDB, híbrida vectorial + BM25 con RRF y pre-filtro por rol, `responder` y `responder_pregunta`), `Salida.requiere_humano`, citas validadas contra lo recuperado, regla H-02, 44 pruebas y CI. Corrida real en la máquina de Federico (la clave no salió de ella; las librerías se pasaron por el puente porque la máquina no llega a files.pythonhosted.org). La primera corrida se cortó (H-18) y se guardó en `historico/`.
 - **2026-11-16** · Claude (app): correcciones de la devolución de la PE2. `scripts.corrida` reemplaza a `medir` y `evidencia` (una sola fuente de verdad, manifiesto y hashes); CI en GitHub Actions; 10 casos nuevos clasificados por Federico; prueba desde clon limpio en verde (23 pruebas). Corrida real de 15 casos en la máquina de Federico, sin que la clave salga de ella: 73 % de coincidencia, sesgo hacia arriba (H-14). Lo entregado en la PE2 pasó a `resultados/historico/`. Subido a `main` con la CI en verde; el tag `pe2` no se pudo subir desde la app.

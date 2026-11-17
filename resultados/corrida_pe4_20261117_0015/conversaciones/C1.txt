@@ -1,0 +1,17 @@
+C1 · solo consulta documentos · thread_id C1 · usuario u_solicitante_prod · máximo 6 pasos
+> ¿Qué dice el SOP-VS-003 sobre desactivar el audit trail de un sistema?
+
+[paso 1] decidir   → buscar_documentos {"consulta": "SOP-VS-003 desactivar audit trail de un sistema"}
+                  porque: La pregunta es sobre lo que dice un procedimiento, así que corresponde buscar en los documentos.
+          ejecutar  → buscar_documentos: 3 fragmentos: SOP-VS-003#A00, SOP-VS-003#A01, SOP-CC-001#A05
+[paso 2] decidir   → responder
+                  porque: La búsqueda ya devolvió los fragmentos relevantes de SOP-VS-003 y SOP-CC-001, suficientes para responder.
+          responder (resuelto)
+
+< Según SOP-VS-003 (§3 Audit trail), todo sistema que crea, modifica o elimina registros GxP debe mantener un audit trail activo que registre quién, cuándo, qué cambió y por qué. El §3.2 prohíbe desactivarlo (el fragmento recuperado está cortado y no permite citar el texto completo de la prohibición). Además, el §3.3 establece que el audit trail se revisa como parte de la revisión de datos antes de aprobar resultados.
+
+Según SOP-CC-001 §5.5, desactivar, reducir o eludir controles de integridad de datos (audit trail, firmas electrónicas, control de accesos de aprobación) es un cambio de nivel crítico: requiere revalidación, puede requerir notificación regulatoria y, en algunos casos, no debe aprobarse.
+
+Para el detalle exacto del §3.2, conviene consultar el documento completo, ya que el fragmento recuperado no lo incluye entero.
+
+pasos 2 · tokens 6175/600 · USD 0.000918 · fotos del checkpointer 6

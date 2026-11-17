@@ -1,0 +1,104 @@
+{
+  "modo": "real",
+  "conversaciones": [
+    {
+      "id": "C1",
+      "tipo": "solo consulta documentos",
+      "usuario": "u_solicitante_prod",
+      "pasos": 2,
+      "max_pasos": 6,
+      "acciones": [
+        "buscar_documentos",
+        "responder"
+      ],
+      "aprobacion": null,
+      "cierre": "resuelto",
+      "tokens_entrada": 6175,
+      "tokens_salida": 600,
+      "costo_usd": 0.000918,
+      "fotos": 6
+    },
+    {
+      "id": "C2",
+      "tipo": "solo consulta el sistema",
+      "usuario": "u_analista_qa",
+      "pasos": 2,
+      "max_pasos": 6,
+      "acciones": [
+        "consultar_ccam",
+        "responder"
+      ],
+      "aprobacion": null,
+      "cierre": "resuelto",
+      "tokens_entrada": 5259,
+      "tokens_salida": 518,
+      "costo_usd": 0.000785,
+      "fotos": 6
+    },
+    {
+      "id": "C3",
+      "tipo": "acción aprobada (retomada en otro proceso)",
+      "usuario": "u_analista_qa",
+      "pasos": 3,
+      "max_pasos": 6,
+      "acciones": [
+        "evaluar_ccam",
+        "registrar_evaluacion",
+        "responder"
+      ],
+      "aprobacion": "aprobada",
+      "cierre": "resuelto",
+      "tokens_entrada": 16003,
+      "tokens_salida": 1988,
+      "costo_usd": 0.002594,
+      "fotos": 9
+    },
+    {
+      "id": "C4",
+      "tipo": "acción rechazada",
+      "usuario": "u_analista_qa",
+      "pasos": 3,
+      "max_pasos": 6,
+      "acciones": [
+        "consultar_ccam",
+        "evaluar_ccam",
+        "registrar_evaluacion"
+      ],
+      "aprobacion": "rechazada",
+      "cierre": "rechazado",
+      "tokens_entrada": 22888,
+      "tokens_salida": 2551,
+      "costo_usd": 0.003564,
+      "fotos": 9
+    },
+    {
+      "id": "C5",
+      "tipo": "llega al límite de pasos",
+      "usuario": "u_analista_qa",
+      "pasos": 3,
+      "max_pasos": 3,
+      "acciones": [
+        "listar_ccam",
+        "evaluar_ccam",
+        "evaluar_ccam"
+      ],
+      "aprobacion": null,
+      "cierre": "limite_de_pasos",
+      "tokens_entrada": 22305,
+      "tokens_salida": 2416,
+      "costo_usd": 0.003438,
+      "fotos": 10
+    }
+  ],
+  "escrituras_en_sistema": [
+    {
+      "id": 2,
+      "fecha_utc": "2026-11-17T00:15:46+00:00",
+      "usuario": "u_analista_qa",
+      "accion": "registrar_evaluacion",
+      "id_ccam": "CCAM-2026-101",
+      "detalle": "{\"impacto\": \"mayor\", \"fundamento\": [\"SOP-VS-002 §6.3\", \"SOP-CC-001 §5.4\", \"SOP-CC-001 §5.7\", \"SOP-EQ-005 §5.2\", \"SOP-EQ-005 §7.2\"], \"aprobado_por\": \"u_jefe_qa\"}"
+    }
+  ],
+  "costo_total_usd": 0.011299
+}

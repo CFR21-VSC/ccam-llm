@@ -1,0 +1,18 @@
+C5 · llega al límite de pasos · thread_id C5 · usuario u_analista_qa · máximo 3 pasos
+> Evaluá el impacto de todos los CCAM vencidos.
+
+[paso 1] decidir   → listar_ccam {"estado": "vencido"}
+                  porque: Hay que evaluar varios CCAM vencidos, primero necesito la lista de los que están en estado vencido.
+          ejecutar  → listar_ccam: 3 CCAM en estado vencido
+[paso 2] decidir   → evaluar_ccam {"id_ccam": "CCAM-2026-102"}
+                  porque: Hay tres CCAM vencidos; el primero es CCAM-2026-102, y evalúo el impacto de cada uno de a uno.
+          ejecutar  → evaluar_ccam: CCAM-2026-102: impacto mayor, fundamento SOP-CC-001 §5.4, SOP-CC-001 §5.7, SOP-AC-007 §3.1, SOP-AC-007 §3.2
+[paso 3] decidir   → evaluar_ccam {"id_ccam": "CCAM-2026-106"}
+                  porque: Siguiente CCAM vencido de la lista (CCAM-2026-106) para evaluar su impacto.
+          ejecutar  → evaluar_ccam: CCAM-2026-106: impacto menor, fundamento SOP-CC-001 §5.7, SOP-CC-001 §5.3, SOP-VS-002 §5, SOP-VS-002 §6.2
+[corte] decidir   → límite de pasos (3 pasos)
+          responder (limite_de_pasos)
+
+< Llegué al máximo de 3 pasos sin terminar. Alcancé a hacer: 3 CCAM en estado vencido; CCAM-2026-102: impacto mayor, fundamento SOP-CC-001 §5.4, SOP-CC-001 §5.7, SOP-AC-007 §3.1, SOP-AC-007 §3.2; CCAM-2026-106: impacto menor, fundamento SOP-CC-001 §5.7, SOP-CC-001 §5.3, SOP-VS-002 §5, SOP-VS-002 §6.2. Lo que falta queda para que lo revise una persona.
+
+pasos 3 · tokens 22305/2416 · USD 0.003438 · fotos del checkpointer 10

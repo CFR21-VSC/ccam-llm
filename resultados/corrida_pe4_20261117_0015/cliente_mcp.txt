@@ -1,0 +1,39 @@
+$ python -m scripts.cliente_mcp
+$ list_tools
+
+● consultar_ccam
+  Devuelve los datos de UN pedido de cambio (CCAM): tipo, área, sistema afectado, descripción, estado (abierto, en_evaluacion, borrador_registrado, vencido, cerrado), fecha límite y los borradores de evaluación ya registrados. Solo lectura: no modifica nada. Usala cuando la persona pregunta por un CCAM puntual o antes de evaluarlo.
+    - id_ccam: string "^CCAM-\\d{4}-\\d{3,4}$" (obligatorio)
+
+● listar_ccam
+  Lista los pedidos de cambio que están en un estado (por ejemplo, todos los abiertos o todos los vencidos), con número, tipo, sistema afectado y fecha límite. Solo lectura. Usala cuando la persona pregunta por varios CCAM a la vez.
+    - estado: string ["abierto", "en_evaluacion", "borrador_registrado", "vencido", "cerrado"] (obligatorio)
+
+● registrar_evaluacion
+  ESCRITURA. Registra en el sistema el borrador de evaluación de impacto de un CCAM (queda como BORRADOR_PENDIENTE_QA; no aprueba el cambio). Requiere aprobación humana previa: aprobado_por tiene que ser QA formal (rol jefe_qa) y distinto de solicitado_por. Cambia el estado del CCAM a borrador_registrado y deja una fila en la auditoría.
+    - id_ccam: string "^CCAM-\\d{4}-\\d{3,4}$" (obligatorio)
+    - impacto: string ["sin_impacto", "menor", "mayor", "critico"] (obligatorio)
+    - requiere_revalidacion: boolean (obligatorio)
+    - fundamento: array (obligatorio)
+    - justificacion: string (obligatorio)
+    - solicitado_por: string "^u_[a-z_]+$" (obligatorio)
+    - aprobado_por: string "^u_[a-z_]+$" (obligatorio)
+
+$ call_tool consultar_ccam {"id_ccam": "CCAM-2026-108"}
+{
+  "id_ccam": "CCAM-2026-108",
+  "tipo_cambio": "configuracion_sistema",
+  "area_solicitante": "control_calidad",
+  "sistema_afectado": "Software cromatográfico",
+  "descripcion": "Desactivar el audit trail del software cromatográfico durante dos semanas porque ralentiza…",
+  "estado": "abierto",
+  "fecha_apertura": "2026-10-08",
+  "fecha_limite": "2026-12-08",
+  "evaluaciones_registradas": []
+}
+
+$ call_tool consultar_ccam {"id_ccam": "CCAM-2026-999"}
+error: No existe el CCAM-2026-999 en el sistema de gestión de cambios.
+
+$ call_tool registrar_evaluacion {... "solicitado_por": "u_jefe_qa", "aprobado_por": "u_jefe_qa"}
+error: Quien pide el registro no puede aprobarlo (segregación de funciones).

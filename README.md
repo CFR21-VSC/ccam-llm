@@ -27,6 +27,9 @@ Cómo funciona por dentro, explicado paso a paso: [docs/COMO_FUNCIONA.md](docs/C
 src/contrato.py      Clases Entrada y Salida, reglas de validación y regla cruzada
 src/motor.py         Recorrido completo: validar, llamar, validar, reintentar, medir, registrar
 src/proveedores.py   Conexión con Claude (Anthropic), OpenAI (opcional) y un simulador sin clave
+src/agente/          PE4: grafo del agente (decidir, ejecutar, pedir_aprobacion, responder)
+src/mcp_servidor.py  PE4: servidor MCP del sistema de gestión de cambios
+src/sistema.py       PE4: sistema simulado (SQLite) con auditoría
 src/rag/             PE3: corpus, ingesta en ChromaDB, búsqueda híbrida con permisos y responder()
 documentos/          PE3: 10 documentos ficticios (7 SOPs y 3 restringidos con frase testigo)
 evals/               PE3: 10 preguntas de prueba y 8 consultas con códigos exactos
@@ -131,6 +134,18 @@ python -m scripts.corrida_pe3 --simulado rag_valido --embeddings-simulados   # s
 ```
 
 La primera ingesta baja el modelo de embeddings (`paraphrase-multilingual-MiniLM-L12-v2`, ~220 MB, Apache-2.0). Usuarios y roles de prueba: `config/usuarios.json`. Parámetros de búsqueda: `config/rag.json`. Última corrida: `resultados/corrida_pe3_20261116_1224/medicion.md`.
+
+## PE4: agente supervisado
+
+```bash
+python -m scripts.cliente_mcp                      # lista las herramientas del servidor MCP y llama a una
+python -m scripts.agente --usuario u_analista_qa --thread t1 "Evaluá el CCAM-2026-101 y registrá el borrador"
+python -m scripts.agente --thread t1 --aprobar u_jefe_qa
+python -m scripts.corrida_pe4                      # 5 conversaciones con traza, retomada y Mermaid
+python -m scripts.corrida_pe4 --simulado           # sin clave
+```
+
+El agente (LangGraph) decide entre buscar en los documentos, consultar el sistema, evaluar un CCAM o registrar el borrador. La escritura se pausa con `interrupt` y solo sigue si aprueba QA formal (`u_jefe_qa`), que nunca puede ser quien la pidió. El sistema del cliente es una base SQLite ficticia expuesta por un servidor MCP propio. Última corrida: `resultados/corrida_pe4_20261117_0015/medicion.md`.
 
 ## Contrato de datos
 

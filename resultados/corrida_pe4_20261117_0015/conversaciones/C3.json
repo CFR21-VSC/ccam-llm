@@ -1,0 +1,131 @@
+{
+  "id": "C3",
+  "tipo": "acción aprobada (retomada en otro proceso)",
+  "usuario": "u_analista_qa",
+  "mensaje": "Evaluá el impacto del CCAM-2026-101 y registrá el borrador de evaluación en el sistema.",
+  "aprobacion": {
+    "decision": "aprobada",
+    "aprobador": "u_jefe_qa",
+    "motivo": ""
+  },
+  "otro_proceso": true,
+  "thread_id": "C3",
+  "max_pasos": 6,
+  "pausa": {
+    "pregunta": "¿Aprobás esta escritura en el sistema de gestión de cambios?",
+    "accion": "registrar_evaluacion",
+    "id_ccam": "CCAM-2026-101",
+    "impacto": "mayor",
+    "requiere_revalidacion": true,
+    "fundamento": [
+      "SOP-VS-002 §6.3",
+      "SOP-CC-001 §5.4",
+      "SOP-CC-001 §5.7",
+      "SOP-EQ-005 §5.2",
+      "SOP-EQ-005 §7.2"
+    ],
+    "justificacion": "Cambio de versión mayor del software cromatográfico (3.6 a 3.8) que alcanza a 4 HPLC y a la base de datos de resultados GxP. La descripción indica que la actualización modifica la base de datos, lo que es un dato que respalda decisiones de calidad, y las funciones de control. Según SOP-VS-002 §6.3, un cambio de versión que modifica funciones, la base de datos o cálculos requiere revalidación con regresión de funciones GxP, completada antes del uso productivo si la versión afecta resultados de liberación. Según SOP-CC-001 §5.7 la frontera menor/mayor se resuelve por si el cambio modifica una función, cálculo, dato o estado validado: lo modifica, por lo que no es menor. Hay barrera posterior (revalidación antes del uso), por lo que no se clasifica como crítico. Se considera además la recalificación OQ de los HPLC tras cambio de software (SOP-EQ-005 §5.2 y SOP-CC-001 §5.4 aplicables). Falta confirmar si la versión 3.8 altera cálculos o integridad de datos de los equipos de estabilidad; esto no cambia la clasificación propuesta.",
+    "solicitado_por": "u_analista_qa"
+  },
+  "retomada": {
+    "comando": "python -m scripts.agente --thread C3 --aprobar u_jefe_qa",
+    "codigo_salida": 0,
+    "salida": "↺ Recuperado del checkpointer: thread C3, 2 pasos dados, 5 fotos guardadas, detenido en ['pedir_aprobacion']\n  pendiente: registrar_evaluacion CCAM-2026-101 impacto mayor pedido por u_analista_qa\n▶ Retomando con: {\"decision\": \"aprobada\", \"aprobador\": \"u_jefe_qa\", \"motivo\": \"\"}\n  {\"nodo\": \"pedir_aprobacion\", \"resultado\": \"aprobada\", \"aprobador\": \"u_jefe_qa\", \"motivo\": \"\", \"accion\": \"registrar_evaluacion\", \"id_ccam\": \"CCAM-2026-101\", \"impacto\": \"mayor\"}\n  {\"nodo\": \"ejecutar\", \"accion\": \"registrar_evaluacion\", \"resultado\": \"ok\", \"resumen\": \"registrado CCAM-2026-101 (mayor), aprobó u_jefe_qa\"}\n  {\"nodo\": \"decidir\", \"paso\": 3, \"accion\": \"responder\", \"parametros\": {}, \"razon\": \"Evaluación y registro del borrador de CCAM-2026-101 completados; no quedan acciones pendientes.\"}\n  {\"nodo\": \"responder\", \"motivo\": \"resuelto\"}\n\n■ RESUELTO: Se evaluó el impacto GxP del CCAM-2026-101 (cambio de versión mayor del software cromatográfico 3.6 a 3.8, que alcanza a 4 HPLC y a la base de datos de resultados GxP). Resultado de la evaluación: impacto MAYOR, requiere revalidación, no requiere intervención humana adicional y está dentro de alcance. Fundamento: SOP-VS-002 §6.3; SOP-CC-001 §5.4, §5.7; SOP-EQ-005 §5.2, §7.2.\n\nTareas propuestas: evaluar si la versión 3.8 modifica funciones, cálculos o la base de datos; ejecutar regresión de funciones GxP antes del uso productivo; verificar la migración de la base de datos (respaldo, integridad y audit trail); requalificar OQ de los HPLC afectados, incluido HPLC-QC-04; y obtener la aprobación de QA del plan de implementación.\n\nRegistro: el borrador de evaluación (ID de evaluación 1) quedó registrado en el sistema con aprobación de u_jefe_qa. El CCAM pasó a estado borrador_registrado y el borrador está en estado BORRADOR_PENDIENTE_QA, pendiente de la firma formal de QA. Esto no implica que el cambio esté aprobado para su implementación.\n  pasos: 3 · consumo: {\"costo_usd\": 0.002594, \"llamadas\": 4, \"tokens_entrada\": 16003, \"tokens_salida\": 1988}\n",
+    "errores": ""
+  },
+  "traza": [
+    {
+      "nodo": "decidir",
+      "paso": 1,
+      "accion": "evaluar_ccam",
+      "parametros": {
+        "id_ccam": "CCAM-2026-101"
+      },
+      "razon": "Primero hay que evaluar el impacto GxP del CCAM-2026-101 antes de poder registrar un borrador."
+    },
+    {
+      "nodo": "ejecutar",
+      "accion": "evaluar_ccam",
+      "resultado": "ok",
+      "resumen": "CCAM-2026-101: impacto mayor, fundamento SOP-VS-002 §6.3, SOP-CC-001 §5.4, SOP-CC-001 §5.7, SOP-EQ-005 §5.2, SOP-EQ-005 §7.2"
+    },
+    {
+      "nodo": "decidir",
+      "paso": 2,
+      "accion": "registrar_evaluacion",
+      "parametros": {
+        "id_ccam": "CCAM-2026-101"
+      },
+      "razon": "El usuario pidió registrar el borrador y ya evaluamos el CCAM-2026-101 en esta conversación."
+    },
+    {
+      "nodo": "pedir_aprobacion",
+      "resultado": "aprobada",
+      "aprobador": "u_jefe_qa",
+      "motivo": "",
+      "accion": "registrar_evaluacion",
+      "id_ccam": "CCAM-2026-101",
+      "impacto": "mayor"
+    },
+    {
+      "nodo": "ejecutar",
+      "accion": "registrar_evaluacion",
+      "resultado": "ok",
+      "resumen": "registrado CCAM-2026-101 (mayor), aprobó u_jefe_qa"
+    },
+    {
+      "nodo": "decidir",
+      "paso": 3,
+      "accion": "responder",
+      "parametros": {},
+      "razon": "Evaluación y registro del borrador de CCAM-2026-101 completados; no quedan acciones pendientes."
+    },
+    {
+      "nodo": "responder",
+      "motivo": "resuelto"
+    }
+  ],
+  "mensajes": [
+    {
+      "rol": "usuario",
+      "texto": "Evaluá el impacto del CCAM-2026-101 y registrá el borrador de evaluación en el sistema."
+    },
+    {
+      "rol": "agente",
+      "texto": "Paso 1: evaluar_ccam({\"id_ccam\": \"CCAM-2026-101\"}). Primero hay que evaluar el impacto GxP del CCAM-2026-101 antes de poder registrar un borrador."
+    },
+    {
+      "rol": "herramienta",
+      "texto": "evaluar_ccam → {\"impacto\": \"mayor\", \"requiere_revalidacion\": true, \"requiere_humano\": false, \"fuera_de_alcance\": false, \"fundamento\": [\"SOP-VS-002 §6.3\", \"SOP-CC-001 §5.4\", \"SOP-CC-001 §5.7\", \"SOP-EQ-005 §5.2\", \"SOP-EQ-005 §7.2\"], \"justificacion\": \"Cambio de versión mayor del software cromatográfico (3.6 a 3.8) que alcanza a 4 HPLC y a la base de datos de resultados GxP. La descripción indica que la actualización modifica la base de datos, lo que es un dato que respalda decisiones de calidad, y las funciones de control. Según SOP-VS-002 §6.3, un cambio de versión que modifica funciones, la base de datos o cálculos requiere revalidación con regresión de funciones GxP, completada antes del uso productivo si la versión afecta resultados de liberación. Según SOP-CC-001 §5.7 la frontera menor/mayor se resuelve por si el cambio modifica una función, cálculo, dato o estado validado: lo modifica, por lo que no es menor. Hay barrera posterior (revalidación antes del uso), por lo que no se clasifica como crítico. Se considera además la recalificación OQ de los HPLC tras cambio de software (SOP-EQ-005 §5.2 y SOP-CC-001 §5.4 aplicables). Falta confirmar si la versión 3.8 altera cálculos o integridad de datos de los equipos de estabilidad; esto no cambia la clasificación propuesta.\", \"tareas\": [\"Evaluar en la validación si la versión 3.8 modifica funciones, cálculos o la base de datos de resultados, y documentar el alcance de la revalidación.\", \"Ejecutar pruebas de regresión de las funciones GxP del software 3.8 antes del uso productivo, según SOP-VS-002 §6.3.\", \"Verificar la migración de la base de datos de resultados con respaldo previo, verificación de integridad y conservación del audit trail.\", \"Requalificar OQ de los HPLC afectados tras el cambio de software, incluyendo HPLC-QC-04 (recalificación semestral por estabilidad).\", \"Obtener de Garantía de Calidad la aprobación del plan de implementación antes de la actualización, dado que el cambio es de impacto mayor.\"], \"trace_id_motor\": \"0db9a8dff178\"}"
+    },
+    {
+      "rol": "agente",
+      "texto": "Paso 2: registrar_evaluacion({\"id_ccam\": \"CCAM-2026-101\"}). El usuario pidió registrar el borrador y ya evaluamos el CCAM-2026-101 en esta conversación."
+    },
+    {
+      "rol": "aprobacion",
+      "texto": "u_jefe_qa: aprobada"
+    },
+    {
+      "rol": "herramienta",
+      "texto": "registrar_evaluacion → {\"registrado\": true, \"id_evaluacion\": 1, \"id_ccam\": \"CCAM-2026-101\", \"impacto\": \"mayor\", \"estado_ccam\": \"borrador_registrado\", \"aprobado_por\": \"u_jefe_qa\", \"fecha_utc\": \"2026-11-17T00:15:46+00:00\", \"estado_borrador\": \"BORRADOR_PENDIENTE_QA\"}"
+    },
+    {
+      "rol": "agente",
+      "texto": "Se evaluó el impacto GxP del CCAM-2026-101 (cambio de versión mayor del software cromatográfico 3.6 a 3.8, que alcanza a 4 HPLC y a la base de datos de resultados GxP). Resultado de la evaluación: impacto MAYOR, requiere revalidación, no requiere intervención humana adicional y está dentro de alcance. Fundamento: SOP-VS-002 §6.3; SOP-CC-001 §5.4, §5.7; SOP-EQ-005 §5.2, §7.2.\n\nTareas propuestas: evaluar si la versión 3.8 modifica funciones, cálculos o la base de datos; ejecutar regresión de funciones GxP antes del uso productivo; verificar la migración de la base de datos (respaldo, integridad y audit trail); requalificar OQ de los HPLC afectados, incluido HPLC-QC-04; y obtener la aprobación de QA del plan de implementación.\n\nRegistro: el borrador de evaluación (ID de evaluación 1) quedó registrado en el sistema con aprobación de u_jefe_qa. El CCAM pasó a estado borrador_registrado y el borrador está en estado BORRADOR_PENDIENTE_QA, pendiente de la firma formal de QA. Esto no implica que el cambio esté aprobado para su implementación."
+    }
+  ],
+  "final": {
+    "motivo": "resuelto",
+    "respuesta": "Se evaluó el impacto GxP del CCAM-2026-101 (cambio de versión mayor del software cromatográfico 3.6 a 3.8, que alcanza a 4 HPLC y a la base de datos de resultados GxP). Resultado de la evaluación: impacto MAYOR, requiere revalidación, no requiere intervención humana adicional y está dentro de alcance. Fundamento: SOP-VS-002 §6.3; SOP-CC-001 §5.4, §5.7; SOP-EQ-005 §5.2, §7.2.\n\nTareas propuestas: evaluar si la versión 3.8 modifica funciones, cálculos o la base de datos; ejecutar regresión de funciones GxP antes del uso productivo; verificar la migración de la base de datos (respaldo, integridad y audit trail); requalificar OQ de los HPLC afectados, incluido HPLC-QC-04; y obtener la aprobación de QA del plan de implementación.\n\nRegistro: el borrador de evaluación (ID de evaluación 1) quedó registrado en el sistema con aprobación de u_jefe_qa. El CCAM pasó a estado borrador_registrado y el borrador está en estado BORRADOR_PENDIENTE_QA, pendiente de la firma formal de QA. Esto no implica que el cambio esté aprobado para su implementación."
+  },
+  "pasos": 3,
+  "consumo": {
+    "costo_usd": 0.002594,
+    "llamadas": 4,
+    "tokens_entrada": 16003,
+    "tokens_salida": 1988
+  },
+  "fotos_guardadas": 9,
+  "siguiente": []
+}

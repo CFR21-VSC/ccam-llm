@@ -1,0 +1,18 @@
+C4 · acción rechazada · thread_id C4 · usuario u_analista_qa · máximo 6 pasos
+> Evaluá el CCAM-2026-108 y registrá el borrador de evaluación en el sistema.
+
+[paso 1] decidir   → consultar_ccam {"id_ccam": "CCAM-2026-108"}
+                  porque: Antes de evaluar conviene revisar los datos y el estado del CCAM-2026-108.
+          ejecutar  → consultar_ccam: CCAM-2026-108: estado abierto
+[paso 2] decidir   → evaluar_ccam {"id_ccam": "CCAM-2026-108"}
+                  porque: El CCAM está abierto y sin evaluaciones; corresponde proponer la evaluación de impacto GxP antes de cualquier registro.
+          ejecutar  → evaluar_ccam: CCAM-2026-108: impacto critico, fundamento SOP-VS-003 §3.2, SOP-VS-003 §3.1, SOP-CC-001 §5.7, SOP-EQ-005 §7.2, SOP-VS-002 §6.3
+[paso 3] decidir   → registrar_evaluacion {"id_ccam": "CCAM-2026-108"}
+                  porque: El usuario pidió explícitamente registrar el borrador de evaluación del CCAM-2026-108, que ya fue evaluado en esta conversación.
+          ⏸ interrupt: registrar_evaluacion CCAM-2026-108 impacto critico — esperando a QA
+          ▶ u_jefe_qa: RECHAZADA (antes de registrar quiero la alternativa de rendimiento que proponga Sistemas)
+          responder (rechazado)
+
+< No registré nada en el sistema: u_jefe_qa rechazó el registro del borrador del CCAM-2026-108 (antes de registrar quiero la alternativa de rendimiento que proponga Sistemas). La evaluación propuesta quedó solo en esta conversación.
+
+pasos 3 · tokens 22888/2551 · USD 0.003564 · fotos del checkpointer 9

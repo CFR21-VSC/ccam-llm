@@ -186,6 +186,43 @@ Cada documento restringido tiene una **frase testigo** única (por ejemplo `TEST
 - **¿Por qué fragmentos de 400 y no de 1.000 tokens?** Con este corpus las dos aciertan igual con la híbrida, pero la de 400 manda la mitad de texto al modelo y permite citar la sección exacta.
 - **¿Por qué ChromaDB y no Pinecone?** ChromaDB corre en la máquina: los documentos GxP no salen a un tercero. Pinecone convendría con varias plantas, miles de documentos y muchos usuarios a la vez, si la evaluación de proveedor y la residencia de datos lo permiten.
 
+## Cómo actúa con permiso (PE4)
+
+Hasta la PE3 el sistema respondía. Desde la PE4 también **hace cosas** en el sistema de gestión de cambios: consulta CCAM y registra borradores de evaluación. Lo hace un **agente**: un programa que en cada paso decide qué hacer, en vez de seguir un camino fijo. Antes de escribir, se frena y espera la firma de QA.
+
+### Las piezas
+
+| Pieza | Qué es | Equivalente GxP |
+| --- | --- | --- |
+| **Sistema simulado** (`src/sistema.py`) | Una base SQLite con los 15 CCAM ficticios, sus estados, los borradores registrados y una tabla de auditoría | El sistema de gestión de cambios de la planta, en versión de prueba |
+| **Servidor MCP** (`src/mcp_servidor.py`) | Un programa aparte que expone el sistema con 3 herramientas tipadas: `consultar_ccam` y `listar_ccam` (lectura), `registrar_evaluacion` (escritura) | La interfaz validada: qué se puede hacer y con qué datos, y nada más |
+| **Grafo** (`src/agente/grafo.py`) | El camino del agente dibujado como nodos y flechas: decidir, ejecutar, pedir aprobación, responder | El diagrama de flujo del procedimiento |
+| **Estado** | La pizarra que viaja entre nodos: mensajes, usuario, pasos, `pendiente_aprobacion` | El expediente con sus fojas |
+| **interrupt** | La pausa antes de escribir: muestra qué va a hacer y con qué datos | El borrador sobre el escritorio del aprobador |
+| **Checkpointer** | Guarda una foto del estado después de cada paso, por `thread_id` | El expediente archivado: se retoma donde quedó, aunque sea otro día |
+| **Límite de pasos** | Si el agente no termina en 6 pasos, el sistema lo corta y avisa | El plazo del procedimiento: si no se resuelve, escala |
+
+### Quién aprueba
+
+Aprueba **QA formal** (`u_jefe_qa`), y **nunca quien pidió la escritura**. Se controla dos veces: en el agente (si no se cumple, la aprobación cuenta como rechazo) y en el servidor MCP (si alguien lo llamara directo, igual rechaza). Registrar el borrador **no aprueba el cambio**: queda `BORRADOR_PENDIENTE_QA`.
+
+### Lo que el modelo no puede hacer
+
+- Inventar una acción: elige de una lista cerrada (`Decision`).
+- Inventar la clasificación que se escribe: solo dice qué CCAM; lo que se registra es lo que validó el motor en esa conversación.
+- Escribir sin firma: el nodo que ejecuta vuelve a comprobar que la aprobación existe.
+- Saltarse el límite: no sabe cuántos pasos tiene; el corte lo hace el código.
+
+### Cómo usarlo
+
+```bash
+python -m scripts.agente --usuario u_analista_qa --thread ccam-101 "Evaluá el CCAM-2026-101 y registrá el borrador"
+python -m scripts.agente --thread ccam-101 --aprobar u_jefe_qa        # o --rechazar u_jefe_qa --motivo "..."
+python -m scripts.agente --thread ccam-101 --estado
+python -m scripts.cliente_mcp                                          # prueba el servidor solo
+python -m scripts.corrida_pe4                                          # las 5 conversaciones de la entrega
+```
+
 ## Preguntas que te pueden hacer en la defensa
 
 - **¿Por qué validar si el esquema ya le dice al modelo la forma?** Porque el esquema orienta y no garantiza: no sabe si el SOP existe ni puede expresar reglas de negocio entre campos.
