@@ -136,7 +136,7 @@ def construir_agente(proveedor: Optional[Proveedor] = None, checkpointer=None, m
     max_pasos = max_pasos or CONFIG["max_pasos"]
     herramientas_mcp = herramientas_mcp if herramientas_mcp is not None else cliente_mcp.listar_herramientas()
     sistema_txt = Template((RAIZ / "prompts" / "agente.md").read_text(encoding="utf-8")).substitute(
-        herramientas=describir_herramientas(herramientas_mcp), max_pasos=max_pasos)
+        herramientas=describir_herramientas(herramientas_mcp))
     herramienta = herramienta_salida(Decision, nombre="decidir_paso",
                                      descripcion="Elige la próxima acción del agente con sus parámetros.")
 
@@ -152,7 +152,7 @@ def construir_agente(proveedor: Optional[Proveedor] = None, checkpointer=None, m
             return {"decision": {"accion": "limite"}, "traza": [_traza("decidir", resultado="límite de pasos", pasos=pasos)]}
         transcripcion = "\n".join(f"[{m['rol']}] {m['texto']}" for m in estado.get("mensajes", []))
         turno = (f"Usuario: {estado['usuario']} (rol {', '.join(roles_de(estado['usuario'])) or 'desconocido'})\n"
-                 f"Paso {pasos + 1} de {max_pasos}.\n\nConversación hasta ahora:\n{transcripcion}")
+                 f"Paso {pasos + 1}.\n\nConversación hasta ahora:\n{transcripcion}")
         try:
             d, error, metricas = llamar_con_reintento(_proveedor(), sistema_txt, turno, herramienta, Decision)
         except ErrorProveedor as exc:

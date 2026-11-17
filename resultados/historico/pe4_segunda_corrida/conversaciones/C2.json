@@ -1,0 +1,69 @@
+{
+  "id": "C2",
+  "tipo": "solo consulta el sistema",
+  "usuario": "u_analista_qa",
+  "mensaje": "¿En qué estado está el CCAM-2026-108 y cuándo vence?",
+  "thread_id": "C2",
+  "max_pasos": 6,
+  "pausa": null,
+  "retomada": null,
+  "traza": [
+    {
+      "nodo": "decidir",
+      "paso": 1,
+      "accion": "consultar_ccam",
+      "parametros": {
+        "id_ccam": "CCAM-2026-108"
+      },
+      "razon": "La persona pregunta por el estado y vencimiento de un CCAM puntual."
+    },
+    {
+      "nodo": "ejecutar",
+      "accion": "consultar_ccam",
+      "resultado": "ok",
+      "resumen": "CCAM-2026-108: estado abierto"
+    },
+    {
+      "nodo": "decidir",
+      "paso": 2,
+      "accion": "responder",
+      "parametros": {},
+      "razon": "Ya tengo el estado y la fecha límite del CCAM-2026-108 desde consultar_ccam."
+    },
+    {
+      "nodo": "responder",
+      "motivo": "resuelto"
+    }
+  ],
+  "mensajes": [
+    {
+      "rol": "usuario",
+      "texto": "¿En qué estado está el CCAM-2026-108 y cuándo vence?"
+    },
+    {
+      "rol": "agente",
+      "texto": "Paso 1: consultar_ccam({\"id_ccam\": \"CCAM-2026-108\"}). La persona pregunta por el estado y vencimiento de un CCAM puntual."
+    },
+    {
+      "rol": "herramienta",
+      "texto": "consultar_ccam → {\"id_ccam\": \"CCAM-2026-108\", \"tipo_cambio\": \"configuracion_sistema\", \"area_solicitante\": \"control_calidad\", \"sistema_afectado\": \"Software cromatográfico\", \"descripcion\": \"Desactivar el audit trail del software cromatográfico durante dos semanas porque ralentiza el procesamiento de las corridas de estabilidad. Se reactivaría al terminar la campaña.\", \"estado\": \"abierto\", \"fecha_apertura\": \"2026-10-08\", \"fecha_limite\": \"2026-12-08\", \"evaluaciones_registradas\": []}"
+    },
+    {
+      "rol": "agente",
+      "texto": "El CCAM-2026-108 está en estado \"abierto\". Fecha de apertura: 2026-10-08. Fecha límite: 2026-12-08. No tiene evaluaciones registradas todavía.\n\nDatos del cambio: tipo configuración del sistema, área solicitante control de calidad, sistema afectado el software cromatográfico. Descripción: desactivar el audit trail del software cromatográfico durante dos semanas porque ralentiza el procesamiento de las corridas de estabilidad, y reactivarlo al terminar la campaña.\n\nFuente: consultar_ccam (solo lectura).\n\nNota: desactivar el audit trail afecta la integridad de datos GxP (ALCOA+), así que conviene que QA lo evalúe con prioridad si se quiere avanzar."
+    }
+  ],
+  "final": {
+    "motivo": "resuelto",
+    "respuesta": "El CCAM-2026-108 está en estado \"abierto\". Fecha de apertura: 2026-10-08. Fecha límite: 2026-12-08. No tiene evaluaciones registradas todavía.\n\nDatos del cambio: tipo configuración del sistema, área solicitante control de calidad, sistema afectado el software cromatográfico. Descripción: desactivar el audit trail del software cromatográfico durante dos semanas porque ralentiza el procesamiento de las corridas de estabilidad, y reactivarlo al terminar la campaña.\n\nFuente: consultar_ccam (solo lectura).\n\nNota: desactivar el audit trail afecta la integridad de datos GxP (ALCOA+), así que conviene que QA lo evalúe con prioridad si se quiere avanzar."
+  },
+  "pasos": 2,
+  "consumo": {
+    "tokens_salida": 504,
+    "costo_usd": 0.000776,
+    "llamadas": 2,
+    "tokens_entrada": 5237
+  },
+  "fotos_guardadas": 6,
+  "siguiente": []
+}

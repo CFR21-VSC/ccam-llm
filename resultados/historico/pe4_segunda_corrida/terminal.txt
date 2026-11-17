@@ -1,0 +1,9 @@
+C1: resuelto · 2 pasos
+C2: resuelto · 2 pasos
+[2a9f7e7c27bd] intento 1/2: salida inválida -> (regla cruzada): Value error, la tarea 4 nombra SOP-PR-006, que no figura en fundamento (H-02)
+C3: resuelto · 3 pasos
+[08c592d80163] intento 1/2: salida inválida -> (regla cruzada): Value error, la tarea 3 nombra SOP-VS-002, que no figura en fundamento (H-02)
+C4: rechazado · 2 pasos
+[96696421f597] intento 1/2: salida inválida -> justificacion: String should have at most 1200 characters
+[96696421f597] intento 1/2: salida inválida -> confianza: Field required
+C5: resuelto · 3 pasos

@@ -1,0 +1,108 @@
+{
+  "id": "C4",
+  "tipo": "acción rechazada",
+  "usuario": "u_analista_qa",
+  "mensaje": "Evaluá el CCAM-2026-108 y registrá el borrador de evaluación en el sistema.",
+  "aprobacion": {
+    "decision": "rechazada",
+    "aprobador": "u_jefe_qa",
+    "motivo": "antes de registrar quiero la alternativa de rendimiento que proponga Sistemas"
+  },
+  "thread_id": "C4",
+  "max_pasos": 6,
+  "pausa": {
+    "pregunta": "¿Aprobás esta escritura en el sistema de gestión de cambios?",
+    "accion": "registrar_evaluacion",
+    "id_ccam": "CCAM-2026-108",
+    "impacto": "critico",
+    "requiere_revalidacion": true,
+    "fundamento": [
+      "SOP-VS-003 §3.2",
+      "SOP-VS-003 §3.1",
+      "SOP-CC-001 §5.1",
+      "SOP-CC-001 §5.7",
+      "SOP-VS-002 §6.3"
+    ],
+    "justificacion": "El cambio propone desactivar temporalmente el audit trail del software cromatográfico que procesa corridas de estabilidad, por lentitud de procesamiento. Afecta directamente la integridad de datos GxP (ALCOA+, quién/cuándo/qué cambió), que respalda decisiones de liberación y vida útil. SOP-VS-003 §3.2 prohíbe desactivar el audit trail de un sistema GxP por rendimiento o comodidad, aun en forma temporal, por lo que el cambio no puede implementarse tal como está. Aplicando la matriz de SOP-CC-001 §5.1, el efecto sobre la integridad de datos es crítico. La pregunta de frontera de §5.7 (modifica un dato o función validada) se responde afirmativamente. El problema de rendimiento debe resolverse por otra vía (infraestructura o archivado). No se aplicó R-QA-01 porque la descripción tiene datos suficientes para clasificar.",
+    "solicitado_por": "u_analista_qa"
+  },
+  "retomada": null,
+  "traza": [
+    {
+      "nodo": "decidir",
+      "paso": 1,
+      "accion": "evaluar_ccam",
+      "parametros": {
+        "id_ccam": "CCAM-2026-108"
+      },
+      "razon": "El usuario pidió evaluar el impacto GxP de CCAM-2026-108; primero hay que generar el borrador antes de poder registrarlo."
+    },
+    {
+      "nodo": "ejecutar",
+      "accion": "evaluar_ccam",
+      "resultado": "ok",
+      "resumen": "CCAM-2026-108: impacto critico, fundamento SOP-VS-003 §3.2, SOP-VS-003 §3.1, SOP-CC-001 §5.1, SOP-CC-001 §5.7, SOP-VS-002 §6.3"
+    },
+    {
+      "nodo": "decidir",
+      "paso": 2,
+      "accion": "registrar_evaluacion",
+      "parametros": {
+        "id_ccam": "CCAM-2026-108"
+      },
+      "razon": "El usuario pidió registrar el borrador; ya evaluamos CCAM-2026-108 en esta conversación."
+    },
+    {
+      "nodo": "pedir_aprobacion",
+      "resultado": "rechazada",
+      "aprobador": "u_jefe_qa",
+      "motivo": "antes de registrar quiero la alternativa de rendimiento que proponga Sistemas",
+      "accion": "registrar_evaluacion",
+      "id_ccam": "CCAM-2026-108",
+      "impacto": "critico"
+    },
+    {
+      "nodo": "responder",
+      "motivo": "rechazado"
+    }
+  ],
+  "mensajes": [
+    {
+      "rol": "usuario",
+      "texto": "Evaluá el CCAM-2026-108 y registrá el borrador de evaluación en el sistema."
+    },
+    {
+      "rol": "agente",
+      "texto": "Paso 1: evaluar_ccam({\"id_ccam\": \"CCAM-2026-108\"}). El usuario pidió evaluar el impacto GxP de CCAM-2026-108; primero hay que generar el borrador antes de poder registrarlo."
+    },
+    {
+      "rol": "herramienta",
+      "texto": "evaluar_ccam → {\"impacto\": \"critico\", \"requiere_revalidacion\": true, \"requiere_humano\": false, \"fuera_de_alcance\": false, \"fundamento\": [\"SOP-VS-003 §3.2\", \"SOP-VS-003 §3.1\", \"SOP-CC-001 §5.1\", \"SOP-CC-001 §5.7\", \"SOP-VS-002 §6.3\"], \"justificacion\": \"El cambio propone desactivar temporalmente el audit trail del software cromatográfico que procesa corridas de estabilidad, por lentitud de procesamiento. Afecta directamente la integridad de datos GxP (ALCOA+, quién/cuándo/qué cambió), que respalda decisiones de liberación y vida útil. SOP-VS-003 §3.2 prohíbe desactivar el audit trail de un sistema GxP por rendimiento o comodidad, aun en forma temporal, por lo que el cambio no puede implementarse tal como está. Aplicando la matriz de SOP-CC-001 §5.1, el efecto sobre la integridad de datos es crítico. La pregunta de frontera de §5.7 (modifica un dato o función validada) se responde afirmativamente. El problema de rendimiento debe resolverse por otra vía (infraestructura o archivado). No se aplicó R-QA-01 porque la descripción tiene datos suficientes para clasificar.\", \"tareas\": [\"Rechazar la desactivación del audit trail del software cromatográfico; el cambio no se implementa según SOP-VS-003 §3.2.\", \"Evaluar la lentitud de procesamiento por vía de infraestructura (servidor, red, base de datos) o archivado de datos, sin tocar el audit trail.\", \"Verificar que el audit trail permanezca activo durante la campaña de estabilidad y que no existan corridas sin registro de audit trail.\", \"Si la solución de infraestructura modifica el software o su configuración, evaluar revalidación según SOP-VS-002 §6.3 antes del uso productivo.\"], \"trace_id_motor\": \"08c592d80163\"}"
+    },
+    {
+      "rol": "agente",
+      "texto": "Paso 2: registrar_evaluacion({\"id_ccam\": \"CCAM-2026-108\"}). El usuario pidió registrar el borrador; ya evaluamos CCAM-2026-108 en esta conversación."
+    },
+    {
+      "rol": "aprobacion",
+      "texto": "u_jefe_qa: rechazada (antes de registrar quiero la alternativa de rendimiento que proponga Sistemas)"
+    },
+    {
+      "rol": "agente",
+      "texto": "No registré nada en el sistema: u_jefe_qa rechazó el registro del borrador del CCAM-2026-108 (antes de registrar quiero la alternativa de rendimiento que proponga Sistemas). La evaluación propuesta quedó solo en esta conversación."
+    }
+  ],
+  "final": {
+    "motivo": "rechazado",
+    "respuesta": "No registré nada en el sistema: u_jefe_qa rechazó el registro del borrador del CCAM-2026-108 (antes de registrar quiero la alternativa de rendimiento que proponga Sistemas). La evaluación propuesta quedó solo en esta conversación."
+  },
+  "pasos": 2,
+  "consumo": {
+    "tokens_salida": 2247,
+    "costo_usd": 0.003085,
+    "llamadas": 4,
+    "tokens_entrada": 19611
+  },
+  "fotos_guardadas": 7,
+  "siguiente": []
+}

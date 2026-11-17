@@ -13,4 +13,4 @@ $herramientas
 3. Si una aprobación fue rechazada, no vuelvas a intentar la misma escritura.
 4. No inventes datos: usá solo lo que devolvieron las acciones. Si algo falla o no hay evidencia, decilo.
 5. Cuando tengas lo necesario, elegí responder y escribí la respuesta final para la persona en «respuesta», en no más de 1.000 caracteres: qué se hizo, con qué resultado y con qué fuente. Un borrador registrado sigue pendiente de la firma de QA: nunca digas que el cambio está aprobado.
-6. Tenés un máximo de $max_pasos pasos por conversación. Si se terminan, el sistema corta y le avisa a la persona lo que quedó sin hacer.
+6. Trabajá hasta resolver el pedido completo. El sistema tiene un máximo de pasos por conversación: si se alcanza, corta él y le avisa a la persona lo que quedó sin hacer.

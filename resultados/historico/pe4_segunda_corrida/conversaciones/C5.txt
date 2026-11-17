@@ -1,0 +1,24 @@
+C5 · llega al límite de pasos · thread_id C5 · usuario u_analista_qa · máximo 3 pasos
+> Evaluá el impacto de todos los CCAM vencidos.
+
+[paso 1] decidir   → listar_ccam {"estado": "vencido"}
+                  porque: Hay que identificar primero qué CCAM están vencidos antes de evaluar cada uno.
+          ejecutar  → listar_ccam: 3 CCAM en estado vencido
+[paso 2] decidir   → evaluar_ccam {"id_ccam": "CCAM-2026-102"}
+                  porque: Hay tres CCAM vencidos; el siguiente paso es evaluar el impacto GxP del primero, CCAM-2026-102.
+          ejecutar  → evaluar_ccam: CCAM-2026-102: impacto mayor, fundamento SOP-AC-007 §3.1, SOP-AC-007 §3.2, SOP-CC-001 §5.4, SOP-CC-001 §5.7
+[paso 3] decidir   → responder
+                  porque: Se alcanzó el límite de 3 pasos; solo pude evaluar uno de los tres CCAM vencidos.
+          responder (resuelto)
+
+< Se listaron los CCAM vencidos (listar_ccam, estado vencido): CCAM-2026-102, CCAM-2026-106 y CCAM-2026-111. Solo se pudo evaluar CCAM-2026-102 antes de llegar al límite de pasos de esta conversación; CCAM-2026-106 y CCAM-2026-111 quedan sin evaluar.
+
+Resultado de la evaluación de CCAM-2026-102 (packaging_rotulado, estuche secundario del Analgésico X 500 mg), motor de evaluación:
+- Impacto: mayor. No requiere revalidación ni revisión humana adicional según el motor; no está fuera de alcance.
+- Motivo: el arte incorpora un código QR de trazabilidad y actualiza el texto del rótulo para coincidir con el último prospecto aprobado. Como modifica texto aprobado por la autoridad sanitaria, no puede ser menor (SOP-CC-001 §5.7); hay barreras posteriores, por lo que no es crítico (SOP-CC-001 §5.4).
+- Fuentes: SOP-AC-007 §3.1, §3.2; SOP-CC-001 §5.4, §5.7.
+- Tareas propuestas: verificar que texto de rótulo y prospecto coincida con la versión aprobada por la autoridad antes de aprobar el arte; verificar legibilidad del QR e integración con trazabilidad, documentando el resultado; confirmar coincidencia con el rotulado aprobado y dar de baja artes obsoletos (SOP-AC-007 §5).
+
+No se registró ningún borrador en el sistema. Esta evaluación es una propuesta pendiente de revisión de QA.
+
+pasos 3 · tokens 23693/3059 · USD 0.003899 · fotos del checkpointer 8

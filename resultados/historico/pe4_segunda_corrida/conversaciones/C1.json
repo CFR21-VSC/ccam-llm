@@ -1,0 +1,69 @@
+{
+  "id": "C1",
+  "tipo": "solo consulta documentos",
+  "usuario": "u_solicitante_prod",
+  "mensaje": "¿Qué dice el SOP-VS-003 sobre desactivar el audit trail de un sistema?",
+  "thread_id": "C1",
+  "max_pasos": 6,
+  "pausa": null,
+  "retomada": null,
+  "traza": [
+    {
+      "nodo": "decidir",
+      "paso": 1,
+      "accion": "buscar_documentos",
+      "parametros": {
+        "consulta": "SOP-VS-003 desactivar audit trail de un sistema"
+      },
+      "razon": "La pregunta es sobre lo que dice un procedimiento, así que corresponde buscar en los documentos."
+    },
+    {
+      "nodo": "ejecutar",
+      "accion": "buscar_documentos",
+      "resultado": "ok",
+      "resumen": "3 fragmentos: SOP-VS-003#A00, SOP-VS-003#A01, SOP-CC-001#A05"
+    },
+    {
+      "nodo": "decidir",
+      "paso": 2,
+      "accion": "responder",
+      "parametros": {},
+      "razon": "La búsqueda ya devolvió los fragmentos relevantes del SOP-VS-003 y SOP-CC-001; alcanza para responder."
+    },
+    {
+      "nodo": "responder",
+      "motivo": "resuelto"
+    }
+  ],
+  "mensajes": [
+    {
+      "rol": "usuario",
+      "texto": "¿Qué dice el SOP-VS-003 sobre desactivar el audit trail de un sistema?"
+    },
+    {
+      "rol": "agente",
+      "texto": "Paso 1: buscar_documentos({\"consulta\": \"SOP-VS-003 desactivar audit trail de un sistema\"}). La pregunta es sobre lo que dice un procedimiento, así que corresponde buscar en los documentos."
+    },
+    {
+      "rol": "herramienta",
+      "texto": "buscar_documentos → [{\"fuente\": \"SOP-VS-003 §1\", \"fragmento\": \"SOP-VS-003#A00\", \"texto\": \"\\n> Documento ficticio, creado para el proyecto académico. No corresponde a ninguna empresa real.\\n\\n## 1 Objetivo\\n\\nAsegurar que los datos GxP cumplan los principios ALCOA+ (atribuibles, legibles, contemporáneos, originales, exactos, completos, consistentes, perdurables y disponibles) y que los riesgos sobre esos datos se evalúen antes de cualquier cambio.\\n\\n## 2 Alcance\\n\\nRegistros electrónicos y firmas electrónicas de sistemas GxP, según 21 CFR Part 11 y el Anexo 11 de las GMP.\\n\\n## 3 Audit trail\\n\\n### 3.1 Requisito\\n\\nTodo sistema que crea, modifica o elimina registros GxP mantiene un audit trail activo, que registra quién, cuándo, qué cambió y por qué.\\n\\n### 3.2 Prohibición de desactivarlo\\n\\nEl aud\"}, {\"fuente\": \"SOP-VS-003 §4\", \"fragmento\": \"SOP-VS-003#A01\", \"texto\": \"\\n[…] 3.3 Revisión\\n\\nEl audit trail se revisa como parte de la revisión de datos antes de aprobar resultados.\\n\\n## 4 Firmas electrónicas\\n\\nLas firmas electrónicas son únicas, están vinculadas a su registro e indican significado (revisión, aprobación, liberación). Cambiar el mecanismo de firma de una decisión de liberación cambia la atribución de esa decisión: requiere revalidación del sistema y aprobación del Jefe de Garantía de Calidad.\\n\\n## 5 Evaluación de riesgo\\n\\n### 5.1 Método\\n\\nEl riesgo de un cambio sobre los datos se evalúa por severidad (efecto sobre el paciente, el producto o la decisión), probabilidad y detectabilidad.\\n\\n### 5.2 Formato y redondeo de resultados\\n\\nEl valor informado de un r\"}, {\"fuente\": \"SOP-CC-001 §5.5\", \"fragmento\": \"SOP-CC-001#A05\", \"texto\": \"\\n[…] tipo de ensayo a un sistema de laboratorio, con su verificación previa.\\n\\n### 5.5 Crítico\\n\\nEl cambio puede alterar **directamente y sin otra barrera** la calidad, seguridad o eficacia del producto que llega al paciente, la decisión que libera un lote, o la integridad de los registros que la respaldan. Requiere revalidación, puede requerir notificación regulatoria y, en algunos casos, no debe aprobarse.\\n\\nSituaciones típicas de nivel crítico:\\n\\n- Cambiar cómo se firma, registra o atribuye la decisión de liberación de un lote.\\n- Desactivar, reducir o eludir controles de integridad de datos de registros regulados (audit trail, firmas electrónicas, control de accesos de aprobación).\\n- Operar u\"}]"
+    },
+    {
+      "rol": "agente",
+      "texto": "Según SOP-VS-003 (§3, Audit trail), todo sistema que crea, modifica o elimina registros GxP debe mantener un audit trail activo que registre quién, cuándo, qué cambió y por qué. El §3.2 prohíbe desactivarlo (el fragmento recuperado está cortado y no alcancé a leer el texto completo de esa prohibición). Además, el §3.3 establece que el audit trail se revisa como parte de la revisión de datos antes de aprobar resultados.\n\nSegún SOP-CC-001 §5.5, desactivar, reducir o eludir controles de integridad de datos (audit trail, firmas electrónicas, control de accesos de aprobación) es un cambio de nivel crítico: puede requerir revalidación, notificación regulatoria y, en algunos casos, no debe aprobarse.\n\nFuentes: SOP-VS-003 §3, §3.3; SOP-CC-001 §5.5. Si necesitás el texto exacto del §3.2, conviene consultar el documento completo."
+    }
+  ],
+  "final": {
+    "motivo": "resuelto",
+    "respuesta": "Según SOP-VS-003 (§3, Audit trail), todo sistema que crea, modifica o elimina registros GxP debe mantener un audit trail activo que registre quién, cuándo, qué cambió y por qué. El §3.2 prohíbe desactivarlo (el fragmento recuperado está cortado y no alcancé a leer el texto completo de esa prohibición). Además, el §3.3 establece que el audit trail se revisa como parte de la revisión de datos antes de aprobar resultados.\n\nSegún SOP-CC-001 §5.5, desactivar, reducir o eludir controles de integridad de datos (audit trail, firmas electrónicas, control de accesos de aprobación) es un cambio de nivel crítico: puede requerir revalidación, notificación regulatoria y, en algunos casos, no debe aprobarse.\n\nFuentes: SOP-VS-003 §3, §3.3; SOP-CC-001 §5.5. Si necesitás el texto exacto del §3.2, conviene consultar el documento completo."
+  },
+  "pasos": 2,
+  "consumo": {
+    "tokens_salida": 620,
+    "costo_usd": 0.000926,
+    "llamadas": 2,
+    "tokens_entrada": 6153
+  },
+  "fotos_guardadas": 6,
+  "siguiente": []
+}
