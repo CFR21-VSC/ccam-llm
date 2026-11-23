@@ -1,37 +1,123 @@
 {
   "_nota": "10 preguntas de prueba de la recuperación (PE3). Ficticias. Las revisa Federico antes de la corrida real. 'esperado' = fragmentos que contienen la respuesta (documento y sección); vacío = ningún documento autorizado la responde y se espera requiere_humano.",
+  "_definicion_acierto": {
+    "recuperacion_con_respuesta": "Acierto@k = 1 si entre los k primeros fragmentos hay al menos uno del documento esperado que contenga la sección esperada (fragmento.documento == esperado.documento y esperado.seccion ∈ fragmento.secciones); si no, 0.",
+    "recuperacion_sin_respuesta_o_restringida": "Acierto@k = 1 si ninguno de los k primeros fragmentos pertenece a un documento que el rol del usuario no puede leer (pre-filtro). Para las restringidas se verifica además que documento_restringido ∉ fragmentos.",
+    "respuesta_correcta": "Normal: requiere_humano = false y al menos una cita del documento esperado. Sin respuesta o restringida: requiere_humano = true, citas = [] y documento_restringido ∉ fuentes.",
+    "recall_reportado": "Recall@k = suma de Acierto@k / número de preguntas del grupo."
+  },
   "preguntas": [
-    {"id": "P01", "tipo": "normal_codigo", "usuario": "u_validaciones",
-     "pregunta": "¿Qué recalificación pide el HPLC-QC-03?",
-     "esperado": [{"documento": "SOP-EQ-005", "seccion": "7.1"}], "requiere_humano": false},
-    {"id": "P02", "tipo": "normal_codigo", "usuario": "u_solicitante_prod",
-     "pregunta": "¿Qué dice el SOP-VS-003 sobre desactivar el audit trail?",
-     "esperado": [{"documento": "SOP-VS-003", "seccion": "3.2"}], "requiere_humano": false},
-    {"id": "P03", "tipo": "normal", "usuario": "u_analista_qa",
-     "pregunta": "¿Cuántos días hay para hacer la evaluación de impacto de un cambio?",
-     "esperado": [{"documento": "SOP-CC-001", "seccion": "7"}], "requiere_humano": false},
-    {"id": "P04", "tipo": "normal", "usuario": "u_solicitante_prod",
-     "pregunta": "Si corrijo un error de tipeo en un instructivo, ¿tengo que capacitar al personal?",
-     "esperado": [{"documento": "SOP-DC-004", "seccion": "3.2"}], "requiere_humano": false},
-    {"id": "P05", "tipo": "normal", "usuario": "u_validaciones",
-     "pregunta": "¿Hay que volver a mapear una cámara de estabilidad si se muda a otra sala?",
-     "esperado": [{"documento": "SOP-EQ-005", "seccion": "5.1"}], "requiere_humano": false},
-    {"id": "P06", "tipo": "normal", "usuario": "u_analista_qa",
-     "pregunta": "Cuando el proveedor manda un parche correctivo, ¿puedo usar sus pruebas en lugar de revalidar?",
-     "esperado": [{"documento": "SOP-VS-002", "seccion": "5"}], "requiere_humano": false},
-    {"id": "P07", "tipo": "sin_respuesta", "usuario": "u_analista_qa",
-     "pregunta": "¿Cuál es el plazo de pago a los proveedores?",
-     "esperado": [], "requiere_humano": true},
-    {"id": "P08", "tipo": "sin_respuesta", "usuario": "u_solicitante_prod",
-     "pregunta": "¿Cuántos días de vacaciones le corresponden al personal de planta?",
-     "esperado": [], "requiere_humano": true},
-    {"id": "P09", "tipo": "restringida", "usuario": "u_solicitante_prod",
-     "pregunta": "¿Qué hallazgos dejó la inspección regulatoria de agosto de 2026 y cuándo vence la respuesta?",
-     "documento_restringido": "HAL-INSP-2026-01",
-     "esperado": [], "requiere_humano": true},
-    {"id": "P10", "tipo": "restringida", "usuario": "u_validaciones",
-     "pregunta": "¿Qué acción correctiva se abrió en la auditoría interna por la subclasificación de cambios de LIMS (CAPA-2026-041)?",
-     "documento_restringido": "INF-AUD-2026-03",
-     "esperado": [], "requiere_humano": true}
+    {
+      "id": "P01",
+      "tipo": "normal_codigo",
+      "usuario": "u_validaciones",
+      "pregunta": "¿Qué recalificación pide el HPLC-QC-03?",
+      "esperado": [
+        {
+          "documento": "SOP-EQ-005",
+          "seccion": "7.1"
+        }
+      ],
+      "requiere_humano": false
+    },
+    {
+      "id": "P02",
+      "tipo": "normal_codigo",
+      "usuario": "u_solicitante_prod",
+      "pregunta": "¿Qué dice el SOP-VS-003 sobre desactivar el audit trail?",
+      "esperado": [
+        {
+          "documento": "SOP-VS-003",
+          "seccion": "3.2"
+        }
+      ],
+      "requiere_humano": false
+    },
+    {
+      "id": "P03",
+      "tipo": "normal",
+      "usuario": "u_analista_qa",
+      "pregunta": "¿Cuántos días hay para hacer la evaluación de impacto de un cambio?",
+      "esperado": [
+        {
+          "documento": "SOP-CC-001",
+          "seccion": "7"
+        }
+      ],
+      "requiere_humano": false
+    },
+    {
+      "id": "P04",
+      "tipo": "normal",
+      "usuario": "u_solicitante_prod",
+      "pregunta": "Si corrijo un error de tipeo en un instructivo, ¿tengo que capacitar al personal?",
+      "esperado": [
+        {
+          "documento": "SOP-DC-004",
+          "seccion": "3.2"
+        }
+      ],
+      "requiere_humano": false
+    },
+    {
+      "id": "P05",
+      "tipo": "normal",
+      "usuario": "u_validaciones",
+      "pregunta": "¿Hay que volver a mapear una cámara de estabilidad si se muda a otra sala?",
+      "esperado": [
+        {
+          "documento": "SOP-EQ-005",
+          "seccion": "5.1"
+        }
+      ],
+      "requiere_humano": false
+    },
+    {
+      "id": "P06",
+      "tipo": "normal",
+      "usuario": "u_analista_qa",
+      "pregunta": "Cuando el proveedor manda un parche correctivo, ¿puedo usar sus pruebas en lugar de revalidar?",
+      "esperado": [
+        {
+          "documento": "SOP-VS-002",
+          "seccion": "5"
+        }
+      ],
+      "requiere_humano": false
+    },
+    {
+      "id": "P07",
+      "tipo": "sin_respuesta",
+      "usuario": "u_analista_qa",
+      "pregunta": "¿Cuál es el plazo de pago a los proveedores?",
+      "esperado": [],
+      "requiere_humano": true
+    },
+    {
+      "id": "P08",
+      "tipo": "sin_respuesta",
+      "usuario": "u_solicitante_prod",
+      "pregunta": "¿Cuántos días de vacaciones le corresponden al personal de planta?",
+      "esperado": [],
+      "requiere_humano": true
+    },
+    {
+      "id": "P09",
+      "tipo": "restringida",
+      "usuario": "u_solicitante_prod",
+      "pregunta": "¿Qué hallazgos dejó la inspección regulatoria de agosto de 2026 y cuándo vence la respuesta?",
+      "documento_restringido": "HAL-INSP-2026-01",
+      "esperado": [],
+      "requiere_humano": true
+    },
+    {
+      "id": "P10",
+      "tipo": "restringida",
+      "usuario": "u_validaciones",
+      "pregunta": "¿Qué acción correctiva se abrió en la auditoría interna por la subclasificación de cambios de LIMS (CAPA-2026-041)?",
+      "documento_restringido": "INF-AUD-2026-03",
+      "esperado": [],
+      "requiere_humano": true
+    }
   ]
 }

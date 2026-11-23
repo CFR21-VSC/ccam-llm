@@ -44,10 +44,19 @@ DIR_PROMPTS = RAIZ / "prompts"
 
 # ------------------------------------------------------------ contrato de la respuesta
 class Fuente(BaseModel):
+    """Un fragmento que el sistema RECUPERÓ y le mostró al modelo (no es lo mismo que una cita).
+
+    fundamento (en la Salida) = lo que el modelo CITA; fuentes = lo que se le dio para leer.
+    Toda cita del fundamento tiene que estar entre las fuentes; no toda fuente termina citada.
+    """
     documento: str
     seccion: str
+    secciones: list[str] = Field(default_factory=list)   # todas las secciones que cubre el fragmento
+    version: Optional[str] = None                        # versión vigente del documento indexado
+    hash_documento: Optional[str] = None                 # SHA-256 del archivo fuente: prueba qué texto exacto se usó
     fragmento_id: str
-    puntaje: float
+    puntaje: float                                       # RRF de la búsqueda híbrida
+    similitud: Optional[float] = None                    # coseno de la búsqueda vectorial (0 a 1)
 
 
 class RespuestaRAG(BaseModel):
@@ -61,6 +70,10 @@ class RespuestaRAG(BaseModel):
     metricas: Optional[Metricas] = None
     version_prompt: str
     evidencia_maxima: Optional[float] = None   # mejor similitud del CCAM contra lo autorizado
+    rol: Optional[str] = None                  # el rol con el que se filtró la búsqueda
+    configuracion_fragmentos: Optional[str] = None
+    modelo_embeddings: Optional[str] = None
+    timestamp_utc: Optional[str] = None
 
 
 class SalidaPregunta(BaseModel):
@@ -132,8 +145,10 @@ def contexto_fuentes(fragmentos: list[dict]) -> dict:
 
 
 def _fuentes(fragmentos: list[dict]) -> list[Fuente]:
-    return [Fuente(documento=f["documento"], seccion=f["seccion"], fragmento_id=f["fragmento_id"],
-                   puntaje=f["puntaje"]) for f in fragmentos]
+    return [Fuente(documento=f["documento"], seccion=f["seccion"], secciones=f.get("secciones", []),
+                   version=f.get("version"), hash_documento=f.get("hash_documento"),
+                   fragmento_id=f["fragmento_id"], puntaje=f["puntaje"], similitud=f.get("similitud"))
+            for f in fragmentos]
 
 
 def _evidencia_maxima(fragmentos: list[dict]) -> Optional[float]:
@@ -163,6 +178,13 @@ def responder(entrada: dict | Entrada, usuario: str = "u_analista_qa", proveedor
     datos = entrada.model_dump(mode="json") if isinstance(entrada, Entrada) else entrada
 
     def cerrar(r: RespuestaRAG) -> RespuestaRAG:
+        roles = roles_de(usuario)
+        r.rol = roles[0] if roles else None
+        r.timestamp_utc = datetime.now(timezone.utc).isoformat(timespec="seconds")
+        usado = buscador or _BUSCADOR.get(CONFIG_RAG["configuracion_vigente"])
+        if usado is not None:
+            r.configuracion_fragmentos = usado.config
+            r.modelo_embeddings = getattr(usado.embedder, "nombre", None)
         return _registrar(r, datos.get("id_ccam") if isinstance(datos, dict) else None,
                           r.propuesta.impacto_gxp.value if r.propuesta and r.propuesta.impacto_gxp else None,
                           r.propuesta.requiere_humano if r.propuesta else None)

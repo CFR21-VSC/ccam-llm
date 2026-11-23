@@ -1,0 +1,12 @@
+{
+  "_nota": "Caso NUEVO para la medición con el corpus congelado (devolución PE3, M-4). Escrito el 2026-11-23 después de congelar el corpus (evals/corpus_congelado.json). 'esperado' lo completa Federico (QA) sin ver la respuesta del sistema.",
+  "entrada": {
+    "id_ccam": "CCAM-2026-201",
+    "tipo_cambio": "version_software",
+    "area_solicitante": "sistemas",
+    "sistema_afectado": "Servidores del LIMS (sistema operativo)",
+    "descripcion": "Actualizar el sistema operativo de los servidores del LIMS de Windows Server 2019 a Windows Server 2022. La versión del LIMS no cambia y el proveedor del LIMS certificó la compatibilidad por escrito."
+  },
+  "esperado": "A_CONFIRMAR_POR_QA",
+  "justificacion_qa": null
+}

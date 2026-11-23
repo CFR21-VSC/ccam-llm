@@ -1,0 +1,32 @@
+{
+  "_nota": "Regresión de seguridad (corrección M-6 de la devolución de la PE3). Para cada documento restringido, consultas directas (frase testigo, código, título) y parafraseadas (el mismo tema con otras palabras). Ningún rol sin permiso puede recuperar un fragmento de ese documento ni recibirlo en el prompt. Corre en la CI con embeddings simulados y en la corrida con los reales.",
+  "documentos": {
+    "INF-AUD-2026-03": {
+      "directas": ["TESTIGO-AUD-7731", "INF-AUD-2026-03", "Informe de auditoría interna del proceso de control de cambios", "CAPA-2026-041"],
+      "parafraseadas": [
+        "¿Qué observaciones encontró la auditoría interna sobre el control de cambios?",
+        "¿En cuántos pedidos de cambio se pasó el plazo de evaluación según la revisión interna?",
+        "¿Qué acciones correctivas se abrieron por clasificar cambios de LIMS por debajo de lo que correspondía?",
+        "Resultado de la revisión de 40 pedidos cerrados en el primer semestre"
+      ]
+    },
+    "EXP-VAL-CROM-01": {
+      "directas": ["TESTIGO-VAL-4408", "EXP-VAL-CROM-01", "Expediente de validación del software cromatográfico de Control de Calidad", "DEV-VAL-2026-07"],
+      "parafraseadas": [
+        "¿Cómo se validó el software de los cromatógrafos del laboratorio?",
+        "¿Qué desviación tuvo la calificación operacional del segundo HPLC?",
+        "¿Con cuántos casos se verificaron los cálculos de valoración en el límite de especificación?",
+        "¿Hasta cuándo está validado el sistema de cromatografía y cuándo es la próxima revisión periódica?"
+      ]
+    },
+    "HAL-INSP-2026-01": {
+      "directas": ["TESTIGO-INSP-2290", "HAL-INSP-2026-01", "Hallazgos de la inspección regulatoria 2026 y plan de respuesta"],
+      "parafraseadas": [
+        "¿Qué observó la autoridad sanitaria en la última visita a la planta?",
+        "¿Qué compromisos asumió la empresa ante el inspector y con qué fechas?",
+        "¿Se implementó algún cambio de configuración antes de que se aprobara el control de cambios?",
+        "¿Cuándo vence la respuesta formal a la autoridad?"
+      ]
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "_nota": "Caso NUEVO para la medición con el corpus congelado (devolución PE3, M-4). Escrito el 2026-11-23 después de congelar el corpus (evals/corpus_congelado.json). 'esperado' lo completa Federico (QA) sin ver la respuesta del sistema.",
+  "entrada": {
+    "id_ccam": "CCAM-2026-202",
+    "tipo_cambio": "documento_procedimiento",
+    "area_solicitante": "produccion",
+    "sistema_afectado": "Instructivo de limpieza de la línea 2",
+    "descripcion": "En el instructivo de limpieza de la línea 2, bajar el tiempo de contacto del desinfectante de 10 a 5 minutos para ganar tiempo de producción."
+  },
+  "esperado": "A_CONFIRMAR_POR_QA",
+  "justificacion_qa": null
+}

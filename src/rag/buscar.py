@@ -149,6 +149,7 @@ class Buscador:
 
 def _fragmento(fid: str, texto: str, meta: dict, **extra) -> dict:
     return {"documento": meta["documento"], "seccion": meta["seccion"], "secciones": meta["secciones"].split(","),
+            "version": meta.get("version"), "hash_documento": meta.get("hash_documento"),
             "fragmento_id": fid, "texto": texto, **extra}
 
 

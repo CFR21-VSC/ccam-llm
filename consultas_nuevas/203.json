@@ -1,0 +1,12 @@
+{
+  "_nota": "Caso NUEVO para la medición con el corpus congelado (devolución PE3, M-4). Escrito el 2026-11-23 después de congelar el corpus (evals/corpus_congelado.json). 'esperado' lo completa Federico (QA) sin ver la respuesta del sistema.",
+  "entrada": {
+    "id_ccam": "CCAM-2026-203",
+    "tipo_cambio": "equipo_instalacion",
+    "area_solicitante": "mantenimiento",
+    "sistema_afectado": "Filtro HEPA del área de pesada",
+    "descripcion": "Reemplazar el filtro HEPA del área de pesada por uno idéntico (mismo fabricante, modelo y clase), dentro del mantenimiento preventivo programado."
+  },
+  "esperado": "A_CONFIRMAR_POR_QA",
+  "justificacion_qa": null
+}

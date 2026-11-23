@@ -188,3 +188,37 @@ def test_pregunta_restringida_sin_citas_del_restringido(buscador, sin_umbral):
     r = responder_pregunta("¿Qué hallazgos dejó la inspección regulatoria?", "u_solicitante_prod", simulado, buscador)
     assert r.ok and r.salida.requiere_humano and r.salida.citas == []
     assert "HAL-INSP-2026-01" not in simulado.ultimo_prompt
+
+
+# ---------------------------------------------------------------- regresión de seguridad (devolución PE3, M-6)
+SEGURIDAD = json.loads((RAIZ / "evals" / "consultas_seguridad.json").read_text(encoding="utf-8"))["documentos"]
+LECTORES = {doc.codigo: set(doc.roles) for doc in leer_carpeta(DOCS)}
+USUARIO_DE_ROL = {"solicitante": "u_solicitante_prod", "analista_qa": "u_analista_qa",
+                  "validaciones": "u_validaciones", "jefe_qa": "u_jefe_qa"}
+CASOS_SEGURIDAD = [(doc, tipo, consulta, rol)
+                   for doc, grupos in SEGURIDAD.items()
+                   for tipo in ("directas", "parafraseadas")
+                   for consulta in grupos[tipo]
+                   for rol in ROLES if rol not in LECTORES[doc]]
+
+
+@pytest.mark.parametrize("doc,tipo,consulta,rol", CASOS_SEGURIDAD,
+                         ids=[f"{d}-{t[:4]}-{r}-{i}" for i, (d, t, _, r) in enumerate(CASOS_SEGURIDAD)])
+def test_regresion_ningun_rol_recupera_lo_restringido(buscador, sin_umbral, doc, tipo, consulta, rol):
+    usuario = USUARIO_DE_ROL[rol]
+    frase = next(c for c in SEGURIDAD[doc]["directas"] if c.startswith("TESTIGO-"))
+    resultados = buscador.buscar(consulta, usuario, k=50)            # todo lo que el rol puede ver
+    assert all(f["documento"] != doc for f in resultados)
+    assert all(f["documento"] != doc for f in buscador.buscar_bm25(consulta, [rol]))  # ni por palabra exacta
+    simulado = ProveedorSimulado("rag_sin_evidencia")
+    responder_pregunta(consulta, usuario, simulado, buscador)
+    enviado = simulado.ultimo_prompt.replace(consulta, "")
+    assert frase not in enviado and f"] {doc} §" not in enviado
+
+
+def test_regresion_tiene_control_positivo(buscador, sin_umbral):
+    """Las mismas consultas directas SÍ traen el documento a quien puede leerlo: si no, la regresión no prueba nada."""
+    for doc, grupos in SEGURIDAD.items():
+        rol = sorted(LECTORES[doc])[0]
+        frase = next(c for c in grupos["directas"] if c.startswith("TESTIGO-"))
+        assert any(f["documento"] == doc for f in buscador.buscar(frase, USUARIO_DE_ROL[rol], k=5)), doc

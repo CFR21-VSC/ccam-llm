@@ -2,13 +2,45 @@
   "_nota": "Parámetros de la recuperación (PE3). Cambiar un valor cambia la version_prompt del modo RAG: queda registrado en cada ejecución.",
   "modelo_embeddings": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
   "configuraciones": {
-    "A": {"max_tokens": 400, "solapamiento": 0.10, "descripcion": "fragmentos chicos, ~400 tokens"},
-    "B": {"max_tokens": 1000, "solapamiento": 0.10, "descripcion": "fragmentos grandes, ~1.000 tokens"}
+    "A": {
+      "max_tokens": 400,
+      "solapamiento": 0.1,
+      "descripcion": "fragmentos chicos, hasta ~400 tokens",
+      "metodo_corte": "estructural: cada sección numerada (## y ###) es una unidad; las unidades seguidas del mismo documento se juntan mientras entren en el tope; una sección que no entra se parte por párrafo, después por línea y al final por caracteres",
+      "separadores": [
+        "## / ### (sección)",
+        "\\n\\n (párrafo)",
+        "\\n (línea)",
+        "caracteres"
+      ],
+      "cruza_documentos": false,
+      "solapamiento_detalle": "el fragmento repite el último 10 % del contenido del fragmento anterior del mismo documento, empezando en borde de palabra y marcado con […]",
+      "prefijo": "CÓDIGO · Título · §primera sección [a §última sección], sacado del propio documento",
+      "tope_incluye": "prefijo y solapamiento: el contenido propio entra en (max_tokens × 4 × 0,9) − 120 caracteres",
+      "estimacion_tokens": "caracteres / 4"
+    },
+    "B": {
+      "max_tokens": 1000,
+      "solapamiento": 0.1,
+      "descripcion": "fragmentos grandes, hasta ~1.000 tokens; mismo método y solapamiento que A: solo cambia el tope",
+      "metodo_corte": "estructural: cada sección numerada (## y ###) es una unidad; las unidades seguidas del mismo documento se juntan mientras entren en el tope; una sección que no entra se parte por párrafo, después por línea y al final por caracteres",
+      "separadores": [
+        "## / ### (sección)",
+        "\\n\\n (párrafo)",
+        "\\n (línea)",
+        "caracteres"
+      ],
+      "cruza_documentos": false,
+      "solapamiento_detalle": "el fragmento repite el último 10 % del contenido del fragmento anterior del mismo documento, empezando en borde de palabra y marcado con […]",
+      "prefijo": "CÓDIGO · Título · §primera sección [a §última sección], sacado del propio documento",
+      "tope_incluye": "prefijo y solapamiento: el contenido propio entra en (max_tokens × 4 × 0,9) − 120 caracteres",
+      "estimacion_tokens": "caracteres / 4"
+    }
   },
   "configuracion_vigente": "A",
   "k": 5,
   "k_matriz": 3,
   "rrf_k": 60,
-  "umbral_similitud": 0.20,
+  "umbral_similitud": 0.2,
   "consulta_matriz": "Matriz de clasificación del impacto GxP de SOP-CC-001: niveles menor, mayor y crítico, preguntas de frontera y regla R-QA-01"
 }

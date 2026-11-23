@@ -33,3 +33,5 @@ jobs:
         run: python -m scripts.cliente_mcp
       - name: Corrida de la PE4 en modo simulado (5 conversaciones y retomada en otro proceso)
         run: python -m scripts.corrida_pe4 --simulado
+      - name: Correcciones de la devolución de la PE3 en modo simulado (seguridad y top-k)
+        run: python -m scripts.corrida_correcciones_pe3 --simulado

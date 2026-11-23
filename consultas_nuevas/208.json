@@ -1,0 +1,12 @@
+{
+  "_nota": "Caso NUEVO para la medición con el corpus congelado (devolución PE3, M-4). Escrito el 2026-11-23 después de congelar el corpus (evals/corpus_congelado.json). 'esperado' lo completa Federico (QA) sin ver la respuesta del sistema.",
+  "entrada": {
+    "id_ccam": "CCAM-2026-208",
+    "tipo_cambio": "otro",
+    "area_solicitante": "deposito",
+    "sistema_afectado": "Depósito de material de empaque secundario",
+    "descripcion": "Mover el depósito de material de empaque secundario a otro sector del mismo edificio."
+  },
+  "esperado": "A_CONFIRMAR_POR_QA",
+  "justificacion_qa": null
+}

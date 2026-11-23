@@ -171,6 +171,22 @@ En la PE2 el modelo solo veía una lista con el código y el título de 7 SOPs. 
 6. Valida la respuesta: **cada cita tiene que estar entre los fragmentos que se recuperaron en esa misma llamada**. Una cita que no se recuperó es una cita inventada y se rechaza. Si una tarea nombra un SOP, ese SOP tiene que estar en el fundamento (regla H-02).
 7. Deja rastro: usuario, rol, fragmentos usados y versión del prompt, sin el texto del CCAM.
 
+### Cómo se cuenta un acierto (definición formal, devolución PE3 M-2)
+
+- **Pregunta con respuesta:** Acierto@k = 1 si entre los k primeros fragmentos hay uno del documento esperado que contiene la sección esperada.
+- **Pregunta sin respuesta o restringida:** Acierto@k = 1 si ninguno de los k primeros fragmentos es de un documento que el rol no puede leer (y, en las restringidas, ninguno es del documento restringido).
+- **Respuesta correcta:** normal → `requiere_humano = false` y cita del documento esperado; sin respuesta o restringida → `requiere_humano = true`, sin citas y sin el restringido en `fuentes`.
+- Recall@k = aciertos / preguntas del grupo. La definición vive también en `evals/preguntas_pe3.json`.
+
+### `fuentes` no es lo mismo que `fundamento` (devolución PE3 M-3)
+
+| Campo | Qué es | Quién lo produce |
+| --- | --- | --- |
+| `fuentes` | Los fragmentos que el sistema **recuperó y le mostró** al modelo, con documento, secciones, versión, hash del documento, puntaje RRF y similitud | El buscador, con los permisos del rol |
+| `propuesta.fundamento` | Lo que el modelo **cita** para justificar la clasificación | El modelo, validado contra `fuentes` |
+
+Toda cita del fundamento tiene que estar entre las fuentes; no toda fuente termina citada. El objeto de `responder()` lleva además `trace_id`, `usuario`, `rol`, `version_prompt`, `configuracion_fragmentos`, `modelo_embeddings`, `timestamp_utc` y las métricas.
+
 ### Por qué BM25 tiene que respetar los permisos
 
 Si BM25 se armara con todo el corpus y después se filtrara, el puntaje de los fragmentos visibles cambiaría según lo que hay en los invisibles: alguien atento podría deducir que existe un documento restringido sobre el tema. Por eso el índice de palabras se arma cada vez **solo con lo autorizado**. Es la diferencia entre no mostrar un expediente y no tenerlo en el cajón.
