@@ -1,0 +1,166 @@
+{
+  "trace_id": "2e0f1101d444",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "requiere_humano": false,
+    "impacto_gxp": "menor",
+    "requiere_revalidacion": false,
+    "justificacion": "Cambio de tamaño de letra y diseño del prospecto (de una a dos caras), sin modificar ninguna palabra del texto aprobado. Según la matriz de SOP-CC-001 §5.1, el nivel depende del efecto sobre función, cálculo, dato, estado validado o texto aprobado. El texto regulatorio no cambia, por lo que no se toca un texto aprobado por la autoridad sanitaria. Aplicando la pregunta de SOP-CC-001 §5.7, no se modifica nada de eso, así que se clasifica como menor. Para cerrar la evaluación, Asuntos Regulatorios debe verificar que el arte resultante coincida con la última versión aprobada por la autoridad sanitaria, y que el cambio de formato no altere el contenido, con control de versión del arte. Queda para QA confirmar el nivel. Confianza moderada porque la evidencia no trata específicamente cambios de formato de prospecto.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.1"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.7"
+      },
+      {
+        "codigo": "SOP-AC-007",
+        "seccion": "3.1"
+      },
+      {
+        "codigo": "SOP-AC-007",
+        "seccion": "5"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Verificar que el prospecto con letra ampliada y diseño de dos caras mantiene el texto idéntico al aprobado por la autoridad sanitaria, y que coincide con su última versión aprobada.",
+        "area_responsable": "asuntos_regulatorios"
+      },
+      {
+        "descripcion": "Registrar el nuevo arte con código y versión, y destruir en imprenta y depósito los artes obsoletos de una cara.",
+        "area_responsable": "asuntos_regulatorios"
+      }
+    ],
+    "confianza": 0.7,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "secciones": [
+        "5.7",
+        "5.8",
+        "6",
+        "7"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A06",
+      "puntaje": 0.032002,
+      "similitud": 0.3316
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.4",
+      "secciones": [
+        "5.4"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A04",
+      "puntaje": 0.031778,
+      "similitud": 0.3396
+    },
+    {
+      "documento": "SOP-AC-007",
+      "seccion": "1",
+      "secciones": [
+        "1",
+        "2",
+        "3",
+        "3.1",
+        "3.2",
+        "4",
+        "5"
+      ],
+      "version": "3",
+      "hash_documento": "35e22ce8da00262c9c5e50ca45d57b661ef9848ba40fca38c7d1fa8db7faf075",
+      "fragmento_id": "SOP-AC-007#A00",
+      "puntaje": 0.031545,
+      "similitud": 0.2953
+    },
+    {
+      "documento": "SOP-VS-003",
+      "seccion": "4",
+      "secciones": [
+        "4",
+        "5",
+        "5.1",
+        "5.2",
+        "6"
+      ],
+      "version": "2",
+      "hash_documento": "41abde7a4d67bdb49c6933092c27875ff9d0000a52d6f5e7b0ae54b3ea94b328",
+      "fragmento_id": "SOP-VS-003#A01",
+      "puntaje": 0.030331,
+      "similitud": 0.3016
+    },
+    {
+      "documento": "SOP-PR-006",
+      "seccion": "1",
+      "secciones": [
+        "1",
+        "2",
+        "3",
+        "3.1",
+        "3.2",
+        "3.3",
+        "4"
+      ],
+      "version": "2",
+      "hash_documento": "a9f51c5a0032afcce102cd054da253183fce4135bf91c4c31796de4f7feb15ba",
+      "fragmento_id": "SOP-PR-006#A00",
+      "puntaje": 0.029857,
+      "similitud": 0.29
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "3",
+      "secciones": [
+        "3",
+        "4",
+        "5"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.032266,
+      "similitud": 0.772
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.1",
+      "secciones": [
+        "5.1",
+        "5.2"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A02",
+      "puntaje": 0.031258,
+      "similitud": 0.6742
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 6419,
+    "output_tokens": 845,
+    "cost": 0.0010644,
+    "latencia_ms": 3637,
+    "cached": false
+  },
+  "version_prompt": "rag-d4695665435b",
+  "evidencia_maxima": 0.3396,
+  "rol": "analista_qa",
+  "configuracion_fragmentos": "A",
+  "modelo_embeddings": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 (ventanas de 350 caracteres, promedio)",
+  "timestamp_utc": "2026-11-23T12:42:33+00:00"
+}

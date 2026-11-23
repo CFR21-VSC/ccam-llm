@@ -1,0 +1,187 @@
+{
+  "trace_id": "93d99b137ece",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "requiere_humano": false,
+    "impacto_gxp": "mayor",
+    "requiere_revalidacion": true,
+    "justificacion": "El cambio agrega en el LIMS un cálculo nuevo (uniformidad de contenido) que hoy se hace en planilla Excel y se transcribe a mano. Modifica una función y un cálculo del sistema GxP, y el resultado de uniformidad de contenido respalda la liberación de producto terminado. Según SOP-CC-001 §5.7, si el cambio modifica una función o un cálculo, es mayor y no puede ser menor aunque el LIMS esté validado (SOP-CC-001 §5.1). El cambio de configuración que altera una función o cálculo requiere pruebas documentadas de la función afectada (SOP-VS-002 §6.2), y al tratarse de un cambio que afecta resultados usados para liberar producto, la revalidación debe completarse antes del uso productivo (SOP-VS-002 §6.3). La descripción da el dato necesario para clasificar, por lo que no se aplica R-QA-01. Se propone además eliminar la transcripción manual, lo que reduce riesgo de error, y validar la planilla o el cálculo reemplazado. Confianza moderada: falta confirmar si el LIMS es categoría 4 y el alcance de la prueba de regresión.\"",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.1"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.7"
+      },
+      {
+        "codigo": "SOP-VS-002",
+        "seccion": "6.2"
+      },
+      {
+        "codigo": "SOP-VS-002",
+        "seccion": "6.3"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Especificar el cálculo de uniformidad de contenido en el LIMS (fórmula, parámetros y formato de resultado informado) y someterlo a revisión de QA.",
+        "area_responsable": "control_calidad"
+      },
+      {
+        "descripcion": "Ejecutar pruebas documentadas de regresión de la función de cálculo nuevo, comparando contra los resultados de la planilla Excel vigente, según SOP-VS-002 §6.2 y §6.3.",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Completar la revalidación del LIMS antes de usar el cálculo en producción para liberación de lotes.",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Configurar el cambio en el LIMS bajo control de cambios y verificar permisos de usuarios sobre la nueva función.",
+        "area_responsable": "sistemas"
+      },
+      {
+        "descripcion": "Aprobar la evaluación de impacto y el cierre del CCAM como cambio mayor según el plan de implementación aprobado.",
+        "area_responsable": "garantia_calidad"
+      }
+    ],
+    "confianza": 0.8,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "1",
+      "secciones": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "version": "4",
+      "hash_documento": "70b1a5615dcd40634659b7550cfa5a6b9a253f0df85470ac6d02768ebc112219",
+      "fragmento_id": "SOP-VS-002#A00",
+      "puntaje": 0.032266,
+      "similitud": 0.2941
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "5",
+      "secciones": [
+        "5",
+        "6",
+        "6.1",
+        "6.2"
+      ],
+      "version": "4",
+      "hash_documento": "70b1a5615dcd40634659b7550cfa5a6b9a253f0df85470ac6d02768ebc112219",
+      "fragmento_id": "SOP-VS-002#A01",
+      "puntaje": 0.031754,
+      "similitud": 0.3242
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "6.3",
+      "secciones": [
+        "6.3",
+        "6.4",
+        "7"
+      ],
+      "version": "4",
+      "hash_documento": "70b1a5615dcd40634659b7550cfa5a6b9a253f0df85470ac6d02768ebc112219",
+      "fragmento_id": "SOP-VS-002#A02",
+      "puntaje": 0.031099,
+      "similitud": 0.3389
+    },
+    {
+      "documento": "SOP-EQ-005",
+      "seccion": "5.1",
+      "secciones": [
+        "5.1",
+        "5.2",
+        "6",
+        "7",
+        "7.1",
+        "7.2"
+      ],
+      "version": "3",
+      "hash_documento": "161a6c830f37fc3724368c870101f9839bd7550c4502122183b1d8743e52ee53",
+      "fragmento_id": "SOP-EQ-005#A01",
+      "puntaje": 0.031025,
+      "similitud": 0.2779
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.3",
+      "secciones": [
+        "5.3"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A03",
+      "puntaje": 0.03101,
+      "similitud": 0.2826
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "secciones": [
+        "5.7",
+        "5.8",
+        "6",
+        "7"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A06",
+      "puntaje": 0.032522,
+      "similitud": 0.7083
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "3",
+      "secciones": [
+        "3",
+        "4",
+        "5"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.032266,
+      "similitud": 0.772
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.1",
+      "secciones": [
+        "5.1",
+        "5.2"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A02",
+      "puntaje": 0.031258,
+      "similitud": 0.6742
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 6737,
+    "output_tokens": 1078,
+    "cost": 0.0012127,
+    "latencia_ms": 4661,
+    "cached": false
+  },
+  "version_prompt": "rag-d4695665435b",
+  "evidencia_maxima": 0.3389,
+  "rol": "analista_qa",
+  "configuracion_fragmentos": "A",
+  "modelo_embeddings": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 (ventanas de 350 caracteres, promedio)",
+  "timestamp_utc": "2026-11-23T12:42:15+00:00"
+}

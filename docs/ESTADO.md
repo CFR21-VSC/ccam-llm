@@ -49,6 +49,14 @@ Archivo de traspaso entre sesiones. Quien trabaje en el repo (Claude Code, Claud
 
 ## Hallazgos de las corridas
 
+### Correcciones de la devolución de la PE3 (`resultados/corrida_correcciones_pe3_20261123_1241/`, Haiku 5.5)
+
+Devolución recibida el 2026-11-23. M-1 (método de A y B), M-2 (definición formal del acierto), M-3 (objeto completo de `responder()` con `fuentes` separada de `fundamento`), M-5 (tablas) y M-6 (regresión de seguridad: 53 consultas directas y parafraseadas desde roles sin permiso, 0 fugas, también en la CI) hechas. M-4: corpus congelado (`evals/corpus_congelado.json`, `845258f9…`) **antes** de escribir los casos 201-210; Federico los clasificó sin ver al sistema.
+
+- **H-29 Generalización: 5/10 con casos nuevos** contra 11/15 con los casos conocidos. Errores: 201 mayor (QA menor, sobre), 203 menor (QA fuera de alcance), 204 mayor (QA crítico, **sub**), 206 requiere humano (QA mayor), 209 menor (QA mayor, **sub**). Revalidación: 8/10.
+- **H-30 Subclasificación con la regla delante:** en 209 el modelo citó SOP-CC-001 §5.7 y leyó solo «texto aprobado», omitiendo «o arte». Federico tampoco la recordó al clasificar: la regla es fácil de pasar por alto y conviene un ejemplo en §5.7 (en una versión nueva, con corpus re-congelado).
+- **H-31 Huecos de corpus:** 203 (el SOP no dice que el reemplazo idéntico en mantenimiento preventivo queda fuera de control de cambios) y 206 (no hay SOP de validación de proceso: el sistema derivó a QA en vez de inventar). 204: no hay regla que diga que automatizar un cálculo que respalda liberación es crítico.
+
 ### Corrida PE4 2026-11-17 (`resultados/corrida_pe4_20261117_0015/`, Haiku 5.5)
 
 Las 5 conversaciones salieron como se esperaba: C1 (documentos) y C2 (sistema) solo consultan; C3 evalúa el CCAM-2026-101, pide registrar, se pausa, **se retoma en otro proceso** con el thread_id C3 y lo aprueba u_jefe_qa; C4 evalúa el CCAM-2026-108 (crítico), pide registrar y u_jefe_qa rechaza: no se escribe nada; C5 corta en el paso 3 de 3 con mensaje. Una sola escritura en el sistema, con su fila de auditoría. USD 0,0113 en total.
@@ -88,6 +96,7 @@ Detalle en `docs/TRASPASO_PE2.md` (H-01 a H-13) y archivos en `resultados/histor
 
 ## Bitácora
 
+- **2026-11-23** · Claude (app): correcciones de la devolución de la PE3 (M-1 a M-6). Corpus congelado, 10 casos nuevos clasificados por Federico (209 mayor por §5.7 v4; 208 requiere humano), corrida real `corrida_correcciones_pe3_20261123_1241`: seguridad 0 fugas en 53 consultas, top-k 6/6 en el puesto 1, casos nuevos 5/10 (H-29 a H-31).
 - **2026-11-17** · Claude (app): PE4 completa en código. Sistema simulado, servidor MCP propio, agente LangGraph con interrupt y SqliteSaver, aprobación de QA formal distinta de quien pide (decisión de Federico), 16 pruebas, CI. Tres corridas reales en la máquina de Federico: las dos primeras dejaron H-25 a H-27 y quedan en `historico/`; la final es `corrida_pe4_20261117_0015`.
 - **2026-11-16** · Claude (app): Federico aprobó las 10 preguntas y decidió H-20 y H-21; SOP-CC-001 v4 (D-28) y corrida final `corrida_pe3_20261116_1224` (11/15; resuelve 02 y 15, aparecen H-23 y H-24). PDF de la PE3 rearmado desde esa carpeta.
 - **2026-11-16** · Claude (app): PE3 completa en código. Corpus ficticio, `src/rag/` (ingesta ChromaDB, híbrida vectorial + BM25 con RRF y pre-filtro por rol, `responder` y `responder_pregunta`), `Salida.requiere_humano`, citas validadas contra lo recuperado, regla H-02, 44 pruebas y CI. Corrida real en la máquina de Federico (la clave no salió de ella; las librerías se pasaron por el puente porque la máquina no llega a files.pythonhosted.org). La primera corrida se cortó (H-18) y se guardó en `historico/`.

@@ -1,0 +1,182 @@
+{
+  "trace_id": "4a9d3c538151",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "requiere_humano": false,
+    "impacto_gxp": "mayor",
+    "requiere_revalidacion": true,
+    "justificacion": "Cambio de versión de software (2.1 a 2.4) de registradores de temperatura de heladeras de muestras de retención. Según la descripción, cambia el formato de exportación de datos a PDF. Pregunta de frontera (SOP-CC-001 §5.7): ¿modifica una función, un cálculo, un dato, un estado validado o un texto aprobado? Un cambio de formato de los registros de temperatura modifica cómo se presenta un dato GxP, por lo que no queda en menor. SOP-VS-002 §6.2 exige pruebas documentadas de la función afectada cuando un cambio altera un formato de resultado informado. No aplica la excepción de parche correctivo (SOP-VS-002 §5), porque el cambio altera el formato de salida. La descripción no indica si la versión 2.4 altera cálculos o almacenamiento. Falta ese dato: se pide confirmarlo al proveedor. Si la versión modifica funciones o cálculos, SOP-VS-002 §6.3 exige revalidación por cambio de versión; QA debe definir el alcance final.\"",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.7"
+      },
+      {
+        "codigo": "SOP-VS-002",
+        "seccion": "6.2"
+      },
+      {
+        "codigo": "SOP-VS-002",
+        "seccion": "5"
+      },
+      {
+        "codigo": "SOP-VS-002",
+        "seccion": "6.3"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Obtener de la documentación del proveedor de la versión 2.4 la lista de cambios y confirmar si altera cálculos, almacenamiento de datos o solo el formato de exportación PDF.",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Ejecutar y documentar pruebas de la función de exportación PDF en la versión 2.4 verificando que los datos de temperatura exportados coinciden con los registrados.",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Revisar la evidencia del proveedor y definir si corresponde revalidación completa o pruebas de regresión acotadas según SOP-VS-002 §6.3.",
+        "area_responsable": "garantia_calidad"
+      }
+    ],
+    "confianza": 0.6,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "6.3",
+      "secciones": [
+        "6.3",
+        "6.4",
+        "7"
+      ],
+      "version": "4",
+      "hash_documento": "70b1a5615dcd40634659b7550cfa5a6b9a253f0df85470ac6d02768ebc112219",
+      "fragmento_id": "SOP-VS-002#A02",
+      "puntaje": 0.032787,
+      "similitud": 0.446
+    },
+    {
+      "documento": "SOP-EQ-005",
+      "seccion": "5.1",
+      "secciones": [
+        "5.1",
+        "5.2",
+        "6",
+        "7",
+        "7.1",
+        "7.2"
+      ],
+      "version": "3",
+      "hash_documento": "161a6c830f37fc3724368c870101f9839bd7550c4502122183b1d8743e52ee53",
+      "fragmento_id": "SOP-EQ-005#A01",
+      "puntaje": 0.032258,
+      "similitud": 0.4312
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.3",
+      "secciones": [
+        "5.3"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A03",
+      "puntaje": 0.031746,
+      "similitud": 0.4018
+    },
+    {
+      "documento": "SOP-DC-004",
+      "seccion": "1",
+      "secciones": [
+        "1",
+        "2",
+        "3",
+        "3.1",
+        "3.2",
+        "4",
+        "5"
+      ],
+      "version": "5",
+      "hash_documento": "f483bb7a94f433e5ec3f1ae81d6b8034d8a02accfb1ce175ce218188d4daf825",
+      "fragmento_id": "SOP-DC-004#A00",
+      "puntaje": 0.03125,
+      "similitud": 0.3947
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "5",
+      "secciones": [
+        "5",
+        "6",
+        "6.1",
+        "6.2"
+      ],
+      "version": "4",
+      "hash_documento": "70b1a5615dcd40634659b7550cfa5a6b9a253f0df85470ac6d02768ebc112219",
+      "fragmento_id": "SOP-VS-002#A01",
+      "puntaje": 0.030769,
+      "similitud": 0.3834
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "secciones": [
+        "5.7",
+        "5.8",
+        "6",
+        "7"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A06",
+      "puntaje": 0.032522,
+      "similitud": 0.7083
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "3",
+      "secciones": [
+        "3",
+        "4",
+        "5"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.032266,
+      "similitud": 0.772
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.1",
+      "secciones": [
+        "5.1",
+        "5.2"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A02",
+      "puntaje": 0.031258,
+      "similitud": 0.6742
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 2,
+    "input_tokens": 14905,
+    "output_tokens": 2023,
+    "cost": 0.002502,
+    "latencia_ms": 7904,
+    "cached": false
+  },
+  "version_prompt": "rag-d4695665435b",
+  "evidencia_maxima": 0.446,
+  "rol": "analista_qa",
+  "configuracion_fragmentos": "A",
+  "modelo_embeddings": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 (ventanas de 350 caracteres, promedio)",
+  "timestamp_utc": "2026-11-23T12:42:41+00:00"
+}

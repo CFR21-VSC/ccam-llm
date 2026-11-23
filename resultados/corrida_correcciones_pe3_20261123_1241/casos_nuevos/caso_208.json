@@ -1,0 +1,164 @@
+{
+  "trace_id": "68c1874ba3e6",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "requiere_humano": true,
+    "impacto_gxp": null,
+    "requiere_revalidacion": false,
+    "justificacion": "El pedido (CCAM-2026-208) es un cambio de la operación: mover el depósito de material de empaque secundario a otro sector del edificio. No hay evidencia recuperada que trate la reubicación de un depósito de material de empaque. SOP-CC-001 §5.2 solo define sin impacto para cambios que no alcanzan ningún elemento GxP, y la evidencia no permite confirmar eso. SOP-AC-007 regula el control de artes y el material de empaque, pero no el almacenamiento físico ni las condiciones del depósito. Falta un documento de gestión de depósito o almacenamiento (condiciones ambientales, control de acceso, trazabilidad y segregación de material) que permita decidir el nivel. Se deriva a QA sin clasificar; el dato a aportar es si el traslado modifica condiciones de almacenamiento, trazabilidad o control de artes.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.2"
+      },
+      {
+        "codigo": "SOP-AC-007",
+        "seccion": "5"
+      }
+    ],
+    "tareas": [],
+    "confianza": 0.3,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-AC-007",
+      "seccion": "1",
+      "secciones": [
+        "1",
+        "2",
+        "3",
+        "3.1",
+        "3.2",
+        "4",
+        "5"
+      ],
+      "version": "3",
+      "hash_documento": "35e22ce8da00262c9c5e50ca45d57b661ef9848ba40fca38c7d1fa8db7faf075",
+      "fragmento_id": "SOP-AC-007#A00",
+      "puntaje": 0.032522,
+      "similitud": 0.2876
+    },
+    {
+      "documento": "SOP-PR-006",
+      "seccion": "1",
+      "secciones": [
+        "1",
+        "2",
+        "3",
+        "3.1",
+        "3.2",
+        "3.3",
+        "4"
+      ],
+      "version": "2",
+      "hash_documento": "a9f51c5a0032afcce102cd054da253183fce4135bf91c4c31796de4f7feb15ba",
+      "fragmento_id": "SOP-PR-006#A00",
+      "puntaje": 0.032002,
+      "similitud": 0.2875
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "1",
+      "secciones": [
+        "1",
+        "2"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A00",
+      "puntaje": 0.031498,
+      "similitud": 0.243
+    },
+    {
+      "documento": "SOP-EQ-005",
+      "seccion": "1",
+      "secciones": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "4.1",
+        "4.2",
+        "5"
+      ],
+      "version": "3",
+      "hash_documento": "161a6c830f37fc3724368c870101f9839bd7550c4502122183b1d8743e52ee53",
+      "fragmento_id": "SOP-EQ-005#A00",
+      "puntaje": 0.030303,
+      "similitud": 0.2355
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.4",
+      "secciones": [
+        "5.4"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A04",
+      "puntaje": 0.02971,
+      "similitud": 0.1899
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "secciones": [
+        "5.7",
+        "5.8",
+        "6",
+        "7"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A06",
+      "puntaje": 0.032522,
+      "similitud": 0.7083
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "3",
+      "secciones": [
+        "3",
+        "4",
+        "5"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.032266,
+      "similitud": 0.772
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.1",
+      "secciones": [
+        "5.1",
+        "5.2"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A02",
+      "puntaje": 0.031258,
+      "similitud": 0.6742
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 6780,
+    "output_tokens": 576,
+    "cost": 0.000966,
+    "latencia_ms": 2717,
+    "cached": false
+  },
+  "version_prompt": "rag-d4695665435b",
+  "evidencia_maxima": 0.2876,
+  "rol": "analista_qa",
+  "configuracion_fragmentos": "A",
+  "modelo_embeddings": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 (ventanas de 350 caracteres, promedio)",
+  "timestamp_utc": "2026-11-23T12:42:29+00:00"
+}

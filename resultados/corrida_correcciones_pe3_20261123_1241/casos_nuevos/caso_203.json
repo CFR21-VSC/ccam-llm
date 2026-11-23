@@ -1,0 +1,162 @@
+{
+  "trace_id": "11d6404a5003",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "requiere_humano": false,
+    "impacto_gxp": "menor",
+    "requiere_revalidacion": false,
+    "justificacion": "Reemplazo de filtro HEPA del área de pesada por uno idéntico (mismo fabricante, modelo y clase) dentro del mantenimiento preventivo. El cambio toca un elemento de infraestructura GxP pero no modifica función, cálculo, dato, decisión ni estado validado, por lo que se aplica la frontera de §5.7 y se clasifica como menor (§5.3). Requiere verificación documentada tras el reemplazo. Nota: la evidencia recuperada no contiene un procedimiento específico de filtros HEPA ni de clasificación de áreas; la clasificación se basa en el principio de efecto de §5.1 y en la definición de menor. Si la calificación del filtro o del área (integridad de filtro, recuento de partículas) exige una recalificación, QA debe confirmarlo con el documento correspondiente, que no fue recuperado. Dato a confirmar: si el filtro nuevo requiere IQ/OQ según SOP-EQ-005 §3 (equipo nuevo, aunque sea idéntico, requiere al menos IQ y OQ antes del uso).",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.3"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.1"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.7"
+      },
+      {
+        "codigo": "SOP-EQ-005",
+        "seccion": "3"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Verificar y documentar el reemplazo del filtro HEPA (identidad de fabricante, modelo y clase contra la orden de compra y el certificado del proveedor).",
+        "area_responsable": "mantenimiento"
+      },
+      {
+        "descripcion": "Confirmar con QA si el filtro nuevo requiere IQ/OQ antes del uso según SOP-EQ-005 §3 y registrar la decisión.",
+        "area_responsable": "garantia_calidad"
+      }
+    ],
+    "confianza": 0.6,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-EQ-005",
+      "seccion": "5.1",
+      "secciones": [
+        "5.1",
+        "5.2",
+        "6",
+        "7",
+        "7.1",
+        "7.2"
+      ],
+      "version": "3",
+      "hash_documento": "161a6c830f37fc3724368c870101f9839bd7550c4502122183b1d8743e52ee53",
+      "fragmento_id": "SOP-EQ-005#A01",
+      "puntaje": 0.032522,
+      "similitud": 0.4448
+    },
+    {
+      "documento": "SOP-EQ-005",
+      "seccion": "1",
+      "secciones": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "4.1",
+        "4.2",
+        "5"
+      ],
+      "version": "3",
+      "hash_documento": "161a6c830f37fc3724368c870101f9839bd7550c4502122183b1d8743e52ee53",
+      "fragmento_id": "SOP-EQ-005#A00",
+      "puntaje": 0.031778,
+      "similitud": 0.3827
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "secciones": [
+        "5.7",
+        "5.8",
+        "6",
+        "7"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A06",
+      "puntaje": 0.030536,
+      "similitud": 0.3672
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "1",
+      "secciones": [
+        "1",
+        "2"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A00",
+      "puntaje": 0.030331,
+      "similitud": 0.332
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.3",
+      "secciones": [
+        "5.3"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A03",
+      "puntaje": 0.030331,
+      "similitud": 0.3881
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "3",
+      "secciones": [
+        "3",
+        "4",
+        "5"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.032266,
+      "similitud": 0.772
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.1",
+      "secciones": [
+        "5.1",
+        "5.2"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A02",
+      "puntaje": 0.031258,
+      "similitud": 0.6742
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 6360,
+    "output_tokens": 872,
+    "cost": 0.001072,
+    "latencia_ms": 3949,
+    "cached": false
+  },
+  "version_prompt": "rag-d4695665435b",
+  "evidencia_maxima": 0.4448,
+  "rol": "analista_qa",
+  "configuracion_fragmentos": "A",
+  "modelo_embeddings": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 (ventanas de 350 caracteres, promedio)",
+  "timestamp_utc": "2026-11-23T12:42:10+00:00"
+}

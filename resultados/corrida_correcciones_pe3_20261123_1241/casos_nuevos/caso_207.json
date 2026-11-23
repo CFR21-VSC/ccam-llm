@@ -1,0 +1,175 @@
+{
+  "trace_id": "8c23a10642f9",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "requiere_humano": false,
+    "impacto_gxp": "mayor",
+    "requiere_revalidacion": false,
+    "justificacion": "El cambio modifica la configuración de la política de contraseñas de los sistemas GxP: el vencimiento pasa de 90 a 180 días y el bloqueo de cuenta de 3 a 5 intentos fallidos. Según SOP-CC-001 §5.7, la pregunta de frontera es si el cambio modifica una función, un cálculo, un dato, un estado validado o un texto aprobado. Esta política controla el acceso a sistemas que generan y almacenan datos GxP, y cambiarla altera una función de seguridad de acceso, por lo que no puede considerarse menor. Según SOP-VS-002 §6.2, un cambio de configuración que altera una función requiere pruebas documentadas de la función afectada. Como el cambio no es un simple permiso de consulta, no aplica la vía de matriz de accesos. Se propone clasificar como mayor, requerir pruebas documentadas de la política de bloqueo y vencimiento, y que QA confirme si el cambio aplica a todos los sistemas GxP alcanzados. Falta confirmar la lista de sistemas afectados; si el dato no alcanza, debe completarse antes de cerrar la evaluación.",
+    "fundamento": [
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.7"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.1"
+      },
+      {
+        "codigo": "SOP-VS-002",
+        "seccion": "6.2"
+      },
+      {
+        "codigo": "SOP-VS-002",
+        "seccion": "6.1"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Definir y documentar las pruebas de la política de contraseñas (vencimiento a 180 días y bloqueo a 5 intentos fallidos) en los sistemas GxP alcanzados, con resultados esperados y evidencia.",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Implementar el cambio de configuración de la política en los sistemas GxP solo después de aprobada la evaluación por QA, y registrar la configuración aplicada.",
+        "area_responsable": "sistemas"
+      },
+      {
+        "descripcion": "Revisar y aprobar la evaluación de impacto y las pruebas, y confirmar la lista de sistemas GxP alcanzados por la política.",
+        "area_responsable": "garantia_calidad"
+      }
+    ],
+    "confianza": 0.7,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "8",
+      "secciones": [
+        "8"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A07",
+      "puntaje": 0.031025,
+      "similitud": 0.3813
+    },
+    {
+      "documento": "INF-AUD-2026-03",
+      "seccion": "1",
+      "secciones": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "version": "1",
+      "hash_documento": "1dfc1b26192bc1376ede4255e3b50c20d6ba01a53786e58e0342ff0653b210a1",
+      "fragmento_id": "INF-AUD-2026-03#A00",
+      "puntaje": 0.03101,
+      "similitud": 0.3829
+    },
+    {
+      "documento": "SOP-PR-006",
+      "seccion": "5",
+      "secciones": [
+        "5"
+      ],
+      "version": "2",
+      "hash_documento": "a9f51c5a0032afcce102cd054da253183fce4135bf91c4c31796de4f7feb15ba",
+      "fragmento_id": "SOP-PR-006#A01",
+      "puntaje": 0.030622,
+      "similitud": 0.4322
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "5",
+      "secciones": [
+        "5",
+        "6",
+        "6.1",
+        "6.2"
+      ],
+      "version": "4",
+      "hash_documento": "70b1a5615dcd40634659b7550cfa5a6b9a253f0df85470ac6d02768ebc112219",
+      "fragmento_id": "SOP-VS-002#A01",
+      "puntaje": 0.030415,
+      "similitud": 0.3339
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "1",
+      "secciones": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "version": "4",
+      "hash_documento": "70b1a5615dcd40634659b7550cfa5a6b9a253f0df85470ac6d02768ebc112219",
+      "fragmento_id": "SOP-VS-002#A00",
+      "puntaje": 0.030092,
+      "similitud": 0.3051
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "secciones": [
+        "5.7",
+        "5.8",
+        "6",
+        "7"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A06",
+      "puntaje": 0.032522,
+      "similitud": 0.7083
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "3",
+      "secciones": [
+        "3",
+        "4",
+        "5"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.032266,
+      "similitud": 0.772
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.1",
+      "secciones": [
+        "5.1",
+        "5.2"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A02",
+      "puntaje": 0.031258,
+      "similitud": 0.6742
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 6421,
+    "output_tokens": 989,
+    "cost": 0.0011366,
+    "latencia_ms": 4103,
+    "cached": false
+  },
+  "version_prompt": "rag-d4695665435b",
+  "evidencia_maxima": 0.4322,
+  "rol": "analista_qa",
+  "configuracion_fragmentos": "A",
+  "modelo_embeddings": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 (ventanas de 350 caracteres, promedio)",
+  "timestamp_utc": "2026-11-23T12:42:26+00:00"
+}

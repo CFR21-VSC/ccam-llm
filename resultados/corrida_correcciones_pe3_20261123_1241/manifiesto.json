@@ -1,0 +1,26 @@
+{
+  "corrida": "corrida_correcciones_pe3_20261123_1241",
+  "fecha": "2026-11-23T12:42:45",
+  "modo": "real",
+  "embeddings": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 (ventanas de 350 caracteres, promedio)",
+  "sha256_corpus": "845258f96c8ae1dd668432bf7feb051c3409b115236661298e563162f55cce87",
+  "version_prompt": "rag-d4695665435b",
+  "commit": "a4ba73c",
+  "archivos": {
+    "casos_nuevos/caso_201.json": "f914995e7ca79800891a7551673d5cab958ae22e2fd1bb51011d1e226057b512",
+    "casos_nuevos/caso_202.json": "bfc6a958de5fab21df1833fc8ca31cf09836c36ba83af60998106d087920abb2",
+    "casos_nuevos/caso_203.json": "e260fc13a49971c5069ec7e3dc3383fca16f3cf4a17f121b5af7f0b9db84d263",
+    "casos_nuevos/caso_204.json": "540d6fb8ec4db950e5c13c5d5d0e6017313c5441282a9316c4d3fe9378ff3a4f",
+    "casos_nuevos/caso_205.json": "985db81bbb74903495c192c3fe5b4a185f5dc765b7cb7a43936c695626534fbd",
+    "casos_nuevos/caso_206.json": "87a6ec5d94a230b60325a186c86444e6a669d6c6505ccbc1550444c2765ff92a",
+    "casos_nuevos/caso_207.json": "0e28315fbfaf2e22e40cfa6df3c67d5329deeacce9a2607460b1ce1d224ddd09",
+    "casos_nuevos/caso_208.json": "840e639098040f9c61dde33b835bff6725cc3f9984de45ab771209ba3e77f43e",
+    "casos_nuevos/caso_209.json": "2a21db26002a5a6e0f44423cf9f7eecbc1e15b5072c6775a2f17d2c3c989289f",
+    "casos_nuevos/caso_210.json": "200affeac3b4f9cbc2d82c83a690b3125fa9b60a0a9d8114bae08b97bbc6b47d",
+    "ejemplo_responder.json": "b785b32ced8bfd68ce3f57f5d38f5210bc028731bf28b922dc6b4be5a7e26f75",
+    "ingesta_A.json": "d9c983682ccc3d1a802eb9e9f320941084e319348937a117ecb989fad6a374c4",
+    "ingesta_B.json": "15eeb7ad213552eaf899c697480c60a3d1a12933d6c0b161ba21729cb2f21b0b",
+    "medicion.json": "ccfa7318455c31a62d83189f37e30074c8d6bdd403b9ae8ded30c4d868321e6f",
+    "medicion.md": "9ac3df7ee2a7278cd9e4e9129b8eab74474ade63d829088d37e8e5b3c47552ee"
+  }
+}

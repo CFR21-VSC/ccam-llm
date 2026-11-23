@@ -1,0 +1,559 @@
+{
+  "fecha": "2026-11-23 12:41",
+  "hash_corpus": "845258f96c8ae1dd668432bf7feb051c3409b115236661298e563162f55cce87",
+  "corpus_coincide": true,
+  "fragmentado": {
+    "A": {
+      "tope_tokens": 400,
+      "solapamiento": 0.1,
+      "metodo_corte": "estructural: cada sección numerada (## y ###) es una unidad; las unidades seguidas del mismo documento se juntan mientras entren en el tope; una sección que no entra se parte por párrafo, después por línea y al final por caracteres",
+      "separadores": [
+        "## / ### (sección)",
+        "\\n\\n (párrafo)",
+        "\\n (línea)",
+        "caracteres"
+      ],
+      "solapamiento_detalle": "el fragmento repite el último 10 % del contenido del fragmento anterior del mismo documento, empezando en borde de palabra y marcado con […]",
+      "prefijo": "CÓDIGO · Título · §primera sección [a §última sección], sacado del propio documento",
+      "fragmentos": 25,
+      "tokens_min": 69,
+      "tokens_mediana": 290,
+      "tokens_max": 369,
+      "documentos_en_un_solo_fragmento": 2
+    },
+    "B": {
+      "tope_tokens": 1000,
+      "solapamiento": 0.1,
+      "metodo_corte": "estructural: cada sección numerada (## y ###) es una unidad; las unidades seguidas del mismo documento se juntan mientras entren en el tope; una sección que no entra se parte por párrafo, después por línea y al final por caracteres",
+      "separadores": [
+        "## / ### (sección)",
+        "\\n\\n (párrafo)",
+        "\\n (línea)",
+        "caracteres"
+      ],
+      "solapamiento_detalle": "el fragmento repite el último 10 % del contenido del fragmento anterior del mismo documento, empezando en borde de palabra y marcado con […]",
+      "prefijo": "CÓDIGO · Título · §primera sección [a §última sección], sacado del propio documento",
+      "fragmentos": 11,
+      "tokens_min": 282,
+      "tokens_mediana": 472,
+      "tokens_max": 939,
+      "documentos_en_un_solo_fragmento": 9
+    }
+  },
+  "topk": [
+    {
+      "id": "P01",
+      "tipo": "normal_codigo",
+      "usuario": "u_validaciones",
+      "rol": "validaciones",
+      "top5": [
+        "SOP-EQ-005#A01 (§5.1,5.2,6,7,7.1,7.2)",
+        "EXP-VAL-CROM-01#A00 (§1,2,3,3.1,3.2,3.3)",
+        "SOP-EQ-005#A00 (§1,2,3,4,4.1,4.2,5)",
+        "SOP-CC-001#A04 (§5.4)",
+        "SOP-CC-001#A03 (§5.3)"
+      ],
+      "esperado": [
+        "SOP-EQ-005 §7.1"
+      ],
+      "puesto_primer_acierto": 1,
+      "acierto@3": true,
+      "acierto@5": true
+    },
+    {
+      "id": "P02",
+      "tipo": "normal_codigo",
+      "usuario": "u_solicitante_prod",
+      "rol": "solicitante",
+      "top5": [
+        "SOP-VS-003#A00 (§1,2,3,3.1,3.2,3.3)",
+        "SOP-VS-003#A01 (§4,5,5.1,5.2,6)",
+        "SOP-CC-001#A05 (§5.5,5.6)",
+        "SOP-VS-002#A02 (§6.3,6.4,7)",
+        "SOP-CC-001#A07 (§8)"
+      ],
+      "esperado": [
+        "SOP-VS-003 §3.2"
+      ],
+      "puesto_primer_acierto": 1,
+      "acierto@3": true,
+      "acierto@5": true
+    },
+    {
+      "id": "P03",
+      "tipo": "normal",
+      "usuario": "u_analista_qa",
+      "rol": "analista_qa",
+      "top5": [
+        "SOP-CC-001#A06 (§5.7,5.8,6,7)",
+        "SOP-CC-001#A07 (§8)",
+        "SOP-CC-001#A01 (§3,4,5)",
+        "SOP-CC-001#A02 (§5.1,5.2)",
+        "INF-AUD-2026-03#A00 (§1,2,3,4)"
+      ],
+      "esperado": [
+        "SOP-CC-001 §7"
+      ],
+      "puesto_primer_acierto": 1,
+      "acierto@3": true,
+      "acierto@5": true
+    },
+    {
+      "id": "P04",
+      "tipo": "normal",
+      "usuario": "u_solicitante_prod",
+      "rol": "solicitante",
+      "top5": [
+        "SOP-DC-004#A00 (§1,2,3,3.1,3.2,4,5)",
+        "SOP-VS-003#A01 (§4,5,5.1,5.2,6)",
+        "SOP-CC-001#A00 (§1,2)",
+        "SOP-CC-001#A01 (§3,4,5)",
+        "SOP-VS-003#A00 (§1,2,3,3.1,3.2,3.3)"
+      ],
+      "esperado": [
+        "SOP-DC-004 §3.2"
+      ],
+      "puesto_primer_acierto": 1,
+      "acierto@3": true,
+      "acierto@5": true
+    },
+    {
+      "id": "P05",
+      "tipo": "normal",
+      "usuario": "u_validaciones",
+      "rol": "validaciones",
+      "top5": [
+        "SOP-EQ-005#A01 (§5.1,5.2,6,7,7.1,7.2)",
+        "SOP-CC-001#A05 (§5.5,5.6)",
+        "SOP-CC-001#A06 (§5.7,5.8,6,7)",
+        "SOP-CC-001#A03 (§5.3)",
+        "SOP-EQ-005#A00 (§1,2,3,4,4.1,4.2,5)"
+      ],
+      "esperado": [
+        "SOP-EQ-005 §5.1"
+      ],
+      "puesto_primer_acierto": 1,
+      "acierto@3": true,
+      "acierto@5": true
+    },
+    {
+      "id": "P06",
+      "tipo": "normal",
+      "usuario": "u_analista_qa",
+      "rol": "analista_qa",
+      "top5": [
+        "SOP-VS-002#A01 (§5,6,6.1,6.2)",
+        "SOP-PR-006#A01 (§5)",
+        "SOP-CC-001#A04 (§5.4)",
+        "SOP-VS-002#A02 (§6.3,6.4,7)",
+        "SOP-PR-006#A00 (§1,2,3,3.1,3.2,3.3,4)"
+      ],
+      "esperado": [
+        "SOP-VS-002 §5"
+      ],
+      "puesto_primer_acierto": 1,
+      "acierto@3": true,
+      "acierto@5": true
+    },
+    {
+      "id": "P07",
+      "tipo": "sin_respuesta",
+      "usuario": "u_analista_qa",
+      "rol": "analista_qa",
+      "top5": [
+        "SOP-PR-006#A00 (§1,2,3,3.1,3.2,3.3,4)",
+        "SOP-PR-006#A01 (§5)",
+        "INF-AUD-2026-03#A00 (§1,2,3,4)",
+        "SOP-EQ-005#A00 (§1,2,3,4,4.1,4.2,5)",
+        "SOP-VS-002#A01 (§5,6,6.1,6.2)"
+      ],
+      "esperado": [],
+      "acierto@3": true,
+      "acierto@5": true,
+      "puesto_primer_acierto": "—"
+    },
+    {
+      "id": "P08",
+      "tipo": "sin_respuesta",
+      "usuario": "u_solicitante_prod",
+      "rol": "solicitante",
+      "top5": [
+        "SOP-CC-001#A07 (§8)",
+        "SOP-CC-001#A00 (§1,2)",
+        "SOP-DC-004#A00 (§1,2,3,3.1,3.2,4,5)",
+        "SOP-CC-001#A01 (§3,4,5)",
+        "SOP-CC-001#A06 (§5.7,5.8,6,7)"
+      ],
+      "esperado": [],
+      "acierto@3": true,
+      "acierto@5": true,
+      "puesto_primer_acierto": "—"
+    },
+    {
+      "id": "P09",
+      "tipo": "restringida",
+      "usuario": "u_solicitante_prod",
+      "rol": "solicitante",
+      "top5": [
+        "SOP-CC-001#A05 (§5.5,5.6)",
+        "SOP-EQ-005#A01 (§5.1,5.2,6,7,7.1,7.2)",
+        "SOP-CC-001#A00 (§1,2)",
+        "SOP-AC-007#A00 (§1,2,3,3.1,3.2,4,5)",
+        "SOP-DC-004#A01 (§6)"
+      ],
+      "esperado": [],
+      "acierto@3": true,
+      "acierto@5": true,
+      "puesto_primer_acierto": "—"
+    },
+    {
+      "id": "P10",
+      "tipo": "restringida",
+      "usuario": "u_validaciones",
+      "rol": "validaciones",
+      "top5": [
+        "SOP-DC-004#A01 (§6)",
+        "SOP-DC-004#A00 (§1,2,3,3.1,3.2,4,5)",
+        "SOP-CC-001#A03 (§5.3)",
+        "EXP-VAL-CROM-01#A01 (§3.4,4,5)",
+        "SOP-VS-002#A01 (§5,6,6.1,6.2)"
+      ],
+      "esperado": [],
+      "acierto@3": true,
+      "acierto@5": true,
+      "puesto_primer_acierto": "—"
+    }
+  ],
+  "seguridad": {
+    "celdas": [
+      {
+        "documento": "INF-AUD-2026-03",
+        "rol": "solicitante",
+        "usuario": "u_solicitante_prod",
+        "permiso": false,
+        "consultas": 8,
+        "en_resultados": 0,
+        "en_prompt": 0,
+        "correcto": true
+      },
+      {
+        "documento": "INF-AUD-2026-03",
+        "rol": "analista_qa",
+        "usuario": "u_analista_qa",
+        "permiso": true,
+        "consultas": 8,
+        "en_resultados": 8,
+        "en_prompt": 8,
+        "correcto": true
+      },
+      {
+        "documento": "INF-AUD-2026-03",
+        "rol": "validaciones",
+        "usuario": "u_validaciones",
+        "permiso": false,
+        "consultas": 8,
+        "en_resultados": 0,
+        "en_prompt": 0,
+        "correcto": true
+      },
+      {
+        "documento": "INF-AUD-2026-03",
+        "rol": "jefe_qa",
+        "usuario": "u_jefe_qa",
+        "permiso": true,
+        "consultas": 8,
+        "en_resultados": 8,
+        "en_prompt": 8,
+        "correcto": true
+      },
+      {
+        "documento": "EXP-VAL-CROM-01",
+        "rol": "solicitante",
+        "usuario": "u_solicitante_prod",
+        "permiso": false,
+        "consultas": 8,
+        "en_resultados": 0,
+        "en_prompt": 0,
+        "correcto": true
+      },
+      {
+        "documento": "EXP-VAL-CROM-01",
+        "rol": "analista_qa",
+        "usuario": "u_analista_qa",
+        "permiso": false,
+        "consultas": 8,
+        "en_resultados": 0,
+        "en_prompt": 0,
+        "correcto": true
+      },
+      {
+        "documento": "EXP-VAL-CROM-01",
+        "rol": "validaciones",
+        "usuario": "u_validaciones",
+        "permiso": true,
+        "consultas": 8,
+        "en_resultados": 8,
+        "en_prompt": 8,
+        "correcto": true
+      },
+      {
+        "documento": "EXP-VAL-CROM-01",
+        "rol": "jefe_qa",
+        "usuario": "u_jefe_qa",
+        "permiso": true,
+        "consultas": 8,
+        "en_resultados": 8,
+        "en_prompt": 8,
+        "correcto": true
+      },
+      {
+        "documento": "HAL-INSP-2026-01",
+        "rol": "solicitante",
+        "usuario": "u_solicitante_prod",
+        "permiso": false,
+        "consultas": 7,
+        "en_resultados": 0,
+        "en_prompt": 0,
+        "correcto": true
+      },
+      {
+        "documento": "HAL-INSP-2026-01",
+        "rol": "analista_qa",
+        "usuario": "u_analista_qa",
+        "permiso": false,
+        "consultas": 7,
+        "en_resultados": 0,
+        "en_prompt": 0,
+        "correcto": true
+      },
+      {
+        "documento": "HAL-INSP-2026-01",
+        "rol": "validaciones",
+        "usuario": "u_validaciones",
+        "permiso": false,
+        "consultas": 7,
+        "en_resultados": 0,
+        "en_prompt": 0,
+        "correcto": true
+      },
+      {
+        "documento": "HAL-INSP-2026-01",
+        "rol": "jefe_qa",
+        "usuario": "u_jefe_qa",
+        "permiso": true,
+        "consultas": 7,
+        "en_resultados": 7,
+        "en_prompt": 7,
+        "correcto": true
+      }
+    ],
+    "consultas_sin_permiso": 53,
+    "fugas_resultados": 0,
+    "fugas_prompt": 0,
+    "control_positivo": true
+  },
+  "casos_nuevos": {
+    "filas": [
+      {
+        "n": "201",
+        "consulta": "Actualizar el sistema operativo de los servidores del LIMS de Windows ",
+        "esperado": "menor",
+        "revalidacion_esperada": false,
+        "propuesto": "mayor",
+        "revalidacion_propuesta": true,
+        "coincide": false,
+        "sesgo": "sobre",
+        "fundamento": [
+          "SOP-VS-002 §3",
+          "SOP-VS-002 §5",
+          "SOP-CC-001 §5.1",
+          "SOP-CC-001 §5.7"
+        ],
+        "tokens_entrada": 6471,
+        "costo_usd": 0.0011746,
+        "latencia_ms": 4865,
+        "ok": true
+      },
+      {
+        "n": "202",
+        "consulta": "En el instructivo de limpieza de la línea 2, bajar el tiempo de contac",
+        "esperado": "mayor",
+        "revalidacion_esperada": true,
+        "propuesto": "mayor",
+        "revalidacion_propuesta": true,
+        "coincide": true,
+        "sesgo": null,
+        "fundamento": [
+          "SOP-CC-001 §5.4",
+          "SOP-CC-001 §5.7",
+          "SOP-DC-004 §3.1"
+        ],
+        "tokens_entrada": 6104,
+        "costo_usd": 0.0010994,
+        "latencia_ms": 3798,
+        "ok": true
+      },
+      {
+        "n": "203",
+        "consulta": "Reemplazar el filtro HEPA del área de pesada por uno idéntico (mismo f",
+        "esperado": "fuera_de_alcance",
+        "revalidacion_esperada": false,
+        "propuesto": "menor",
+        "revalidacion_propuesta": false,
+        "coincide": false,
+        "sesgo": null,
+        "fundamento": [
+          "SOP-CC-001 §5.3",
+          "SOP-CC-001 §5.1",
+          "SOP-CC-001 §5.7",
+          "SOP-EQ-005 §3"
+        ],
+        "tokens_entrada": 6360,
+        "costo_usd": 0.001072,
+        "latencia_ms": 3949,
+        "ok": true
+      },
+      {
+        "n": "204",
+        "consulta": "Agregar en el LIMS el cálculo automático de uniformidad de contenido, ",
+        "esperado": "critico",
+        "revalidacion_esperada": true,
+        "propuesto": "mayor",
+        "revalidacion_propuesta": true,
+        "coincide": false,
+        "sesgo": "sub",
+        "fundamento": [
+          "SOP-CC-001 §5.1",
+          "SOP-CC-001 §5.7",
+          "SOP-VS-002 §6.2",
+          "SOP-VS-002 §6.3"
+        ],
+        "tokens_entrada": 6737,
+        "costo_usd": 0.0012127,
+        "latencia_ms": 4661,
+        "ok": true
+      },
+      {
+        "n": "205",
+        "consulta": "Cambiar el proveedor de las cajas de cartón corrugado de transporte (e",
+        "esperado": "menor",
+        "revalidacion_esperada": false,
+        "propuesto": "menor",
+        "revalidacion_propuesta": false,
+        "coincide": true,
+        "sesgo": null,
+        "fundamento": [
+          "SOP-CC-001 §5.3",
+          "SOP-CC-001 §5.7",
+          "SOP-PR-006 §3.3",
+          "SOP-AC-007 §4"
+        ],
+        "tokens_entrada": 6824,
+        "costo_usd": 0.0011184,
+        "latencia_ms": 3638,
+        "ok": true
+      },
+      {
+        "n": "206",
+        "consulta": "En la granulación húmeda del Analgésico X 500 mg, cambiar el orden de ",
+        "esperado": "mayor",
+        "revalidacion_esperada": true,
+        "propuesto": "requiere_humano",
+        "revalidacion_propuesta": false,
+        "coincide": false,
+        "sesgo": null,
+        "fundamento": [
+          "SOP-CC-001 §5.1",
+          "SOP-CC-001 §5.8"
+        ],
+        "tokens_entrada": 6482,
+        "costo_usd": 0.0009147,
+        "latencia_ms": 2672,
+        "ok": true
+      },
+      {
+        "n": "207",
+        "consulta": "Cambiar la política de contraseñas de los sistemas GxP: vencimiento de",
+        "esperado": "mayor",
+        "revalidacion_esperada": false,
+        "propuesto": "mayor",
+        "revalidacion_propuesta": false,
+        "coincide": true,
+        "sesgo": null,
+        "fundamento": [
+          "SOP-CC-001 §5.7",
+          "SOP-CC-001 §5.1",
+          "SOP-VS-002 §6.2",
+          "SOP-VS-002 §6.1"
+        ],
+        "tokens_entrada": 6421,
+        "costo_usd": 0.0011366,
+        "latencia_ms": 4103,
+        "ok": true
+      },
+      {
+        "n": "208",
+        "consulta": "Mover el depósito de material de empaque secundario a otro sector del ",
+        "esperado": "requiere_humano",
+        "revalidacion_esperada": false,
+        "propuesto": "requiere_humano",
+        "revalidacion_propuesta": false,
+        "coincide": true,
+        "sesgo": null,
+        "fundamento": [
+          "SOP-CC-001 §5.2",
+          "SOP-AC-007 §5"
+        ],
+        "tokens_entrada": 6780,
+        "costo_usd": 0.000966,
+        "latencia_ms": 2717,
+        "ok": true
+      },
+      {
+        "n": "209",
+        "consulta": "Agrandar la letra del prospecto para mejorar la legibilidad, sin cambi",
+        "esperado": "mayor",
+        "revalidacion_esperada": false,
+        "propuesto": "menor",
+        "revalidacion_propuesta": false,
+        "coincide": false,
+        "sesgo": "sub",
+        "fundamento": [
+          "SOP-CC-001 §5.1",
+          "SOP-CC-001 §5.7",
+          "SOP-AC-007 §3.1",
+          "SOP-AC-007 §5"
+        ],
+        "tokens_entrada": 6419,
+        "costo_usd": 0.0010644,
+        "latencia_ms": 3637,
+        "ok": true
+      },
+      {
+        "n": "210",
+        "consulta": "Actualizar el software de los registradores de temperatura de las hela",
+        "esperado": "mayor",
+        "revalidacion_esperada": true,
+        "propuesto": "mayor",
+        "revalidacion_propuesta": true,
+        "coincide": true,
+        "sesgo": null,
+        "fundamento": [
+          "SOP-CC-001 §5.7",
+          "SOP-VS-002 §6.2",
+          "SOP-VS-002 §5",
+          "SOP-VS-002 §6.3"
+        ],
+        "tokens_entrada": 14905,
+        "costo_usd": 0.002502,
+        "latencia_ms": 7904,
+        "ok": true
+      }
+    ],
+    "coincidencias": 5,
+    "total": 10,
+    "sobre": 1,
+    "sub": 2,
+    "costo_promedio_usd": 0.001226
+  }
+}

@@ -1,0 +1,11 @@
+CCAM 201: mayor (QA: menor)
+CCAM 202: mayor (QA: mayor)
+CCAM 203: menor (QA: fuera_de_alcance)
+CCAM 204: mayor (QA: critico)
+CCAM 205: menor (QA: menor)
+CCAM 206: requiere_humano (QA: mayor)
+CCAM 207: mayor (QA: mayor)
+CCAM 208: requiere_humano (QA: requiere_humano)
+CCAM 209: menor (QA: mayor)
+[4a9d3c538151] intento 1/2: salida inválida -> justificacion: String should have at most 1200 characters
+CCAM 210: mayor (QA: mayor)

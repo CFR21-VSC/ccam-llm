@@ -1,0 +1,178 @@
+{
+  "trace_id": "9584a2e95cc3",
+  "ok": true,
+  "usuario": "u_analista_qa",
+  "propuesta": {
+    "fuera_de_alcance": false,
+    "requiere_humano": false,
+    "impacto_gxp": "mayor",
+    "requiere_revalidacion": true,
+    "justificacion": "Cambio de sistema operativo de los servidores que alojan el LIMS (Windows Server 2019 a 2022). Según SOP-VS-002 §3, la infraestructura es categoría 1 y el LIMS es categoría 4, pero el cambio de SO altera el entorno de ejecución de un sistema GxP que genera y almacena datos de liberación. Aplicando SOP-CC-001 §5.1 y §5.7 (¿modifica una función, cálculo, dato, estado validado o texto aprobado?), el cambio no altera funciones ni datos del LIMS según el solicitante, pero sí modifica la plataforma sobre la que está validado, y la certificación escrita del proveedor no reemplaza la evaluación de Garantía de Calidad. SOP-VS-002 §5 permite usar la evidencia del proveedor solo para parches correctivos que no cambien funciones, cálculos, flujos ni estructura de datos; un cambio de versión de SO no encuadra claramente en ese supuesto. La clasificación como mayor es provisoria: QA debe confirmar que el cambio no modifica funciones ni la estructura de datos y que el proveedor avala la compatibilidad para el entorno validado; si la confirmación es positiva y la evidencia del proveedor se revisa, podría reconsiderarse el nivel conforme a SOP-CC-001 §5.3 y §5.7.\"",
+    "fundamento": [
+      {
+        "codigo": "SOP-VS-002",
+        "seccion": "3"
+      },
+      {
+        "codigo": "SOP-VS-002",
+        "seccion": "5"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.1"
+      },
+      {
+        "codigo": "SOP-CC-001",
+        "seccion": "5.7"
+      }
+    ],
+    "tareas": [
+      {
+        "descripcion": "Revisar la certificación escrita de compatibilidad del proveedor del LIMS y decidir si es evidencia aceptable para el entorno validado (SOP-VS-002 §5).",
+        "area_responsable": "garantia_calidad"
+      },
+      {
+        "descripcion": "Definir y ejecutar pruebas de regresión del LIMS sobre Windows Server 2022 (funciones, cálculos, registros de datos e integridad) antes de la puesta en producción.",
+        "area_responsable": "validaciones"
+      },
+      {
+        "descripcion": "Documentar el plan de migración de servidores, respaldo previo y procedimiento de rollback, y adjuntarlo al CCAM-2026-201.",
+        "area_responsable": "sistemas"
+      }
+    ],
+    "confianza": 0.6,
+    "estado": "BORRADOR_PENDIENTE_QA"
+  },
+  "fuentes": [
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "1",
+      "secciones": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "version": "4",
+      "hash_documento": "70b1a5615dcd40634659b7550cfa5a6b9a253f0df85470ac6d02768ebc112219",
+      "fragmento_id": "SOP-VS-002#A00",
+      "puntaje": 0.032522,
+      "similitud": 0.3474
+    },
+    {
+      "documento": "SOP-VS-002",
+      "seccion": "5",
+      "secciones": [
+        "5",
+        "6",
+        "6.1",
+        "6.2"
+      ],
+      "version": "4",
+      "hash_documento": "70b1a5615dcd40634659b7550cfa5a6b9a253f0df85470ac6d02768ebc112219",
+      "fragmento_id": "SOP-VS-002#A01",
+      "puntaje": 0.031498,
+      "similitud": 0.3106
+    },
+    {
+      "documento": "SOP-PR-006",
+      "seccion": "5",
+      "secciones": [
+        "5"
+      ],
+      "version": "2",
+      "hash_documento": "a9f51c5a0032afcce102cd054da253183fce4135bf91c4c31796de4f7feb15ba",
+      "fragmento_id": "SOP-PR-006#A01",
+      "puntaje": 0.031319,
+      "similitud": 0.3754
+    },
+    {
+      "documento": "SOP-PR-006",
+      "seccion": "1",
+      "secciones": [
+        "1",
+        "2",
+        "3",
+        "3.1",
+        "3.2",
+        "3.3",
+        "4"
+      ],
+      "version": "2",
+      "hash_documento": "a9f51c5a0032afcce102cd054da253183fce4135bf91c4c31796de4f7feb15ba",
+      "fragmento_id": "SOP-PR-006#A00",
+      "puntaje": 0.030769,
+      "similitud": 0.2746
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.3",
+      "secciones": [
+        "5.3"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A03",
+      "puntaje": 0.03055,
+      "similitud": 0.2087
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.7",
+      "secciones": [
+        "5.7",
+        "5.8",
+        "6",
+        "7"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A06",
+      "puntaje": 0.032522,
+      "similitud": 0.7083
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "3",
+      "secciones": [
+        "3",
+        "4",
+        "5"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A01",
+      "puntaje": 0.032266,
+      "similitud": 0.772
+    },
+    {
+      "documento": "SOP-CC-001",
+      "seccion": "5.1",
+      "secciones": [
+        "5.1",
+        "5.2"
+      ],
+      "version": "4",
+      "hash_documento": "a42e670eba6ab1120dd9b46c3a60d9eaa8a1105e714c6fc6b900f8aa15fabadb",
+      "fragmento_id": "SOP-CC-001#A02",
+      "puntaje": 0.031258,
+      "similitud": 0.6742
+    }
+  ],
+  "error": null,
+  "metricas": {
+    "modelo": "claude-haiku-5-5",
+    "intentos": 1,
+    "input_tokens": 6471,
+    "output_tokens": 1055,
+    "cost": 0.0011746,
+    "latencia_ms": 4865,
+    "cached": false
+  },
+  "version_prompt": "rag-d4695665435b",
+  "evidencia_maxima": 0.3754,
+  "rol": "analista_qa",
+  "configuracion_fragmentos": "A",
+  "modelo_embeddings": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 (ventanas de 350 caracteres, promedio)",
+  "timestamp_utc": "2026-11-23T12:42:02+00:00"
+}
