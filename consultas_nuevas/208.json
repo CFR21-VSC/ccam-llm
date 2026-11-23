@@ -7,6 +7,12 @@
     "sistema_afectado": "Depósito de material de empaque secundario",
     "descripcion": "Mover el depósito de material de empaque secundario a otro sector del mismo edificio."
   },
-  "esperado": "A_CONFIRMAR_POR_QA",
-  "justificacion_qa": null
+  "esperado": {
+    "impacto_gxp": "critico",
+    "fuera_de_alcance": false,
+    "requiere_revalidacion": false
+  },
+  "justificacion_qa": "La descripción no es suficientemente específica: no dice dónde se mueve, cómo se monitorea el área ni qué sectores intervienen. Ante información insuficiente se eleva.",
+  "clasificado_por": "Federico Bongiovanni (QA)",
+  "fecha_clasificacion": "2026-11-23"
 }

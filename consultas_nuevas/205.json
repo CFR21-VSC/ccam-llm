@@ -7,6 +7,12 @@
     "sistema_afectado": "Cajas de cartón corrugado de transporte",
     "descripcion": "Cambiar el proveedor de las cajas de cartón corrugado de transporte (embalaje terciario). No están en contacto con el producto ni llevan texto regulatorio."
   },
-  "esperado": "A_CONFIRMAR_POR_QA",
-  "justificacion_qa": null
+  "esperado": {
+    "impacto_gxp": "menor",
+    "fuera_de_alcance": false,
+    "requiere_revalidacion": false
+  },
+  "justificacion_qa": "No impacta directo en el producto, pero puede tener algún impacto y todo proveedor se debe evaluar.",
+  "clasificado_por": "Federico Bongiovanni (QA)",
+  "fecha_clasificacion": "2026-11-23"
 }

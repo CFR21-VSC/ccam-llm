@@ -7,6 +7,12 @@
     "sistema_afectado": "Servidores del LIMS (sistema operativo)",
     "descripcion": "Actualizar el sistema operativo de los servidores del LIMS de Windows Server 2019 a Windows Server 2022. La versión del LIMS no cambia y el proveedor del LIMS certificó la compatibilidad por escrito."
   },
-  "esperado": "A_CONFIRMAR_POR_QA",
-  "justificacion_qa": null
+  "esperado": {
+    "impacto_gxp": "menor",
+    "fuera_de_alcance": false,
+    "requiere_revalidacion": false
+  },
+  "justificacion_qa": "El sistema GxP (LIMS) no cambia: es infraestructura. No requiere revalidación, sí pruebas básicas de continuidad. No debería afectar datos GxP.",
+  "clasificado_por": "Federico Bongiovanni (QA)",
+  "fecha_clasificacion": "2026-11-23"
 }

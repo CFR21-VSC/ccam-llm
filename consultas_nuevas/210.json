@@ -7,6 +7,12 @@
     "sistema_afectado": "Registradores de temperatura de las heladeras de muestras de retención",
     "descripcion": "Actualizar el software de los registradores de temperatura de las heladeras de muestras de retención de la versión 2.1 a la 2.4. Cambia el formato con que se exportan los datos a PDF."
   },
-  "esperado": "A_CONFIRMAR_POR_QA",
-  "justificacion_qa": null
+  "esperado": {
+    "impacto_gxp": "mayor",
+    "fuera_de_alcance": false,
+    "requiere_revalidacion": true
+  },
+  "justificacion_qa": "Cambia la forma en que se emite un registro GxP: se debe revalidar la información y la integridad de datos.",
+  "clasificado_por": "Federico Bongiovanni (QA)",
+  "fecha_clasificacion": "2026-11-23"
 }

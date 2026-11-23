@@ -7,6 +7,12 @@
     "sistema_afectado": "Granulación húmeda del Analgésico X 500 mg",
     "descripcion": "En la granulación húmeda del Analgésico X 500 mg, cambiar el orden de agregado de dos excipientes, sin cambiar cantidades ni tiempos de proceso."
   },
-  "esperado": "A_CONFIRMAR_POR_QA",
-  "justificacion_qa": null
+  "esperado": {
+    "impacto_gxp": "mayor",
+    "fuera_de_alcance": false,
+    "requiere_revalidacion": true
+  },
+  "justificacion_qa": "Se modifica una receta aprobada. Requiere revalidación de proceso.",
+  "clasificado_por": "Federico Bongiovanni (QA)",
+  "fecha_clasificacion": "2026-11-23"
 }

@@ -7,6 +7,12 @@
     "sistema_afectado": "Instructivo de limpieza de la línea 2",
     "descripcion": "En el instructivo de limpieza de la línea 2, bajar el tiempo de contacto del desinfectante de 10 a 5 minutos para ganar tiempo de producción."
   },
-  "esperado": "A_CONFIRMAR_POR_QA",
-  "justificacion_qa": null
+  "esperado": {
+    "impacto_gxp": "mayor",
+    "fuera_de_alcance": false,
+    "requiere_revalidacion": true
+  },
+  "justificacion_qa": "Si el método de limpieza está validado, cambiar el tiempo de contacto puede afectar lo validado. Requiere medir la efectividad del nuevo método.",
+  "clasificado_por": "Federico Bongiovanni (QA)",
+  "fecha_clasificacion": "2026-11-23"
 }

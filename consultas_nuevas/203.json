@@ -7,6 +7,12 @@
     "sistema_afectado": "Filtro HEPA del área de pesada",
     "descripcion": "Reemplazar el filtro HEPA del área de pesada por uno idéntico (mismo fabricante, modelo y clase), dentro del mantenimiento preventivo programado."
   },
-  "esperado": "A_CONFIRMAR_POR_QA",
-  "justificacion_qa": null
+  "esperado": {
+    "impacto_gxp": null,
+    "fuera_de_alcance": true,
+    "requiere_revalidacion": false
+  },
+  "justificacion_qa": "No es un cambio: es mantenimiento preventivo programado y en cronograma. La verificación o calibración se incluye en ese proceso.",
+  "clasificado_por": "Federico Bongiovanni (QA)",
+  "fecha_clasificacion": "2026-11-23"
 }

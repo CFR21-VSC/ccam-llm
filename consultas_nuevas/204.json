@@ -7,6 +7,12 @@
     "sistema_afectado": "LIMS",
     "descripcion": "Agregar en el LIMS el cálculo automático de uniformidad de contenido, que hoy se hace en una planilla Excel aparte y se transcribe a mano al LIMS."
   },
-  "esperado": "A_CONFIRMAR_POR_QA",
-  "justificacion_qa": null
+  "esperado": {
+    "impacto_gxp": "critico",
+    "fuera_de_alcance": false,
+    "requiere_revalidacion": true
+  },
+  "justificacion_qa": "Se cambia la metodología aceptada y se automatiza un cálculo que respalda resultados. Requiere revalidación.",
+  "clasificado_por": "Federico Bongiovanni (QA)",
+  "fecha_clasificacion": "2026-11-23"
 }

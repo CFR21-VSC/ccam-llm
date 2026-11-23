@@ -7,6 +7,12 @@
     "sistema_afectado": "Prospecto del Analgésico X 500 mg",
     "descripcion": "Agrandar la letra del prospecto para mejorar la legibilidad, sin cambiar ninguna palabra del texto aprobado. El prospecto pasa de una a dos caras."
   },
-  "esperado": "A_CONFIRMAR_POR_QA",
-  "justificacion_qa": null
+  "esperado": {
+    "impacto_gxp": "menor",
+    "fuera_de_alcance": false,
+    "requiere_revalidacion": false
+  },
+  "justificacion_qa": "No cambia el texto aprobado. Verificar que no se hayan producido cambios en el texto.",
+  "clasificado_por": "Federico Bongiovanni (QA)",
+  "fecha_clasificacion": "2026-11-23"
 }

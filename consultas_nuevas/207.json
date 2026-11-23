@@ -7,6 +7,12 @@
     "sistema_afectado": "Política de contraseñas de los sistemas GxP",
     "descripcion": "Cambiar la política de contraseñas de los sistemas GxP: vencimiento de 90 a 180 días y bloqueo de la cuenta después de 5 intentos fallidos en vez de 3."
   },
-  "esperado": "A_CONFIRMAR_POR_QA",
-  "justificacion_qa": null
+  "esperado": {
+    "impacto_gxp": "mayor",
+    "fuera_de_alcance": false,
+    "requiere_revalidacion": false
+  },
+  "justificacion_qa": "Cambia controles de acceso de sistemas GxP. Requiere revisión documentada.",
+  "clasificado_por": "Federico Bongiovanni (QA)",
+  "fecha_clasificacion": "2026-11-23"
 }
