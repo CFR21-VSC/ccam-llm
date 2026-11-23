@@ -143,7 +143,8 @@ def casos_nuevos(carpeta: Path, b: Buscador, simulado: bool) -> dict | None:
         p = r.propuesta
         propuesto = (p.impacto_gxp.value if p and p.impacto_gxp else "requiere_humano" if p and p.requiere_humano
                      else "fuera_de_alcance" if p and p.fuera_de_alcance else r.error.error)
-        esperado = c["esperado"]["impacto_gxp"] or "fuera_de_alcance"
+        e = c["esperado"]
+        esperado = e["impacto_gxp"] or ("requiere_humano" if e.get("requiere_humano") else "fuera_de_alcance")
         sesgo = (None if propuesto == esperado or propuesto not in NIVELES or esperado not in NIVELES
                  else "sobre" if NIVELES.index(propuesto) > NIVELES.index(esperado) else "sub")
         filas.append({"n": a.stem, "consulta": c["entrada"]["descripcion"][:70], "esperado": esperado,

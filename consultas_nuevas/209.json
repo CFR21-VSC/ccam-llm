@@ -8,11 +8,11 @@
     "descripcion": "Agrandar la letra del prospecto para mejorar la legibilidad, sin cambiar ninguna palabra del texto aprobado. El prospecto pasa de una a dos caras."
   },
   "esperado": {
-    "impacto_gxp": "menor",
+    "impacto_gxp": "mayor",
     "fuera_de_alcance": false,
     "requiere_revalidacion": false
   },
-  "justificacion_qa": "No cambia el texto aprobado. Verificar que no se hayan producido cambios en el texto.",
+  "justificacion_qa": "No cambia el texto aprobado, pero sí el arte (diagramación y paso de una a dos caras): por SOP-CC-001 §5.7 v4 es mayor. Verificar que no se hayan producido cambios en el texto.",
   "clasificado_por": "Federico Bongiovanni (QA)",
   "fecha_clasificacion": "2026-11-23"
 }

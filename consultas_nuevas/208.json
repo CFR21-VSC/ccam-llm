@@ -8,11 +8,12 @@
     "descripcion": "Mover el depósito de material de empaque secundario a otro sector del mismo edificio."
   },
   "esperado": {
-    "impacto_gxp": "critico",
+    "impacto_gxp": null,
     "fuera_de_alcance": false,
+    "requiere_humano": true,
     "requiere_revalidacion": false
   },
-  "justificacion_qa": "La descripción no es suficientemente específica: no dice dónde se mueve, cómo se monitorea el área ni qué sectores intervienen. Ante información insuficiente se eleva.",
+  "justificacion_qa": "Contexto insuficiente: no dice dónde se mueve, cómo se monitorea el área ni qué sectores intervienen. No se clasifica: se devuelve al solicitante por los datos.",
   "clasificado_por": "Federico Bongiovanni (QA)",
   "fecha_clasificacion": "2026-11-23"
 }
